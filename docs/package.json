@@ -1,0 +1,19 @@
+{
+  "name": "pl-prototype",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "authors": {
+    "name": "Casiano",
+    "email": "crguezl@ull.edu.es"
+  },
+  "repository": " git@github.com:crguezl/vuepress-pl-prototype.git/pl-prototype",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
