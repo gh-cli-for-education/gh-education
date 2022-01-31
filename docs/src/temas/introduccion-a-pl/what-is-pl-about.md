@@ -6,8 +6,8 @@ title: What is PL about?
 
 ## What is a Compiler: History and Structure
 
-* Some Notes about What is a Compiler [(google slides)](https://docs.google.com/presentation/d/1N8h99dXzud9HzH8XY6QCZSmATCAWXtZebuqRTiy8qMU/edit?usp=sharing) [(pdf)]({{site.baseurl}}/assets/pdfs/intro-2-compilers.pdf)
-* [What is a Compiler?]({{site.baseurl}}/assets/pdfs/cs4200-2018-1-introduction-180905091549.pdf) slides by Eelco Visser. TU Delft. September 2018
+* Some Notes about What is a Compiler [(google slides)](https://docs.google.com/presentation/d/1N8h99dXzud9HzH8XY6QCZSmATCAWXtZebuqRTiy8qMU/edit?usp=sharing) [(pdf)](/pdfs/intro-2-compilers.pdf)
+* [What is a Compiler?](/assets/pdfs/cs4200-2018-1-introduction-180905091549.pdf) slides by Eelco Visser. TU Delft. September 2018
 * [What is a linker?](what-is-a-linker)
 
 ### Complementary References

@@ -25,12 +25,12 @@ rubrica:
 
 ## GitPod
 
-* [Apuntes de GitPod]({{ site.baseurl }}/assets/temas/introduccion-a-javascript/gitpod)
+* [Apuntes de GitPod](/temas/introduccion-a-javascript/gitpod)
 
 
 ## VSCode
 
-Estudie la sección [VSCode]({{ site.baseurl }}/assets/temas/introduccion-a-javascript/vscode)
+Estudie la sección [VSCode](/temas/introduccion-a-javascript/vscode)
 
 ###  Collaboration con Visual Studio Share
 

@@ -41,7 +41,7 @@ Estas son las tareas a realizar:
    1. El enlace al repo de entrega en GitHub
    2. En todas las prácticas, siempre que ocupe menos de 500K, deberá adjuntar el repo en formato zip. En GH vaya a `code`y de ahí a:
 
-      ![saveaszip.png]({{site.baseurl}}/assets/images/saveaszip.png)
+      ![saveaszip.png](/images/saveaszip.png)
 
 
 ## References

@@ -11,10 +11,12 @@
   "scripts": {
     "dev": "vuepress dev src",
     "build": "vuepress build src",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d src/.vuepress/dist"
   },
   "license": "MIT",
   "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.9.7",
+    "@vuepress/plugin-medium-zoom": "^1.9.7",
     "gh-pages": "^3.2.3",
     "vuepress": "^1.5.3",
     "vuepress-plugin-social-share": "^1.1.0"
