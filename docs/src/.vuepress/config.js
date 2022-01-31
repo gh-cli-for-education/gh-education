@@ -60,15 +60,15 @@ module.exports = {
       },
       {
         text: 'Recursos',
-        link: '/config/'
+        link: '/recursos/'
       },      
       {
         text: 'Horarios',
-        link: '/config/'
+        link: '/horarios/'
       },
       {
         text: 'Referencias',
-        link: '/config/'
+        link: '/referencias/'
       },
       {
         text: 'GitHub',
