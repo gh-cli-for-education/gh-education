@@ -133,6 +133,7 @@ module.exports = {
       { 
         variables: { 
           example: 'foo',
+          calendario_academico: "https://www.ull.es/estudios-docencia/calendario-academico/",
           organization: {
             url: "https://github.com/ULL-ESIT-PL-2122",
             name: "ULL-ESIT-PL-2122",
