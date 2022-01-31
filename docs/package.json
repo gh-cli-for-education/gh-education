@@ -1,7 +1,7 @@
 {
   "name": "pl-prototype",
   "version": "0.0.1",
-  "description": "",
+  "description": "Learning Vuepress while prototyping PL pages",
   "main": "index.js",
   "authors": {
     "name": "Casiano",
@@ -10,10 +10,17 @@
   "repository": " git@github.com:crguezl/vuepress-pl-prototype.git/pl-prototype",
   "scripts": {
     "dev": "vuepress dev src",
-    "build": "vuepress build src"
+    "build": "vuepress build src",
+    "deploy": "gh-pages -d dist"
   },
   "license": "MIT",
   "devDependencies": {
-    "vuepress": "^1.5.3"
+    "gh-pages": "^3.2.3",
+    "vuepress": "^1.5.3",
+    "vuepress-plugin-social-share": "^1.1.0"
+  },
+  "dependencies": {
+    "vuepress-plugin-global-variables": "^0.2.0",
+    "vuepress-plugin-mathjax": "^1.2.8"
   }
 }

@@ -2,14 +2,14 @@
 home: true
 heroImage: https://v1.vuepress.vuejs.org/hero.png
 tagline: 
-actionText: Quick Start →
-actionLink: /guide/
+actionText:  Comenzar →
+actionLink: /clases/
 features:
-- title: Feature 1 Title
+- title: Clases
   details: Feature 1 Description
-- title: Feature 2 Title
+- title: Prácticas
   details: Feature 2 Description
-- title: Feature 3 Title
+- title: Temas
   details: Feature 3 Description
-footer: Made by Casiano with ❤️
+footer:  Casiano Rodríguez 2022
 ---
