@@ -4,18 +4,12 @@
     :aria-labelledby="data.heroText !== null ? 'main-title' : null"
   >
     <header class="hero">
+      <a v-if="data.heroImage" :href="data.heroLink">
       <img
-        v-if="data.heroImage"
         :src="$withBase(data.heroImage)"
         :alt="data.heroAlt || 'hero'"
       >
-
-      <h1
-        v-if="data.heroText !== null"
-        id="main-title"
-      >
-        {{ data.heroText || $title || 'Hello' }}
-      </h1>
+      </a>
 
       <p
         v-if="data.tagline !== null"
@@ -32,6 +26,19 @@
           class="action-button"
           :item="actionLink"
         />
+         <NavLink
+          class="action-button"
+          :item="{text: data.actionText2, link: data.actionLink2}"
+        />
+         <NavLink
+          class="action-button"
+          :item="{text: data.actionText3, link: data.actionLink3}"
+        />
+         <NavLink
+          class="action-button"
+          :item="{text: data.actionText4, link: data.actionLink4}"
+        />
+
       </p>
     </header>
 
