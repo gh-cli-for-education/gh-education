@@ -52,9 +52,9 @@ export default {
           "x-api-key": key,
         },
       });
-      console.log(response);
+      //console.log(response);
       let cat = await response.json();
-      console.log(cat);
+      //console.log(cat);
       this.src = cat[0].url;
 
       // QUOTE
