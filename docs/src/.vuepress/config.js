@@ -1,4 +1,6 @@
 const { description } = require('../../package')
+const moment = require('moment');
+const PLVariables = require('./pl')
 
 module.exports = {
   /**
@@ -47,28 +49,38 @@ module.exports = {
 
     nav: [
       {
-        text: 'Clases',
-        link: '/clases/',
+        text: 'Docencia',
+        items: [
+          {
+            text: 'Clases',
+            link: '/clases/',
+          },
+          {
+            text: 'Temas',
+            link: '/temas/'
+          },
+          {
+            text: 'Labs',
+            link: '/practicas/'
+          },
+        ]
       },
       {
-        text: 'Temas',
-        link: '/temas/'
-      },
-      {
-        text: 'Labs',
-        link: '/practicas/'
-      },
-      {
-        text: 'Recursos',
-        link: '/recursos/'
-      },      
-      {
-        text: 'Horarios',
-        link: '/horarios/'
-      },
-      {
-        text: 'Referencias',
-        link: '/referencias/'
+        text: 'Context',
+        items: [
+          {
+            text: 'Recursos',
+            link: '/recursos/'
+          },      
+          {
+            text: 'Horarios',
+            link: '/horarios/'
+          },
+          {
+            text: 'Referencias',
+            link: '/referencias/'
+          },
+        ]
       },
       {
         text: 'GitHub',
@@ -129,16 +141,20 @@ module.exports = {
   plugins: [
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
+    [
+      '@vuepress/last-updated',
+      {
+        transformer: (timestamp, lang) => {
+          // Don't forget to install moment yourself
+          const moment = require('moment')
+          moment.locale(lang)
+          return moment(timestamp).fromNow()
+        }
+      }
+    ],
     ['vuepress-plugin-global-variables', 
       { 
-        variables: { 
-          example: 'foo',
-          calendario_academico: "https://www.ull.es/estudios-docencia/calendario-academico/",
-          organization: {
-            url: "https://github.com/ULL-ESIT-PL-2122",
-            name: "ULL-ESIT-PL-2122",
-          } 
-        } 
+        variables: PLVariables
       }
     ],
     [

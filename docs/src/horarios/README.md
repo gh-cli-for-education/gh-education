@@ -1,8 +1,34 @@
-
 ---
 title: Calendarios, Horarios y Exámenes
 permalink: /horarios
+testVar: "https://www.google.com"
+msg:  "<a href=\"https://www.google.com\">hello</a>"
+google: "https://www.google.com"
 ---
+
+<p>Using v-html directive: <span v-html="$frontmatter.msg"></span></p>
+
+<p>Using v-bind directive: <a :href="$frontmatter.google">hello</a></p>
+
+<a :href="$var.organization.url"><span v-html="$var.organization.name"></span></a>
+
+<a :href="$var.organization.url">{{$var.organization.name}}</span></a>
+
+<pre style="color: white;">
+{{  $frontmatter.testVar }}
+</pre>
+<span v-once>This will never change: {{ $frontmatter.msg }}</span>
+
+{{ $frontmatter.testVar }}
+
+A link: [Go to Google]({{ $frontmatter.testVar }})
+
+
+::: v-pre
+A html link <a href="{{ $frontmatter.testVar }}">an html link to google</a>
+:::
+
+<github-card username="octocat"></github-card>
 
 
 ## Horario
@@ -20,7 +46,7 @@ scrolling="yes">
 
 [![Calendario Académico](/images/calendarios-2020-21.png)](https://www.ull.es/estudios-docencia/calendario-academico/)
 
-{{$var.calendario_academico}}
+# {{ $var.calendario_academico }}
 
 ## Exámenes
 

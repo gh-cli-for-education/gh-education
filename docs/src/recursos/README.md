@@ -5,29 +5,35 @@ toc: true
 
 ## Recursos ULL
 
-### Campus Virtual y UDV
+###  <Badge text="Campus Virtual y UDV"/>
 
-* [PL](site.campus_virtual)
-* [Participantes](site.participantes)
-* [Calificaciones](site.calificador)
-* [Tareas](site.tareas)
-* [Foros](site.foros)
-* Aula de [Recursos Disponibles para Realizar ACTIVIDAD DOCENTE NO PRESENCIAL](site.covid_ull)
-* [Unidad para la Docencia Virtual. Servicios (UDV)]( site.udv )
+* <a :href="$var.campus_virtual">PL</a>
+* <a :href="$var.participantes">Participantes</a>
+* <a :href="$var.calificador">Calificaciones</a>
+* <a :href="$var.tareas">Tareas</a>
+* <a :href="$var.foros">Foros</a>
+* Aula de <a :href="$var.covid_ull">Recursos Disponibles para Realizar ACTIVIDAD DOCENTE NO PRESENCIAL</a>
+* <a :href=" $var.udv ">Unidad para la Docencia Virtual. Servicios (UDV)</a>
 
-### Guias Docentes
+::: v-pre
+`{{ This will be displayed as-is }}`
+:::
 
-* [Modificación Perfíl del Profesor]( site.teacher_profile_edit ) (deberá estar autenticado)
+### <Badge text="Guias Docentes" type="warning"/> 
+
+* <a :href="$var.teacher_profile_edit">Modificación Perfíl del Profesor</a> (deberá estar autenticado) 
 
 
 ### BULL
 
-* [BULL PuntoQ]( site.bull_puntoq )
-* [Video tutoriales de ayuda sobre PuntoQ](https://www.ull.es/servicios/biblioteca/servicios/videotutoriales-de-puntoq/)
+* <a :href="$var.bull_puntoq">BULL PuntoQ</a>
+* <a href="https://www.ull.es/servicios/biblioteca/servicios/videotutoriales-de-puntoq/">Video tutoriales de ayuda sobre PuntoQ</a>
+
 
 ### Antiplagio
 
-* [Solicitud de informe de similitud]( site.turnitin ) Turnitin
+* <a :href="$var.turnitin">Solicitud de informe de similitud</a> Turnitin
+
 
 ### Sede ULL
 
@@ -50,7 +56,7 @@ toc: true
 
 ### Portal del Empleado y del Estudiante
 
-* [Portal ull.es](portal.ull.es) Portal del Empleado y del Estudiante
+* [Portal ull.es](https://portal.ull.es) Portal del Empleado y del Estudiante
 
 
 ### iaas.ull.es
@@ -76,7 +82,6 @@ toc: true
 - [Servicio de vpn: guías de configuración](https://www.ull.es/servicios/stic/2016/05/10/servicio-de-vpn-de-la-ull/)
   *   [Guía de configuración del cliente VPN GlobalProtect. Sistema Operativo Windows](https://drive.google.com/open?id=0B3mzWpxzbJD1Zm9TdmpXSV9mdGs)
   *   [Guía de configuración del cliente VPN GlobalProtect. Sistema Operativo Mac OSX](https://drive.google.com/file/d/0B3mzWpxzbJD1VTZhUkFVbUI2NWc/view?usp=sharing)
-  * [Instrucciones para acceder a la VPN de la ULL en un Mac sin usar GlobalProtect](site.baseurl/pages/vpn-ull)
   *   [Guía de configuración del cliente VPN para Linux, Android e IOS (Ipad, Iphone) con IPSEC](https://drive.google.com/open?id=0B3mzWpxzbJD1Z1p4OWtQSFFzOGs)
 
 ### Servicio de Escritorios Virtuales para la docencia
@@ -139,32 +144,9 @@ Para ampliar la compatibilidad y facilitar el uso de este servicio desde cualqui
 
 ### GitPod
 
-* [Introducción a GitPod]( site.baseurl/assets/temas/introduccion-a-javascript/gitpod)
+* <a href="/temas/introduccion-a-javascript/gitpod">Introducción a GitPod</a>
 
-<!--
-
-### GitHub 19/20
-
-* [Teams en ULL-ESIT-PL-1920](https://github.com/orgs/ULL-ESIT-PL-1920/teams)
-
-### GitHub 18/19
-
-* [Página Web de PL del curso 18/19(github gitbook)](https://ull-esit-pl-1819.github.io/ull-esit-pl-1819.github.io/_book/)
-* [Organización ULL-ESIT-PL-1819](https://github.com/ULL-ESIT-PL-1819)
-  - [Repo ull-esit-pl-1819.github.io](https://github.com/ULL-ESIT-PL-1819/ull-esit-pl-1819.github.io)
--->
-
-<!--
-## Prácticas
-
-* Herramientas para la Asignación de Tareas
-  * [GitHub Classroom ULL-ESIT-PL-1819](https://classroom.github.com/classrooms/33938084-procesadores-de-lenguaje)
-  * [CodeLab TFG de Samuel](https://codelab-tfg1718.herokuapp.com/)
-* [Instrucciones para las entregas de Prácticas y Trabajos](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/instrucciones/)
-
--->
-  
 ## Recursos Google
 
 * [Google group de PL ](https://groups.google.com/u/1/a/ull.edu.es/g/asignatura_139263121)
-* [Comunidad Currents/Google+ PL](page.google_plus)
+* <a :href="$var.google_plus">Comunidad Currents/Google+ PL</a>
