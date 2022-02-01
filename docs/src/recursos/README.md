@@ -144,9 +144,9 @@ Para ampliar la compatibilidad y facilitar el uso de este servicio desde cualqui
 
 ### GitPod
 
-* <a href="/temas/introduccion-a-javascript/gitpod">Introducción a GitPod</a>
+* <a href="../temas/introduccion-a-javascript/gitpod">Introducción a GitPod</a>
 
-## Recursos Google
+## Recursos Google..
 
 * [Google group de PL ](https://groups.google.com/u/1/a/ull.edu.es/g/asignatura_139263121)
 * <a :href="$var.google_plus">Comunidad Currents/Google+ PL</a>
