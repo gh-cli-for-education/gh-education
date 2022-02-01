@@ -1,6 +1,12 @@
 const { description } = require('../../package')
 const moment = require('moment');
 const PLVariables = require('./pl')
+const ComputeTime = (timestamp, lang) => {
+  // Don't forget to install moment yourself
+  const moment = require('moment')
+  moment.locale(lang)
+  return moment(timestamp).fromNow()
+};
 
 module.exports = {
   /**
@@ -43,96 +49,8 @@ module.exports = {
     editLinkText: '',
     lastUpdated: false,
     sidebar: 'auto',
-
     // displayAllHeaders: true, // Default: false
-
-
-    nav: [
-      {
-        text: 'Docencia',
-        items: [
-          {
-            text: 'Clases',
-            link: '/clases/',
-          },
-          {
-            text: 'Temas',
-            link: '/temas/'
-          },
-          {
-            text: 'Labs',
-            link: '/practicas/'
-          },
-        ]
-      },
-      {
-        text: 'Context',
-        items: [
-          {
-            text: 'Recursos',
-            link: '/recursos/'
-          },      
-          {
-            text: 'Horarios',
-            link: '/horarios/'
-          },
-          {
-            text: 'Referencias',
-            link: '/referencias/'
-          },
-        ]
-      },
-      {
-        text: 'GitHub',
-        items: [
-          {text: 'Organization', link: 'https://github.com/ULL-ESIT-PL-2122'},
-          {text: 'Classroom', link: 'https://classroom.github.com/classrooms/90842648-ull-esit-pl-2122'},
-          {text: 'Apuntes Repo', link: 'https://github.com/ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io'}
-        ]
-      },
-      {
-        text: 'Campus Virtual',
-        items: [
-          { text:'PL en el Campus Virtual', link: 'https://campusingenieriaytecnologia2122.ull.es/course/view.php?id=2122090039' },
-          {text: 'Guía Docente', link: ''},
-          {text: 'Calendario Académico', link: ''},
-          {text: '', link: ''},
-        ]
-      },
-      {
-        text: 'Google',
-        items: [
-          {text: 'Meet', link: ''},
-          {text: 'Chat', link: ''},
-          {text: 'Vídeos', link: ''},
-
-        ]
-      }
-
-
-
-    ], /*
-    sidebar: {
-      '/clases/': [
-        {
-          title: 'Clases',
-          collapsable: false,
-          children: [
-            '',
-            'introducción a PL',
-          ]
-        }
-      ],
-      '/temas/': [
-        {
-          title: 'Temas',
-          collapsable: false,
-          children: [
-            '',
-          ]
-        }
-      ],
-    } */
+    nav: PLVariables.nav, 
   },
 
   /**
@@ -141,30 +59,8 @@ module.exports = {
   plugins: [
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
-    [
-      '@vuepress/last-updated',
-      {
-        transformer: (timestamp, lang) => {
-          // Don't forget to install moment yourself
-          const moment = require('moment')
-          moment.locale(lang)
-          return moment(timestamp).fromNow()
-        }
-      }
-    ],
-    ['vuepress-plugin-global-variables', 
-      { 
-        variables: PLVariables
-      }
-    ],
-    [
-      'vuepress-plugin-mathjax',
-      {
-        target: 'svg',
-        macros: {
-          '*': '\\times',
-        },
-      },
-    ],
+    [ '@vuepress/last-updated',  { transformer: ComputeTime } ],
+    ['vuepress-plugin-global-variables',   {  variables: PLVariables  } ],
+    ['vuepress-plugin-mathjax',  { target: 'svg',   macros: { '*': '\\times',  },  },  ],
   ]
 }

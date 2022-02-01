@@ -1,12 +1,71 @@
 // Crguezl: My Jekyll _config.yml file for PL web site
+const navigationBar = [
+  {
+    text: 'Docencia',
+    items: [
+      {
+        text: 'Clases',
+        link: '/clases/',
+      },
+      {
+        text: 'Temas',
+        items: [
+          {text: 'Introdución a PL', link:'/temas/introduccion-a-pl/'}
+        ]
+      },
+      {
+        text: 'Labs',
+        link: '/practicas/'
+      },
+    ]
+  },
+  {
+    text: 'Context',
+    items: [
+      {
+        text: 'Recursos',
+        link: '/recursos/'
+      },      
+      {
+        text: 'Horarios',
+        link: '/horarios/'
+      },
+      {
+        text: 'Referencias',
+        link: '/referencias/'
+      },
+    ]
+  },
+  {
+    text: 'GitHub',
+    items: [
+      {text: 'Organization', link: 'https://github.com/ULL-ESIT-PL-2122'},
+      {text: 'Classroom', link: 'https://classroom.github.com/classrooms/90842648-ull-esit-pl-2122'},
+      {text: 'Apuntes Repo', link: 'https://github.com/ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io'}
+    ]
+  },
+  {
+    text: 'Campus Virtual',
+    items: [
+      { text:'PL en el Campus Virtual', link: 'https://campusingenieriaytecnologia2122.ull.es/course/view.php?id=2122090039' },
+      {text: 'Guía Docente', link: 'https://www.ull.es/apps/guias/guias/view_guide_course/2122/139263121/'},
+      {text: 'Calendario Académico', link: 'https://www.ull.es/estudios-docencia/calendario-academico/'},
+      {text: 'Horario de Tutorías', link: 'https://www.ull.es/apps/guias/guias/view_guide_course/2122/139263121/3/'},
+      {text: 'Horarios de Tercero', link: 'https://www.ull.es/grados/ingenieria-informatica/informacion-academica/horarios-y-calendario-examenes/#tercero'}
+    ]
+  },
+  {
+    text: 'Google',
+    items: [
+      {text: 'Meet', link: 'https://meet.google.com/eha-yfij-zmo'},
+      {text: 'Chat', link: 'https://mail.google.com/chat/u/1/#chat/welcome'},
+      {text: 'Vídeos', link: 'https://www.youtube.com/playlist?list=PLuPGCp-dfrUTzN_o2beArY1QoFUTGH-yd'},
+
+    ]
+  }
+];
 
 module.exports = {
-  "minimal_mistakes_skin": "default",
-  "darks": [
-    "plum",
-    "dark",
-    "ull"
-  ],
   "locale": "en-US",
   "title": "PL",
   "title_separator": "-",
@@ -17,81 +76,12 @@ module.exports = {
   "baseurl": "",
   "repository": "ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io",
   "teaser": null,
-  "logoLightBackground": "/assets/images/escuela-politecnica-ingenieria-original.png",
-  "logoDarkBackground": "/assets/images/escuela-politecnica-ingenieria-positivo.png",
-  "logo": "/assets/images/escuela-politecnica-ingenieria-positivo.png",
-  "masthead_title": null,
-  "words_per_minute": 200,
-  "comments": {
-    "provider": null,
-    "disqus": {
-      "shortname": null
-    },
-    "discourse": {
-      "server": null
-    },
-    "facebook": {
-      "appid": null,
-      "num_posts": null,
-      "colorscheme": null
-    },
-    "utterances": {
-      "theme": "github-light",
-      "issue_term": null
-    },
-    "staticman": {
-      "branch": null,
-      "endpoint": null
-    }
-  },
-  "reCaptcha": {
-    "siteKey": null,
-    "secret": null
-  },
-  "atom_feed": {
-    "path": null
-  },
-  "search": null,
-  "search_full_content": null,
-  "search_provider": null,
-  "algolia": {
-    "application_id": null,
-    "index_name": null,
-    "search_only_api_key": null,
-    "powered_by": false
-  },
-  "google": {
-    "search_engine_id": null,
-    "instant_search": null
-  },
-  "google_site_verification": null,
-  "bing_site_verification": null,
-  "yandex_site_verification": null,
-  "naver_site_verification": null,
-  "twitter": {
-    "username": null
-  },
-  "facebook": {
-    "username": null,
-    "app_id": null,
-    "publisher": null
-  },
-  "og_image": null,
-  "social": {
-    "type": null,
-    "name": null,
-    "links": null
-  },
-  "analytics": {
-    "provider": false,
-    "google": {
-      "tracking_id": null,
-      "anonymize_ip": null
-    }
-  },
+  "logoLightBackground": "/images/escuela-politecnica-ingenieria-original.png",
+  "logoDarkBackground": "/images/escuela-politecnica-ingenieria-positivo.png",
+  "logo": "/images/escuela-politecnica-ingenieria-positivo.png",
   "author": {
     "name": " Casiano Rodríguez León",
-    "avatar": "/assets/images/bio-photo.jpg",
+    "avatar": "/images/bio-photo.jpg",
     "home": "https://crguezl.github.io",
     "bio": null,
     "location": "San Cristóbal de La Laguna",
@@ -124,216 +114,16 @@ module.exports = {
       }
     ]
   },
-  "footer": {
-    "links": [
-      {
-        "label": "Twitter",
-        "icon": "fab fa-fw fa-twitter-square"
-      },
-      {
-        "label": "Facebook",
-        "icon": "fab fa-fw fa-facebook-square"
-      },
-      {
-        "label": "GitHub",
-        "icon": "fab fa-fw fa-github"
-      },
-      {
-        "label": "GitLab",
-        "icon": "fab fa-fw fa-gitlab"
-      },
-      {
-        "label": "Bitbucket",
-        "icon": "fab fa-fw fa-bitbucket"
-      },
-      {
-        "label": "Instagram",
-        "icon": "fab fa-fw fa-instagram"
-      }
-    ]
-  },
-  "include": [
-    ".htaccess",
-    "_pages"
-  ],
-  "exclude": [
-    "assets/clases",
-    "*.sublime-project",
-    "*.sublime-workspace",
-    "vendor",
-    ".asset-cache",
-    ".bundle",
-    ".jekyll-assets-cache",
-    ".sass-cache",
-    "assets/js/plugins",
-    "assets/js/_main.js",
-    "assets/js/vendor",
-    "assets/clases/*",
-    "Capfile",
-    "CHANGELOG",
-    "config",
-    "Gemfile",
-    "Gruntfile.js",
-    "gulpfile.js",
-    "LICENSE",
-    "log",
-    "node_modules",
-    "package.json",
-    "package-lock.json",
-    "Rakefile",
-    "README",
-    "tmp",
-    "/docs",
-    "/test"
-  ],
-  "keep_files": [
-    ".git",
-    ".svn"
-  ],
+  nav: navigationBar,
   "encoding": "utf-8",
-  "markdown_ext": "markdown,mkdown,mkdn,mkd,md",
   "singular": {
     "practicas": "Práctica",
     "temas": "Tema",
     "clases": "Clase"
   },
-  "markdown": "kramdown",
-  "highlighter": "rouge",
   "lsi": false,
   "excerpt_separator": "\n\n",
   "incremental": false,
-  "kramdown": {
-    "input": "GFM",
-    "hard_wrap": false,
-    "auto_ids": true,
-    "footnote_nr": 1,
-    "entity_output": "as_char",
-    "toc_levels": "1..6",
-    "smart_quotes": "lsquo,rsquo,ldquo,rdquo",
-    "enable_coderay": false
-  },
-  "sass": {
-    "sass_dir": "_sass",
-    "style": "compressed"
-  },
-  "paginate": 5,
-  "paginate_path": "/page:num/",
-  "timezone": "",
-  "plugins": [
-    "jekyll-paginate",
-    "jekyll-sitemap",
-    "jekyll-gist",
-    "jekyll-feed",
-    "jekyll-include-cache",
-    "jemoji"
-  ],
-  "whitelist": [
-    "jekyll-paginate",
-    "jekyll-sitemap",
-    "jekyll-gist",
-    "jekyll-feed",
-    "jekyll-include-cache"
-  ],
-  "category_archive": {
-    "type": "liquid",
-    "path": "/categories/"
-  },
-  "tag_archive": {
-    "type": "liquid",
-    "path": "/tags/"
-  },
-  "compress_html": {
-    "clippings": "all",
-    "ignore": {
-      "envs": "development"
-    }
-  },
-  "defaults": [
-    {
-      "scope": {
-        "path": ""
-      },
-      "values": {
-        "layout": "single",
-        "comments": true,
-        "share": true,
-        "sidebar": {
-          "title": "",
-          "nav": "sidebar-sample"
-        },
-        "toc": true,
-        "toc_label": "Tabla de Contenidos",
-        "toc_icon": "list"
-      }
-    },
-    {
-      "scope": {
-        "path": "",
-        "type": "posts"
-      },
-      "values": {
-        "layout": "single",
-        "author_profile": true,
-        "related": true,
-        "read_time": false
-      }
-    },
-    {
-      "scope": {
-        "path": "temas"
-      },
-      "values": {
-        "comments": true,
-        "layout": "tema"
-      }
-    },
-    {
-      "scope": {
-        "path": "temas/_posts",
-        "type": "posts"
-      },
-      "values": {
-        "permalink": "temas/:title"
-      }
-    },
-    {
-      "scope": {
-        "path": "/assets/temas"
-      },
-      "values": {
-        "comments": true,
-        "layout": "tema"
-      }
-    },
-    {
-      "scope": {
-        "path": "practicas",
-        "type": "posts"
-      },
-      "values": {
-        "layout": "practica",
-        "permalink": "practicas/:title"
-      }
-    },
-    {
-      "scope": {
-        "path": "clases",
-        "type": "posts"
-      },
-      "values": {
-        "layout": "leccion"
-      }
-    },
-    {
-      "scope": {
-        "path": "pages"
-      },
-      "values": {
-        "toc": false,
-        "share": true
-      }
-    }
-  ],
   "calendario_academico": "https://www.ull.es/estudios-docencia/calendario-academico/",
   "horarios_tercero": "https://www.ull.es/grados/ingenieria-informatica/informacion-academica/horarios-y-calendario-examenes/#tercero",
   "horarios_tutorias": "https://www.ull.es/apps/guias/guias/view_guide/24127/",
@@ -374,5 +164,27 @@ module.exports = {
     "url": "https://classroom.github.com/classrooms/90842648-ull-esit-pl-2122",
     "name": "ULL-ESIT-PL-2122"
   },
-  "livereload": true
 };
+
+/*
+    sidebar: {
+      '/clases/': [
+        {
+          title: 'Clases',
+          collapsable: false,
+          children: [
+            '',
+            'introducción a PL',
+          ]
+        }
+      ],
+      '/temas/': [
+        {
+          title: 'Temas',
+          collapsable: false,
+          children: [
+            '',
+          ]
+        }
+      ],
+    } */

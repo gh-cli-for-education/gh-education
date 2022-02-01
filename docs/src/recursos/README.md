@@ -3,6 +3,12 @@ title: Recursos
 toc: true
 ---
 
+<!-- like the raw of jekyll
+::: v-pre
+`{{ This will be displayed as-is }}`
+:::
+-->
+
 ## Recursos ULL
 
 ###  <Badge text="Campus Virtual y UDV"/>
@@ -14,10 +20,6 @@ toc: true
 * <a :href="$var.foros">Foros</a>
 * Aula de <a :href="$var.covid_ull">Recursos Disponibles para Realizar ACTIVIDAD DOCENTE NO PRESENCIAL</a>
 * <a :href=" $var.udv ">Unidad para la Docencia Virtual. Servicios (UDV)</a>
-
-::: v-pre
-`{{ This will be displayed as-is }}`
-:::
 
 ### <Badge text="Guias Docentes" type="warning"/> 
 
@@ -46,7 +48,7 @@ toc: true
 #### Procedimientos en la Sede  para Masters y TFGs
 
 * [Procedimiento Presentación del Trabajo Fin de Máster Universitario](https://sede.ull.es/ecivilis-site/catalog/showProcedure/257)
-* [Presentación de las Actas del Trabajo Fin de Máster (TFM)](https://sede.ull.es/ecivilis-site/catalog/showProcedure/485) por el secretaio del tribunal
+* [Presentación de las Actas del Trabajo Fin de Máster (TFM)](https://sede.ull.es/ecivilis-site/catalog/showProcedure/485) por el secretario del tribunal
 * [Presentación del Trabajo Fin de Grado (TFG)](https://sede.ull.es/ecivilis-site/catalog/showProcedure/281)
 * [Procedimiento para entregar el Trabajo Fin de Grado (TFG) a través de la sede electrónica de la ULL](https://youtu.be/foDDM8tQML4)
 
@@ -95,7 +97,7 @@ toc: true
 ### Servicio de Impresión ULL
 
 * [Datos para el servicio de impresión](https://usuarios.ull.es/autogestion/valores_impresion/)
-* [ULL-IMPRIME artículo miércoles 24 de mayo de 2017](https://www.ull.es/servicios/stic/2017/05/24/ull-imprime/
+* [ULL-IMPRIME artículo miércoles 24 de mayo de 2017](https://www.ull.es/servicios/stic/2017/05/24/ull-imprime/)
 
 #### Impresión desde cualquier dispositivo y plataforma:
 

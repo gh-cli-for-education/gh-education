@@ -4,8 +4,17 @@ permalink: /horarios
 testVar: "https://www.google.com"
 msg:  "<a href=\"https://www.google.com\">hello</a>"
 google: "https://www.google.com"
+develop: false
 ---
 
+<p v-if="$frontmatter.develop">
+Se ve?
+
+<github-card username="octocat"></github-card>
+
+</p>
+
+<!--
 <p>Using v-html directive: <span v-html="$frontmatter.msg"></span></p>
 
 <p>Using v-bind directive: <a :href="$frontmatter.google">hello</a></p>
@@ -27,9 +36,7 @@ A link: [Go to Google]({{ $frontmatter.testVar }})
 ::: v-pre
 A html link <a href="{{ $frontmatter.testVar }}">an html link to google</a>
 :::
-
-<github-card username="octocat"></github-card>
-
+-->
 
 ## Horario
 
@@ -45,8 +52,6 @@ scrolling="yes">
 ## Calendario Académico
 
 [![Calendario Académico](/images/calendarios-2020-21.png)](https://www.ull.es/estudios-docencia/calendario-academico/)
-
-# {{ $var.calendario_academico }}
 
 ## Exámenes
 

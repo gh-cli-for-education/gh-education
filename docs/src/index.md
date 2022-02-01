@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: https://v1.vuepress.vuejs.org/hero.png
+heroImage: /images/escuela-politecnica-ingenieria-original.png 
 tagline: 
 actionText:  Comenzar →
 actionLink: /clases/
