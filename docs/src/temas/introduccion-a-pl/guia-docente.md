@@ -17,22 +17,17 @@ google_plus: https://currents.google.com/u/1/communities/101901734024125937720
 <!--* [GitHub Discussions in the repo ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io](https://github.com/ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io/discussions)-->
 * Comentarios en los apuntes de la asignatura
 
-### Chat vs Hangouts
-* [Google chat and VideoConferences](): Usen Google chat (institucional) y **no Google Hangouts** para contactar con el profesor
+### Chat 
+* [Google chat and VideoConferences](https://mail.google.com/chat/u/1/#chat/welcome): Usen Google chat (institucional) 
 
 ## Organización GitHub
 
-En la metodología que seguiremos este curso trabajará usando esta organización GitHub:
+Usaremos la organización GitHub ULL-ESIT-PL-2122
 
-* [Organización](https://github.com/)
 
-Vamos a trabajar de modo que todos - alumnos y profesores de esta asignatura - usaremos repos en esta organización para las prácticas.
+## Rellenar Cuestionario 
 
-Para la puesta en marcha necesitamos hacer algunas tareas
-
-## Rellenar Cuestionario para identificar la Relación entre el usuario GitHub y el usuario ULL
-
-Rellena el Cuestionario: Relación GitHub-AluXXXX dentro de <a href="">la tarea cuestionarios iniciales</a>.  
+Rellena el Cuestionario <a href="https://campusingenieriaytecnologia2122.ull.es/mod/assign/view.php?id=21205">Relación GitHub-AluXXXX</a>.  
 
 * Puedes poner un correo distinto del de la ULL si lo prefieres
 * Pon los usuarios GitHub (si tienes mas de uno) con los que vayas a hacer los commits en las prácticas de la asignatura
@@ -41,7 +36,9 @@ Rellena el Cuestionario: Relación GitHub-AluXXXX dentro de <a href="">la tarea 
 
 Date de alta en la comunidad [Google + de PL](). 
 
+::: tip
 * Cuando lo hagas asegúrate de estar usando tu cuenta de gmail ull (*aluXXX@ull.edu.es*)
+:::
 
 ## Práctica Opcional: GitHub Campus Expert
 
@@ -61,18 +58,12 @@ Date de alta en la comunidad [Google + de PL]().
 
 ## La Bibliografía
 
-La mayor parte de los [libros](/references) están accesible via el [PuntoQ de la BULL](/resources#bull).
+La mayor parte de los [libros](/references) están accesible via el [PuntoQ de la BULL](/recursos/#bull).
 
 Usaremos bastante estos libros:
 
 * [Eloquent JS 3rd Edition](https://eloquentjavascript.net/)
 * [The Modern JavaScript Tutorial. https://javascript.info/](https://javascript.info/)
-
-En el repo GH:
-
-* [Recursos de Bibliografía]()
-
-encontrarás recursos adicionales.
 
 
 ## Evaluación 
@@ -112,7 +103,7 @@ El primero es el 20% de la nota  y el segundo el 80% de la nota. Es necesario ap
 * Superadas las partes: prácticas, tfa y teoría  la nota es la media ponderada de las partes:
   $$0,4 \times practicas + 0,5 \times teoria + 0,1 \times tfa$$
 
-![](/assets/images/evaluacion.png)
+![](/images/evaluacion.png)
 
 ### Alumnos que no participan en la Evaluación Continua
 

@@ -2,7 +2,7 @@
 
 ## Organización de PL
 
-* [Organización de PL](./index.html) :thumbsup:
+* [Organización de PL](./guia-docente.html)
 
 ## What is a PL About?
 
