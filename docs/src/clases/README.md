@@ -29,7 +29,7 @@
 
 <ol>        
     <li v-for="page in classFiles"> <a :href="page.path">{{ page.title }}</a> 
-    <ul><li>{{ page.frontmatter.summary }} month: {{ getMonth(page) }}</li></ul>
+    <ul><li>{{ page.frontmatter.summary }}</li></ul>
     </li>
 </ol>
 
