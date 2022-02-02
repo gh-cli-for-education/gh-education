@@ -40,9 +40,9 @@ Date de alta en la comunidad [Google + de PL]().
 * Cuando lo hagas asegúrate de estar usando tu cuenta de gmail ull (*aluXXX@ull.edu.es*)
 :::
 
-## Práctica Opcional: GitHub Campus Expert
+## Práctica: GitHub Campus Expert
 
-* [Práctica Opcional: GitHub Campus Expert (github-campus-expert)](/practicas/github-campus-expert)
+* [Práctica Opcional: GitHub Campus Expert (github-campus-expert)](/practicas/2022-02-14-github-campus-expert)
 
 ## Práctica: GitHub Project Board
 
