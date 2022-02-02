@@ -9,9 +9,9 @@ google_plus: https://currents.google.com/u/1/communities/101901734024125937720
 
 * [Horarios, Calendario académico y Tutorías](/timetables)
 
-## Vías de Comunicación
+### Vías de Comunicación
 
-* Issues en GitHub en el repo de la correspondiente práctica. 
+* Usaremos la organización GitHub ULL-ESIT-PL-2122 y los Issues en GitHub en el repo de la correspondiente práctica. 
 * Asociarlos con el GtHub Project Board del alumno y actualizarlos según su progreso
 <!--* [Google group de PL ](https://groups.google.com/u/1/a/ull.edu.es/g/asignatura_139263121)-->
 <!--* [GitHub Discussions in the repo ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io](https://github.com/ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io/discussions)-->
@@ -20,19 +20,17 @@ google_plus: https://currents.google.com/u/1/communities/101901734024125937720
 ### Chat 
 * [Google chat and VideoConferences](https://mail.google.com/chat/u/1/#chat/welcome): Usen Google chat (institucional) 
 
-## Organización GitHub
 
-Usaremos la organización GitHub ULL-ESIT-PL-2122
+## Tareas Iniciales
 
-
-## Rellenar Cuestionario 
+### Rellenar Cuestionario 
 
 Rellena el Cuestionario <a href="https://campusingenieriaytecnologia2122.ull.es/mod/assign/view.php?id=21205">Relación GitHub-AluXXXX</a>.  
 
 * Puedes poner un correo distinto del de la ULL si lo prefieres
 * Pon los usuarios GitHub (si tienes mas de uno) con los que vayas a hacer los commits en las prácticas de la asignatura
 
-## Google Plus: Comunidad PL
+### Google Plus: Comunidad PL
 
 Date de alta en la comunidad [Google + de PL](). 
 
@@ -40,21 +38,21 @@ Date de alta en la comunidad [Google + de PL]().
 * Cuando lo hagas asegúrate de estar usando tu cuenta de gmail ull (*aluXXX@ull.edu.es*)
 :::
 
-## Práctica: GitHub Campus Expert
+### Práctica: GitHub Campus Expert
 
 * [Práctica Opcional: GitHub Campus Expert (github-campus-expert)](/practicas/2022-02-14-github-campus-expert)
 
-## Práctica: GitHub Project Board
+### Práctica: GitHub Project Board
 
-* [GitHub Project Board: github-project-board](/practicas/github-project-board)
+* [GitHub Project Board: github-project-board](/practicas/2022-02-14-github-project-board)
 
-## Práctica: Visual Studio Code
+### Práctica: Visual Studio Code
 
-* [Visual Studio Code](/practicas/visual-studio-code)
+* [Visual Studio Code](/practicas/2022-02-14-visual-studio-code)
 
-## Práctica: IAAS
+### Práctica: IAAS
 
-* [IAAS](/practicas/iaas)
+* [IAAS](/practicas/2022-02-14-iaas)
 
 ## La Bibliografía
 
@@ -111,4 +109,4 @@ El primero es el 20% de la nota  y el segundo el 80% de la nota. Es necesario ap
 
 ## Referencias
 
-* [GitHub Classroom Intro](/assets/temas/tema0-introduccion-a-pl/github-classroom)
+* [GitHub Classroom Intro](github-classroom)
