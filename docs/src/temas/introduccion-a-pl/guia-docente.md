@@ -101,7 +101,7 @@ El primero es el 20% de la nota  y el segundo el 80% de la nota. Es necesario ap
 * Superadas las partes: prácticas, tfa y teoría  la nota es la media ponderada de las partes:
   $$0,4 \times practicas + 0,5 \times teoria + 0,1 \times tfa$$
 
-![](/images/evaluacion.png)
+<img :src="$site.base+'/images/evaluacion.png'" />
 
 ### Alumnos que no participan en la Evaluación Continua
 
