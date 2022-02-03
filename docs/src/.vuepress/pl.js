@@ -5,17 +5,17 @@ const navigationBar = [
     items: [
       {
         text: 'Clases',
-        link: '/clases/',
+        link: '/clases/index.html',
       },
       {
         text: 'Temas',
         items: [
-          {text: 'Introdución a PL', link:'/temas/introduccion-a-pl/'}
+          {text: 'Introdución a PL', link:'/temas/introduccion-a-pl/index.html'}
         ]
       },
       {
         text: 'Labs',
-        link: '/practicas/'
+        link: '/practicas/index.html'
       },
     ]
   },
@@ -24,15 +24,15 @@ const navigationBar = [
     items: [
       {
         text: 'Recursos',
-        link: '/recursos/'
+        link: '/recursos/index.html'
       },      
       {
         text: 'Horarios',
-        link: '/horarios/'
+        link: '/horarios/index.html'
       },
       {
         text: 'Referencias',
-        link: '/referencias/'
+        link: '/referencias/index.html'
       },
     ]
   },

@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Metodología de Trabajo
+title: Organización de PL
 github_alu: 
 google_plus: https://currents.google.com/u/1/communities/101901734024125937720
 ---

@@ -1,6 +1,9 @@
 const { description } = require('../../package')
-const moment = require('moment');
 const PLVariables = require('./pl')
+const path = require('path');
+const includesPath = path.join(__dirname, '..', 'includes');
+console.error(includesPath);
+
 const ComputeTime = (timestamp, lang) => {
   // Don't forget to install moment yourself
   const moment = require('moment')
@@ -62,5 +65,16 @@ module.exports = {
     [ '@vuepress/last-updated',  { transformer: ComputeTime } ],
     ['vuepress-plugin-global-variables',   {  variables: PLVariables  } ],
     ['vuepress-plugin-mathjax',  { target: 'svg',   macros: { '*': '\\times',  },  },  ],
-  ]
+  ],
+  extendMarkdown: (md) => { // See https://github.com/vuejs/vuepress/issues/222#issuecomment-874001675
+    // use more markdown-it plugins!
+    md.use(
+      require('markdown-it-include'), 
+      {
+        root: includesPath,
+        // bracesAreOptional: true,
+        // includeRe: /\!{3}\s*include(.+?)\!{3}/i
+      }
+    )
+}
 }

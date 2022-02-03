@@ -1,6 +1,7 @@
 ---
 {
-    "title": "Clases"
+    "title": "Clases",
+    "permalink": "/clases/index.html"
 }
 ---
 

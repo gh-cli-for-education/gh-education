@@ -10,16 +10,18 @@
   "repository": " git@github.com:crguezl/vuepress-pl-prototype.git/pl-prototype",
   "scripts": {
     "dev": "vuepress dev src",
+    "deb": "vuepress --debug dev src",
     "build": "vuepress build src",
     "deploy": "npm run build && gh-pages -d src/.vuepress/dist",
     "push": "git ci -am 2022; git push",
-    "save":"npm run push; npm run deploy"
+    "save": "npm run push; npm run deploy"
   },
   "license": "MIT",
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.9.7",
     "@vuepress/plugin-medium-zoom": "^1.9.7",
     "gh-pages": "^3.2.3",
+    "markdown-it-include": "^2.0.0",
     "moment": "^2.29.1",
     "vuepress": "^1.5.3",
     "vuepress-plugin-social-share": "^1.1.0"

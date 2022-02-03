@@ -34,7 +34,7 @@
       computed: {
         githubYear() {
           let githubDate = this.user.created_at
-          console.log(githubDate)
+          //console.log(githubDate)
           if (!githubDate) return "";
           return githubDate.replace(/^(\d+).*/, "$1")
         }

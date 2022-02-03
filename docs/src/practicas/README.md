@@ -1,5 +1,6 @@
 ---
 title: Tareas y Prácticas
+permalink: /practicas/index.html
 ---
 
 ## Tareas
