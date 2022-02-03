@@ -1,12 +1,50 @@
 ---
-title: Tareas y Prácticas
+title: Tasks and Labs
 permalink: /practicas/index.html
 ---
 
-## Tareas
+<script>
+    const path= require('path');
+    export default { 
+        data() {
+            return {
+                path: path,
+                currentMonth: 0,
+                page: null,
+                date: null,
+                class: ''
+            }
+        },
+        methods: {
+            getClassLink(page) {
+                let prefix = this.$site.base+'clases/';
+                let m = /(\d+[/-]\d+[/-]\d+)/.exec(page.relativePath);
+                if (m) {
+                  return prefix+m[1]+'-leccion';
+                }
+                else 
+                  return null
+            },
+            getDate(page) {
+                let m = /(\d+[/-]\d+[/-]\d+)/.exec(page.relativePath);
+                return m? m[1] : null
+            }
+        },
+        computed: {
+            labFiles() {                
+                return this.$site.pages.filter(page => /practicas.\d+/.test(page.relativePath));
+            }, 
+        }
+    }
+</script>
 
-*  [Rellenar Formulario](2022-02-14-github-alu-form)
+# {{ $frontmatter.title }}
 
-## Prácticas 
-
-Blah
+<ol>        
+    <li v-for="page in labFiles"> 
+        <span v-if="page.frontmatter.kind == 'task'">Task</span>
+        <span v-else>Lab</span>
+        <a :href="path.basename(page.path)">{{ page.title }}</a> 
+        See class <a :href="getClassLink(page)">{{ getDate(page) }}</a>
+    </li>
+</ol>

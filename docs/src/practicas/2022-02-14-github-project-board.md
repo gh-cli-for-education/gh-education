@@ -15,7 +15,7 @@ Para cada práctica/asignación se crea un tablero kanban (GitHub Project Automa
 
 Cree además un project board automated kanban de organización para el seguimiento de sus prácticas durante el curso.
 
-![]({{site.baseul}}/assets/images/github-project-board-example.png)
+![](/images/github-project-board-example.png)
 
 Este project board **se crea a nivel de organización** y no de repo.
 Añade una columna `revisados por el profesor` a este board

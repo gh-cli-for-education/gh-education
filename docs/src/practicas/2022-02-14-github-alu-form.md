@@ -1,6 +1,7 @@
 ---
 title: GitHub-AluXXXX Form
 date: 2022/02/14 00:50
+kind: "task"
 rubrica:
   - "Rellenado cuestionario GitHub-Alu"
 ---
