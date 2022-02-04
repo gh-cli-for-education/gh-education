@@ -51,6 +51,3 @@ sidebar: false
     </li>
 </ol>
 
-<pre style="color:white">
-{{ $site }}
-</pre>
