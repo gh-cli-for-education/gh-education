@@ -1,6 +1,9 @@
 ---
 title: GitHub Project Board
-date: 2022/02/14 02
+date: "2022/02/14 02"
+order: 3
+prev: 2022-02-14-github-campus-expert.md
+next: 2022-02-14-visual-studio-code.html
 rubrica:
   - "Proyecto Kanban creado a nivel de Organización"
   - "Lo estoy usando para informar del avance en mis prácticas"
@@ -36,6 +39,10 @@ Además:
 * Para cada práctica se crea un tablero Kanban automático en el repo de la práctica
 * En este tablero de repo se crean inicialmente en la columna `TODO` tantas incidencias como requisitos tiene la práctica
 * Cuando en la corrección el profesor comenta que el requisito  esta cumplido lo pasamos a la columna `revisados`. Si el profesor indica que algo esta mal debe convertirse en una nueva incidencia que deberá ir a `TODO`.  Cuando crea que la haya arreglado la mueve a `done` y creará una incidencia mencionando al profesor. 
+
+## Rúbrica
+
+!!!include(rubrica.md)!!!
 
 
 ## References

@@ -1,6 +1,7 @@
 ---
 title: Tasks and Labs
 permalink: /practicas/index.html
+sidebar: false
 ---
 
 <script>
@@ -31,8 +32,9 @@ permalink: /practicas/index.html
             }
         },
         computed: {
-            labFiles() {                
-                return this.$site.pages.filter(page => /practicas.\d+/.test(page.relativePath));
+            labFiles() {
+                let pages = this.$site.pages.sort((a,b) => Number(a.frontmatter.order) - Number(b.frontmatter.order));           
+                return pages.filter(page => /practicas.\d+/.test(page.relativePath));
             }, 
         }
     }
@@ -48,3 +50,7 @@ permalink: /practicas/index.html
         See class <a :href="getClassLink(page)">{{ getDate(page) }}</a>
     </li>
 </ol>
+
+<pre style="color:white">
+{{ $site }}
+</pre>

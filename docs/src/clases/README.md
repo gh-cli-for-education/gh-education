@@ -1,7 +1,8 @@
 ---
 {
     "title": "Clases",
-    "permalink": "/clases/index.html"
+    "permalink": "/clases/index.html",
+    "sidebar": false
 }
 ---
 
@@ -36,18 +37,3 @@
     </li>
 </ol>
 
-<!--
-<ol>        
-    <li v-for="page in classFiles"> <a :href="path.basename(page.path)">{{ page.title }}</a> 
-    <pre style="color: white">
-    {{ page}}
-    </pre>
-    </li>
-</ol>
-
-## Classes during the month of February
-
-* [Lunes 2022/02/14](2022-02-14-leccion.html)
-
-Introducción a la metodología de trabajo, primeras tareas y prácticas, bibliografía, sistema de evaluación, TFA, etc.
--->

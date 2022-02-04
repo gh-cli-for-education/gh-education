@@ -1,7 +1,10 @@
 ---
 title: GitPod and Visual Studio Code
 published: true
-date: 2022/02/14 03
+date: "2022/02/14 03"
+order: 4
+prev: 2022-02-14-github-project-board.md
+next: 2022-02-14-iaas.html
 rubrica:
   - "GitPod: dado de alta e informe correcto"
   - "Instalado botón gitpod en su browser"
@@ -68,4 +71,8 @@ Depending on your platform, the user settings file is located here:
 - Linux $HOME/.config/Code/User/settings.json
 - The workspace setting file is located under the .vscode folder in your root folder.
 -->
+
+## Rúbrica
+
+!!!include(rubrica.md)!!!
 

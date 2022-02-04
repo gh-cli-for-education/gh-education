@@ -37,7 +37,7 @@ export default {
       src: "",
     };
   },
-  async mounted() {
+  async mounted() { // mpounted and not created since it runs only in the client
     const title  =  "Comfort yourself with a kitten";
     const URL=  "https://api.thecatapi.com/v1/images/search?size=full"
     const key = "56a4f1cc-7f60-468d-9dba-e4b6f04b7c7d" // See https://stackoverflow.com/questions/21939713/hide-api-key-for-a-github-page
