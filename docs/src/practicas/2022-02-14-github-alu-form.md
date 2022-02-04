@@ -9,4 +9,4 @@ rubrica:
 ---
 
 
-[Véase](https://campusingenieriaytecnologia2122.ull.es/mod/assign/view.php?id=21205&forceview=1)
+Puede encontrar el enlace al formulario en la [correspondiente tarea en el campus virtual de la asignatura](https://campusingenieriaytecnologia2122.ull.es/mod/assign/view.php?id=21205&forceview=1)
