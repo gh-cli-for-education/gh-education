@@ -3,15 +3,9 @@ title: Recursos
 toc: true
 ---
 
-<!-- like the raw of jekyll
-::: v-pre
-`{{ This will be displayed as-is }}`
-:::
--->
-
 ## Recursos ULL
 
-###  <Badge text="Campus Virtual y UDV"/>
+###  Campus Virtual y UDV
 
 * <a :href="$var.campus_virtual">PL</a>
 * <a :href="$var.participantes">Participantes</a>
@@ -21,7 +15,7 @@ toc: true
 * Aula de <a :href="$var.covid_ull">Recursos Disponibles para Realizar ACTIVIDAD DOCENTE NO PRESENCIAL</a>
 * <a :href=" $var.udv ">Unidad para la Docencia Virtual. Servicios (UDV)</a>
 
-### <Badge text="Guias Docentes" type="warning"/> 
+### Guias Docentes
 
 * <a :href="$var.teacher_profile_edit">Modificación Perfíl del Profesor</a> (deberá estar autenticado) 
 
