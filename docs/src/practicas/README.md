@@ -27,14 +27,14 @@ sidebar: false
                   return null
             },
             getDate(page) {
-                let m = /(\d+[/-]\d+[/-]\d+)/.exec(page.relativePath);
-                return m? m[1] : null
+                return page.date
             }
         },
         computed: {
             labFiles() {
-                let pages = this.$site.pages.sort((a,b) => Number(a.frontmatter.order) - Number(b.frontmatter.order));           
-                return pages.filter(page => /practicas.\d+/.test(page.relativePath));
+                let pages = this.$site.pages;           
+                let labs =  pages.filter(page => /practicas.[a-z\d]/.test(page.relativePath)); // Ignore files starting for uppercase as README.md
+                return labs.sort((a,b) => Number(a.frontmatter.order) - Number(b.frontmatter.order));
             }, 
         }
     }
@@ -47,7 +47,6 @@ sidebar: false
         <span v-if="page.frontmatter.kind == 'task'">Task</span>
         <span v-else>Lab</span>
         <a :href="path.basename(page.path)">{{ page.title }}</a> 
-        See class <a :href="getClassLink(page)">{{ getDate(page) }}</a>
     </li>
 </ol>
 
