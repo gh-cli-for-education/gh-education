@@ -13,28 +13,7 @@ for education allowing teachers to distribute assignments with starter code.
 
 ## Instrucciones para el Estudiante para las tareas asignadas via GitHub ClassRoom
 
-
-**delimiter**
-
 !!!include(instrucciones-github-classroom.md)!!!
-
-**end delimiter**
-
-<<< @/src/includes/instrucciones-github-classroom.md
-
-<!-- This will be kept as is by default -->
-1 + 2 + 3 = {{ 1 + 2 + 3 }}
-
-
-```md
-<!-- This will be compiled by Vue -->
-1 + 2 + 3 = {{ 1 + 2 + 3 }}
-```
-
-```js:no-v-pre
-// This won't be compiled correctly because of js syntax highlighting
-const onePlusTwoPlusThree = {{ 1 + 2 + 3 }}
-```
 
 ## References
 

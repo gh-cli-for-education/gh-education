@@ -7,7 +7,7 @@
      * El profesor le dará instrucciones sobre como formar el nombre del equipo.
    * Los siguientes miembros del equipo cuando acceden al enlace se unen al equipo creado por el primer alumno
    * Para cada equipo se crea dentro de la organización un repo `asignatura-curso/nombredelatarea-nombredelequipo` que los alumnos del equipo  deberán usar para entregar la práctica
-   * <img :src="base+'/images/classroom-equipos.png'"/>
+   * <img :src="$site.base+'/images/classroom-equipos.png'"/> 
    * Si deseas tener mas privilegios sobre el repo puedes
      * Solicitarselos al profesor
      * Hacer un `fork` del repo a una cuenta de uno de los miembros del equipo y dar permisos de administración al resto de colaboradores del equipo. En tal caso  asegurate de mezclar los cambios en el de la organización cuando hayas terminado
