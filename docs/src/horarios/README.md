@@ -5,6 +5,7 @@ testVar: "https://www.google.com"
 msg:  "<a href=\"https://www.google.com\">hello</a>"
 google: "https://www.google.com"
 develop: false
+sidebar: auto
 ---
 
 <p v-if="$frontmatter.develop">
@@ -56,22 +57,5 @@ scrolling="yes">
 ## Exámenes
 
 * [![](/images/calendarios-2021-2022.png)](https://www.ull.es/grados/ingenieria-informatica/informacion-academica/horarios-y-calendario-examenes/) 
-
-
-
-<!--
--->
-
-<!--
-
-
--->
-
-<!--
-
--->
-
-<!--
--->
 
 

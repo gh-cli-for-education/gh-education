@@ -5,28 +5,31 @@ heroLink: "https://www.ull.es/centros/escuela-superior-de-ingenieria-y-tecnologi
 tagline: 
 actionText:  "Clases"
 actionLink: /clases/
-actionText2:  "Labs"
-actionLink2: /practicas/
-actionText3:  "Campus"
-actionLink3: "https://campusingenieriaytecnologia2122.ull.es/course/view.php?id=2122090039/"
-actionText4:  "Organization"
-actionLink4: "https://github.com/ULL-ESIT-PL-2122"
+actionText2:  "Chat"
+actionLink2: "https://mail.google.com/chat/u/1/#chat/welcome"
+actionText3:  "Organization"
+actionLink3: "https://github.com/ULL-ESIT-PL-2122"
 
 ---
 
 <div class="features">
   <div class="feature">
-    <github-card username="crguezl"></github-card>
- </div>
+<h2>Campus Virtual</h2>
+<campus-virtual></campus-virtual>
+<!--<github-card username="crguezl"></github-card>-->
+</div>
 
   <div class="feature">
     <a href="/temas/">
-      <img src="https://ecomputernotes.com/images/Translation-of-a-statement.jpg"/>
+      <!--<img src="https://ecomputernotes.com/images/Translation-of-a-statement.jpg"/>-->
+  !!!include(all-labs.md)!!!
     </a>
     <!--<github-card username="casiano"></github-card>-->
   </div>
   <div class="feature"> 
-    <github-card username="ilopezpl"></github-card>
+  <h2>Temas</h2>
+!!!include(temas.md)!!!
+<!-- <github-card username="ilopezpl"></github-card>-->
   </div>
 </div>
 

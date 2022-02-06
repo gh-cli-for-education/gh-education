@@ -34,11 +34,6 @@
           class="action-button"
           :item="{text: data.actionText3, link: data.actionLink3}"
         />
-         <NavLink
-          class="action-button"
-          :item="{text: data.actionText4, link: data.actionLink4}"
-        />
-
       </p>
     </header>
 

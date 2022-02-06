@@ -51,7 +51,7 @@ Estas son las tareas a realizar:
 
 ## Rúbrica
 
-!!!include(rubrica.md)!!!
+<rubrica></rubrica>
 
 ## References
 

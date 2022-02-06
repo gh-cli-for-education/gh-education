@@ -51,6 +51,6 @@ rubrica:
 
 ## Rúbrica
 
-!!!include(rubrica.md)!!!
+<rubrica></rubrica>
 
 !!!include(all-labs.md)!!!

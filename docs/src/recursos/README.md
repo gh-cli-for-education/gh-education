@@ -1,6 +1,7 @@
 ---
 title: Recursos
 toc: true
+sidebar: auto
 ---
 
 ## Recursos ULL

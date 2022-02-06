@@ -40,6 +40,8 @@ const navigationBar = [
     text: 'GitHub',
     items: [
       {text: 'Organization', link: 'https://github.com/ULL-ESIT-PL-2122'},
+      {text: 'Teams', link: 'https://github.com/orgs/ULL-ESIT-PL-2122/teams'},
+      {text: 'Projects', link: 'https://github.com/orgs/ULL-ESIT-PL-2122/projects'},
       {text: 'Classroom', link: 'https://classroom.github.com/classrooms/90842648-ull-esit-pl-2122'},
       {text: 'Apuntes Repo', link: 'https://github.com/ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io'},
       {text: 'Global Campus Teachers', link: 'https://github.com/GitHub-Global-Campus/Global-Campus-Teachers/discussions'}

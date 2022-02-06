@@ -42,8 +42,7 @@ Además:
 
 ## Rúbrica
 
-!!!include(rubrica.md)!!!
-
+<rubrica></rubrica>
 
 ## References
 
