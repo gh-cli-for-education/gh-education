@@ -1,6 +1,7 @@
 ---
 title: GitHub Project Board
 date: "2022/02/14 02"
+published: true
 order: 3
 prev: github-campus-expert.md
 next: visual-studio-code.html

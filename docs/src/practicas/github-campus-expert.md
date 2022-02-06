@@ -4,6 +4,7 @@ date: "2022/02/14 01"
 order: 2
 prev: github-alu-form.md
 next: github-project-board.html
+published: true
 rubrica:
   - "Rellenado cuestionario GitHub-Alu"
   - "Miembro de la comunidad Currents/G+"

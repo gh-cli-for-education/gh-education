@@ -35,10 +35,10 @@
 </script>
 
 <ol>        
-    <li v-for="page in labFiles"> 
+    <li v-for="page in labFiles" v-if="page.frontmatter.published"> 
         <span v-if="page.frontmatter.kind == 'task'">Task</span>
         <span v-else>Lab</span>
-        <a :href="path.basename(page.path)">{{ page.title }}</a> <!-- todo: reference related lessons? -->
+        <a :href="'/practicas/'+path.basename(page.path)">{{ page.title }}</a> <!-- todo: reference related lessons? -->
     </li>
 </ol>
 

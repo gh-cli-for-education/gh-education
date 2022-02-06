@@ -3,6 +3,7 @@ title: GitHub-AluXXXX Form
 date: "2022/02/14 00:50"
 order: 1
 kind: "task"
+published: true
 next: github-campus-expert.html
 rubrica:
   - "Rellenado cuestionario GitHub-Alu"
