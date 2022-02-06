@@ -23,6 +23,9 @@
 
 <ol>        
     <li v-for="page in classFiles"> <a :href="path.basename(page.path)">{{ page.title }}</a> 
+    <pre style="color:white;">
+    {{ page }}
+    </pre>
     <ul><li>{{ page.frontmatter.summary }} month: {{ path.basename(page.path) }}</li></ul>
     </li>
 </ol>
