@@ -1,7 +1,7 @@
 {
-  "name": "pl-prototype",
-  "version": "0.0.1",
-  "description": "Learning Vuepress while prototyping PL pages",
+  "name": "pl-book",
+  "version": "2.0.0",
+  "description": "ULL PL pages",
   "main": "index.js",
   "authors": {
     "name": "Casiano",
@@ -14,6 +14,7 @@
     "build": "vuepress build src; touch src/.vuepress/dist/.nojekyll",
     "deploy": "npm run build && gh-pages -d src/.vuepress/dist",
     "push": "git ci -am 2022; git push",
+    "deploy2122": "npm run build && gh-pages -d src/.vuepress/dist -o pl2122",
     "save": "npm run push; npm run deploy"
   },
   "license": "MIT",
