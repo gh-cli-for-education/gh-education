@@ -14,7 +14,7 @@
     "build": "vuepress build src; touch src/.vuepress/dist/.nojekyll",
     "deploy": "npm run build && gh-pages -d src/.vuepress/dist",
     "push": "git ci -am 2022; git push",
-    "deploy2122": "npm run build && gh-pages -d src/.vuepress/dist -o pl2122 -f",
+    "deploy2122": "npm run build && gh-pages -d src/.vuepress/dist -r git@github.com:ULL-ESIT-PL-2122/ULL-ESIT-PL-2122.github.io.git -f",
     "save": "npm run push; npm run deploy"
   },
   "license": "MIT",
