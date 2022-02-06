@@ -3,19 +3,19 @@ title: GitPod and Visual Studio Code
 published: true
 date: "2022/02/14 03"
 order: 4
-prev: 2022-02-14-github-project-board.md
-next: 2022-02-14-iaas.html
+prev: github-project-board.md
+next: iaas.html
 rubrica:
   - "GitPod: dado de alta e informe correcto"
   - "Instalado botón gitpod en su browser"
-  - "Ha usado gitpod: *Open in VSCode*"
+  - "Ha usado gitpod: <i>Open in VSCode</i>"
   - "GitPod: Se ha acogido a la oferta para estudiantes"
   - "Instalado SSH plugin para VSCode y funciona con máquina del iaas"
   - "<code>LiveShare</code> instalado y funcionando correctamente"
   - "Informe bien elaborado"
 ---
 
-# Descripción de la Práctica vscode
+# {{ $frontmatter.title }}
 
 ## Objetivos
 
@@ -76,3 +76,4 @@ Depending on your platform, the user settings file is located here:
 
 !!!include(rubrica.md)!!!
 
+!!!include(all-labs.md)!!!

@@ -40,19 +40,19 @@ Date de alta en la comunidad [Google + de PL]().
 
 ### Práctica: GitHub Campus Expert
 
-* [Práctica Opcional: GitHub Campus Expert (github-campus-expert)](/practicas/2022-02-14-github-campus-expert)
+* [Práctica Opcional: GitHub Campus Expert (github-campus-expert)](/practicas/github-campus-expert)
 
 ### Práctica: GitHub Project Board
 
-* [GitHub Project Board: github-project-board](/practicas/2022-02-14-github-project-board)
+* [GitHub Project Board: github-project-board](/practicas/github-project-board)
 
 ### Práctica: Visual Studio Code
 
-* [Visual Studio Code](/practicas/2022-02-14-visual-studio-code)
+* [Visual Studio Code](/practicas/visual-studio-code)
 
 ### Práctica: IAAS
 
-* [IAAS](/practicas/2022-02-14-iaas)
+* [IAAS](/practicas/iaas)
 
 ## La Bibliografía
 

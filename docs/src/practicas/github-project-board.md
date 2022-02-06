@@ -2,8 +2,8 @@
 title: GitHub Project Board
 date: "2022/02/14 02"
 order: 3
-prev: 2022-02-14-github-campus-expert.md
-next: 2022-02-14-visual-studio-code.html
+prev: github-campus-expert.md
+next: visual-studio-code.html
 rubrica:
   - "Proyecto Kanban creado a nivel de Organización"
   - "Lo estoy usando para informar del avance en mis prácticas"
@@ -50,4 +50,4 @@ Además:
 * [GitHub Docs: About project boards](https://docs.github.com/en/github/managing-your-work-on-github/about-project-boards)
 
 
-
+!!!include(all-labs.md)!!!

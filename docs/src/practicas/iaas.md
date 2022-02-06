@@ -2,7 +2,7 @@
 title: IAAS
 published: true
 date: "2022/02/14 04"
-prev: "2022-02-14-visual-studio-code"
+prev: "visual-studio-code"
 order: 5
 rubrica:
   - "<code>SSH</code> configurada para trabajar sin password"
@@ -53,3 +53,4 @@ rubrica:
 
 !!!include(rubrica.md)!!!
 
+!!!include(all-labs.md)!!!
