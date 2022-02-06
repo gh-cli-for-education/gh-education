@@ -19,21 +19,15 @@
       </p>
 
       <p
-        v-if="data.actionText && data.actionLink"
+        v-if="action"
         class="action"
       >
-        <NavLink
+      <span v-for="a in data.action" :key="a.link">
+        <NavLink 
           class="action-button"
-          :item="actionLink"
+          :item="a"
         />
-         <NavLink
-          class="action-button"
-          :item="{text: data.actionText2, link: data.actionLink2}"
-        />
-         <NavLink
-          class="action-button"
-          :item="{text: data.actionText3, link: data.actionLink3}"
-        />
+        </span>
       </p>
     </header>
 
@@ -81,10 +75,10 @@ export default {
       return this.$page.frontmatter
     },
 
-    actionLink () {
+    action () {
       return {
-        link: this.data.actionLink,
-        text: this.data.actionText
+        link: this.data.action,
+        text: this.data.action
       }
     }
   }
@@ -115,11 +109,11 @@ export default {
       color lighten($textColor, 40%)
     .action-button
       display inline-block
-      font-size 1.2rem
+      font-size 1.0rem
       color #fff
       background-color $accentColor
       padding 0.8rem 1.6rem
-      border-radius 4px
+      border-radius 16px
       transition background-color .1s ease
       box-sizing border-box
       border-bottom 1px solid darken($accentColor, 10%)
