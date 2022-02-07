@@ -15,7 +15,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'PROCESADORES DE LENGUAJES 2021/2022',
+  title: 'PL 21/22',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -46,11 +46,14 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
+    logo: '/favicon-32x32.png',
     repo: '',
     editLinks: false,
     docsDir: '',
     editLinkText: '',
     lastUpdated: false,
+    //? displayAllHeaders: true, // Default: false
+
     sidebar: {
       "/temas/": "auto",
       "/practicas/": "auto",
