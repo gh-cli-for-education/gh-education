@@ -108,4 +108,3 @@ El primero es el 20% de la nota  y el segundo el 80% de la nota. Es necesario ap
 ## Referencias
 
 * [GitHub Classroom Intro](github-classroom)
-
