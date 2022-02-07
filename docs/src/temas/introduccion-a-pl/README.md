@@ -1,3 +1,6 @@
+---
+sidebar: false
+---
 # Introducción a la Asignatura
 
 ## Organización de PL

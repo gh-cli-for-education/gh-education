@@ -12,34 +12,30 @@ rubrica:
   - "Informe elaborado correcto"
 ---
 
-## Descripción de la Práctica github-project-board
+## A Project Board for each Lab
 
-Para cada práctica/asignación se crea un tablero kanban (GitHub Project Automated Kanban) asociado al repo. 
+* Para cada práctica/asignación se creará un tablero kanban (GitHub Project Automated Kanban) asociado al repo de la práctica
 
+  ![](/images/github-project-board-example.png)
+* En este tablero de repo se crean inicialmente en la columna `TODO` al menos tantas incidencias como requisitos tiene la práctica
+* Añada una columna `REVIEWED`
+* Cuando en la corrección el profesor comenta que el requisito  esta cumplido lo pasamos a la columna `REVIEWED`. Si el profesor indica que algo esta mal debe convertirse en una nueva incidencia que deberá ir a `TODO`.  Cuando crea que la haya arreglado la mueve a `done` y creará una incidencia mencionando al profesor. 
 
-Cree además un project board automated kanban de organización para el seguimiento de sus prácticas durante el curso.
+## Organization Project Board
 
-![](/images/github-project-board-example.png)
+* Cree además un project board automated kanban de organización para el seguimiento de sus prácticas durante el curso.
+* Este project board **se crea a nivel de organización** y no de repo.
+* Tiene una sóla nota/incidencia por práctica o tarea (con el nombre de la tarea) que se asocia como incidencia al repo de la práctica
+* La incidencia se moverá a la columna `done` cuando el alumno considere que está terminada. En ese momento creamos una incidencia mencionando al profesor y comunicándole que hemos finalizado la tarea. 
 
-Este project board **se crea a nivel de organización** y no de repo.
-Añade una columna `revisados por el profesor` a este board
+Sigue un ejemplo de como podría configurar la *vista de tabla* del organization project board de un alumno: con columnas `title`, `status` y `repository`
 
+![](/images/organization-project-board-beta.png)
 
-## Metodología de Trabajo con los Tableros
+::: danger Cuidado!
 
-En el board del estudiante  a nivel de organización sólo creamos **una incidencia  por práctica**. 
-
-Dicha incidencia estará asociada al repo de la práctica. 
-
-La incidencia se moverá a la columna `done` cuando el alumno considere que está terminada. 
-En ese momento creamos una incidencia mencionando al profesor y comunicándole que hemos finalizado la tarea. 
-
-
-Además:
-
-* Para cada práctica se crea un tablero Kanban automático en el repo de la práctica
-* En este tablero de repo se crean inicialmente en la columna `TODO` tantas incidencias como requisitos tiene la práctica
-* Cuando en la corrección el profesor comenta que el requisito  esta cumplido lo pasamos a la columna `revisados`. Si el profesor indica que algo esta mal debe convertirse en una nueva incidencia que deberá ir a `TODO`.  Cuando crea que la haya arreglado la mueve a `done` y creará una incidencia mencionando al profesor. 
+Asegúrese de tener configurados como privados sus project boards
+:::
 
 ## Rúbrica
 

@@ -44,6 +44,7 @@ const navigationBar = [
       {text: 'Projects', link: 'https://github.com/orgs/ULL-ESIT-PL-2122/projects'},
       {text: 'Classroom', link: 'https://classroom.github.com/classrooms/90842648-ull-esit-pl-2122'},
       {text: 'Apuntes Repo', link: 'https://github.com/ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io'},
+      {text: 'PL Discussions', link: 'https://github.com/ULL-ESIT-PL-2122/PL-2122-discussions/discussions'},
       {text: 'Global Campus Teachers', link: 'https://github.com/GitHub-Global-Campus/Global-Campus-Teachers/discussions'}
     ]
   },
