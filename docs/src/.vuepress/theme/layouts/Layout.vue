@@ -38,6 +38,7 @@
       </template>
       <template #bottom>
         <slot name="page-bottom" />
+        <Comments/>
       </template>
     </Page>
   </div>

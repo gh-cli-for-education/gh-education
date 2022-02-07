@@ -45,14 +45,16 @@ module.exports = {
    *
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
+  //theme: 'default-prefers-color-scheme',
   themeConfig: {
+    //overrideTheme: 'dark',
     logo: '/favicon-32x32.png',
     repo: '',
     editLinks: false,
     docsDir: '',
     editLinkText: '',
     lastUpdated: false,
-    //? displayAllHeaders: true, // Default: false
+    //? qdisplayAllHeaders: true, // Default: false
 
     sidebar: {
       "/temas/": "auto",
@@ -75,18 +77,12 @@ module.exports = {
     [ '@vuepress/last-updated',  { transformer: ComputeTime } ],
     ['vuepress-plugin-global-variables',   {  variables: PLVariables  } ],
     ['vuepress-plugin-mathjax',  { target: 'svg',   macros: { '*': '\\times',  },  },  ],
-    module.exports = {
-      plugins: [
-        [
-         '@saintic/utterances',
-          {
+    [ '@saintic/utterances',  {
             repo: 'ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io',
             theme: 'github-light',
             issueTerm: 'pathname'
-          }
-        ]
-      ]
-    }
+      }
+    ]      
   ],
   extendMarkdown: (md) => { // See https://github.com/vuejs/vuepress/issues/222#issuecomment-874001675
     // use more markdown-it plugins!
