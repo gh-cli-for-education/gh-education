@@ -72,6 +72,18 @@ module.exports = {
     [ '@vuepress/last-updated',  { transformer: ComputeTime } ],
     ['vuepress-plugin-global-variables',   {  variables: PLVariables  } ],
     ['vuepress-plugin-mathjax',  { target: 'svg',   macros: { '*': '\\times',  },  },  ],
+    module.exports = {
+      plugins: [
+        [
+         '@saintic/utterances',
+          {
+            repo: 'ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io',
+            theme: 'github-light',
+            issueTerm: 'pathname'
+          }
+        ]
+      ]
+    }
   ],
   extendMarkdown: (md) => { // See https://github.com/vuejs/vuepress/issues/222#issuecomment-874001675
     // use more markdown-it plugins!
