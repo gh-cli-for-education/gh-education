@@ -1,7 +1,5 @@
 ---
-layout: single
 title: Organización de PL
-github_alu: 
 google_plus: https://currents.google.com/u/1/communities/101901734024125937720
 ---
 
@@ -12,7 +10,7 @@ google_plus: https://currents.google.com/u/1/communities/101901734024125937720
 ### Vías de Comunicación
 
 * Usaremos la organización GitHub ULL-ESIT-PL-2122 y los Issues en GitHub en el repo de la correspondiente práctica. 
-* Asociarlos con el GtHub Project Board del alumno y actualizarlos según su progreso
+* Asociarlos con el GitHub Project Board del alumno y actualizarlos según su progreso
 <!--* [Google group de PL ](https://groups.google.com/u/1/a/ull.edu.es/g/asignatura_139263121)-->
 <!--* [GitHub Discussions in the repo ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io](https://github.com/ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io/discussions)-->
 * Comentarios en los apuntes de la asignatura
