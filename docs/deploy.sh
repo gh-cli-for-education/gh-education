@@ -20,6 +20,8 @@ git branch -M main
 # if you are deploying to https://<USERNAME>.github.io
 git push --force --set-upstream git@github.com:ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io.git main
 
+git push --force --set-upstream git@github.com:ULL-ESIT-PL-2122/ULL-ESIT-PL-2122.github.io.git main
+
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
 # git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
 
