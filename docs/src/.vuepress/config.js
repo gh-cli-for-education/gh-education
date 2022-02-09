@@ -54,6 +54,15 @@ module.exports = {
     docsDir: '',
     editLinkText: '',
     lastUpdated: false,
+    /** code themes comment .vuepress/themes/styles/code.styl
+     * support for
+     * 'default'
+     * 'funky'
+     * 'okaidia'
+     * 'solarizedlight'
+     * 'tomorrow'
+     */
+
     //? qdisplayAllHeaders: true, // Default: false
 
     sidebar: {

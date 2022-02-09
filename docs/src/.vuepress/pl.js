@@ -73,7 +73,6 @@ module.exports = {
   "locale": "en-US",
   "title": "PL",
   "title_separator": "-",
-  "subtitle": null,
   "name": "Procesadores de Lenguajes",
   "description": "Itinerario de Computación. 2º cuatrimestre",
   "url": null,

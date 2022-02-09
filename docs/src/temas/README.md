@@ -3,4 +3,4 @@ sidebar: false
 ---
 # Temas
 
-!!!include(temas.md)!!!
+<temas></temas>

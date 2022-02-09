@@ -6,4 +6,4 @@ sidebar: false
 
 # {{ $frontmatter.title }}
 
-!!!include(labs.md)!!!
+<practicas></practicas>

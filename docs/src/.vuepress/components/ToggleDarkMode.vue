@@ -1,6 +1,6 @@
 <template>
 <div class="dark-mode-widget">
-    <input type="checkbox" id="theme-toggle" @click="toggleDarkTheme"></input>
+    <input type="checkbox" id="theme-toggle" @click="toggleDarkTheme">
     <label for="theme-toggle"><span></span></label>
 </div>
 </template>

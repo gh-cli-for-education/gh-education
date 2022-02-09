@@ -20,20 +20,22 @@ action:
   <div class="feature">
 <h2>Campus Virtual</h2>
 <campus-virtual></campus-virtual>
-<!--<github-card username="crguezl"></github-card>-->
+<!--<github-card username="casiano"></github-card>-->
 </div>
 
   <div class="feature">
-      <!--<img src="https://ecomputernotes.com/images/Translation-of-a-statement.jpg"/>-->
-  !!!include(all-labs.md)!!!
-    <!--<github-card username="casiano"></github-card>-->
+    <h2>All Labs</h2>
+    <practicas></practicas>
+    <img src="https://ecomputernotes.com/images/Translation-of-a-statement.jpg"/> 
   </div>
   <div class="feature"> 
   <h2>Temas</h2>
-!!!include(temas.md)!!!
-<!-- <github-card username="ilopezpl"></github-card>-->
+  <temas></temas>
+<!-- <github-card username="ilopezpl"></github-card> -->
   </div>
 </div>
+
+
 
 ::: slot footer
 MIT Licensed | Copyright © 2021-present [Casiano](https://github.com/crguezl)

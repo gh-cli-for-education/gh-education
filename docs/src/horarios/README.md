@@ -8,12 +8,6 @@ develop: false
 sidebar: auto
 ---
 
-<p v-if="$frontmatter.develop">
-Se ve?
-
-<github-card username="octocat"></github-card>
-
-</p>
 
 <!--
 <p>Using v-html directive: <span v-html="$frontmatter.msg"></span></p>
