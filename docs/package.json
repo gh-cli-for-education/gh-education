@@ -13,12 +13,9 @@
     "deb": "vuepress --debug dev src",
     "build": "vuepress build src; touch src/.vuepress/dist/.nojekyll",
     "deploy": "./deploy.sh",
-    "push": "git ci -am 2022; git push",
-    "push2122": "git ci -am 2022; git push pl2122",
-    "deploy2122": "npm run build && gh-pages -d src/.vuepress/dist -r git@github.com:ULL-ESIT-PL-2122/ULL-ESIT-PL-2122.github.io.git -f",
-    "save": "npm run push; npm run deploy",
-    "save2122": "npm run push2122; npm run deploy2122",
-    "save-all": "npm run save; npm run save2122"
+    "push": "git ci -am 2122; git push",
+    "push2122": "git ci -am 2122; git push pl2122",
+    "save": "npm run push; npm run push2122; npm run deploy"
   },
   "license": "MIT",
   "devDependencies": {
