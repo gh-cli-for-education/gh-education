@@ -12,7 +12,7 @@
     "dev": "vuepress dev src",
     "deb": "vuepress --debug dev src",
     "build": "vuepress build src; touch src/.vuepress/dist/.nojekyll",
-    "deploy": "npm run build && gh-pages -d src/.vuepress/dist",
+    "deploy": "./deploy.sh",
     "push": "git ci -am 2022; git push",
     "push2122": "git ci -am 2022; git push pl2122",
     "deploy2122": "npm run build && gh-pages -d src/.vuepress/dist -r git@github.com:ULL-ESIT-PL-2122/ULL-ESIT-PL-2122.github.io.git -f",
