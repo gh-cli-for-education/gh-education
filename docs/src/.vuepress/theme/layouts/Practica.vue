@@ -28,10 +28,13 @@
         <slot name="page-bottom" />
 
         <div class="theme-default-content" style="padding: 0 rem 0 rem;">
-          <h2>Rubrica</h2>
+          <h2>Rubrica<a href="#rubrica" class="header-anchor">#</a></h2>
           <Rubrica></Rubrica>
 
-          <h2>Comments</h2>
+          <h2><a href="#labs" class="header-anchor">#</a>Labs</h2>
+          <Practicas></Practicas>
+
+          <h2>Comments<a href="#comments" class="header-anchor">#</a></h2>
           <Comments />
         </div>
         
@@ -58,6 +61,7 @@ import Sidebar from "@theme/components/Sidebar.vue";
 import PageNav from "@theme/components/PageNav.vue";
 
 import Rubrica from "@theme/components/Rubrica.vue";
+import Practicas from "@theme/components/Practicas.vue";
 
 import { resolveSidebarItems } from "../util";
 
@@ -71,6 +75,7 @@ export default {
     Navbar,
     PageNav,
     Rubrica,
+    Practicas
   },
 
   data() {

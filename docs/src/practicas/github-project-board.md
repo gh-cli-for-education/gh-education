@@ -43,6 +43,3 @@ Asegúrese de tener configurados como privados sus project boards
 * [GitHub Docs: About project boards](https://docs.github.com/en/github/managing-your-work-on-github/about-project-boards)
 
 
-## Prácticas
-
-<practicas></practicas>

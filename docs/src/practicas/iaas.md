@@ -50,11 +50,3 @@ rubrica:
   - Instale Express.js
       - [Express Web Framework (Node.js/JavaScript)](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs) (Mozilla)
 
-## Rúbrica
-
-<rubrica></rubrica>
-
-## Prácticas
-
-<practicas></practicas>
-

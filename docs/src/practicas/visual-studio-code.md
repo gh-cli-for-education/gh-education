@@ -47,6 +47,10 @@ Instale las extensiones Remote SSH y compruebe que funcionan con su máquina del
 * [Visual Studio Code Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
 * [Remote - SSH: Editing Configuration](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh-edit)
 
+## TOC 
+
+[[toc]]
+
 <!--
 ### Multi-Root Workspaces
 
@@ -75,9 +79,4 @@ Depending on your platform, the user settings file is located here:
 - Linux $HOME/.config/Code/User/settings.json
 - The workspace setting file is located under the .vscode folder in your root folder.
 -->
-
-
-## Prácticas
-
-<practicas></practicas>
 

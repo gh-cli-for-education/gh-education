@@ -10,6 +10,7 @@
   "repository": " git@github.com:crguezl/vuepress-pl-prototype.git/pl-prototype",
   "scripts": {
     "dev": "vuepress dev src",
+    "raw:dev": "http-server src/.vuepress/dist",
     "deb": "vuepress --debug dev src",
     "build": "vuepress build src; touch src/.vuepress/dist/.nojekyll",
     "deploy": "./deploy.sh",
