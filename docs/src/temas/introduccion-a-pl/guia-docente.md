@@ -1,3 +1,7 @@
+---
+title: Organización de la Asignatura
+next: what-is-pl-about
+---
 ## Horarios, Calendario académico y Tutorías
 
 * [Horarios, Calendario académico y Tutorías](/timetables)
