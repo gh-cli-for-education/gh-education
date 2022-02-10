@@ -1,22 +1,19 @@
 // Crguezl: My Jekyll _config.yml file for PL web site
 const navigationBar = [
   {
-    text: 'Docencia',
+    text: 'Clases',
+    link: '/clases/index.html',
+  },
+  {
+    text: 'Labs',
+    link: '/practicas/index.html'
+  },
+  {
+    text: 'Temas',
     items: [
-      {
-        text: 'Clases',
-        link: '/clases/index.html',
-      },
-      {
-        text: 'Temas',
-        items: [
-          {text: 'Introdución a PL', link:'/temas/introduccion-a-pl/index.html'}
-        ]
-      },
-      {
-        text: 'Labs',
-        link: '/practicas/index.html'
-      },
+          {text: 'Introdución a PL', link:'/temas/introduccion-a-pl/guia-docente.html'},
+          {text: 'Introduction to Compilers', link: 'https://docs.google.com/presentation/d/1N8h99dXzud9HzH8XY6QCZSmATCAWXtZebuqRTiy8qMU/edit#slide=id.gb7d71a5159_0_1024'},
+          {text: 'First Examples with Espree', link: '/temas/introduccion-a-pl/esprima.html'} 
     ]
   },
   {

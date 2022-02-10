@@ -1,7 +1,7 @@
 const { description } = require('../../package')
 const PLVariables = require('./pl')
 const path = require('path');
-const includesPath = path.join(__dirname, '..', 'includes');
+const includesPath = path.join(__dirname, '..');
 console.error(includesPath);
 
 const ComputeTime = (timestamp, lang) => {
@@ -87,6 +87,14 @@ module.exports = {
     [ '@vuepress/last-updated',  { transformer: ComputeTime } ],
     ['vuepress-plugin-global-variables',   {  variables: PLVariables  } ],
     ['vuepress-plugin-mathjax',  { target: 'svg',   macros: { '*': '\\times',  },  },  ],
+    ['vuepress-plugin-code-copy',  {
+      /* selector: "pre", */
+      align: "top",
+      /*color: String,
+      backgroundTransition: Boolean,
+      backgroundColor: String,
+      successText: String*/
+      }],
     [ '@saintic/utterances',  {
             repo: 'ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io',
             theme: 'github-light',
