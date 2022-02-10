@@ -1,6 +1,7 @@
 ---
 title: GitHub-AluXXXX Form
 date: "2022/02/14 00:50"
+layout: Practica
 order: 1
 kind: "task"
 published: true
@@ -16,7 +17,8 @@ Puede encontrar el enlace al formulario a rellenar en la [correspondiente tarea 
 
 <rubrica></rubrica>
 
-!!!include(all-labs.md)!!!
+## Prácticas
 
+<practicas></practicas>
 
 <campus-virtual></campus-virtual>

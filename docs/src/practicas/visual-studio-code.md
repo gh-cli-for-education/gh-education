@@ -2,6 +2,7 @@
 title: GitPod and Visual Studio Code
 published: true
 date: "2022/02/14 03"
+layout: Practica
 order: 4
 prev: github-project-board.md
 next: iaas.html
@@ -75,8 +76,8 @@ Depending on your platform, the user settings file is located here:
 - The workspace setting file is located under the .vscode folder in your root folder.
 -->
 
-## Rúbrica
 
-!!!include(rubrica.md)!!!
+## Prácticas
 
-!!!include(all-labs.md)!!!
+<practicas></practicas>
+

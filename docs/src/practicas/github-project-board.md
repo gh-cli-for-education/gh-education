@@ -2,6 +2,7 @@
 title: GitHub Project Board
 date: "2022/02/14 02"
 published: true
+layout: Practica
 order: 3
 prev: github-campus-expert.md
 next: visual-studio-code.html
@@ -37,13 +38,11 @@ Sigue un ejemplo de como podría configurar la *vista de tabla* del organization
 Asegúrese de tener configurados como privados sus project boards
 :::
 
-## Rúbrica
-
-<rubrica></rubrica>
-
 ## References
 
 * [GitHub Docs: About project boards](https://docs.github.com/en/github/managing-your-work-on-github/about-project-boards)
 
 
-!!!include(all-labs.md)!!!
+## Prácticas
+
+<practicas></practicas>

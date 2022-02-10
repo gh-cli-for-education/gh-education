@@ -9,4 +9,11 @@
 # {{ $frontmatter.title }}
 
 
-!!!include(clases.md)!!!
+
+<clases></clases>
+
+## Page Object Attributes
+
+<pre style="color:white">
+{{ $page }}
+</pre>

@@ -3,6 +3,7 @@ title: "Espree Logging"
 published: false
 date: 2022/02/19
 order: 7
+layout: Practica
 rubrica:
   - "Opciones en línea de comandos (`-o`, `-V`, `-h`, etc.)"
   - "Añade mensajes de logs a la entrada de las `function()`"

@@ -2,7 +2,7 @@
   <div>
     <ol>
       <li
-        v-for="page in labFiles" :key="page.key">
+        v-for="page in labFiles" :key="page.key"  v-if="page.frontmatter.published">
         <span v-if="page.frontmatter.kind == 'task'">Task</span>
         <span v-else>Lab</span>
         <a :href="'/practicas/' + path.basename(page.path)">{{ page.title }}</a>
@@ -40,7 +40,8 @@ export default {
   computed: {
     labFiles() {
       let pages = this.$site.pages;
-      let labs = pages.filter((page) => page.frontmatter.published && /practicas.[a-z\d]/.test(page.relativePath)
+      let labs = pages.filter((page) =>
+        /practicas.[a-z\d]/.test(page.relativePath)
       ); // Ignore files starting for uppercase as README.md
       return labs.sort(
         (a, b) => Number(a.frontmatter.order) - Number(b.frontmatter.order)
