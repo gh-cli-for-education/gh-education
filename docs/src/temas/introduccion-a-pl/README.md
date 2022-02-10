@@ -1,5 +1,6 @@
 ---
 sidebar: false
+prev: ../introduccion-a-pl/guia-docente.html
 ---
 # Introducción a la Asignatura
 
@@ -11,6 +12,3 @@ sidebar: false
 
 * [What is PL about?](what-is-pl-about.html)
 
-## TOC
-
-[[toc]]

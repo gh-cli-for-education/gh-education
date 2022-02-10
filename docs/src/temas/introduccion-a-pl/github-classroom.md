@@ -13,7 +13,7 @@ for education allowing teachers to distribute assignments with starter code.
 
 ## Instrucciones para el Estudiante para las tareas asignadas via GitHub ClassRoom
 
-!!!include(instrucciones-github-classroom.md)!!!
+!!!include(includes/instrucciones-github-classroom.md)!!!
 
 ## References
 

@@ -1,7 +1,9 @@
 <template>
     <ol>        
         <li v-for="page in classFiles" :key="page.key"> <a :href="path.basename(page.path)">{{ page.title }}</a> 
-        <ul><li>{{ page.frontmatter.summary }} month: {{ path.basename(page.path) }}</li></ul>
+        <ul>
+          <li>{{ page.frontmatter.summary }}</li>
+        </ul>
         </li>
     </ol>
 </template>
@@ -26,6 +28,7 @@
             classFiles() {                
                 return this.$site.pages.filter(page => /clases.\d+/.test(page.relativePath));
             }, 
+        
         }
     }
 </script>

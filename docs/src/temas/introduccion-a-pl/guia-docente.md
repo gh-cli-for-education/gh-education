@@ -1,8 +1,3 @@
----
-title: Organización de PL
-google_plus: https://currents.google.com/u/1/communities/101901734024125937720
----
-
 ## Horarios, Calendario académico y Tutorías
 
 * [Horarios, Calendario académico y Tutorías](/timetables)
@@ -30,7 +25,7 @@ Rellena el Cuestionario <a href="https://campusingenieriaytecnologia2122.ull.es/
 
 ### Google Plus: Comunidad PL
 
-Date de alta en la comunidad [Google + de PL](). 
+Date de alta en la comunidad <a :href="$var.google_plus">Google + de PL</a>. 
 
 ::: tip
 * Cuando lo hagas asegúrate de estar usando tu cuenta de gmail ull (*aluXXX@ull.edu.es*)
