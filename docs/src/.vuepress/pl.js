@@ -42,8 +42,9 @@ const navigationBar = [
       {text: 'Classroom', link: 'https://classroom.github.com/classrooms/90842648-ull-esit-pl-2122'},
       {text: 'Apuntes Repo', 
         items: [
-        { text: 'deploy', link: 'https://github.com/ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io'},
-        { text: 'source', link: 'https://github.com/ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io-source'}
+        { text: 'Deploy at GH', link: 'https://github.com/ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io'},
+        { text: "Deploy at netlify", link: 'https://fervent-swirles-a16008.netlify.app/'},
+        { text: 'Source', link: 'https://github.com/ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io-source'}
         ]
       },
       {text: 'PL Discussions', link: 'https://github.com/ULL-ESIT-PL-2122/PL-2122-discussions/discussions'},
