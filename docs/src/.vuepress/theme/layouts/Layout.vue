@@ -38,7 +38,14 @@
       </template>
       <template #bottom>
         <slot name="page-bottom" />
-        <Comments/>
+
+        <div class="theme-default-content" style="padding: 0 rem 0 rem; text-align: center;">
+
+          <social-share :networks="[ 'telegram', 'whatsapp', 'email', 'twitter', 'facebook' ]"/>
+
+          <Comments/>
+
+        </div>
       </template>
     </Page>
   </div>

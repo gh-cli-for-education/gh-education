@@ -34,8 +34,14 @@
           <h2><a href="#labs" class="header-anchor">#</a>Labs</h2>
           <Practicas></Practicas>
 
-          <h2>Comments<a href="#comments" class="header-anchor">#</a></h2>
-          <Comments />
+          <div style="text-align: center;">
+
+            <social-share :networks="[ 'telegram', 'whatsapp', 'email', 'twitter', 'facebook' ]" />
+
+            <h2>Comments<a href="#comments" class="header-anchor">#</a></h2>
+            <Comments />
+
+          </div>
         </div>
         
         <div

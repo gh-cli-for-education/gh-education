@@ -1,9 +1,13 @@
 ---
-title: Debugging Vuepress
+title: "Debugging Vuepress"
 sidebar: auto
 published: true
 google: "https://currents.google.com/u/1/communities/101901734024125937720"
 ---
+
+## Social Share Component
+
+<social-share :networks="['wechat', 'qq', 'twitter', 'facebook', 'weibo', 'email', 'pinterest']" />
 
 ## mermaid
 

@@ -26,7 +26,8 @@ action:
   <div class="feature">
     <h2>All Labs</h2>
     <practicas></practicas>
-    <img src="https://ecomputernotes.com/images/Translation-of-a-statement.jpg"/> 
+  <social-share :networks="[ 'telegram', 'whatsapp', 'email', 'twitter', 'facebook' ]" />
+  <img src="https://ecomputernotes.com/images/Translation-of-a-statement.jpg"/> 
   </div>
   <div class="feature"> 
   <h2>Temas</h2>
