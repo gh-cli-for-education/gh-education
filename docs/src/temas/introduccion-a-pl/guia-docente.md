@@ -4,7 +4,7 @@ next: what-is-pl-about
 ---
 ## Horarios, Calendario académico y Tutorías
 
-* [Horarios, Calendario académico y Tutorías](/timetables)
+* [Horarios, Calendario académico y Tutorías](/horarios)
 
 ### Vías de Comunicación
 
