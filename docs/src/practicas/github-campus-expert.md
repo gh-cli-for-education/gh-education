@@ -41,12 +41,13 @@ Estas son las tareas a realizar:
 2. Hágase miembro de la comunidad Currents/G+ de PL (deberá estar autenticado con el gmail de la ULL)
 3. Cree un project board kanban automated asociado al repo de la asignación. Rellene la columna TODO con los requisitos de la práctica. 
    * Véase también [GitHub Docs: About project boards](https://docs.github.com/en/github/managing-your-work-on-github/about-project-boards)
-4. Considere la posibilidad de [realizar el curso *Become a Campus Expert*](https://githubcampus.expert/training) de GitHub. Si está cerrado puede subscríbirse a la lista y seguir el curso cuando se abra.
-5. Solicite su [Student Developer Pack](https://education.github.com/pack)
+4. Considere la posibilidad de [realizar el curso *Become a Campus Expert*](https://githubcampus.expert/training) de GitHub. Puede no hacerlo si no lo considera oportuno.
+   * ... The training itself has a six-week timeline where you’ll be able to analyze your community and learn community leadership skills, —like public speaking, technical writing, and software development, as well as —and write a community proposal. [Introducing the New (and Improved!) Campus Experts Program](https://github.blog/2020-12-10-introducing-the-new-and-improved-campus-experts-program/) 2020-12-10
+5. Considere la posibilidad de solicitar su [Student Developer Pack](https://education.github.com/pack) 
 6. Considere la posibilidad de [solicitar una GitHub Internship](https://internships.github.com/). Si está cerrada puede subscríbirse para recibir las actualizaciones
 7. En todas las entregas de prácticas en el Campus de la asignatura deberá poner
    1. El enlace al repo de entrega en GitHub
-   2. En todas las prácticas, siempre que ocupe menos de 500K, deberá adjuntar el repo en formato zip. En GH vaya a `code`y de ahí a:
+   2. En todas las prácticas, siempre que ocupe menos de la capacidad admitida por el servidor Moodle, deberá adjuntar el repo en formato zip. En GH vaya a `code`y de ahí a:
 
       ![saveaszip.png](/images/saveaszip.png)
 
