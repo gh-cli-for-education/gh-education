@@ -61,7 +61,6 @@ const navigationBar = [
          { text: "Casiano", link: 'https://www.ull.es/apps/guias/guias/view_teacher_niu/798/crguezl/'},
          { text: "Israel", link: 'https://www.ull.es/apps/guias/guias/view_teacher_niu/798/ilopezpl/'},
          {text: 'Horario de Tutorías', link: 'https://www.ull.es/apps/guias/guias/view_guide_course/2122/139263121/3/'},
-         {text: 'Horario de Tutorías', link: 'https://www.ull.es/apps/guias/guias/view_guide_course/2122/139263121/3/'},
        ]
       },
       {text: 'Calendario Académico', link: 'https://www.ull.es/estudios-docencia/calendario-academico/'},
