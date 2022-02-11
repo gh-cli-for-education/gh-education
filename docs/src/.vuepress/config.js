@@ -108,7 +108,7 @@ module.exports = {
       {
         networks: PLVariables.networks,
         email: 'crguezl@ull.edu.es',
-        twitterUser: 'ntnyq',
+        twitterUser: 'crguezl',
         fallbackImage: '/favicon-32x32.png',
         extendsNetworks: {
           pinterest: {

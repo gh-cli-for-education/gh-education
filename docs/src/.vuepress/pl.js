@@ -55,9 +55,16 @@ const navigationBar = [
     text: 'Campus Virtual',
     items: [
       { text:'PL en el Campus Virtual', link: 'https://campusingenieriaytecnologia2122.ull.es/course/view.php?id=2122090039' },
-      {text: 'Guía Docente', link: 'https://www.ull.es/apps/guias/guias/view_guide_course/2122/139263121/'},
+      {text: 'Guía Docente',
+       items: [
+         { text: "Guía", link: 'https://www.ull.es/apps/guias/guias/view_guide_course/2122/139263121/'},
+         { text: "Casiano", link: 'https://www.ull.es/apps/guias/guias/view_teacher_niu/798/crguezl/'},
+         { text: "Israel", link: 'https://www.ull.es/apps/guias/guias/view_teacher_niu/798/ilopezpl/'},
+         {text: 'Horario de Tutorías', link: 'https://www.ull.es/apps/guias/guias/view_guide_course/2122/139263121/3/'},
+         {text: 'Horario de Tutorías', link: 'https://www.ull.es/apps/guias/guias/view_guide_course/2122/139263121/3/'},
+       ]
+      },
       {text: 'Calendario Académico', link: 'https://www.ull.es/estudios-docencia/calendario-academico/'},
-      {text: 'Horario de Tutorías', link: 'https://www.ull.es/apps/guias/guias/view_guide_course/2122/139263121/3/'},
       {text: 'Horarios de Tercero', link: 'https://www.ull.es/grados/ingenieria-informatica/informacion-academica/horarios-y-calendario-examenes/#tercero'}
     ]
   },
