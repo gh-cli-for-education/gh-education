@@ -36,8 +36,6 @@
 
           <div style="text-align: center;">
 
-            <social-share :networks="[ 'telegram', 'whatsapp', 'email', 'twitter' ]" />
-
             <h2>Comments<a href="#comments" class="header-anchor">#</a></h2>
             <Comments />
 

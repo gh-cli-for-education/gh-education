@@ -73,6 +73,7 @@ const navigationBar = [
 ];
 
 module.exports = {
+  networks: ['telegram', 'whatsapp', 'email', 'twitter', ],
   "locale": "en-US",
   "title": "PL",
   "title_separator": "-",

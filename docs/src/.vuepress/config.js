@@ -106,7 +106,7 @@ module.exports = {
     [
       'social-share',
       {
-        networks: ['telegram', 'whatsapp', 'email', 'twitter', ],
+        networks: PLVariables.networks,
         email: 'crguezl@ull.edu.es',
         twitterUser: 'ntnyq',
         fallbackImage: '/favicon-32x32.png',
