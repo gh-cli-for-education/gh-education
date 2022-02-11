@@ -100,7 +100,9 @@ module.exports = {
             theme: 'github-light',
             issueTerm: 'pathname'
       }
-    ]      
+    ],
+    'vuepress-plugin-mermaidjs',
+    ['vuepress-plugin-flowchart']
   ],
   extendMarkdown: (md) => { // See https://github.com/vuejs/vuepress/issues/222#issuecomment-874001675
     // use more markdown-it plugins!
