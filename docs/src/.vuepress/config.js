@@ -106,7 +106,7 @@ module.exports = {
     [
       'social-share',
       {
-        networks: ['qq', 'twitter', 'weibo', 'email', 'linkedin', 'pinterest', 'wechat'],
+        networks: ['telegram', 'whatsapp', 'email', 'twitter', ],
         email: 'crguezl@ull.edu.es',
         twitterUser: 'ntnyq',
         fallbackImage: '/favicon-32x32.png',
