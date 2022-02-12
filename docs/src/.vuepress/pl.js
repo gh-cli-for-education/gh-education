@@ -65,8 +65,23 @@ const navigationBar = [
          {text: 'Horario de Tutorías', link: 'https://www.ull.es/apps/guias/guias/view_guide_course/2122/139263121/3/'},
        ]
       },
-      {text: 'Calendario Académico', link: 'https://www.ull.es/estudios-docencia/calendario-academico/'},
-      {text: 'Horarios de Tercero', link: 'https://www.ull.es/grados/ingenieria-informatica/informacion-academica/horarios-y-calendario-examenes/#tercero'}
+      { text: 'Campus',
+        items: [
+          {text: 'Participantes', link: "https://campusingenieriaytecnologia2122.ull.es/user/index.php?id=2122090039" },
+          { text: 'Calificador', link: "https://campusingenieriaytecnologia2122.ull.es/grade/report/user/index.php?id=2122090039" },        ]
+      },
+      { 
+        text: 'ULL',
+        items: [
+          {text: 'Calendario Académico', link: 'https://www.ull.es/estudios-docencia/calendario-academico/'},
+          {text: 'Horarios de Tercero', link: 'https://www.ull.es/grados/ingenieria-informatica/informacion-academica/horarios-y-calendario-examenes/#tercero'},    
+        ]
+      }
+ 
+/*
+      <li><a :href="$var.tareas" target="_blank">Tareas</a></li>
+      <li><a :href="$var.foros" target="_blank">Foros</a></li>
+*/
     ]
   },
   {
@@ -80,7 +95,7 @@ const navigationBar = [
   }
 ];
 
-module.exports = {
+const PLinfo = {
   networks: ['telegram', 'whatsapp', 'email', 'twitter', ],
   "locale": "en-US",
   "title": "PL",
@@ -180,6 +195,8 @@ module.exports = {
     "name": "ULL-ESIT-PL-2122"
   },
 };
+
+module.exports = PLinfo;
 
 /*
     sidebar: {
