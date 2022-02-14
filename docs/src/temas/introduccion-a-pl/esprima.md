@@ -28,6 +28,8 @@ Welcome to Node.js v14.4.0.
 Type ".help" for more information.
 ```
 
+### Espree supportedEcmaVersions
+
 Cargamos `espree`:
 
 ```js
@@ -43,6 +45,8 @@ undefined
   9, 10, 11, 12
 ]
 ```
+
+### Análisis léxico
 
 Hagamos un análisis léxico:
 
@@ -179,6 +183,7 @@ graph TB
     C-->|"init Node"| E(("Literal value=42"))
 ```
 
+## Familiarizándose con la estructura del AST del compilador Espree
 
 Navegar en el árbol AST es complicado. 
 El atributo [`espree.visitorKeys`](espree-visitorkeys) nos proporciona la lista de nodos y los nombres de  los atributos de sus hijos
@@ -204,9 +209,12 @@ El valor nos da los nombres de los atributos que define los hijos:
 [ 'test', 'consequent', 'alternate' ]
 ```
 
+### ASTExplorer.net
+
 Usando la herramienta web **[https://astexplorer.net](https://astexplorer.net)** podemos navegar el AST producido por varios compiladores JS:
 
 * <a href="https://astexplorer.net/#/gist/b5826862c47dfb7dbb54cec15079b430/latest" target="_blank">AST de <code>answer = 42</code></a> en [https://astexplorer.net](https://astexplorer.net)
+* <a href="https://astexplorer.net/" target="_blank">astexplorer.net demo</a>
 
 ### Example: Searching for Specific Identifiers
 
@@ -241,10 +249,6 @@ Observe how the appearances of `hack` inside the comment or the string aren't sh
 ## Práctica Espree Logging
 
 * [Descripción de la Práctica Espree Logging](/practicas/esprima-logging)
-
-## ASTExplorer
-
-* <a href="https://astexplorer.net/" target="_blank">astexplorer.net demo</a>
 
 ## Master the Art of the AST
 
