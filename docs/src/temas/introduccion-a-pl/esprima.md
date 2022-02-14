@@ -44,9 +44,6 @@ undefined
 ]
 ```
 
-Navegar en el árbol AST es complicado. El atributo [`espree.visitorKeys`](espree-visitorkeys) nos proporciona la lista de nodos y los nombres de  los atributos de sus hijos
-
-
 Hagamos un análisis léxico:
 
 ```js
@@ -169,6 +166,42 @@ Node {
   sourceType: 'script'
 }
 undefined
+```
+
+Ves que el objeto está compuesto de objetos de la clase `Node`. Si te concentras sólo en los campos `type` del objeto queda 
+mas evidente como el objeto describe la jerarquía AST construída para la frase `answer = 42`. En las etiquetas de als aristas he puesto los nombres de los atributos y el tipo (`[Node]` para indicar array de objetos `Node`)
+
+```mermaid
+graph TB
+    A((Program))-->|"body [Node]"| B((VariableDeclaration))
+    B-->|"declarations [Node]"| C((VariableDeclarator))
+    C-->|"id Node"| D(("id name='answer'"))
+    C-->|"init Node"| E(("Literal value=42"))
+```
+
+
+Navegar en el árbol AST es complicado. 
+El atributo [`espree.visitorKeys`](espree-visitorkeys) nos proporciona la lista de nodos y los nombres de  los atributos de sus hijos
+
+```js
+> const typesOfNodes = Object.keys(espree.VisitorKeys)
+undefined
+> typesOfNodes.slice(0,4)
+[
+  'AssignmentExpression',
+  'AssignmentPattern',
+  'ArrayExpression',
+  'ArrayPattern'
+]
+```
+
+El valor nos da los nombres de los atributos que define los hijos:
+
+```js 
+> espree.VisitorKeys.AssignmentExpression
+[ 'left', 'right' ]
+> espree.VisitorKeys.IfStatement
+[ 'test', 'consequent', 'alternate' ]
 ```
 
 Usando la herramienta web **[https://astexplorer.net](https://astexplorer.net)** podemos navegar el AST producido por varios compiladores JS:
