@@ -1,8 +1,9 @@
 ---
+title: "Ejemplos de las fases de un compilador usando espree"
 prev: /temas/introduccion-a-pl/what-is-pl-about.html#what-is-a-compiler-history-and-structure
 next: master-the-art-of-the-ast
 ---
-## Esprima/Espree Examples
+# {{ $frontmatter.title }}
 
 En el [Repo ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk) encontrará el material de esta lección.
 **Clone este repo**.
