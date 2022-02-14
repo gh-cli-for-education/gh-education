@@ -77,6 +77,8 @@ Hagamos un análisis léxico:
 ]
 ```
 
+### Análisis sintáctico con Espree
+
 Hagamos ahora un análisis sintáctico:
 
 ```js
@@ -120,6 +122,8 @@ Node {
   ]
 }
 ```
+
+### util.inspect 
 
 Observe que el Árbol no aparece completo. El log que usa el bucle REPL de Node lo trunca en el hijo `declarations` (sólo nos muestra que es un array `[Array]` sin expandirlo) para que la salida no sea excesivamente larga.
 
@@ -171,6 +175,8 @@ Node {
 }
 undefined
 ```
+
+### El Objeto AST geenrado por el parser de Espree
 
 Ves que el objeto está compuesto de objetos de la clase `Node`. Si te concentras sólo en los campos `type` del objeto queda 
 mas evidente como el objeto describe la jerarquía AST construída para la frase `answer = 42`. En las etiquetas de als aristas he puesto los nombres de los atributos y el tipo (`[Node]` para indicar array de objetos `Node`)
