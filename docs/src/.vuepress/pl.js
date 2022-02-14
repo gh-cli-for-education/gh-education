@@ -67,8 +67,11 @@ const navigationBar = [
       },
       { text: 'Campus',
         items: [
-          {text: 'Participantes', link: "https://campusingenieriaytecnologia2122.ull.es/user/index.php?id=2122090039" },
-          { text: 'Calificador', link: "https://campusingenieriaytecnologia2122.ull.es/grade/report/user/index.php?id=2122090039" },        ]
+          { text: 'Participantes', link: "https://campusingenieriaytecnologia2122.ull.es/user/index.php?id=2122090039" },
+          { text: 'Calificador', link: "https://campusingenieriaytecnologia2122.ull.es/grade/report/user/index.php?id=2122090039" },
+          { text: 'Tareas', link: "https://campusingenieriaytecnologia2122.ull.es/mod/assign/index.php?id=2122090039"},
+          { text: 'Foros', link: "https://campusingenieriaytecnologia2122.ull.es/mod/forum/index.php?id=2122090039"},
+        ]
       },
       { 
         text: 'ULL',
@@ -79,7 +82,6 @@ const navigationBar = [
       }
  
 /*
-      <li><a :href="$var.tareas" target="_blank">Tareas</a></li>
       <li><a :href="$var.foros" target="_blank">Foros</a></li>
 */
     ]

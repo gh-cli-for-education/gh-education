@@ -14,6 +14,8 @@ rubrica:
 
 ## Descripción de la Tarea
 
+Esta práctica usa como template el repo [crguezl/espree-logging-template](https://github.com/crguezl/espree-logging-template).
+ 
 En el repo [Repo ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk) encontrará el programa `logging-espree.js`  el cual implementa una función `addLogging` que:
 
 * cuando se llama analiza el código JS que se la da como entrada 
@@ -104,9 +106,9 @@ Le ayudarán a entender el código estos recursos:
 En esta práctica, se pide:
 
 1. Acepte la asignación Classroom de esta tarea
-3. En la tarea del Campus basta con entregar el enlace al repositorio
-4. Ejecute paso a paso el código de `logging.js` usando el debugger de chrome, intentando comprender el funcionamiento de la transformación realizada. Haga un resumen de lo que ha aprendido en el fichero Markdown: `README.md` 
-5. Modifique el programa para que los `console.log` insertados informen de los valores de los parámetros pasados a la función.
+2. En la tarea del Campus basta con entregar el enlace al repositorio
+3. Ejecute paso a paso el código de `logging.js` usando el debugger de chrome, intentando comprender el funcionamiento de la transformación realizada. Haga un resumen de lo que ha aprendido en el fichero Markdown: `README.md` 
+4. Modifique el programa para que los `console.log` insertados informen de los valores de los parámetros pasados a la función.
    
 Vea el siguiente ejemplo de como debe funcionar una solución:
 
@@ -367,6 +369,8 @@ En el `package.json` introduzca
 
 ## References
 
+* Repo [crguezl/espree-logging-template](https://github.com/crguezl/espree-logging-template) usado como template para esta práctica. 
+  * Puede encontrar releases (.zip, .tar.gz) en [crguezl/espree-logging-template/releases/tag/v1](https://github.com/crguezl/espree-logging-template/releases/tag/v1)
 * [Tipos de Nodos del AST](/assets/temas/tema0-introduccion-a-pl/espree-visitorkeys)
 * [Espree](https://github.com/eslint/espree)
   * [Options for parse and tokenize methods](https://github.com/eslint/espree#options)
