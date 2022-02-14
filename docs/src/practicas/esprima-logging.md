@@ -4,6 +4,7 @@ published: true
 date: 2022/02/15
 order: 6
 layout: Practica
+prev: "iaas.md"
 rubrica:
   - "Opciones en línea de comandos (`-o`, `-V`, `-h`, etc.)"
   - "Añade mensajes de logs a la entrada de las `function()`"
@@ -11,6 +12,8 @@ rubrica:
   - "Tutorial README.md y paneles bien presentados"
   - "El `package.json` [tiene scripts](./esprima-logging#entrega) para ejecutar el programa"
 ---
+
+# Práctica {{ $frontmatter.title }}
 
 ## Descripción de la Tarea
 

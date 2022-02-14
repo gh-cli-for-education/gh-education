@@ -10,6 +10,8 @@ rubrica:
   - "Rellenado cuestionario GitHub-Alu"
 ---
 
+# Práctica {{ $frontmatter.title }}
+
 
 Puede encontrar el enlace al formulario a rellenar en la [correspondiente tarea en el campus virtual de la asignatura](https://campusingenieriaytecnologia2122.ull.es/mod/assign/view.php?id=21205&forceview=1)
 

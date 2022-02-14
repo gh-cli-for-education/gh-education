@@ -16,6 +16,8 @@ rubrica:
   - "Ha entregado el .zip en el campus con el repo"
 ---
 
+# Práctica {{ $frontmatter.title }}
+
 ## Aceptación de la Práctica github-campus-expert  
 
 Esta práctica tiene por objetivo mejorar las competencias transversales y establecer nuestro workflow habitual.

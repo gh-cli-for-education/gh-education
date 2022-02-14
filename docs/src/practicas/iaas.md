@@ -3,7 +3,8 @@ title: IAAS
 layout: Practica
 published: true
 date: "2022/02/14 04"
-prev: "visual-studio-code"
+prev: "visual-studio-code.md"
+next: esprima-logging.md
 order: 5
 rubrica:
   - "<code>SSH</code> configurada para trabajar sin password"
@@ -13,6 +14,9 @@ rubrica:
   - "El prompt de la shell muestra la rama actual"
   - "Ha instalado <code>nvm</code>"
 ---
+
+# Práctica {{ $frontmatter.title }}
+
 
 # Descripción de la Práctica iaas
 

@@ -13,6 +13,8 @@ rubrica:
   - "Informe elaborado correcto"
 ---
 
+# Práctica {{ $frontmatter.title }}
+
 ## A Project Board for each Lab
 
 * Para cada práctica/asignación se creará un tablero kanban (GitHub Project Automated Kanban) asociado al repo de la práctica
