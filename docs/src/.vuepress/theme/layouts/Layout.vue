@@ -20,8 +20,6 @@
       @toggle-sidebar="toggleSidebar"
     >
       <template #top>
-        <h1>{{ $page.fronmatter.title }}</h1>
-
         <slot name="sidebar-top" />
       </template>
       <template #bottom>

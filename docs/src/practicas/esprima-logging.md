@@ -6,11 +6,12 @@ order: 6
 layout: Practica
 prev: "iaas.md"
 rubrica:
-  - "Opciones en línea de comandos (`-o`, `-V`, `-h`, etc.)"
-  - "Añade mensajes de logs a la entrada de las `function()`"
-  - "Añade mensajes de logs a la entrada de las arrow `() => { ... }`"
+  - "Opciones en línea de comandos (-o, -V, -h, etc.)"
+  - "Añade mensajes de logs a la entrada de las <code>function()</code>"
+  - "Añade mensajes de logs a la entrada de las arrow <code>() => { ... }</code>"
   - "Tutorial README.md y paneles bien presentados"
-  - "El `package.json` [tiene scripts](./esprima-logging#entrega) para ejecutar el programa"
+  - Da información correcta de los números de línea
+  - El <code>package.json</code> tiene <a href="#entrega">scripts para ejecutar el programa</a>
 ---
 
 # Práctica {{ $frontmatter.title }}
