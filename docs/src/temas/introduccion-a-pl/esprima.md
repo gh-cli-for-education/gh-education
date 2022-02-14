@@ -2,6 +2,7 @@
 title: "Ejemplos de las fases de un compilador usando espree"
 prev: /temas/introduccion-a-pl/what-is-pl-about.html#what-is-a-compiler-history-and-structure
 next: master-the-art-of-the-ast
+sidebarDepth: 3
 ---
 # {{ $frontmatter.title }}
 
@@ -12,7 +13,7 @@ The examples in this repo use a couple of JavaScript compiler frameworks: [Espri
 
 [Espree](https://github.com/eslint/espree) started out as a fork of [Esprima](http://esprima.org) v1.2.2, the last stable published released of Esprima before work on ECMAScript 6 began. [Espree](https://github.com/eslint/espree) is now built on top of [Acorn](https://github.com/ternjs/acorn), which has a modular architecture that allows extension of core functionality. The goal of [Espree](https://github.com/eslint/espree) is to produce output that is similar to Esprima with a similar API so that it can be used in place of Esprima.
 
-### REPL example
+## REPL example
 
 Una vez clonado el [repo ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk), instalamos las dependencias:
 
@@ -176,7 +177,7 @@ Node {
 undefined
 ```
 
-### El Objeto AST geenrado por el parser de Espree
+### El Objeto AST generado por el parser de Espree
 
 Ves que el objeto está compuesto de objetos de la clase `Node`. Si te concentras sólo en los campos `type` del objeto queda 
 mas evidente como el objeto describe la jerarquía AST construída para la frase `answer = 42`. En las etiquetas de als aristas he puesto los nombres de los atributos y el tipo (`[Node]` para indicar array de objetos `Node`)
@@ -189,7 +190,7 @@ graph TB
     C-->|"init Node"| E(("Literal value=42"))
 ```
 
-## Familiarizándose con la estructura del AST del compilador Espree
+### Tipos de Nodos y nombres de los hijos
 
 Navegar en el árbol AST es complicado. 
 El atributo [`espree.visitorKeys`](espree-visitorkeys) nos proporciona la lista de nodos y los nombres de  los atributos de sus hijos
@@ -215,19 +216,69 @@ El valor nos da los nombres de los atributos que define los hijos:
 [ 'test', 'consequent', 'alternate' ]
 ```
 
-### ASTExplorer.net
+### El web site ASTExplorer.net
 
 Usando la herramienta web **[https://astexplorer.net](https://astexplorer.net)** podemos navegar el AST producido por varios compiladores JS:
 
 * <a href="https://astexplorer.net/#/gist/b5826862c47dfb7dbb54cec15079b430/latest" target="_blank">AST de <code>answer = 42</code></a> en [https://astexplorer.net](https://astexplorer.net)
 * <a href="https://astexplorer.net/" target="_blank">astexplorer.net demo</a>
 
-### Example: Searching for Specific Identifiers
+## Example: Searching for Specific Identifiers
 
 The file [idgrep.js](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk/blob/master/idgrep.js) is a very simple example of using Esprima
 to do static analysis on JavaScript code.
 
 It provides a function `idgrep` that finds the appearances of identifiers matching a search string inside the input code.
+
+```js
+const fs = require('fs');
+const esprima = require('espree');
+const program = require('commander');
+const { version, description } = require('./package.json');
+const estraverse = require('estraverse');
+
+const idgrep = function (pattern, code, filename) {
+    const lines = code.split('\n');
+    const ast = esprima.parse(code, {
+        ecmaVersion: 6,
+        loc: true,
+        range: true
+    });
+    estraverse.traverse(ast, {
+        enter: function (node, parent) {
+            if (node.type === 'Identifier' && node.name.indexOf(pattern) >= 0) {
+                let loc = node.loc.start;
+                let line = loc.line - 1;
+                console.log(`file ${filename}: line ${line}: col: ${loc.column} text: ${lines[line]}`);
+            }
+        }
+    });
+};
+
+
+program.parse(process.argv);
+
+program
+    .version(version)
+    .description(description)
+    .usage('[options] <filename> [...]');
+
+
+let inputFilename = program.args.shift();
+try {
+    if (inputFilename) {
+        fs.readFile(inputFilename, 'utf8', (err, input) => {
+            debugger;
+            if (err) throw `Error reading '${inputFilename}':${err}`;
+            idgrep('hack', input, inputFilename);
+        })
+    } else {
+        program.help();
+    }
+} catch (e) {
+    console.log(`Errores! ${e}`);
+}
+```
 
 Given an input like this:
 
