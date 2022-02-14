@@ -1,8 +1,8 @@
 ---
 title: "Espree Logging"
-published: false
-date: 2022/02/19
-order: 7
+published: true
+date: 2022/02/15
+order: 6
 layout: Practica
 rubrica:
   - "Opciones en línea de comandos (`-o`, `-V`, `-h`, etc.)"
@@ -15,7 +15,7 @@ rubrica:
 ## Descripción de la Tarea
 
 Esta práctica usa como template el repo [crguezl/espree-logging-template](https://github.com/crguezl/espree-logging-template).
- 
+
 En el repo [Repo ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk) encontrará el programa `logging-espree.js`  el cual implementa una función `addLogging` que:
 
 * cuando se llama analiza el código JS que se la da como entrada 
