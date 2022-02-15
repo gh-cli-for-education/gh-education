@@ -358,7 +358,7 @@ Entering <anonymous function>(2) at line 3
 * [Una Solución](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk-private/blob/private/p0-t0-esprima-logging-sol.js) 
 * [Solucion con los retos](https://github.com/ULL-ESIT-PL-1920/p0-t0-esprima-logging-reto-DanielGlezExp)
 
-## Entrega
+## Pruebas
 
 Aprovechando el script `bin/all-test.sh` introduzca una entrada `scripts/test` en su `package.json` que ejecute su solución contra todos los programas de prueba
 
