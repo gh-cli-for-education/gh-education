@@ -11,7 +11,7 @@ sidebar: false
 * <a :href="$frontmatter.bull_permanente+'/5ljpb5/ullabsysULL00228966c-8'">Compilers : principles, techniques, and tools.</a> Alfred V. Aho Ravi Sethi; Jeffrey DavidUllman 1942-1988
   - Disponible en: Informática	B.Informática. Sala de Lectura	Préstamo exterior	I*D.3.4 AHO com
   - Disponible en: Matemáticas y Física	B.Mát. y Física	Sala de Lectura	Préstamo exterior	I*D.3.4 AHO com
-* [Abstractions, Their Algorithms, and Their Compilers](https://cacm.acm.org/magazines/2022/2/258231-abstractions-their-algorithms-and-their-compilers/fulltext) by Alfred Aho and Jeffrey Ullman. Turing Lecture 2020. 
+* [Abstractions, Their Algorithms, and Their Compilers](https://cacm.acm.org/magazines/2022/2/258231-abstractions-their-algorithms-and-their-compilers/fulltext) by Alfred Aho and Jeffrey Ullman. Turing Lecture 2020. [Video](https://youtu.be/ixIlknu7svM)
 * [TURING LECTURES Presented by each winner on the topic of their choice at a forum of their choice in the year they received the ACM A.M. Turing Award.](https://amturing.acm.org/lectures.cfm)
 * <a :href="$frontmatter.bull_permanente+'15vbjs7/ullsfx3710000001127445'">A Practical Approach to Compiler Construction.</a> Watson. Año:2017 (Debes estar autenticado via PuntoQ BULL)
 * [The Modern JavaScript Tutorial. https://javascript.info/](https://javascript.info/)
