@@ -2,6 +2,8 @@
 title: GitPod and Visual Studio Code
 published: true
 date: "2022/02/14 03"
+delivery: "2022/02/18"
+
 layout: Practica
 order: 4
 prev: github-project-board.md

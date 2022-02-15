@@ -1,6 +1,7 @@
 ---
 title: GitHub Project Board
 date: "2022/02/14 02"
+delivery: "2022/02/18"
 published: true
 layout: Practica
 order: 3

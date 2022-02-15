@@ -2,6 +2,7 @@
 title: "Espree Logging"
 published: true
 date: 2022/02/15
+delivery: "2022/02/24"
 order: 6
 layout: Practica
 prev: "iaas.md"

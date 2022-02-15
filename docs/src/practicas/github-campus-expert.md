@@ -1,6 +1,8 @@
 ---
 title: GitHub Campus Expert
 date: "2022/02/14 01"
+delivery: "2022/02/18"
+
 order: 2
 layout: Practica
 prev: github-alu-form.md
