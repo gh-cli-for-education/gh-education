@@ -5,7 +5,14 @@
         v-for="page in labFiles" :key="page.key">
         <span v-if="page.frontmatter.kind == 'task'">Task</span>
         <span v-else>Lab</span>
-        <a :href="'/practicas/' + path.basename(page.path)">{{ page.title }}</a>
+        <a :href="getLink(page)">{{ page.title }}</a> 
+        <ul>
+        <li>
+        <span v-if="page.frontmatter.delivery">Delivery date: {{ page.frontmatter.delivery }}</span>
+        </li>
+        <li>
+        <span v-if="page.frontmatter.rubrica"><a :href="getLink(page)+'#rubrica'">Rubric</a></span>
+        </li></ul>
         <!-- todo: reference related lessons? -->
       </li>
     </ol>
@@ -26,6 +33,9 @@ export default {
     };
   },
   methods: {
+    getLink(page){
+      return '/practicas/' + path.basename(page.path);
+    },
     getClassLink(page) {
       let prefix = this.$site.base + "clases/";
       let m = /(\d+[/-]\d+[/-]\d+)/.exec(page.relativePath);
