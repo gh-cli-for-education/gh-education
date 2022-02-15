@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ol>
+    <ol reversed>
       <li
         v-for="page in labFiles" :key="page.key">
         <span v-if="page.frontmatter.kind == 'task'">Task</span>
@@ -53,7 +53,7 @@ export default {
       let labs = pages.filter((page) => page.frontmatter.published && /practicas.[a-z\d]/.test(page.relativePath)
       ); // Ignore files starting for uppercase as README.md
       return labs.sort(
-        (a, b) => Number(a.frontmatter.order) - Number(b.frontmatter.order)
+        (a, b) => Number(b.frontmatter.order) - Number(a.frontmatter.order)
       );
     },
   },
