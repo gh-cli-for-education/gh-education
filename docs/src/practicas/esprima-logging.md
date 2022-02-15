@@ -360,17 +360,17 @@ Entering <anonymous function>(2) at line 3
 
 ## Entrega
 
-En el `package.json` introduzca 
+Aprovechando el script `bin/all-test.sh` introduzca una entrada `scripts/test` en su `package.json` que ejecute su solución contra todos los programas de prueba
 
-* Entradas adicionales `scripts/test-1`, `scripts/test-2` etc, con los comandos para la ejecución de su solución contra diferentes programas de prueba. Algo así:
+```
+✗ npm test        
 
-  ```js
-  "scripts": {
-        "test-1": "node src/my-sol-logging-espree.js test/prueba-1.js",
-        ...
-  }
-  ```
-* Una entrada `scripts/test` que ejecute su solución contra todos los programas de prueba
+> ./bin/all-test.sh
+
+test/test1.js  was successful
+test/test2.js  was successful
+test/test3.js  was successful
+```
 
 ## References
 
