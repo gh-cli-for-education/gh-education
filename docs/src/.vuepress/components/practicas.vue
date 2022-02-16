@@ -8,7 +8,7 @@
         <a :href="getLink(page)">{{ page.title }}</a> 
         <ul>
         <li>
-        <span v-if="page.frontmatter.delivery">Delivery date: {{ page.frontmatter.delivery }}</span>
+        <span v-if="page.frontmatter.delivery">Date: {{ page.frontmatter.delivery }}</span>
         </li>
         <li>
         <span v-if="page.frontmatter.rubrica"><a :href="getLink(page)+'#rubrica'">Rubric</a></span>
