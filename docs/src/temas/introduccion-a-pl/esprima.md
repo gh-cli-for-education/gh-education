@@ -337,4 +337,4 @@ presented in the second half of the [talk Parsing, Compiling, and Static Metapro
   * [Options for parse and tokenize methods](https://github.com/eslint/espree#options)
 * <a href="https://astexplorer.net/" target="_blank">astexplorer.net demo</a>
 * [idgrep.js](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk/blob/master/idgrep.js)
-* [Examples from the talk *Master the Art of the AST*](master-the-art-of-the-ast)
+* [Master the Art of the AST](master-the-art-of-the-ast)
