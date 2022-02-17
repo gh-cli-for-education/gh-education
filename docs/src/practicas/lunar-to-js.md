@@ -8,7 +8,7 @@ layout: Practica
 prev: "esprima-logging.md"
 rubrica:
   - "Opciones en línea de comandos (-o, -V, -h, etc.)"
-  - "Traduce correctamente de lunar a JS"
+  - "Traduce correctamente de Lunar a JS"
   - "Refleja la asociatividad y prioridad de operaciones correcta"
   - Da información correcta de los números de línea
   - El <code>package.json</code> tiene scripts para ejecutar el programa
@@ -18,15 +18,20 @@ rubrica:
 
 ## Descripción de la Tarea
 
-[Lunar Arithmetic](https://en.wikipedia.org/wiki/Lunar_arithmetic),  is a version of arithmetic in which the addition and multiplication operations on numbers are defined as the `max` and `min` operations. Thus, in lunar arithmetic,
+Let us consider a notation of arithmetic in which the addition and multiplication operations on numbers are defined as the `max` and `min` operations. Thus, with this notation
 
-$$2+7=\max\{2,7\}=7$$ y $$2*7=\min\{2,7\}=2$$
+$$12 + 7=\max\{12,7\}=12$$ 
 
-Escriba un traductor de expresiones aritméticas lunares a un programa JavaScript.
-Por ejemplo, la entrada `2 + 3 * 5` debería ser traducida al siguiente código JS:
+and
+
+$$12 * 7=\min\{12,7\}=7$$
+
+Escriba un traductor de estas expresiones aritméticas a un programa JavaScript que las compute.
+
+Por ejemplo, la entrada `234 + 325 *  57` debería ser traducida al siguiente código JS:
 
 ```js
-console.log(Math.max(2, Math.min(3,5)))
+console.log(Math.max(234, Math.min(325,57)))
 ```
 
 Para ello 
@@ -36,7 +41,6 @@ Para ello
 
 ## References
 
-* [Lunar Arithmetic](https://en.wikipedia.org/wiki/Lunar_arithmetic)
 * See the examples in the repo [crguezl/hello-jison](https://github.com/crguezl/hello-jison)
 * [Tipos de Nodos del AST](/temas/introduccion-a-pl/espree-visitorkeys)
 * [Espree](https://github.com/eslint/espree)
@@ -53,3 +57,5 @@ Para ello
 * [Algoritmo de Análisis LR (yacc/bison/jison)](http://crguezl.github.io/pl-html/node55.html)
 * [Repo ULL-ESIT-PL-1718/jison-aSb](https://github.com/ULL-ESIT-PL-1718/jison-aSb)
 * [Repo ULL-ESIT-PL-1718/ull-etsii-grado-pl-jisoncalc](https://github.com/ULL-ESIT-PL-1718/ull-etsii-grado-pl-jisoncalc)
+* [Lunar Arithmetic](https://en.wikipedia.org/wiki/Lunar_arithmetic)
+
