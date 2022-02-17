@@ -36,13 +36,14 @@ console.log(Math.max(234, Math.min(325,57)))
 
 Para ello 
 
-1. Escriba un programa Jison que produzca un AST Espree conteniendo el correspondiente código JS. A continuación 
+1. Escriba un programa Jison que produzca un AST compatible Espree conteniendo el correspondiente código JS. A continuación 
 2. Utilice [escodegen.generate(ast)](https://github.com/estools/escodegen) para generar el código JS
 3. Añada paréntesis al lenguaje para que se pueda alterar la prioridad por defecto: $$3\&(22@4) = 3$$ 
 
 ## References
 
 * See the examples in the repo [crguezl/hello-jison](https://github.com/crguezl/hello-jison)
+* [https://astexplorer.net](https://astexplorer.net)
 * [Tipos de Nodos del AST](/temas/introduccion-a-pl/espree-visitorkeys)
 * [Espree](https://github.com/eslint/espree)
   * [Options for parse and tokenize methods](https://github.com/eslint/espree#options)
