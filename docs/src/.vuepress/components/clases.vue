@@ -43,7 +43,7 @@
                    return 0;
                 }          
                 let clases = this.$site.pages.filter(page => /clases.\d+/.test(page.relativePath));
-                console.log(this.getDate(clases[0]));
+                //console.log(this.getDate(clases[0]));
                 return clases.sort( compare );
             }, 
         

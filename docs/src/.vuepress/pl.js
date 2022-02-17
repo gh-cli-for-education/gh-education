@@ -71,6 +71,7 @@ const navigationBar = [
           { text: 'Calificador', link: "https://campusingenieriaytecnologia2122.ull.es/grade/report/user/index.php?id=2122090039" },
           { text: 'Tareas', link: "https://campusingenieriaytecnologia2122.ull.es/mod/assign/index.php?id=2122090039"},
           { text: 'Foros', link: "https://campusingenieriaytecnologia2122.ull.es/mod/forum/index.php?id=2122090039"},
+          { text: 'Introducción a PL', link: 'https://campusingenieriaytecnologia2122.ull.es/course/view.php?id=2122090039#section-12'}
         ]
       },
       { 

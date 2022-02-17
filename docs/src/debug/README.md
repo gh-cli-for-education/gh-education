@@ -5,6 +5,13 @@ published: true
 google: "https://currents.google.com/u/1/communities/101901734024125937720"
 ---
 
+## Table Component
+
+See <https://xaksis.github.io/vue-good-table/guide/#installation>
+
+<Tabla></Tabla>
+
+
 ## Social Share Component
 
 <social-share :networks="['wechat', 'qq', 'twitter', 'facebook', 'weibo', 'email', 'pinterest']" />

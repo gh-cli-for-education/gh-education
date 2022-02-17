@@ -13,7 +13,7 @@ The examples in this repo use a couple of JavaScript compiler frameworks: [Espri
 
 [Espree](https://github.com/eslint/espree) started out as a fork of [Esprima](http://esprima.org) v1.2.2, the last stable published released of Esprima before work on ECMAScript 6 began. [Espree](https://github.com/eslint/espree) is now built on top of [Acorn](https://github.com/ternjs/acorn), which has a modular architecture that allows extension of core functionality. The goal of [Espree](https://github.com/eslint/espree) is to produce output that is similar to Esprima with a similar API so that it can be used in place of Esprima.
 
-## REPL example
+## Introducción a Espree. REPL example
 
 Una vez clonado el [repo ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk), instalamos las dependencias:
 
@@ -216,14 +216,14 @@ El valor nos da los nombres de los atributos que define los hijos:
 [ 'test', 'consequent', 'alternate' ]
 ```
 
-### El web site ASTExplorer.net
+## El web site ASTExplorer.net
 
 Usando la herramienta web **[https://astexplorer.net](https://astexplorer.net)** podemos navegar el AST producido por varios compiladores JS:
 
 * <a href="https://astexplorer.net/#/gist/b5826862c47dfb7dbb54cec15079b430/latest" target="_blank">AST de <code>answer = 42</code></a> en [https://astexplorer.net](https://astexplorer.net)
 * <a href="https://astexplorer.net/" target="_blank">astexplorer.net demo</a>
 
-## Example: Searching for Specific Identifiers
+## Espree Simple Example: Searching for Specific Identifiers
 
 The file [idgrep.js](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk/blob/master/idgrep.js) is a very simple example of using Esprima
 to do static analysis on JavaScript code.
@@ -307,15 +307,30 @@ Observe how the appearances of `hack` inside the comment or the string aren't sh
 
 * [Descripción de la Práctica Espree Logging](/practicas/esprima-logging)
 
-## Master the Art of the AST
-
-* [More Advanced examples from the talk *Master the Art of the AST*](master-the-art-of-the-ast)
-
-
 ## Syntax Analysis: PEG.js Example
+
+## First Steps on Building a Parser with Jison
+
+See the examples in the repo [crguezl/hello-jison](https://github.com/crguezl/hello-jison)
+
+[This repo](https://github.com/crguezl/hello-jison) contains two examples:
+
+* The first one is a simple interpreter for infix arithmetic expressions with the minus operator only
+  * See files `minus.jison`, `minus.l` and  `use_minus.js`
+* The second is a translator from infix arithmetic expressions to JavaScript
+  * `minus-ast.jison` builds a Espree compatible AST using `minus.l` and the helpers in `ast-build.js`
+  * The lexical analyzer `minus.l` is reused
+* The `ast-*.json` files contain examples of Espree ASTs
+
+### Calculator example with PEG.js from the talk Parsing, Compiling, and Static Metaprogramming
 
 [altjs.js](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk/blob/master/altjs.js) is the code for the "AltJS language in 5 minutes" section
 presented in the second half of the [talk Parsing, Compiling, and Static Metaprogramming](http://2013.jsconf.eu/speakers/patrick-dubroy-parsing-compiling-and-static-metaprogramming.html) by Patrick Dubroy
+
+## Master the Art of the AST: More Advanced Examples of AST TRansformations
+
+* [More Advanced examples from the talk *Master the Art of the AST*](master-the-art-of-the-ast)
+
 
 ## References
 
