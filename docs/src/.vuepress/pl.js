@@ -14,6 +14,7 @@ const navigationBar = [
           {text: 'Introdución a PL', link:'/temas/introduccion-a-pl/guia-docente.html'},
           {text: 'Introduction to Compilers', link: 'https://docs.google.com/presentation/d/1N8h99dXzud9HzH8XY6QCZSmATCAWXtZebuqRTiy8qMU/edit#slide=id.gb7d71a5159_0_1024'},
           {text: 'First Examples with Espree', link: '/temas/introduccion-a-pl/esprima.html'},
+          {text: 'AST transformations', link: '/temas/introduccion-a-pl/master-the-art-of-the-ast.html'},
           {text: 'Temas vistos o en curso', link: '/temas/'} 
 
     ]

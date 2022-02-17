@@ -1,7 +1,9 @@
 ---
 ---
 
-## Talk Master the Art of the AST and Take Control of Your JS by Yonatan Mevorach
+## AST Transformations 
+
+### Talk by Yonatan Mevorach
 
 * [Master the Art of the AST and Take Control of Your JS][ast]  by Yonatan Mevorach. 
     - [Here are the slides](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk-private/blob/private/ast-talk-codemotion-170406094223.pdf)

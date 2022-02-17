@@ -309,7 +309,7 @@ Observe how the appearances of `hack` inside the comment or the string aren't sh
 
 ## Syntax Analysis: PEG.js Example
 
-## First Steps on Building a Parser with Jison
+### First Steps on Building a Parser with Jison
 
 See the examples in the repo [crguezl/hello-jison](https://github.com/crguezl/hello-jison)
 
@@ -327,14 +327,14 @@ See the examples in the repo [crguezl/hello-jison](https://github.com/crguezl/he
 [altjs.js](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk/blob/master/altjs.js) is the code for the "AltJS language in 5 minutes" section
 presented in the second half of the [talk Parsing, Compiling, and Static Metaprogramming](http://2013.jsconf.eu/speakers/patrick-dubroy-parsing-compiling-and-static-metaprogramming.html) by Patrick Dubroy
 
-## Master the Art of the AST: More Advanced Examples of AST TRansformations
-
-* [More Advanced examples from the talk *Master the Art of the AST*](master-the-art-of-the-ast)
 
 
 ## References
 
+* [Repo ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk)
+* [crguezl/hello-jison](https://github.com/crguezl/hello-jison)
 * [Espree](https://github.com/eslint/espree)
   * [Options for parse and tokenize methods](https://github.com/eslint/espree#options)
 * <a href="https://astexplorer.net/" target="_blank">astexplorer.net demo</a>
 * [idgrep.coffee](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk/blob/master/idgrep.coffee)
+* [More Advanced examples from the talk *Master the Art of the AST*](master-the-art-of-the-ast)
