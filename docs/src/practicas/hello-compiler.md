@@ -1,5 +1,5 @@
 ---
-title: "Lunar to JS"
+title: "A Hello World Translator"
 published: false
 date: 2022/02/21
 delivery: "2022/03/03"
@@ -14,21 +14,21 @@ rubrica:
   - El <code>package.json</code> tiene scripts para ejecutar el programa
 ---
 
-# Práctica {{ $frontmatter.title }}
+# {{ $frontmatter.title }}
 
 ## Descripción de la Tarea
 
 Let us consider a notation of arithmetic in which the addition and multiplication operations on numbers are defined as the `max` and `min` operations. Thus, with this notation
 
-$$12 + 7=\max\{12,7\}=12$$ 
+$$12 @ 7=\max\{12,7\}=12$$ 
 
 and
 
-$$12 * 7=\min\{12,7\}=7$$
+$$12 \& 7=\min\{12,7\}=7$$
 
-Escriba un traductor de estas expresiones aritméticas a un programa JavaScript que las compute.
+Escriba un traductor de estas expresiones aritméticas a un programa JavaScript que las compute y las imprima.
 
-Por ejemplo, la entrada `234 + 325 *  57` debería ser traducida al siguiente código JS:
+Donde el mínimo tiene mas prioridad que el máximo. Por ejemplo, la entrada $234 @ 325 \&  57$ debería ser traducida al siguiente código JS:
 
 ```js
 console.log(Math.max(234, Math.min(325,57)))
@@ -37,7 +37,8 @@ console.log(Math.max(234, Math.min(325,57)))
 Para ello 
 
 1. Escriba un programa Jison que produzca un AST Espree conteniendo el correspondiente código JS. A continuación 
-2. Utilice [escodegen.generate(ast)](https://github.com/estools/escodegen) para generar el código JS. 
+2. Utilice [escodegen.generate(ast)](https://github.com/estools/escodegen) para generar el código JS
+3. Añada paréntesis al lenguaje para que se pueda alterar la prioridad por defecto: $$3\&(22@4) = 3$$ 
 
 ## References
 
