@@ -129,6 +129,9 @@ module.exports = {
       },
     ],
   ],
+  markdown: {
+    lineNumbers: true,
+  },
   extendMarkdown: (md) => { // See https://github.com/vuejs/vuepress/issues/222#issuecomment-874001675
     // use more markdown-it plugins!
     md.use(

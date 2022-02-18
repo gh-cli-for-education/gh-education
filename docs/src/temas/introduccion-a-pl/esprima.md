@@ -184,10 +184,12 @@ mas evidente como el objeto describe la jerarquía AST construída para la frase
 
 ```mermaid
 graph TB
+  subgraph AST for 'answer = 42'
     A((Program))-->|"body [Node]"| B((VariableDeclaration))
     B-->|"declarations [Node]"| C((VariableDeclarator))
     C-->|"id Node"| D(("id name='answer'"))
     C-->|"init Node"| E(("Literal value=42"))
+  end
 ```
 
 ### Tipos de Nodos y nombres de los hijos
@@ -223,7 +225,7 @@ Usando la herramienta web **[https://astexplorer.net](https://astexplorer.net)**
 * <a href="https://astexplorer.net/#/gist/b5826862c47dfb7dbb54cec15079b430/latest" target="_blank">AST de <code>answer = 42</code></a> en [https://astexplorer.net](https://astexplorer.net)
 * <a href="https://astexplorer.net/" target="_blank">astexplorer.net demo</a>
 
-## Espree Simple Example: Searching for Specific Identifiers
+## Espree Simple Example: Traversing the AST
 
 The file [idgrep.js](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk/blob/master/idgrep.js) is a very simple example of using Esprima
 to do static analysis on JavaScript code.
@@ -231,83 +233,48 @@ to do static analysis on JavaScript code.
 It provides a function `idgrep` that finds the appearances of identifiers matching a search string inside the input code.
 
 ```js
-const fs = require('fs');
-const esprima = require('espree');
-const program = require('commander');
-const { version, description } = require('./package.json');
-const estraverse = require('estraverse');
-
-const idgrep = function (pattern, code, filename) {
-    const lines = code.split('\n');
-    const ast = esprima.parse(code, {
-        ecmaVersion: 6,
-        loc: true,
-        range: true
-    });
-    estraverse.traverse(ast, {
-        enter: function (node, parent) {
-            if (node.type === 'Identifier' && node.name.indexOf(pattern) >= 0) {
-                let loc = node.loc.start;
-                let line = loc.line - 1;
-                console.log(`file ${filename}: line ${line}: col: ${loc.column} text: ${lines[line]}`);
-            }
-        }
-    });
-};
-
-
-program.parse(process.argv);
-
-program
-    .version(version)
-    .description(description)
-    .usage('[options] <filename> [...]');
-
-
-let inputFilename = program.args.shift();
-try {
-    if (inputFilename) {
-        fs.readFile(inputFilename, 'utf8', (err, input) => {
-            debugger;
-            if (err) throw `Error reading '${inputFilename}':${err}`;
-            idgrep('hack', input, inputFilename);
-        })
-    } else {
-        program.help();
-    }
-} catch (e) {
-    console.log(`Errores! ${e}`);
-}
+!!!include(temas/introduccion-a-pl/code-examples/idgrep.js)!!!
 ```
 
-Given an input like this:
+
+Examples of executions.
+
+With several input files:
 
 ```
-➜  esprima-pegjs-jsconfeu-talk git:(master) cat hacky.js 
-```
-```js
-// This is a hack!
-const hacky = () => {
-    let hack = 3;
-    return 'hacky string';
-}
+➜  esprima-pegjs-jsconfeu-talk git:(private) ✗ ./idgrep.js  espree-logging-solution.js hello-ast-espree.js -p ast
+file espree-logging-solution.js: line 13: col: 10 text:     estraverse.traverse(ast, {
+file espree-logging-solution.js: line 14: col: 24 text:         enter: function(node) {
+file espree-logging-solution.js: line 23: col: 30 text: }
+file hello-ast-espree.js: line 3: col: 6 text: function getAnswer() {
+file hello-ast-espree.js: line 8: col: 25 text: undefined
 ```
 
-if we search for `hack` it produces:
+With a single file and testing [hacky.js](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk/blob/406ebd2a9d75c5fe93d1dbcce71b30e3f67490d9/hacky.js) (Observe how the appearances of `hack` inside the comment or the string aren't shown)
 
 ```
-➜  esprima-pegjs-jsconfeu-talk git:(master) ./idgrep.js hacky.js
-1:6: const hacky = () => {
-2:8:     let hack = 3;
+➜  esprima-pegjs-jsconfeu-talk git:(private) ✗ ./idgrep.js -p hac hacky.js                                       
+file hacky.js: line 2: col: 6 text:     /* This hack does not count */
+file hacky.js: line 4: col: 8 text:     let another = 9;
 ```
 
-Observe how the appearances of `hack` inside the comment or the string aren't shown
+When the file doesn't exist:
 
-## Práctica Espree Logging
+```
+➜  esprima-pegjs-jsconfeu-talk git:(private) ✗ ./idgrep.js fhjdfjhdsj     
+
+/Users/casianorodriguezleon/campus-virtual/shared/esprima-pegjs-jsconfeu-talk-labs/esprima-pegjs-jsconfeu-talk/idgrep.js:45
+      if (err) throw `Error reading '${inputFilename}':${err}`;
+               ^
+Error reading 'fhjdfjhdsj':Error: ENOENT: no such file or directory, open 'fhjdfjhdsj'
+(Use `node --trace-uncaught ...` to show where the exception was thrown)
+```
+
+## Transforming the AST. The Lab Espree Logging
 
 * [Descripción de la Práctica Espree Logging](/practicas/esprima-logging)
 
-## Syntax Analysis: PEG.js Example
+## How to build a Parser 
 
 ### First Steps on Building a Parser with Jison
 
@@ -326,7 +293,6 @@ See the examples in the repo [crguezl/hello-jison](https://github.com/crguezl/he
 
 [altjs.js](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk/blob/master/altjs.js) is the code for the "AltJS language in 5 minutes" section
 presented in the second half of the [talk Parsing, Compiling, and Static Metaprogramming](http://2013.jsconf.eu/speakers/patrick-dubroy-parsing-compiling-and-static-metaprogramming.html) by Patrick Dubroy
-
 
 
 ## References

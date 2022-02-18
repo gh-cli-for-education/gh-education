@@ -5,6 +5,7 @@ date: 2022/02/21
 delivery: "2022/03/03"
 order: 7
 layout: Practica
+sidebar: false
 prev: "esprima-logging.md"
 rubrica:
   - "Opciones en línea de comandos (-o, -V, -h, etc.)"
