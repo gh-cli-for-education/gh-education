@@ -39,7 +39,7 @@ console.log(Math.max(234, Math.min(325,57)))
 
 Para ello 
 
-1. Escriba un programa Jison que produzca un AST compatible Espree conteniendo el correspondiente código JS. A continuación 
+1. Escriba un programa [Jison](/temas/syntax-analysis/analisis-LR/#introduccion-al-analisis-lr) que produzca un AST compatible Espree conteniendo el correspondiente código JS. A continuación 
 2. Utilice [escodegen.generate(ast)](https://github.com/estools/escodegen) para generar el código JS
 
 ## Paréntesis
@@ -57,7 +57,7 @@ Añada [pruebas](/temas/introduccion-a-javascript/pruebas) usando [Mocha y Chai]
 
 ## Continuous Integration
 
-Añada Integración ontínua usando [GitHub Actions](/temas/introduccion-a-javascript/github-actions)
+Añada Integración contínua usando [GitHub Actions](/temas/introduccion-a-javascript/github-actions)
 
 ## References
 
@@ -69,6 +69,7 @@ Añada Integración ontínua usando [GitHub Actions](/temas/introduccion-a-javas
 * [Escodegen repo en GitHub](https://github.com/estools/escodegen)
   - [Escodegen API Doc](https://github.com/estools/escodegen/wiki/API)
 * [Análisis Sintáctico Ascendente en JavaScript](http://crguezl.github.io/pl-html/node43.html)
+* [Jison](/temas/syntax-analysis/analisis-LR/#introduccion-al-analisis-lr)
 * [Jison Documentation](https://gerhobbelt.github.io/jison/docs//)
 * [Folder jison/examples from the Jison distribution](https://github.com/zaach/jison/tree/master/examples)
 * [Jison Debugger](https://nolanlawson.github.io/jison-debugger/)

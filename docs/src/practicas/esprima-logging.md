@@ -6,6 +6,7 @@ delivery: "2022/02/24"
 order: 6
 layout: Practica
 prev: "iaas.md"
+next: "hello-compiler.md"
 rubrica:
   - "Opciones en línea de comandos (-o, -V, -h, etc.)"
   - "Añade mensajes de logs a la entrada de las <code>function()</code>"
