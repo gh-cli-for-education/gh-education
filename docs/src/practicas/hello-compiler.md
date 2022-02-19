@@ -13,6 +13,7 @@ rubrica:
   - "Refleja la asociatividad y prioridad de operaciones correcta"
   - Da información correcta de los números de línea
   - El <code>package.json</code> tiene scripts para ejecutar el programa
+  - Ha añadido tests suficientes
 ---
 
 # {{ $frontmatter.title }}
@@ -39,12 +40,19 @@ Para ello
 
 1. Escriba un programa Jison que produzca un AST compatible Espree conteniendo el correspondiente código JS. A continuación 
 2. Utilice [escodegen.generate(ast)](https://github.com/estools/escodegen) para generar el código JS
-3. Añada paréntesis al lenguaje para que se pueda alterar la prioridad por defecto: $$3\&(22@4) = 3$$ 
+
+## Paréntesis
+
+Añada paréntesis al lenguaje para que se pueda alterar la prioridad por defecto. Por ejemplo $$3\&(22@4) = 3$$ 
+debería traducirse por:
    
-   ```
-    ➜  (master) npm run mmt "3&(22@4)"        
-    console.log(Math.min(3, Math.max(22, 4)));
-  ```
+```js
+console.log(Math.min(3, Math.max(22, 4)));
+```
+
+## Pruebas
+
+Añada pruebas usando Mocha y Chai o Jest
 
 ## References
 
