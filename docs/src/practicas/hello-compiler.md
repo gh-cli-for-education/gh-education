@@ -5,18 +5,19 @@ date: 2022/02/21
 delivery: "2022/03/03"
 order: 7
 layout: Practica
-sidebar: false
+sidebar: auto
 prev: "esprima-logging.md"
 rubrica:
   - "Opciones en línea de comandos (-o, -V, -h, etc.)"
-  - "Traduce correctamente de Lunar a JS"
+  - "Traduce correctamente las expresiones fuente a JS"
   - "Refleja la asociatividad y prioridad de operaciones correcta"
-  - Da información correcta de los números de línea
+  - Se han añadido paréntesis   y funcionan correctamente
   - El <code>package.json</code> tiene scripts para ejecutar el programa
   - Ha añadido tests suficientes
+  - Se hace integración Continua usando GitHub Actions
 ---
 
-# {{ $frontmatter.title }}
+# A Hello World Translator
 
 ## Descripción de la Tarea
 
@@ -52,7 +53,11 @@ console.log(Math.min(3, Math.max(22, 4)));
 
 ## Pruebas
 
-Añada pruebas usando Mocha y Chai o Jest
+Añada [pruebas](/temas/introduccion-a-javascript/pruebas) usando [Mocha y Chai](/temas/introduccion-a-javascript/mocha) o [Jest](/temas/introduccion-a-javascript/jest)
+
+## Continuous Integration
+
+Añada Integración ontínua usando [GitHub Actions](/temas/introduccion-a-javascript/github-actions)
 
 ## References
 
