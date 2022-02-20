@@ -1,6 +1,6 @@
 ---
 title: "A Hello World Translator"
-published: false
+published: true
 date: 2022/02/21
 delivery: "2022/03/03"
 order: 7
@@ -12,8 +12,10 @@ rubrica:
   - "Traduce correctamente las expresiones fuente a JS"
   - "Refleja la asociatividad y prioridad de operaciones correcta"
   - Se han añadido paréntesis   y funcionan correctamente
+  - Maneja números en punto flotante
   - El <code>package.json</code> tiene scripts para ejecutar el programa
   - Ha añadido tests suficientes
+  - Se añade un estudio de cubrimiento de las pruebas (coverage)
   - Se hace integración Continua usando GitHub Actions
 ---
 
@@ -50,6 +52,10 @@ debería traducirse por:
 ```js
 console.log(Math.min(3, Math.max(22, 4)));
 ```
+
+## Floats
+
+Extend the regular expression in the lexical analyzer to cover floating point numbers
 
 ## Pruebas
 
