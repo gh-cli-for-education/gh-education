@@ -1,5 +1,5 @@
 ---
-title: "A Hello World Translator"
+title: "Hello Compilers"
 published: true
 date: 2022/02/21
 delivery: "2022/03/03"
@@ -19,7 +19,7 @@ rubrica:
   - Se hace integración Continua usando GitHub Actions
 ---
 
-# A Hello World Translator
+# Hello Compilers
 
 ## Descripción de la Tarea
 

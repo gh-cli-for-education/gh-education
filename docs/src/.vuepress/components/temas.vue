@@ -1,9 +1,24 @@
 <template>
   <div>
     <ul>
-      <li><a href="/temas/introduccion-a-pl">Introducción a PL</a></li>
-      <li><a href="https://docs.google.com/presentation/d/1N8h99dXzud9HzH8XY6QCZSmATCAWXtZebuqRTiy8qMU/edit?usp=sharing">Introducción to Compilers</a></li>
-      <li><a href="/temas/introduccion-a-pl/esprima.html">First Examples with Espree</a></li>
+      <div v-for="(tema, index) in temas" :key="tema.link">
+        <li  v-if="index < temas.length-1">
+          <a :href="tema.link">{{tema.text}}</a>
+        </li>
+      </div>
+
     </ul>
   </div>
 </template>
+
+<script>
+import themes from '../temas-publicados.js'
+export default {
+  data() {
+    return {
+      temas: themes
+    }
+  },
+  
+}
+</script>

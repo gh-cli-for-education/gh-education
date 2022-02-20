@@ -1,4 +1,5 @@
 ---
+next: github-actions
 ---
 
 # Pruebas, Integración y Calidad
@@ -32,11 +33,6 @@ Mocking means creating a fake version of an external or internal service that ca
 Stubbing, like mocking, means creating a stand-in, but a stub only mocks the behavior, but not the entire object. This is used when your implementation only interacts with a certain behavior of the object.
 
 
-## GitHub Actions
-
-* [GitHub Actions](github-actions)
-
-
 ## Referencias
 
 * Mas sobre [Mocha](mocha) en estos apuntes
@@ -48,7 +44,7 @@ Stubbing, like mocking, means creating a stand-in, but a stub only mocks the beh
 * [Side effects of stubbing console in tests](https://gyandeeps.com/console-stubbing/)
 * [Unit Test like a Secret Agent with Sinon.js](http://elijahmanor.com/unit-test-like-a-secret-agent-with-sinon-js/) by Elijah Manor
 
-### Apuntes del curso 16/17 sobre Herramientas para Pruebas
+## Apuntes del curso 16/17 sobre Herramientas para Pruebas
 
 * [Sección Pruebas en los Apuntes del curso 16/17](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/apuntes/pruebas/)
   * [Mocha](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/apuntes/pruebas/mocha.html)
@@ -61,12 +57,12 @@ Stubbing, like mocking, means creating a stand-in, but a stub only mocks the beh
   * [Istanbul](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/apuntes/pruebas/istanbul.html)
   * [BrowserSync](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/apuntes/pruebas/browsersync.html)
 
-### Travis
+## Travis
 
 * Mas en estos apuntes sobre [Travis](travis)
 * [Travis en los apuntes del curso 16/17](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/apuntes/pruebas/travis.html)
 
-### Antiguos Apuntes sobre Pruebas en el Navegador/Browser
+## Antiguos Apuntes sobre Pruebas en el Navegador/Browser
 
 * [Learning JavaScript Test-Driven Development by Example](https://www.sitepoint.com/learning-javascript-test-driven-development-by-example/) SitePoint Tutorial
 * [Mocha y Chai en el navegador. Apuntes del curso 15/16](https://casianorodriguezleon.gitbooks.io/pl1516/content/practicas/mochachaisinon.html)
