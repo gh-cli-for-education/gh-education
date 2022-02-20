@@ -1,6 +1,45 @@
 ---
-next: github-actions
+title: Pruebas, Integración y Calidad
+order: 5
 ---
+
+<script>
+  import * as Temas from '@config/temas-publicados.js'
+  
+  console.log(Temas);
+  
+  export default {
+    data() {
+      return {
+        temas: Temas
+      }
+    },
+    computed: {
+      order() {
+        return this.front.order;
+      },
+      front() {
+        return this.$page.frontmatter
+      },
+    },
+    methods: {
+      nextTheme() {
+        this.front.prev = this.temas[this.order-1].link;
+        this.front.next = this.temas[this.order+1].link;
+        return '';
+      },
+    },
+
+  }
+
+</script>
+
+<pre style="color: white">
+
+{{ nextTheme() }}
+
+
+</pre>
 
 # Pruebas, Integración y Calidad
 

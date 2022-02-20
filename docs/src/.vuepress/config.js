@@ -37,6 +37,7 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
+        '@config': '/Users/casianorodriguezleon/campus-virtual/2122/pl2122/pl2122apuntes/docs/src/.vuepress',
       }
     }
   },
