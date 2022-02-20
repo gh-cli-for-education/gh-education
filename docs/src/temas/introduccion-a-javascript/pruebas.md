@@ -1,45 +1,21 @@
 ---
 title: Pruebas, Integración y Calidad
-order: 5
 ---
 
 <script>
   import * as Temas from '@config/temas-publicados.js'
   
-  console.log(Temas);
-  
+  //console.log(Temas);
   export default {
-    data() {
-      return {
-        temas: Temas
-      }
-    },
-    computed: {
-      order() {
-        return this.front.order;
+      created() {
+        let index = Temas.findIndex(t => t.link == this.$page.path);
+        //console.log(index);
+        if (index > 0) this.$frontmatter.prev = Temas[index-1].link;
+        if (index < Temas.length-1) this.$frontmatter.next = Temas[index+1].link;
       },
-      front() {
-        return this.$page.frontmatter
-      },
-    },
-    methods: {
-      nextTheme() {
-        this.front.prev = this.temas[this.order-1].link;
-        this.front.next = this.temas[this.order+1].link;
-        return '';
-      },
-    },
-
+  
   }
-
 </script>
-
-<pre style="color: white">
-
-{{ nextTheme() }}
-
-
-</pre>
 
 # Pruebas, Integración y Calidad
 
