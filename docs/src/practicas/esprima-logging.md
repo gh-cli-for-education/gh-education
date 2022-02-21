@@ -382,3 +382,5 @@ test/test3.js  was successful
   * [Options for parse and tokenize methods](https://github.com/eslint/espree#options)
 * [Escodegen repo en GitHub](https://github.com/estools/escodegen)
   - [Escodegen API Doc](https://github.com/estools/escodegen/wiki/API)
+* [Estraverse Usage](https://github.com/estools/estraverse/wiki/Usage)
+  * [Estraverse README.md](https://github.com/estools/estraverse)
