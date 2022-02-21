@@ -225,7 +225,7 @@ Usando la herramienta web **[https://astexplorer.net](https://astexplorer.net)**
 * <a href="https://astexplorer.net/#/gist/b5826862c47dfb7dbb54cec15079b430/latest" target="_blank">AST de <code>answer = 42</code></a> en [https://astexplorer.net](https://astexplorer.net)
 * <a href="https://astexplorer.net/" target="_blank">astexplorer.net demo</a>
 
-## Espree Simple Example: Traversing the AST
+## Traversing the AST
 
 The file [idgrep.js](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk/blob/master/idgrep.js) is a very simple example of using Esprima
 to do static analysis on JavaScript code.
@@ -239,10 +239,10 @@ It provides a function `idgrep` that finds the appearances of identifiers matchi
 
 Examples of executions.
 
-With several input files:
+With two input files:
 
 ```
-➜  esprima-pegjs-jsconfeu-talk git:(private) ✗ ./idgrep.js  espree-logging-solution.js hello-ast-espree.js -p ast
+➜ (private) ✗ ./idgrep.js  espree-logging-solution.js hello-ast-espree.js -p ast
 file espree-logging-solution.js: line 13: col: 10 text:     estraverse.traverse(ast, {
 file espree-logging-solution.js: line 14: col: 24 text:         enter: function(node) {
 file espree-logging-solution.js: line 23: col: 30 text: }
