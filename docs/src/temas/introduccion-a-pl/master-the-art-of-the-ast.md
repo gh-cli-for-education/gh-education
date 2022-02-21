@@ -88,9 +88,9 @@ Execution:
 a = 17 + b;
 ```
 
-## Talk *Master the Art of the AST and Take Control of Your JS* by Yonatan Mevorach
+##  Master the AST
 
-* [Master the Art of the AST and Take Control of Your JS][ast]  by Yonatan Mevorach. 
+* Talk [Master the Art of the AST and Take Control of Your JS][ast]  by Yonatan Mevorach. 
     - [Here are the slides](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk-private/blob/private/ast-talk-codemotion-170406094223.pdf)
 
 * [Here is another version of the talk at Javascript Israel](https://500tech.com/blog/all/yonatan-mevorach-on-abstract-syntax-trees) 
