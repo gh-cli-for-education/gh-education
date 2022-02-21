@@ -227,6 +227,8 @@ Usando la herramienta web **[https://astexplorer.net](https://astexplorer.net)**
 
 ## Traversing the AST
 
+### Traversing with estraverse
+
 The file [idgrep.js](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk/blob/master/idgrep.js) is a very simple example of using Esprima
 to do static analysis on JavaScript code.
 
@@ -304,3 +306,7 @@ presented in the second half of the [talk Parsing, Compiling, and Static Metapro
 * <a href="https://astexplorer.net/" target="_blank">astexplorer.net demo</a>
 * [idgrep.js](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk/blob/master/idgrep.js)
 * [Master the Art of the AST](master-the-art-of-the-ast)
+* [Awesome AST](https://github.com/cowchimp/awesome-ast)  A repo like [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
+* ESQuery is a library for querying the AST output by Esprima for patterns of syntax using a CSS style selector system. 
+  * [esquery](https://github.com/estools/esquery) repo at GitHub
+  * Check out the [Demo](http://estools.github.io/esquery/)
