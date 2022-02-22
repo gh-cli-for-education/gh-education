@@ -5,7 +5,7 @@
 
 ## Constant Folding
 
-The following code uses estraverse to implement the AST tree transformation [Constant Folding](https://en.wikipedia.org/wiki/Constant_folding). **Constant folding** is the process of recognizing and evaluating constant expressions at compile time rather than computing them at runtime. 
+The following code uses estraverse to implement a simplified version of the AST tree transformation knwon as [Constant Folding](https://en.wikipedia.org/wiki/Constant_folding). **Constant folding** is the process of recognizing and evaluating constant expressions at compile time rather than computing them at runtime. 
 
 ```js
 const fs = require("fs");
