@@ -3,6 +3,7 @@
         <li v-for="page in classFiles" :key="page.key"> <a :href="path.basename(page.path)">{{ page.title }}</a> 
         <ul>
           <li>{{ page.frontmatter.summary }}</li>
+          <li v-if="page.frontmatter.video"><a :href="page.frontmatter.video">Vídeo</a></li>
         </ul>
         </li>
     </ol>

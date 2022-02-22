@@ -87,8 +87,14 @@ const navigationBar = [
     items: [
       {text: 'Meet', link: 'https://meet.google.com/eha-yfij-zmo'},
       {text: 'Chat', link: 'https://mail.google.com/chat/u/1/#chat/welcome'},
-      {text: 'Vídeos', link: 'https://www.youtube.com/playlist?list=PLuPGCp-dfrUTzN_o2beArY1QoFUTGH-yd'},
-
+      {
+        text: 'Vídeos', 
+        items: [
+          { text: '21/22', link: 'https://youtube.com/playlist?list=PLuPGCp-dfrUQbbnbT_8qHK1WQYurYwBEY' },
+          { text: '20/21', link: 'https://www.youtube.com/playlist?list=PLuPGCp-dfrUTzN_o2beArY1QoFUTGH-yd'},
+          { text: '19/20', link: 'https://youtube.com/playlist?list=PLuPGCp-dfrUTByhC5b9vInei9OzdYSBs7' }
+        ]
+      }
     ]
   }
 ];
