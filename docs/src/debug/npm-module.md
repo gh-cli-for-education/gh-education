@@ -8,7 +8,7 @@ rubrica:
   - Se ha extendido con la opción `--pattern` 
   - El módulo exporta las funciones adecuadas
   - Contiene suficientes tests 
-  - "Opcional: estudio de covering"
+  - "Estudio de covering"
   - Se ha hecho CI con GitHub Actions
   - Los informes están bien presentados
   - "La documentación es completa: API, ejecutable, instalación, etc." 
@@ -23,6 +23,7 @@ rubrica:
 
 See <https://github.com/babel/minify/tree/master/packages/babel-plugin-minify-constant-folding>
 if you are considering constant folding
+
 
 
 ## Objetivos

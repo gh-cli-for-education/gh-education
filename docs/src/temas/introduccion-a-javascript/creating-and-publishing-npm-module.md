@@ -2,6 +2,8 @@
 title: Creating and Publishing a Node.js Module in GitHub and NPM Registries
 ---
 
+# Creating and Publishing a Node.js Module in GitHub and NPM Registries
+
 Creating a node module and publishing it to npm is a fairly
 straightforward process. Haven't done it yet? Not sure what I'm talking
 about? Here's a quick tutorial to speed you along.
@@ -600,10 +602,9 @@ project, so we'll add a `README.md`, using markdown syntax. Using
 markdown is a good idea because it will be nicely displayed on both
 Github and npm.
 
-```
-  Scapegoat
-  =========
-
+```md
+  # Scapegoat
+  
   A small library providing utility methods to `escape` and `unescape` HTML entities
 
   ## Installation
@@ -638,7 +639,7 @@ Github and npm.
 
 ### Documenting the JavaScript Sources
 
-{%  include documentation-guide.md  %}
+!!!include(temas/introduccion-a-javascript/documentation-guide.md)!!!
 
 #### References
 
@@ -1062,11 +1063,11 @@ If you publish it on the npm website, go find your module on the <http://npmjs.o
 
 If you use GitHub Registry go to the github repo page:
 
-![](view-package-on-github.png)
+![](./view-package-on-github.png)
 
 and click on the package icon. You'll get s.t. like this:
 
-![](view-package-lexer-generator.png)
+![](./view-package-lexer-generator.png)
 
 #### Viewing an organization's packages
 
@@ -1076,7 +1077,7 @@ You can see all the packages installed in an organization and search for a speci
 2. On the left side of your profile page, under "Organizations", click the icon for your organization.
 3. Under your organization name, click the Packages icon. 
 
-   ![](organization-packages.png)
+   ![](./organization-packages.png)
 
 4. Click the name of the package that you want to view.
 
@@ -1494,7 +1495,7 @@ Submódulo 'test-lexer-generator' (git@github.com:ULL-ESIT-PL-1920/test-lexer-ge
 The command `git submodule init` initialize the submodules recorded in the index by setting
 `submodule.$name.url` in `.git/config`. It uses the same setting from `.gitmodules` as a template:
 
-```
+```ini
 [~/.../project-lexer-generator(master)]$ cat .git/config
 [core]
 	repositoryformatversion = 0
