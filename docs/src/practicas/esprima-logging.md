@@ -373,6 +373,16 @@ test/test2.js  was successful
 test/test3.js  was successful
 ```
 
+## Cuestionario
+
+En la práctica de esta semana (y en futuras prácticas) tendremos que realizar un cuestionario. 
+Este cuestionario se realiza bajo las siguientes condiciones:
+
+* Aprobar este cuestionario es requisito para la corrección de la práctica. En caso de suspenderse, la práctica se considerará **NO APTA**.
+* Posee un tiempo límite desde que se inicia el cuestionario. 
+* Sólo está permitido 1 intento.
+* Una pregunta sin respuesta se considerará errónea.
+
 ## References
 
 * Repo [crguezl/espree-logging-template](https://github.com/crguezl/espree-logging-template) usado como template para esta práctica. 
