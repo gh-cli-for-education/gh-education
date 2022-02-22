@@ -115,7 +115,7 @@ a = 17 + b;
 
 ### Codemod
 
-[Codemod](https://github.com/facebookarchive/codemod) is a tool/library developed by FaceBook to assist you with large-scale codebase refactors that can be partially automated but still require human oversight and occasional intervention. 
+[Codemod](https://github.com/facebookarchive/codemod) is a tool/library developed by FaceBook to assist you with large-scale codebase refactors that can be partially automated but still require human oversight and occasional intervention. [Code refactoring](https://en.wikipedia.org/wiki/Code_refactoring) is the process of restructuring existing computer code—changing the factoring—without changing its external behavior.
 
 Example: Let's say you're deprecating your use of the `<font>` tag.  From the command line, you might make progress by running:
 
@@ -125,13 +125,17 @@ Example: Let's say you're deprecating your use of the `<font>` tag.  From the co
 
 For each match of the regex, you'll be shown a colored diff, and asked if you want to accept the change (the replacement of the `<font>` tag with a `<span>` tag), reject it, or edit the line in question in your `$EDITOR` of choice.
 
-Codemods are scripts used to rewrite other scripts. Think of them as a find and replace functionality that can read and write code. You can use them to update source code to fit a team’s coding conventions, make widespread changes when an API is modified, or even auto-fix existing code when your public package makes a breaking change.
+Codemods are scripts used to rewrite other scripts. Think of them as a find and replace functionality that can read and write code. You can use them to 
+1. update source code to fit a team’s coding conventions, 
+2. make widespread changes when an API is modified, or 
+3. even auto-fix existing code when your public package makes a breaking change.
+4. ...
+
 
 ### JSCodeshift 
 
 <a href="https://github.com/facebook/jscodeshift" target="_blank">JSCodeshift</a> is a toolkit for running codemods over multiple JavaScript or
 TypeScript files.
-It provides:
 
 
 The jscodeshift toolkit allows you to pump a bunch of source files through a transform and replace them with what comes out the other end. Inside the transform, you parse the source into an abstract syntax tree (AST), poke around to make your changes, then regenerate the source from the altered AST.
