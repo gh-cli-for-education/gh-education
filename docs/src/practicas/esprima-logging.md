@@ -336,6 +336,10 @@ Entering <anonymous function>(2) at line 3
 
 ## Recursos
 
+###  The Shape of the AST for console.log
+
+!!!include(practicas/the-shape-of-the-ast.md)!!!
+
 ### Material para la Práctica
 
 * En el [Repo ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk) encontrará material para esta práctica

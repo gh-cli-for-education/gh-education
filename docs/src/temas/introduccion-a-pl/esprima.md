@@ -180,7 +180,7 @@ undefined
 ### El Objeto AST generado por el parser de Espree
 
 Ves que el objeto está compuesto de objetos de la clase `Node`. Si te concentras sólo en los campos `type` del objeto queda 
-mas evidente como el objeto describe la jerarquía AST construída para la frase `answer = 42`. En las etiquetas de als aristas he puesto los nombres de los atributos y el tipo (`[Node]` para indicar array de objetos `Node`)
+mas evidente como el objeto describe la jerarquía AST construída para la frase `answer = 42`. En las etiquetas de las aristas he puesto los nombres de los atributos y el tipo (`[Node]` para indicar array de objetos `Node`)
 
 ```mermaid
 graph TB
