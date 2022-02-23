@@ -39,14 +39,7 @@ Jest también proporciona [snapshots testing](https://jestjs.io/docs/en/snapshot
 
 * [Getting Started](https://jestjs.io/docs/en/getting-started)
 
-## Mocking 
-
-Mocking means creating a fake version of an external or internal service that can stand in for the real one, helping your tests run more quickly and more reliably. **When your implementation interacts with an object’s properties, rather than its function or behavior, a mock can be used**.
-
-## Stubbing 
-
-Stubbing, like mocking, means creating a stand-in, but **a stub only mocks the behavior, but not the entire object**. This is used when your implementation only interacts with a certain behavior of the object.
-
+!!!include(temas/introduccion-a-javascript/mocking-stubbing.md)!!!
 
 ## Referencias
 

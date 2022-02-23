@@ -21,6 +21,11 @@ rubrica:
 
 # Hello Compilers
 
+Antes de emprender esta práctica, asegúrese de entender los dos ejemplos de parser generator en el repo [crguezl/hello-jison](https://github.com/crguezl/hello-jison). Los ejemplos incluyen 
+1. Un evaluador de expresiones aritméticas de restas (ficheros `minus-ast.jison`, `minus.l` y `use-ast.js`) y 
+2. Un traductor a JS de expresiones aritméticas de restas (ficheros `minus-ast.jison`, `ast-build.js`, `minus.l` y `use-ast.js`)
+
+
 ## Descripción de la Tarea
 
 Let us consider a notation of arithmetic in which the `@` and `&` symbols on numbers are defined as the `max` and `min` operations. Thus, with this notation
@@ -53,13 +58,15 @@ debería traducirse por:
 console.log(Math.min(3, Math.max(22, 4)));
 ```
 
-## Floats
+## Challenge: Floats
 
 Extend the regular expression in the lexical analyzer to cover floating point numbers
 
 ## Pruebas
 
 Añada [pruebas](/temas/introduccion-a-javascript/pruebas) usando [Mocha y Chai](/temas/introduccion-a-javascript/mocha) o [Jest](/temas/introduccion-a-javascript/jest)
+
+!!!include(temas/introduccion-a-javascript/mocking-stubbing.md)!!!
 
 ## Continuous Integration
 
