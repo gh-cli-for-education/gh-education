@@ -60,7 +60,90 @@ console.log(Math.min(3, Math.max(22, 4)));
 
 ## Challenge: Floats
 
-Extend the regular expression in the lexical analyzer to cover floating point numbers
+Extend the regular expression in the lexical analyzer to cover floating point numbers like `2.53e-3` or `3e2`.
+
+## Dealing with Ambiguity
+
+You can extend the initial incomplete grammar in the assignment repo this way:
+
+```
+%{
+const { buildLiteral, buildRoot, buildMin } = require('./ast-build');
+%}
+
+%%
+es: e 
+;
+
+e: 
+    e '@' e  
+  | e '&' e  
+  | N        
+  | '(' e ')'
+;
+``` 
+
+The problem with this grammar is that it is ambiguous. Expressions like `2&3@4`  have more than one concrete syntax tree.
+
+On one side:
+
+```mermaid
+graph TB
+  subgraph "AST for '2&3@4'"
+    A((e))--> B((e))
+    A-->C(("&"))
+    A-->D((e))
+    B--> F(("N(2)"))
+    D-->G((e))
+    D-->H(("@"))
+    D-->I((e))
+    G-->K(("N(3)"))
+    I-->L(("N(4)"))
+  end
+```
+
+that will lead to the interpretation `2&(3@4)`; but we have also this other syntax tree:
+
+```mermaid
+graph TB
+  subgraph "Another AST for '2&3@4'"
+    A((e))--> B((e))
+    A-->C(("@"))
+    A-->D((e))
+    B--> F(("N(2)"))
+    D-->G((e))
+    D-->H(("&"))
+    D-->I((e))
+    G-->K(("N(3)"))
+    I-->L(("N(4)"))
+  end
+```
+that leads to the interpretation `(2&3)@4`.
+
+Read the teacher notes on [precedence and associativity](http://crguezl.github.io/pl-html/node57.html) and see the examples in the [Repo crguezl/jison-prec](https://github.com/crguezl/jison-prec).
+
+To break the ambiguity you  have to set that the precedence of the  token `&` is higher that the one of the token `@`. 
+
+You have also to fix the ambiguity for phrases like `2&3&4` and `3@4@5` favouring a left associativity interpretation, i.e. preferring `(2&3)&4` to `2&(3&4)` and `(3@4)@5` to `3@(4@5)`.
+
+1. La precedencia de los tokens se hace en la cabecera del program Jison; esto es: antes del primer `%%`
+2. Los tokens declarados en la misma línea mediante una declaración `%left`o `%right` 
+tienen igual precedencia e igual asociatividad. 
+3. La precedencia es mayor cuanto mas abajo su posición en el texto
+
+Así, en nuestro ejemplo deberíamos poner:
+
+```
+... 
+
+%left @
+%left &
+%%
+es: e 
+;
+
+...
+```
 
 ## Pruebas
 
