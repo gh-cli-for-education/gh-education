@@ -165,7 +165,9 @@ Añada [pruebas](/temas/introduccion-a-javascript/pruebas) usando [Mocha y Chai]
 
 ## Continuous Integration
 
-Añada Integración contínua usando [GitHub Actions](/temas/introduccion-a-javascript/github-actions)
+Añada Integración contínua usando GitHub actions.
+Lea la sección [GitHub Actions](/temas/introduccion-a-javascript/github-actions) de los apuntes.
+
 
 ## References
 
