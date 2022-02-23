@@ -126,8 +126,12 @@ To break the ambiguity you  have to set that the precedence of the  token `&` is
 
 You have also to fix the ambiguity for phrases like `2&3&4` and `3@4@5` favouring a left associativity interpretation, i.e. preferring `(2&3)&4` to `2&(3&4)` and `(3@4)@5` to `3@(4@5)`.
 
+### Breaking Ambiguity in Jison/Eyapp/Yacc/Bison et al. using token precedence 
+
+These is a simplified version of the rules to resolve conflicts and ambiguities in a Yacc-like parser generator:
+
 1. La precedencia de los tokens se hace en la cabecera del program Jison; esto es: antes del primer `%%`
-2. Los tokens declarados en la misma línea mediante una declaración `%left`o `%right` 
+2. Los tokens declarados en la misma línea mediante una declaración `%left` o `%right` 
 tienen igual precedencia e igual asociatividad. 
 3. La precedencia es mayor cuanto mas abajo su posición en el texto
 
