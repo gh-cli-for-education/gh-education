@@ -8,13 +8,36 @@
 The following code uses estraverse to implement a simplified version of the AST tree transformation knwon as [Constant Folding](https://en.wikipedia.org/wiki/Constant_folding). **Constant folding** is the process of recognizing and evaluating constant expressions at compile time rather than computing them at runtime. 
 
 ```js
+// See https://github.com/babel/minify/tree/master/packages/babel-plugin-minify-constant-folding
 const fs = require("fs");
 const deb = require('../src/deb.js');
 const escodegen = require("escodegen");
 const espree = require("espree");
 const estraverse = require("estraverse");
 
-const t = espree.parse('a = 2+3*5+b', { ecmaVersion: 6, loc: false });
+const input = `
+var f = 3+null;
+var e = 4 | 3;
+var d = 3+"c";
+var b = 9 +1;
+var a = 2+3*5+b;
+`;
+
+function replaceByLiteral(n, type) {
+    n.type = "Literal";
+
+    if (type == 'string') 
+      n.value = eval(`"${n.left.value}" ${n.operator} "${n.right.value}"`); //must be in a try catch
+    else 
+      n.value = eval(`${n.left.value} ${n.operator} ${n.right.value}`);
+
+    n.raw = String(n.value);
+
+    delete(n.left);
+    delete(n.right);
+}
+
+const t = espree.parse(input, { ecmaVersion: 6, loc: false });
 //deb(t);
 estraverse.traverse(t, {
   leave: function (n, p) {
@@ -23,70 +46,34 @@ estraverse.traverse(t, {
       n.left.type == "Literal" &&
       n.right.type == "Literal"
     ) {
-        n.type = "Literal";
-        n.value = eval(`${n.left.value} ${n.operator} ${n.right.value}`);
-        n.raw = String(n.value);
-        delete(n.left);
-        delete(n.right);
+        let left = n.left.value;
+        let right = n.right.value;
+        if (typeof left == 'string' || typeof right == 'string') {
+          replaceByLiteral(n, 'string')
+        } else if (typeof left == 'number') { 
+          replaceByLiteral(n, 'number')
+        }
+        else { /* leave it */}
     }
   },
 });
 deb(t);
 let c = escodegen.generate(t);
-console.log(c);
+console.error(c);
 ```
 
 Execution:
 
 ```js
-➜  espree-logging-casiano-rodriguez-leon-alumno5 git:(train) ✗ node src/cf.js
-{
-  "type": "Program",
-  "start": 0,
-  "end": 11,
-  "body": [
-    {
-      "type": "ExpressionStatement",
-      "start": 0,
-      "end": 11,
-      "expression": {
-        "type": "AssignmentExpression",
-        "start": 0,
-        "end": 11,
-        "operator": "=",
-        "left": {
-          "type": "Identifier",
-          "start": 0,
-          "end": 1,
-          "name": "a"
-        },
-        "right": {
-          "type": "BinaryExpression",
-          "start": 4,
-          "end": 11,
-          "left": {
-            "type": "Literal",
-            "start": 4,
-            "end": 9,
-            "operator": "+",
-            "value": 17,
-            "raw": "17"
-          },
-          "operator": "+",
-          "right": {
-            "type": "Identifier",
-            "start": 10,
-            "end": 11,
-            "name": "b"
-          }
-        }
-      }
-    }
-  ],
-  "sourceType": "script"
-}
-a = 17 + b;
+➜  espree-logging-casiano-rodriguez-leon-alumno5 git:(train) ✗ node src/cf.js >salida.json                              
+var f = 3;
+var e = 7;
+var d = '3c';
+var b = 10;
+var a = 17 + b;
 ```
+
+* Vea los contenidos del árbol [salida.json](./cf-salida)
 
 ## Estraverse
 
