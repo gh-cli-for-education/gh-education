@@ -1552,13 +1552,6 @@ And here is the [ULL-ESIT-PL-1920/project-lexer-generator](https://github.com/UL
 
 * [ULL-ESIT-PL-1920/project-lexer-generator](https://github.com/ULL-ESIT-PL-1920/project-lexer-generator)
 
-### Git Submodule Alternatives
-
-After a while searching for alternatives to `git submodules` I found these two tools quite convincing:
-
-* [loop](https://www.npmjs.com/package/loop)
-* [meta](https://www.npmjs.com/package/meta)
-
 
 ## References
 
@@ -1570,8 +1563,6 @@ After a while searching for alternatives to `git submodules` I found these two t
 * [How to install an npm package from GitHub directly?](https://stackoverflow.com/questions/17509669/how-to-install-an-npm-package-from-github-directly) in StackOverflow
 * [Package.json documentation en npm site](https://docs.npmjs.com/files/package.json)
 * [A Simple Guide to Publishing an npm Package](https://medium.com/@TeeFouad/a-simple-guide-to-publishing-an-npm-package-506dd7f3c47a) by Mostafa Fouad
-
-
 
 ### GitHub packages
 
@@ -1601,6 +1592,14 @@ After a while searching for alternatives to `git submodules` I found these two t
 
 * [jq](https://stedolan.github.io/jq/tutorial/) is a DSL to query JSON data 
 * Unix [sed](https://www.gnu.org/software/sed/manual/sed.html)
+* [jless](https://jless.io/) JLess is a command-line JSON viewer designed for reading, exploring, and searching through JSON data
+
+### Alternatives to Manage Multiple Related Projects
+
+* [https://monorepo.tools/](https://monorepo.tools/) A monorepo is a single repository containing multiple distinct related projects
+* [loop](https://www.npmjs.com/package/loop)
+* [meta](https://www.npmjs.com/package/meta)
+
 
 ### Original Scapegoat
 

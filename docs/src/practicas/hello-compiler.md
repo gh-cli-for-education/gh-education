@@ -173,6 +173,7 @@ Lea la sección [GitHub Actions](/temas/introduccion-a-javascript/github-actions
 
 * See the examples in the repo [crguezl/hello-jison](https://github.com/crguezl/hello-jison)
 * [https://astexplorer.net](https://astexplorer.net)
+* [JAVASCRIPT AST VISUALIZER](https://resources.jointjs.com/demos/javascript-ast) jointjs demos
 * [Tipos de Nodos del AST](/temas/introduccion-a-pl/espree-visitorkeys)
 * [Espree](https://github.com/eslint/espree)
   * [Options for parse and tokenize methods](https://github.com/eslint/espree#options)
