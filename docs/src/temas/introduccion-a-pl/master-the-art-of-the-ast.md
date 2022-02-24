@@ -75,9 +75,10 @@ var a = 17 + b;
 
 * Vea los contenidos del árbol [salida.json](./cf-salida)
 
-## Estraverse
 
-* [README.md](https://github.com/estools/estraverse/blob/master/README.md)
+## Transforming the AST. The Lab Espree Logging
+
+* [Descripción de la Práctica Espree Logging](/practicas/esprima-logging)
 
 
 ##  Master the AST
@@ -146,6 +147,11 @@ This will run input-file.js through the transform some-transform.js and print th
 * [recast](https://github.com/benjamn/recast)
 
 ## References
+
+### Estraverse
+
+* [Estraverse README.md](https://github.com/estools/estraverse/blob/master/README.md)
+* Simple examples of AST traversal and transformation [crguezl/ast-traversal](https://github.com/crguezl/ast-traversal)
 
 ### Repositorios interesantes de cowchimp
 
