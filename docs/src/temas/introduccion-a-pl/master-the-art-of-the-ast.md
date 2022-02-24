@@ -135,18 +135,59 @@ The jscodeshift toolkit allows you to pump a bunch of source files through a tra
 
 The interface that jscodeshift provides is a wrapper around [recast](https://github.com/benjamn/recast) and ast-types packages. [recast](https://github.com/benjamn/recast) handles the conversion from source to AST and back while ast-types handles the low-level interaction with the AST nodes.
 
+
 ```
 jscodeshift -t some-transform.js input-file.js -d -p
 ```
 
 This will run input-file.js through the transform some-transform.js and print the results without altering the file.
+
+We can install it globally:
+
+```
+$ npm install -g jscodeshift
+```
+
+For example, the following transformation in file [hello-jscodeshift.js]():
+
+```js
+module.exports = function(fileInfo, api, options) {
+    return api.jscodeshift(fileInfo.source)
+      .findVariableDeclarators('foo')
+      .renameTo('bar')
+      .toSource();
+  }
+```
+
+Changes all the apearances of variable `foo` to `bar`. See the following execution:
+
+```
+➜  hello-jscodeshift git:(master) ✗ cat foo.js 
+var foo = 4;%                                                                                                                   
+➜  hello-jscodeshift git:(master) ✗ jscodeshift -t hello-jscodeshift.js foo.js 
+Processing 1 files... 
+Spawning 1 workers...
+Sending 1 files to free worker...
+All done. 
+Results: 
+0 errors
+0 unmodified
+0 skipped
+1 ok
+Time elapsed: 0.947seconds 
+➜  hello-jscodeshift git:(master) ✗ cat foo.js 
+var bar = 4;
+```
+
+## References
+
+### JSCodeshift
+
 * <a href="https://github.com/facebook/jscodeshift" target="_blank">codeshift at GitHub</a>
 * <a href="https://www.toptal.com/javascript/write-code-to-rewrite-your-code" target="_blank">Write Code to Rewrite Your Code: jscodeshift</a>
 * <a href="https://glebbahmutov.com/blog/jscodeshift-example/" target="_blank">jscodeshift example</a>
 * <a href="https://github.com/cpojer/js-codemod/blob/master/transforms/no-vars.js" target="_blank">jscodeshift cpojer/js-codemod no-vars.js</a>
 * [recast](https://github.com/benjamn/recast)
-
-## References
 
 ### Estraverse
 
