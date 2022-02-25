@@ -104,9 +104,7 @@ var a = 17 + b;
 * <a href="http://docs.w3cub.com/babel/plugins/transform-remove-debugger/" target="_blank">Babel plugin Remove debugger transform. This plugin removes all `debugger;` statements</a>
 * <a href="https://github.com/babel/minify/tree/a24dd066f16db5a7d5ab13c2af65e767347ef550/packages/babel-plugin-transform-remove-debugger" target="_blank">babel-plugin-transform-remove-debugger at GitHub</a>
 
-## jscodeshift example
-
-### Codemod
+## Codemod
 
 [Codemod](https://github.com/facebookarchive/codemod) is a tool/library developed by FaceBook to assist you with large-scale codebase refactors that can be partially automated but still require human oversight and occasional intervention. [Code refactoring](https://en.wikipedia.org/wiki/Code_refactoring) is the process of restructuring existing computer code—changing the factoring—without changing its external behavior.
 
@@ -124,8 +122,165 @@ Codemods are scripts used to rewrite other scripts. Think of them as a find and 
 3. even auto-fix existing code when your public package makes a breaking change.
 4. ...
 
+## ast-types
 
-### JSCodeshift 
+The [ast-types](https://github.com/benjamn/ast-types) module provides an efficient, modular,
+[Esprima](https://github.com/ariya/esprima)-compatible implementation of
+the [abstract syntax tree type hierarchy](http://en.wikipedia.org/wiki/Abstract_syntax_tree)
+pioneered by the [Mozilla Parser API](https://developer.mozilla.org/en-US/docs/SpiderMonkey/Parser_API).
+
+[Here is an example](https://github.com/crguezl/hello-ast-types) of usage:
+
+```js
+import assert from "assert";
+import {
+  namedTypes as n,
+  builders as b,
+} from "ast-types";
+import recast from 'recast';
+```
+
+We have imported the names of the ASTs types in `n` and in `b` the different 
+builders/constructors of AST nodes.
+
+::: danger type: module in your package.json!
+When using node.js with ES6 modules (in current versions of node)
+you have to add an entry `"type": "module"` to the `package.json`:
+:::
+
+```
+➜  hello-ast-types git:(master) ✗ node --version    
+v16.0.0
+➜  hello-ast-types git:(master) ✗ jq '.type, .dependencies' package.json  
+"module"
+{
+  "ast-types": "^0.14.2"
+}
+```
+
+let us build a identifier node and an ifStatement node:
+
+```js
+var fooId = b.identifier("foo");
+debugger;
+var ifFoo = b.ifStatement(
+  fooId, 
+  b.blockStatement([
+    b.expressionStatement(b.callExpression(fooId, []))
+  ])
+);
+```
+
+* Now the `fooId` variable contains an object like `{name: 'foo', loc: null, type: 'Identifier', comments: null, optional: false, …}` and 
+* the `ifFoo` has something like `{test: {…}, consequent: {…}, alternate: null, loc: null, type: IfStatement', …}`
+
+We can use the `recast` method `print`to obtain the corresponding code:
+
+```js
+console.log(recast.print(ifFoo).code);
+``` 
+
+The `ifFoo` AST corresponds to the code:
+
+```js 
+➜  hello-ast-types git:(master) ✗ node index.js
+if (foo) {
+    foo();
+}
+```
+
+The family of objects `n.ASTType` have  check methods:
+
+```js
+assert.ok(n.IfStatement.check(ifFoo));
+assert.ok(n.Statement.check(ifFoo));
+assert.ok(n.Node.check(ifFoo));
+assert.ok(n.BlockStatement.check(ifFoo.consequent));
+```
+
+We can check that the call to `foo()` has no arguments like that:
+
+```js
+assert.strictEqual(
+  ifFoo.consequent.body[0].expression.arguments.length,
+  0,
+);
+```
+
+Here are other checks. The `check` method considers that the 
+node `ifFoo.test` is an `Identifier` and an `Expression` but not a `Statement`
+
+```
+assert.strictEqual(ifFoo.test, fooId);
+assert.ok(n.Expression.check(ifFoo.test));
+assert.ok(n.Identifier.check(ifFoo.test));
+assert.ok(!n.Statement.check(ifFoo.test));
+```
+
+## Recast
+
+See the example [/crguezl/hello-jscodeshift/hello-recast.js](https://github.com/crguezl/hello-jscodeshift/blob/master/hello-recast.js)
+
+This code takes as input the code 
+
+```js 
+  function add(a, b) {
+    return a - b;
+  }
+```
+
+and just for fun switches the parameters and converts the function declaration in a function expression:
+
+```js
+➜  hello-jscodeshift git:(master) ✗ node hello-recast.js 
+
+  var add = function(b, a) {
+    return a - b;
+  };
+```
+
+Here is the code:
+
+```js
+const recast = require("recast");
+const code = `
+  function add(a, b) {
+    return a - b;
+  }
+
+const ast = recast.parse(code);
+const add = ast.program.body[0]; // The node of the add function declaration
+```
+
+See the module [ast-types](https://github.com/benjamn/ast-types) (especially the file [def/core.ts](https://github.com/benjamn/ast-types/blob/master/def/core.ts)) module for a thorough overview of the `ast` API.
+
+```js
+const n = recast.types.namedTypes;
+n.FunctionDeclaration.assert(add);
+
+// If you choose to use recast.builders to construct new AST nodes, all builder
+// arguments will be dynamically type-checked against the Mozilla Parser API.
+const B = recast.types.builders;
+
+// This kind of manipulation should seem familiar if you've used Esprima or the
+// Mozilla Parser API before.
+ast.program.body[0] = B.variableDeclaration("var", [
+  B.variableDeclarator(add.id, B.functionExpression(
+    null, // Anonymize the function expression.
+    add.params,
+    add.body
+  ))
+]);
+
+// Just for fun, because addition is commutative:
+add.params.push(add.params.shift());
+
+const output = recast.print(ast).code;
+
+console.log(output);
+```
+
+## JSCodeshift 
 
 <a href="https://github.com/facebook/jscodeshift" target="_blank">JSCodeshift</a> is a toolkit for running codemods over multiple JavaScript or
 TypeScript files.
@@ -183,11 +338,12 @@ var bar = 4;
 
 ### JSCodeshift
 
-* <a href="https://github.com/facebook/jscodeshift" target="_blank">codeshift at GitHub</a>
+* <a href="https://github.com/facebook/jscodeshift" target="_blank">Codeshift at GitHub</a>
 * <a href="https://www.toptal.com/javascript/write-code-to-rewrite-your-code" target="_blank">Write Code to Rewrite Your Code: jscodeshift</a>
 * <a href="https://glebbahmutov.com/blog/jscodeshift-example/" target="_blank">jscodeshift example</a>
 * <a href="https://github.com/cpojer/js-codemod/blob/master/transforms/no-vars.js" target="_blank">jscodeshift cpojer/js-codemod no-vars.js</a>
 * [recast](https://github.com/benjamn/recast)
+* [ast-types examples in crguezl/hello-ast-types](https://github.com/crguezl/hello-ast-types)
 
 ### Estraverse
 

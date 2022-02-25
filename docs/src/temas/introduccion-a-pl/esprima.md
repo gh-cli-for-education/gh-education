@@ -272,9 +272,6 @@ Error reading 'fhjdfjhdsj':Error: ENOENT: no such file or directory, open 'fhjdf
 (Use `node --trace-uncaught ...` to show where the exception was thrown)
 ```
 
-## Transforming the AST. The Lab Espree Logging
-
-* [Descripción de la Práctica Espree Logging](/practicas/esprima-logging)
 
 ## How to build a Parser 
 
@@ -300,6 +297,7 @@ presented in the second half of the [talk Parsing, Compiling, and Static Metapro
 ## References
 
 * [Repo ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk)
+* Simple examples of AST traversal and transformation [crguezl/ast-traversal](https://github.com/crguezl/ast-traversal)
 * [crguezl/hello-jison](https://github.com/crguezl/hello-jison)
 * [Espree](https://github.com/eslint/espree)
   * [Options for parse and tokenize methods](https://github.com/eslint/espree#options)
