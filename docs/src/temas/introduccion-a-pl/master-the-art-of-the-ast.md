@@ -221,7 +221,7 @@ assert.ok(!n.Statement.check(ifFoo.test));
 
 See the example [/crguezl/hello-jscodeshift/hello-recast.js](https://github.com/crguezl/hello-jscodeshift/blob/master/hello-recast.js)
 
-This code takes as input the code 
+This [code example](https://github.com/crguezl/hello-jscodeshift/blob/master/hello-recast.js) takes as input the code 
 
 ```js 
   function add(a, b) {
@@ -229,7 +229,7 @@ This code takes as input the code
   }
 ```
 
-and just for fun switches the parameters and converts the function declaration in a function expression:
+and just for fun switches the parameters `a` and `b` and converts the function `add` declaration in a function expression:
 
 ```js
 ➜  hello-jscodeshift git:(master) ✗ node hello-recast.js 
@@ -247,7 +247,7 @@ const code = `
   function add(a, b) {
     return a - b;
   }
-
+`;
 const ast = recast.parse(code);
 const add = ast.program.body[0]; // The node of the add function declaration
 ```
