@@ -278,6 +278,8 @@ function tutu(x, ...rest) {
 let ast = espree.parse(code, {ecmaVersion: 7, loc: false});
 ```
 
+Here is the ffull code for the transformation:
+
 ```js 
 visit(ast, {
   visitFunction(path) {
