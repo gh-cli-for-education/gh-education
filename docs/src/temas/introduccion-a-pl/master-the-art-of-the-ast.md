@@ -316,7 +316,10 @@ console.log(recast.print(ast).code);
 
 ## Recast
 
-See the example [/crguezl/hello-jscodeshift/hello-recast.js](https://github.com/crguezl/hello-jscodeshift/blob/master/hello-recast.js)
+Recast is a library for parsing and modifying JavaScript code written on top of esprima and ast-types. 
+Recast provides methods for pretty printing ASTs as well as API to construct new ASTs without parsing any source code.
+
+See the examples in [/crguezl/hello-jscodeshift/hello-recast.js](https://github.com/crguezl/hello-jscodeshift/blob/master/hello-recast.js)
 
 This [code example](https://github.com/crguezl/hello-jscodeshift/blob/master/hello-recast.js) takes as input the code 
 
