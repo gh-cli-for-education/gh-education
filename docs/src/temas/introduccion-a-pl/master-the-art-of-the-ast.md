@@ -129,6 +129,8 @@ The [ast-types](https://github.com/benjamn/ast-types) module provides an efficie
 the [abstract syntax tree type hierarchy](http://en.wikipedia.org/wiki/Abstract_syntax_tree)
 pioneered by the [Mozilla Parser API](https://developer.mozilla.org/en-US/docs/SpiderMonkey/Parser_API).
 
+### Simple Example
+
 [Here is an example](https://github.com/crguezl/hello-ast-types) of usage:
 
 ```js
@@ -215,6 +217,99 @@ assert.strictEqual(ifFoo.test, fooId);
 assert.ok(n.Expression.check(ifFoo.test));
 assert.ok(n.Identifier.check(ifFoo.test));
 assert.ok(!n.Statement.check(ifFoo.test));
+```
+
+### Translating the ES6 spread operator ... 
+
+The following transformation approach the translation of the spread operator so that an input like:
+
+```js
+function tutu(x, ...rest) {
+    return x + rest[0];
+}
+```
+
+is translated onto:
+
+```js
+➜  hello-ast-types git:(master) ✗ node spread-operator.js
+function tutu(x) {
+    var rest = Array.prototype.slice.call(arguments, 1);
+    return x + rest[0];
+}
+```
+
+::: danger AST compatibility
+I have used `espree` to generate the initial AST. It seems to have some incompatibilities with the 
+AST used by `ast-types`.
+::: 
+
+We load the libs and build an auxiliary AST for the expression `Array.prototype.slice.call`:
+
+```js
+import { namedTypes as n, builders as b, visit } from "ast-types";
+import recast from "recast";
+import * as espree from  "espree";
+
+var sliceExpr = b.memberExpression(
+    b.memberExpression(
+      b.memberExpression(
+        b.identifier("Array"),
+        b.identifier("prototype"),
+        false
+      ),
+      b.identifier("slice"),
+      false
+    ),
+    b.identifier("call"),
+    false
+  );
+```
+
+Since I wasn't in the mood to build the AST using the ast-builders I resourced to espree:
+
+```js 
+let code = `
+function tutu(x, ...rest) {
+    return x + rest[0];
+}
+`;
+// Warning!!! the AST produced by Espree doesn't seem to be fully compatible with ast-types
+let ast = espree.parse(code, {ecmaVersion: 7, loc: false});
+```
+
+```js 
+visit(ast, {
+  visitFunction(path) {
+    const node = path.node;
+    this.traverse(path);
+
+    let lastArg = node.params.pop(); // Remove the 'rest' parameter
+    if (lastArg.type !== "RestElement") return;
+    
+    // For the purposes of this example, we won't worry about functions
+    // with Expression bodies.
+    n.BlockStatement.assert(node.body);
+
+    //   var rest = Array.prototype.slice.call(arguments, n);
+    const restVarDecl = b.variableDeclaration("var", [
+      b.variableDeclarator(
+        lastArg.argument,
+        b.callExpression(sliceExpr, [
+          b.identifier("arguments"),
+          b.literal(node.params.length)
+        ])
+      )
+    ]);
+  
+    // Insert the statement 'var rest = Array.prototype.slice.call(arguments, n);' 
+    // at the beginning of the body
+    path.get("body", "body").unshift(restVarDecl);
+    
+   }
+});
+
+console.log(recast.print(ast).code);
 ```
 
 ## Recast
