@@ -23,14 +23,10 @@ var b = 9 +1;
 var a = 2+3*5+b;
 `;
 
-function replaceByLiteral(n, type) {
+function replaceByLiteral(n) {
     n.type = "Literal";
-
-    if (type == 'string') 
-      n.value = eval(`"${n.left.value}" ${n.operator} "${n.right.value}"`); //must be in a try catch
-    else 
-      n.value = eval(`${n.left.value} ${n.operator} ${n.right.value}`);
-
+    
+    n.value = eval(`${n.left.raw} ${n.operator} ${n.right.raw}`);
     n.raw = String(n.value);
 
     delete(n.left);
@@ -124,10 +120,11 @@ Codemods are scripts used to rewrite other scripts. Think of them as a find and 
 
 ## ast-types
 
-The [ast-types](https://github.com/benjamn/ast-types) module provides an efficient, modular,
+The [ast-types](https://github.com/benjamn/ast-types) module provides an 
 [Esprima](https://github.com/ariya/esprima)-compatible implementation of
 the [abstract syntax tree type hierarchy](http://en.wikipedia.org/wiki/Abstract_syntax_tree)
-pioneered by the [Mozilla Parser API](https://developer.mozilla.org/en-US/docs/SpiderMonkey/Parser_API).
+that was leaded by a project called Mozilla Parser API [JavaScript:SpiderMonkey:Parser API](https://wiki.mozilla.org/JavaScript:SpiderMonkey:Parser_API). 
+See the lecture [SpiderMonkey Parser API: A Standard For Structured JS Representations](https://www.infoq.com/presentations/spidermonkey-parser-api/) by Michael Ficarra 2014. The idea seems to be abandoned.
 
 ### Simple Example
 
@@ -383,8 +380,7 @@ console.log(output);
 ## JSCodeshift 
 
 <a href="https://github.com/facebook/jscodeshift" target="_blank">JSCodeshift</a> is a toolkit for running codemods over multiple JavaScript or
-TypeScript files.
-
+TypeScript files. The interface that jscodeshift provides is a wrapper around [recast](#recast) and ast-types packages. 
 
 The jscodeshift toolkit allows you to pump a bunch of source files through a transform and replace them with what comes out the other end. Inside the transform, you parse the source into an abstract syntax tree (AST), poke around to make your changes, then regenerate the source from the altered AST.
 
@@ -433,6 +429,8 @@ Time elapsed: 0.947seconds
 ➜  hello-jscodeshift git:(master) ✗ cat foo.js 
 var bar = 4;
 ```
+
+More on JSCodeshift in the article [Write Code to Rewrite Your Code: jscodeshift](https://www.toptal.com/javascript/write-code-to-rewrite-your-code) by eremy Greer
 
 ## References
 
