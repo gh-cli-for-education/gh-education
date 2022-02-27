@@ -167,7 +167,9 @@ Añada [pruebas](/temas/introduccion-a-javascript/pruebas) usando [Mocha y Chai]
 ## Covering 
 
 You can use  [nyc](https://www.npmjs.com/package/nyc) to do the covering of your mocha tests.
-See the notes in [covering](/temas/introduccion-a-javascript/covering)
+See the notes in [covering](/temas/introduccion-a-javascript/covering). 
+
+Activate the GitHub pages of your repo (use the default branch and the `docs` folder) and be sure to include your covering report in the `docs` folder.
 
 ## Continuous Integration
 

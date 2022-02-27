@@ -83,13 +83,13 @@ By default nyc uses Istanbul's text reporter. However, you may specify an altern
 The value `html` generates a HTML report you can view in your browse. You can specify more than one `reporter`:
 
 ```
-✗ npx nyc --reporter=html --reporter=text mocha
+npx nyc --reporter=html --reporter=text --report-dir docs mocha
 ```
 
-That will produce a [web page report like this](/assets/nyc-coverage-example) in the folder `coverage`:
+That will produce a [web page report like this](/assets/nyc-coverage-example) in the folder `docs` (by default the output folder will be named `coverage`):
 
 ```
-➜  hello-compilers-solution git:(master) ✗ ls -ltr coverage 
+➜  hello-compilers-solution git:(master) ✗ ls -ltr docs 
 total 328
 -rw-r--r--  1 casianorodriguezleon  staff   5394 27 feb 13:49 base.css
 -rw-r--r--  1 casianorodriguezleon  staff   2655 27 feb 13:49 block-navigation.js
