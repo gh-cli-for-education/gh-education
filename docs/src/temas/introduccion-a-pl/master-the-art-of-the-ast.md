@@ -123,8 +123,19 @@ Codemods are scripts used to rewrite other scripts. Think of them as a find and 
 The [ast-types](https://github.com/benjamn/ast-types) module provides an 
 [Esprima](https://github.com/ariya/esprima)-compatible implementation of
 the [abstract syntax tree type hierarchy](http://en.wikipedia.org/wiki/Abstract_syntax_tree)
-that was leaded by a project called Mozilla Parser API [JavaScript:SpiderMonkey:Parser API](https://wiki.mozilla.org/JavaScript:SpiderMonkey:Parser_API). 
-See the lecture [SpiderMonkey Parser API: A Standard For Structured JS Representations](https://www.infoq.com/presentations/spidermonkey-parser-api/) by Michael Ficarra 2014. The idea seems to be abandoned.
+that was leaded by a project called Mozilla Parser API [JavaScript:SpiderMonkey:Parser API](https://web.archive.org/web/20210314002546/https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API). Observe that when you visit that, page it warns you *This is an archived page. It's not actively maintained.*
+
+### SpiderMonkey Parser API
+
+See  the [estree org](https://github.com/estree) and the [estree repo](https://github.com/estree/estree):
+
+> Once upon a time, an [unsuspecting Mozilla engineer](http://calculist.org) created an API in Firefox that exposed the SpiderMonkey engine's JavaScript parser as a JavaScript API. Said engineer [documented the format it produced](https://web.archive.org/web/20210314002546/https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API), and this format caught on as a lingua franca for tools that manipulate JavaScript source code.
+
+> Meanwhile JavaScript is evolving. [This site](https://github.com/estree/estree/blob/master/README.md) will serve as a community standard for people involved in building and using these tools to help evolve this format to keep up with the evolution of the JavaScript language.
+
+See also the lecture [SpiderMonkey Parser API: A Standard For Structured JS Representations](https://www.infoq.com/presentations/spidermonkey-parser-api/) by Michael Ficarra 2014. 
+
+The idea of the Parser API seems to be (partially?) abandoned.
 
 ### Simple Example
 
@@ -216,6 +227,141 @@ assert.ok(n.Identifier.check(ifFoo.test));
 assert.ok(!n.Statement.check(ifFoo.test));
 ```
 
+### Path objects
+
+ast-types defines methods to 
+1. traverse the AST, 
+2. access node fields and 
+3. build new nodes. 
+ 
+ast-types wraps every AST node into a *path object*. 
+Paths contain meta-information and helper methods to
+process AST nodes.
+
+For example, the child-parent relationship between two nodes is not explicitly
+defined. Given a plain AST node, it is not possible to traverse the tree *up*.
+Given a path object however, the parent can be traversed to via `path.parent`.
+
+The `NodePath` object passed to visitor methods is a wrapper around an AST
+node, and it serves to provide access to the chain of ancestor objects
+(all the way back to the root of the AST) and scope information.
+
+In general, `path.node` refers to the wrapped node, `path.parent.node`
+refers to the nearest `Node` ancestor, `path.parent.parent.node` to the
+grandparent, and so on.
+
+::: warning
+Note that `path.node` may not be a **direct** property value of
+`path.parent.node`;  but it might be the case that `path.node` is
+an element of an array that is a direct child of the parent node:
+
+```js
+path.node === path.parent.node.elements[3]
+```
+:::
+
+You should know that `path.parentPath` provides
+finer-grained access to the complete path of objects (not just the `Node`
+ones) from the root of the AST:
+
+In reality, path.parent is the grandparent of path:
+
+```js
+path.parentPath.parentPath === path.parent
+```
+
+The `path.parentPath` object wraps the `elements` array (note that we use
+`.value` because the elements array is not a Node):
+
+```js
+path.parentPath.value === path.parent.node.elements
+
+// The path.node object is the fourth element in that array:
+path.parentPath.value[3] === path.node
+
+// Unlike path.node and path.value, which are synonyms because path.node
+// is a Node object, path.parentPath.node is distinct from
+// path.parentPath.value, because the elements array is not a
+// Node. Instead, path.parentPath.node refers to the closest ancestor
+// Node, which happens to be the same as path.parent.node:
+path.parentPath.node === path.parent.node
+
+// The path is named for its index in the elements array:
+path.name === 3
+
+// Likewise, path.parentPath is named for the property by which
+// path.parent.node refers to it:
+path.parentPath.name === "elements"
+
+// Putting it all together, we can follow the chain of object references
+// from path.parent.node all the way to path.node by accessing each
+// property by name:
+path.parent.node[path.parentPath.name][path.name] === path.node
+```
+
+These `NodePath` objects are created during the traversal without
+modifying the AST nodes themselves, so it's not a problem if the same node
+appears more than once in the AST, because it will be visited with a distict `NodePath`
+each time it appears.
+
+Child `NodePath` objects are created lazily, by calling the `.get` method
+of a parent `NodePath` object:
+
+```js
+// If a NodePath object for the elements array has never been created
+// before, it will be created here and cached in the future:
+path.get("elements").get(3).value === path.value.elements[3]
+
+// Alternatively, you can pass multiple property names to .get instead of
+// chaining multiple .get calls:
+path.get("elements", 0).value === path.value.elements[0]
+```
+
+`NodePath` objects support a number of useful methods:
+
+```js
+// Replace one node with another node:
+var fifth = path.get("elements", 4);
+fifth.replace(newNode);
+
+// Now do some stuff that might rearrange the list, and this replacement
+// remains safe:
+fifth.replace(newerNode);
+
+// Replace the third element in an array with two new nodes:
+path.get("elements", 2).replace(
+  b.identifier("foo"),
+  b.thisExpression()
+);
+
+// Remove a node and its parent if it would leave a redundant AST node:
+//e.g. var t = 1, y =2; removing the `t` and `y` declarators results in `var undefined`.
+path.prune(); //returns the closest parent `NodePath`.
+
+// Remove a node from a list of nodes:
+path.get("elements", 3).replace();
+
+// Add three new nodes to the beginning of a list of nodes:
+path.get("elements").unshift(a, b, c);
+
+// Remove and return the first node in a list of nodes:
+path.get("elements").shift();
+
+// Push two new nodes onto the end of a list of nodes:
+path.get("elements").push(d, e);
+
+// Remove and return the last node in a list of nodes:
+path.get("elements").pop();
+
+// Insert a new node before/after the seventh node in a list of nodes:
+var seventh = path.get("elements", 6);
+seventh.insertBefore(newNode);
+seventh.insertAfter(newNode);
+
+// Insert a new element at index 5 in a list of nodes:
+path.get("elements").insertAt(5, newNode);
+```
+
 ### Translating the ES6 spread operator ... 
 
 The following transformation approach the translation of the spread operator so that an input like:
@@ -235,6 +381,8 @@ function tutu(x) {
     return x + rest[0];
 }
 ```
+
+See the file [spread-operator.js in the repo crguezl/hello-ast-types](https://github.com/crguezl/hello-ast-types/blob/master/spread-operator.js)
 
 ::: danger AST compatibility
 I have used `espree` to generate the initial AST. It seems to have some incompatibilities with the 
@@ -275,7 +423,7 @@ function tutu(x, ...rest) {
 let ast = espree.parse(code, {ecmaVersion: 7, loc: false});
 ```
 
-Here is the ffull code for the transformation:
+Here is the full code for the transformation:
 
 ```js 
 visit(ast, {
@@ -382,6 +530,8 @@ console.log(output);
 <a href="https://github.com/facebook/jscodeshift" target="_blank">JSCodeshift</a> is a toolkit for running codemods over multiple JavaScript or
 TypeScript files. The interface that jscodeshift provides is a wrapper around [recast](#recast) and ast-types packages. 
 
+![jscodeshift and recast relation image](/images/jscodeshift-recast-phases.png)
+
 The jscodeshift toolkit allows you to pump a bunch of source files through a transform and replace them with what comes out the other end. Inside the transform, you parse the source into an abstract syntax tree (AST), poke around to make your changes, then regenerate the source from the altered AST.
 
 The interface that jscodeshift provides is a wrapper around [recast](https://github.com/benjamn/recast) and ast-types packages. [recast](https://github.com/benjamn/recast) handles the conversion from source to AST and back while ast-types handles the low-level interaction with the AST nodes.
@@ -437,11 +587,15 @@ More on JSCodeshift in the article [Write Code to Rewrite Your Code: jscodeshift
 ### JSCodeshift
 
 * <a href="https://github.com/facebook/jscodeshift" target="_blank">Codeshift at GitHub</a>
+* [JSCodeshift API Doc](https://npmdoc.github.io/node-npmdoc-jscodeshift/build/apidoc.html)
 * <a href="https://www.toptal.com/javascript/write-code-to-rewrite-your-code" target="_blank">Write Code to Rewrite Your Code: jscodeshift</a>
 * <a href="https://glebbahmutov.com/blog/jscodeshift-example/" target="_blank">jscodeshift example</a>
 * <a href="https://github.com/cpojer/js-codemod/blob/master/transforms/no-vars.js" target="_blank">jscodeshift cpojer/js-codemod no-vars.js</a>
 * [recast](https://github.com/benjamn/recast)
 * [ast-types examples in crguezl/hello-ast-types](https://github.com/crguezl/hello-ast-types)
+* [Migrating large codebase with Codemods](https://youtu.be/akKMopknEwc) YouTube video. JSFoo Pune 2020. On component architecture, performance, security for front-end, and emerging trends. Rajasegar Chandran.
+  * [Slides](https://drive.google.com/file/d/1fHmdLBZktBE_yvhP4Oj75zoFOMYGuob5/view)
+  * [Awesome codemods](https://github.com/rajasegar/awesome-codemods) at rajasegar/awesome-codemods
 
 ### Estraverse
 

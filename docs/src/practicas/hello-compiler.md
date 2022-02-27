@@ -7,6 +7,7 @@ order: 7
 layout: Practica
 sidebar: auto
 prev: "esprima-logging.md"
+next: "npm-module"
 rubrica:
   - "Opciones en línea de comandos (-o, -V, -h, etc.)"
   - "Traduce correctamente las expresiones fuente a JS"
