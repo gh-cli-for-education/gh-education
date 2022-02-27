@@ -138,7 +138,7 @@ These is a simplified version of the rules to resolve conflicts and ambiguities 
 3. Cuando el parser detecta un conflicto y ve que hay dos posibles vias de continuar la construcción del árbol: Una que indica que quizá se aplicó la regla $A \rightarrow \alpha$ y otra que indica que quizá se pueda seguir leyendo el token $t$ a la entrada, 
    1. El parser compara las precedencias del token y de la regla y se queda con el de mas prioridad. 
    2. Si es el token quien tiene mayor prioridad avanzará en la lectura desplazando el token $t$ y buscando nuevos símbolos (se dice que hace un *shift*; en este caso probablemente el AST se "hundirá" a derechas) y 
-   3. Si es la regla completará el subárbol parcial $\overset{A}{\overset{\triangle}{\alpha}}$ y continuará en su construcción del árbol (se dice que hace un *reduce* y en este caso el árbol se está hundiendo a izquierdas)
+   3. Si es la regla completará el subárbol parcial $\overset{A}{\overset{\triangle}{\alpha}}$ y continuará en su construcción del árbol (se dice que hace un *reduce* y en este caso el árbol construido estará más hundido a izquierdas)
 4. Los tokens declarados en la misma línea mediante una declaración `%left` o `%right` 
 tienen igual precedencia e igual asociatividad. 
 3. La precedencia es mayor cuanto mas abajo su posición en el texto
@@ -163,6 +163,56 @@ es: e
 Añada [pruebas](/temas/introduccion-a-javascript/pruebas) usando [Mocha y Chai](/temas/introduccion-a-javascript/mocha) o [Jest](/temas/introduccion-a-javascript/jest)
 
 !!!include(temas/introduccion-a-javascript/mocking-stubbing.md)!!!
+
+### Covering
+
+You can use  [nyc](https://www.npmjs.com/package/nyc) to do the covering of your mocha tests:
+
+```json
+➜  hello-compilers-solution git:(master) ✗ jq '.scripts' package.json 
+{
+  "test": "npm run build; mocha",
+  "mmt": "npm run build; ./bin/mmt.js",
+  "build": "jison src/maxmin-ast.jison src/maxmin.l -o src/maxmin.js",
+  "cov": "nyc npm run test"
+}
+```
+
+```➜  hello-compilers-solution git:(master) ✗ npm run cov
+
+> hello-compilers@1.0.1 cov
+> nyc npm run test
+
+
+> hello-compilers@1.0.1 test
+> npm run build; mocha
+
+
+> hello-compilers@1.0.1 build
+> jison src/maxmin-ast.jison src/maxmin.l -o src/maxmin.js
+
+
+
+  Testing hello maxmin translator
+    ✔ Test 2@1&3 = 2
+    ✔ Test 2@1@3 = 3
+    ✔ Test 2&1&3 = 1
+    ✔ Test 2&1@3 = 3
+    ✔ Test 2&(1@3) = 2
+
+
+  5 passing (12ms)
+
+--------------|---------|----------|---------|---------|------------------------------------------------------------------------
+File          | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                                      
+--------------|---------|----------|---------|---------|------------------------------------------------------------------------
+All files     |   57.33 |    43.45 |   45.71 |   54.41 |                                                                        
+ ast-build.js |     100 |      100 |     100 |     100 |                                                                        
+ maxmin.js    |   56.74 |    43.45 |   40.62 |   53.73 | ...456-463,469,490-498,511,516,530-545,554-575,582,584,586,608-613,616 
+--------------|---------|----------|---------|---------|------------------------------------------------------------------------
+```
+
+See the notes in [covering](/temas/introduccion-a-javascript/covering)
 
 ## Continuous Integration
 
