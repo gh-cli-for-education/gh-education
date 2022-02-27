@@ -138,7 +138,7 @@ These is a simplified version of the rules to resolve conflicts and ambiguities 
 3. Cuando el parser detecta un conflicto y ve que hay dos posibles vias de continuar la construcción del árbol: Una que indica que quizá se aplicó la regla $A \rightarrow \alpha$ y otra que indica que quizá se pueda seguir leyendo el token $t$ a la entrada, 
    1. El parser compara las precedencias del token y de la regla y se queda con el de mas prioridad. 
    2. Si es el token avanzará en la lectura desplazando el token $t$ y buscando nuevos símbolos (se dice que hace un *shift*) y 
-   3. Si es la regla completará el subárbol parcial $\overset{A}{\overset{\triangle}{\alpha}}$ y cotinuará en su construcción del árbol (se dice que hace un *reduce*)
+   3. Si es la regla completará el subárbol parcial $\overset{A}{\overset{\triangle}{\alpha}}$ y continuará en su construcción del árbol (se dice que hace un *reduce*)
 4. Los tokens declarados en la misma línea mediante una declaración `%left` o `%right` 
 tienen igual precedencia e igual asociatividad. 
 3. La precedencia es mayor cuanto mas abajo su posición en el texto
