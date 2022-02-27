@@ -41,6 +41,8 @@ Jest también proporciona [snapshots testing](https://jestjs.io/docs/en/snapshot
 
 !!!include(temas/introduccion-a-javascript/mocking-stubbing.md)!!!
 
+!!!include(temas/introduccion-a-javascript/covering.md)!!!
+
 ## Referencias
 
 * Mas sobre [Mocha](mocha) en estos apuntes

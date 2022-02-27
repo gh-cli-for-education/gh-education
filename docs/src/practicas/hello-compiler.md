@@ -164,54 +164,9 @@ Añada [pruebas](/temas/introduccion-a-javascript/pruebas) usando [Mocha y Chai]
 
 !!!include(temas/introduccion-a-javascript/mocking-stubbing.md)!!!
 
-### Covering
+## Covering 
 
-You can use  [nyc](https://www.npmjs.com/package/nyc) to do the covering of your mocha tests:
-
-```json
-➜  hello-compilers-solution git:(master) ✗ jq '.scripts' package.json 
-{
-  "test": "npm run build; mocha",
-  "mmt": "npm run build; ./bin/mmt.js",
-  "build": "jison src/maxmin-ast.jison src/maxmin.l -o src/maxmin.js",
-  "cov": "nyc npm run test"
-}
-```
-
-```➜  hello-compilers-solution git:(master) ✗ npm run cov
-
-> hello-compilers@1.0.1 cov
-> nyc npm run test
-
-
-> hello-compilers@1.0.1 test
-> npm run build; mocha
-
-
-> hello-compilers@1.0.1 build
-> jison src/maxmin-ast.jison src/maxmin.l -o src/maxmin.js
-
-
-
-  Testing hello maxmin translator
-    ✔ Test 2@1&3 = 2
-    ✔ Test 2@1@3 = 3
-    ✔ Test 2&1&3 = 1
-    ✔ Test 2&1@3 = 3
-    ✔ Test 2&(1@3) = 2
-
-
-  5 passing (12ms)
-
---------------|---------|----------|---------|---------|------------------------------------------------------------------------
-File          | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                                      
---------------|---------|----------|---------|---------|------------------------------------------------------------------------
-All files     |   57.33 |    43.45 |   45.71 |   54.41 |                                                                        
- ast-build.js |     100 |      100 |     100 |     100 |                                                                        
- maxmin.js    |   56.74 |    43.45 |   40.62 |   53.73 | ...456-463,469,490-498,511,516,530-545,554-575,582,584,586,608-613,616 
---------------|---------|----------|---------|---------|------------------------------------------------------------------------
-```
-
+You can use  [nyc](https://www.npmjs.com/package/nyc) to do the covering of your mocha tests.
 See the notes in [covering](/temas/introduccion-a-javascript/covering)
 
 ## Continuous Integration

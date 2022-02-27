@@ -1,5 +1,5 @@
 
-### Pruebas: Cubrimiento /Covering
+## Cubrimiento /Covering
 
 In computer science, *code coverage* 
 is a measure used to describe the degree to which the source code of a program 
@@ -14,12 +14,12 @@ some of the most basic are:
 
 Ideally your covering must include at least smoke testing and edge cases.
 
-####  Smoke Testing
+###  Smoke Testing
 
 * Smoke testing (also **confidence testing**, **sanity testing**) is preliminary testing to reveal simple failures 
 * Smoke testing refers to test cases that cover the most important functionality of a component or system 
 
-#### Edge case
+### Edge cases
 
 * In programming, an *edge case* typically involves input values that require special handling in an algorithm behind a computer program.
 
@@ -29,7 +29,7 @@ Ideally your covering must include at least smoke testing and edge cases.
 
 * For example, a function that divides two numbers might be tested using both very large and very small numbers. This assumes that if it works for both ends of the magnitude spectrum, it should work correctly in between.
 
-### Tools: [nyc / Istanbul](istanbul.md)
+### Tools: nyc / Istanbul
 
 Here is an example of use of `nyc`:
 
@@ -76,3 +76,29 @@ All files     |   57.33 |    43.45 |   45.71 |   54.41 |
  maxmin.js    |   56.74 |    43.45 |   40.62 |   53.73 | ...456-463,469,490-498,511,516,530-545,554-575,582,584,586,608-613,616 
 --------------|---------|----------|---------|---------|------------------------------------------------------------------------
 ```
+
+By default nyc uses Istanbul's text reporter. However, you may specify an alternative reporter. 
+[Here is a list of all available reporters, as well as the output it generates](https://istanbul.js.org/docs/advanced/alternative-reporters/). 
+
+The value `html` generates a HTML report you can view in your browse. You can specify more than one `reporter`:
+
+```
+✗ npx nyc --reporter=html --reporter=text mocha
+```
+
+That will produce a [web page report like this](/assets/nyc-coverage-example) in the folder `coverage`:
+
+```
+➜  hello-compilers-solution git:(master) ✗ ls -ltr coverage 
+total 328
+-rw-r--r--  1 casianorodriguezleon  staff   5394 27 feb 13:49 base.css
+-rw-r--r--  1 casianorodriguezleon  staff   2655 27 feb 13:49 block-navigation.js
+-rw-r--r--  1 casianorodriguezleon  staff    540 27 feb 13:49 favicon.png
+-rw-r--r--  1 casianorodriguezleon  staff    209 27 feb 13:49 sort-arrow-sprite.png
+-rw-r--r--  1 casianorodriguezleon  staff   6181 27 feb 13:49 sorter.js
+-rw-r--r--  1 casianorodriguezleon  staff    676 27 feb 13:49 prettify.css
+-rw-r--r--  1 casianorodriguezleon  staff  17590 27 feb 13:49 prettify.js
+-rw-r--r--  1 casianorodriguezleon  staff   5153 27 feb 13:49 index.html
+-rw-r--r--  1 casianorodriguezleon  staff   9906 27 feb 13:49 ast-build.js.html
+-rw-r--r--  1 casianorodriguezleon  staff  92586 27 feb 13:49 maxmin.js.html
+``` 
