@@ -16,7 +16,7 @@ rubrica:
   - Maneja números en punto flotante
   - El <code>package.json</code> tiene scripts para ejecutar el programa
   - Ha añadido tests suficientes
-  - Se añade un estudio de cubrimiento de las pruebas (coverage)
+  - Se añade un estudio de cubrimiento de las pruebas (coverage) y se ha publicado en GitHub pages
   - Se hace integración Continua usando GitHub Actions
 ---
 
