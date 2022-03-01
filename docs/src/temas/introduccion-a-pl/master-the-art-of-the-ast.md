@@ -513,7 +513,7 @@ let g = {
 g.gFunc();
 ```
 
-If we are considering to rewrite some function as an arrow function, a conservative policy will be to be sure thatthe function does not refer in any way to the context object `this`.
+If we are considering to rewrite some function as an arrow function, a conservative policy will be to be sure that the function does not refer in any way to the context object `this`.
 
 The traversing of the AST at [crguezl/hello-ast-types/check-this-usage.js](https://github.com/crguezl/hello-ast-types/blob/master/check-this-usage.js) attempts to detect when `this` (or `super()` or something like `super.meth()`) is used inside the body of a function. 
 
