@@ -3,7 +3,9 @@
 
 # AST Transformations 
 
-## Constant Folding
+## Introduction
+
+### Constant Folding
 
 The following code uses estraverse to implement a simplified version of the AST tree transformation knwon as [Constant Folding](https://en.wikipedia.org/wiki/Constant_folding). **Constant folding** is the process of recognizing and evaluating constant expressions at compile time rather than computing them at runtime. 
 
@@ -72,12 +74,12 @@ var a = 17 + b;
 * Vea los contenidos del árbol [salida.json](./cf-salida)
 
 
-## Transforming the AST. The Lab Espree Logging
+### The Lab Espree Logging
 
 * [Descripción de la Práctica Espree Logging](/practicas/esprima-logging)
 
 
-##  Master the AST
+##  Master the AST lecture series
 
 * Talk [Master the Art of the AST and Take Control of Your JS][ast]  by Yonatan Mevorach. 
     - [Here are the slides](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk/blob/master/ast-talk-codemotion-170406094223.pdf)
@@ -86,16 +88,16 @@ var a = 17 + b;
 
 [ast]: https://youtu.be/C06MohLG_3s
 
-## ASTExplorer
+### ASTExplorer
 
 * <a href="https://astexplorer.net/" target="_blank">astexplorer.net demo</a>
 
-## ESLint *Piggyback example*
+### ESLint *Piggyback example*
 
 * <a href="https://eslint.org/docs/developer-guide/working-with-plugins" target="_blank">ESLint: Working with Plugins</a>
 * <a href="https://github.com/cowchimp/eslint-plugin-piggyback" target="_blank">eslint-plugin-piggyback</a>
 
-## Babel remove "debugger" example
+### Babel remove "debugger" example
 
 * <a href="http://docs.w3cub.com/babel/plugins/transform-remove-debugger/" target="_blank">Babel plugin Remove debugger transform. This plugin removes all `debugger;` statements</a>
 * <a href="https://github.com/babel/minify/tree/a24dd066f16db5a7d5ab13c2af65e767347ef550/packages/babel-plugin-transform-remove-debugger" target="_blank">babel-plugin-transform-remove-debugger at GitHub</a>
@@ -120,12 +122,18 @@ Codemods are scripts used to rewrite other scripts. Think of them as a find and 
 
 ## ast-types
 
+### Introduction 
+
 The [ast-types](https://github.com/benjamn/ast-types) module provides an 
 [Esprima](https://github.com/ariya/esprima)-compatible implementation of
 the [abstract syntax tree type hierarchy](http://en.wikipedia.org/wiki/Abstract_syntax_tree)
-that was leaded by a project called Mozilla Parser API [JavaScript:SpiderMonkey:Parser API](https://web.archive.org/web/20210314002546/https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API). Observe that when you visit that, page it warns you *This is an archived page. It's not actively maintained.*
+that was leaded by a project called Mozilla Parser API [JavaScript:SpiderMonkey:Parser API](https://web.archive.org/web/20210314002546/https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API). 
 
-### SpiderMonkey Parser API
+### SpiderMonkey Parser API and estree/estree
+
+::: warning
+NOTE: The page [JavaScript:SpiderMonkey:Parser API](https://web.archive.org/web/20210314002546/https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API) describes SpiderMonkey-specific behavior and is incomplete. Visit [ESTree spec](https://github.com/estree/estree) for a community AST standard that includes latest ECMAScript features and is backward-compatible with SpiderMonkey format.
+::: 
 
 See  the [estree org](https://github.com/estree) and the [estree repo](https://github.com/estree/estree):
 
@@ -133,9 +141,7 @@ See  the [estree org](https://github.com/estree) and the [estree repo](https://g
 
 > Meanwhile JavaScript is evolving. [This site](https://github.com/estree/estree/blob/master/README.md) will serve as a community standard for people involved in building and using these tools to help evolve this format to keep up with the evolution of the JavaScript language.
 
-See also the lecture [SpiderMonkey Parser API: A Standard For Structured JS Representations](https://www.infoq.com/presentations/spidermonkey-parser-api/) by Michael Ficarra 2014. 
-
-The idea of the Parser API seems to be (partially?) abandoned.
+See also the video lecture [SpiderMonkey Parser API: A Standard For Structured JS Representations](https://www.infoq.com/presentations/spidermonkey-parser-api/) by Michael Ficarra 2014 at InfoQ. 
 
 ### Simple Example
 
@@ -362,7 +368,27 @@ seventh.insertAfter(newNode);
 path.get("elements").insertAt(5, newNode);
 ```
 
-### Translating the ES6 spread operator ... 
+### Warning the use of Old JS arguments.callee
+
+Early versions of JavaScript did not allow named function expressions, 
+and for this reason you could not make a recursive function expression. 
+
+To write a recursive anonymous function you had to take advantage of [arguments.callee](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments/callee). The `arguments.callee` property contains the currently executing function:
+
+```js
+var fac = function(n) { 
+  return !(n > 1) ? 1 : arguments.callee(n - 1) * n; 
+}
+```
+
+The 5th edition of ECMAScript (ES5) forbids its use.
+
+The goal of this code example: you want to detect uses of this old trick to update the code.
+
+See [crguezl/hello-ast-types#visitmemberexpressionjs](https://github.com/crguezl/hello-ast-types#visitmemberexpressionjs) for  the usage example 
+and [crguezl/hello-ast-types/visitmemberexpression.js](https://github.com/crguezl/hello-ast-types/blob/master/visitmemberexpression.js) for a solution
+
+### Translating the ES6 spread operator ... to ES5
 
 The following transformation approach the translation of the spread operator so that an input like:
 
@@ -457,6 +483,88 @@ visit(ast, {
 });
 
 console.log(recast.print(ast).code);
+```
+
+### Checking if a function refers to `this`
+
+These two rules may help to understand the semantics of `this` when used in JS functions: 
+
+1. Arrow functions take their value of "this" from the lexical scope.
+2. Functions take their value of "this" from the context object.
+
+The following example illutrates these rules:
+
+```js
+let g = {
+    myVar: 'g',
+    gFunc: function() { 
+        console.log(this.myVar);  // g
+        let obj = {
+            myVar: 'foo',       
+            a: () => console.log(this.myVar), //  this arrow func is in the scope of gFunc
+            objFunc: function() { 
+              console.log(this.myVar); // foo
+              this.a()                 // g
+            }
+        };
+        obj.objFunc()
+    },    
+} 
+g.gFunc();
+```
+
+If we are considering to rewrite some function as an arrow function, a conservative policy will be to be sure thatthe function does not refer in any way to the context object `this`.
+
+The traversing of the AST at [crguezl/hello-ast-types/check-this-usage.js](https://github.com/crguezl/hello-ast-types/blob/master/check-this-usage.js) attempts to detect when `this` (or `super()` or something like `super.meth()`) is used inside the body of a function. 
+
+```
+  hello-ast-types git:(master) node check-this-usage.js 
+
+function tutu() {
+    return this.prop+4;
+}
+
+Inside Function visitor tutu
+inside thisexpression
+true
+----
+
+function tutu() {
+    return prop+4;
+}
+
+Inside Function visitor tutu
+false
+----
+
+function tutu() {
+    function titi() {
+        return this.prop+4;
+    }
+    
+    return prop+4;
+}
+
+Inside Function visitor tutu
+Inside Function visitor titi
+false
+----
+
+  function tutu() {
+    return super();
+  }
+
+Inside Function visitor tutu
+true
+----
+
+  function tutu() {
+    return super.meth();
+  }
+
+Inside Function visitor tutu
+true
+----
 ```
 
 ## Recast
@@ -588,14 +696,28 @@ More on JSCodeshift in the article [Write Code to Rewrite Your Code: jscodeshift
 
 * <a href="https://github.com/facebook/jscodeshift" target="_blank">Codeshift at GitHub</a>
 * [JSCodeshift API Doc](https://npmdoc.github.io/node-npmdoc-jscodeshift/build/apidoc.html)
-* <a href="https://www.toptal.com/javascript/write-code-to-rewrite-your-code" target="_blank">Write Code to Rewrite Your Code: jscodeshift</a>
-* <a href="https://glebbahmutov.com/blog/jscodeshift-example/" target="_blank">jscodeshift example</a>
-* <a href="https://github.com/cpojer/js-codemod/blob/master/transforms/no-vars.js" target="_blank">jscodeshift cpojer/js-codemod no-vars.js</a>
-* [recast](https://github.com/benjamn/recast)
-* [ast-types examples in crguezl/hello-ast-types](https://github.com/crguezl/hello-ast-types)
-* [Migrating large codebase with Codemods](https://youtu.be/akKMopknEwc) YouTube video. JSFoo Pune 2020. On component architecture, performance, security for front-end, and emerging trends. Rajasegar Chandran.
+* <a href="https://www.toptal.com/javascript/write-code-to-rewrite-your-code" target="_blank">Write Code to Rewrite Your Code: jscodeshift</a> Examples: removing console.log, replacing imported method calls, from positional parameters to parameter object
+* <a href="https://glebbahmutov.com/blog/jscodeshift-example/" target="_blank">jscodeshift "hello world" example</a>
+* <a href="https://github.com/cpojer/js-codemod/blob/master/transforms/no-vars.js" target="_blank">jscodeshift cpojer/js-codemod no-vars.js</a> Conservatively converts `var` to `const` or `let`. `jscodeshift -t js-codemod/transforms/no-vars.js <file>`
+
+
+
+#### Rajasegar works
+
+* [Migrating large codebase with Codemods](https://youtu.be/akKMopknEwc) YouTube video. Talk at JSFoo Pune 2020. On component architecture, performance, security for front-end, and emerging trends. Rajasegar Chandran.
   * [Slides](https://drive.google.com/file/d/1fHmdLBZktBE_yvhP4Oj75zoFOMYGuob5/view)
   * [Awesome codemods](https://github.com/rajasegar/awesome-codemods) at rajasegar/awesome-codemods
+
+#### Riki Fridrich
+
+* [Write a code that writes code](https://slideslive.com/38965948/write-a-code-that-writes-code?ref=account-13779-latest) talk by Riki Fridrich. Sep 22, 2021. WebExpo
+* [fczbkk/talk-2021-09-22-webexpo-codemod](https://github.com/fczbkk/talk-2021-09-22-webexpo-codemod) GitHub Repo
+
+
+#### ast-types and recast 
+
+* [recast](https://github.com/benjamn/recast)
+* [ast-types examples in crguezl/hello-ast-types](https://github.com/crguezl/hello-ast-types)
 
 ### Estraverse
 
