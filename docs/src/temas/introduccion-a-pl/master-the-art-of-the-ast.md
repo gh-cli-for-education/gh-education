@@ -250,7 +250,7 @@ Given a path object however, the parent can be traversed to via `path.parent`.
 
 The `NodePath` object passed to visitor methods is a wrapper around an AST
 node, and it serves to provide access to the chain of ancestor objects
-(all the way back to the root of the AST) and scope information.
+(all the way back to the root of the AST) and **scope** information.
 
 In general, `path.node` refers to the wrapped node, `path.parent.node`
 refers to the nearest `Node` ancestor, `path.parent.parent.node` to the
@@ -284,28 +284,44 @@ path.parentPath.value === path.parent.node.elements
 
 // The path.node object is the fourth element in that array:
 path.parentPath.value[3] === path.node
+```
 
-// Unlike path.node and path.value, which are synonyms because path.node
-// is a Node object, path.parentPath.node is distinct from
-// path.parentPath.value, because the elements array is not a
-// Node. Instead, path.parentPath.node refers to the closest ancestor
-// Node, which happens to be the same as path.parent.node:
+Unlike `path.node` and `path.value`, which are synonyms because `path.node`
+is a `Node` object, 
+
+`path.parentPath.node` is distinct from
+`path.parentPath.value`, because the `elements` array is not a
+`Node`. 
+
+Instead, `path.parentPath.node` refers to the closest ancestor
+`Node`, which happens to be the same as `path.parent.node`:
+
+```js
 path.parentPath.node === path.parent.node
+```
 
-// The path is named for its index in the elements array:
+The path is named for its index in the elements array:
+
+```js
 path.name === 3
+```
 
-// Likewise, path.parentPath is named for the property by which
-// path.parent.node refers to it:
+Likewise, path.parentPath is named for the property by which
+path.parent.node refers to it:
+
+```js
 path.parentPath.name === "elements"
+```
 
-// Putting it all together, we can follow the chain of object references
-// from path.parent.node all the way to path.node by accessing each
-// property by name:
+Putting it all together, we can follow the chain of object references
+from path.parent.node all the way to path.node by accessing each
+property by name:
+
+```js
 path.parent.node[path.parentPath.name][path.name] === path.node
 ```
 
-These `NodePath` objects are created during the traversal without
+These `NodePath` objects **are created during the traversal** without
 modifying the AST nodes themselves, so it's not a problem if the same node
 appears more than once in the AST, because it will be visited with a distict `NodePath`
 each time it appears.
@@ -323,49 +339,207 @@ path.get("elements").get(3).value === path.value.elements[3]
 path.get("elements", 0).value === path.value.elements[0]
 ```
 
+### nodePath.replace
+
 `NodePath` objects support a number of useful methods:
 
+Replace one node with another node:
+
 ```js
-// Replace one node with another node:
 var fifth = path.get("elements", 4);
 fifth.replace(newNode);
+```
 
-// Now do some stuff that might rearrange the list, and this replacement
-// remains safe:
+Now do some stuff that might rearrange the list, and this replacement
+remains safe:
+
+```js
 fifth.replace(newerNode);
+```
 
-// Replace the third element in an array with two new nodes:
+Replace the third element in an array with two new nodes:
+
+```js
 path.get("elements", 2).replace(
   b.identifier("foo"),
   b.thisExpression()
 );
+```
 
-// Remove a node and its parent if it would leave a redundant AST node:
-//e.g. var t = 1, y =2; removing the `t` and `y` declarators results in `var undefined`.
-path.prune(); //returns the closest parent `NodePath`.
+Here is the code of the example [replace.js](https://github.com/crguezl/hello-ast-types/blob/master/replace.js)
 
-// Remove a node from a list of nodes:
+```js
+import recast from "recast";
+import { builders as b, visit } from "ast-types";
+
+let ast = b.functionDeclaration(
+  b.identifier("fn"),
+  [],
+  b.blockStatement([
+    b.variableDeclaration("var", [
+      b.variableDeclarator(b.identifier("a"), b.literal("hello world!")),
+    ]),
+  ])
+);
+console.log(recast.print(ast).code) // function fn() { var a = "hello world!"; }
+
+visit(ast, {
+  visitVariableDeclaration: function (path) {
+    path.replace(b.returnStatement(null));
+    this.traverse(path);
+  },
+});
+
+console.log(ast.body.body[0]); // { argument: null, loc: null, type: 'ReturnStatement', comments: null }
+console.log(recast.print(ast).code) // function fn() { return; }
+```
+
+### nodePath.prune
+
+Remove a node and its parent if it would leave a redundant AST node. Example:
+
+```js 
+var t = 1, y =2;
+``` 
+
+removing the `t` and `y` declarators results in `var undefined`.
+
+`path.prune();` 
+
+returns the closest parent `NodePath`.
+
+Here is a full example of `prune`:
+
+```js
+//import  * as espree from "espree";
+import { parse, Syntax } from "espree";
+import { NodePath } from "ast-types";
+
+  const deb = x => (JSON.stringify(x, null, 2));
+
+  var programPath = new NodePath(parse("var y = 1,x = 2;"));
+  
+  var variableDeclaration = programPath.get("body", 0); 
+  // It has the shape { ... declarations: [ VariableDeclarator, VariableDeclarator], ... }
+  
+  var yVariableDeclaratorPath = variableDeclaration.get("declarations", 0);
+  var xVariableDeclaratorPath = variableDeclaration.get("declarations", 1);
+
+  var remainingNodePath = yVariableDeclaratorPath.prune(); // returns the closest parent NodePath
+  remainingNodePath = xVariableDeclaratorPath.prune();
+
+  console.log(deb(programPath.node)); 
+  /* Output:
+  {
+  "type": "Program",
+  "start": 0,
+  "end": 16,
+  "body": [],
+  "sourceType": "script"
+}
+*/
+```
+
+### Other NodePath methods
+
+Remove a node from a list of nodes:
+
+```js
 path.get("elements", 3).replace();
+``` 
 
-// Add three new nodes to the beginning of a list of nodes:
+Add three new nodes to the beginning of a list of nodes:
+
+```js
 path.get("elements").unshift(a, b, c);
+```
 
-// Remove and return the first node in a list of nodes:
+Remove and return the first node in a list of nodes:
+
+```js
 path.get("elements").shift();
+```
 
-// Push two new nodes onto the end of a list of nodes:
+Push two new nodes onto the end of a list of nodes:
+
+```js
 path.get("elements").push(d, e);
+```
 
-// Remove and return the last node in a list of nodes:
+Remove and return the last node in a list of nodes:
+
+```js
 path.get("elements").pop();
+```
 
-// Insert a new node before/after the seventh node in a list of nodes:
+Insert a new node before/after the seventh node in a list of nodes:
+
+```js
 var seventh = path.get("elements", 6);
 seventh.insertBefore(newNode);
 seventh.insertAfter(newNode);
+```
 
-// Insert a new element at index 5 in a list of nodes:
+Insert a new element at index 5 in a list of nodes:
+
+```js
 path.get("elements").insertAt(5, newNode);
+```
+### Scope
+
+File [crguezl/hello-ast-types/scope-catch.js](https://github.com/crguezl/hello-ast-types/blob/master/scope-catch.js)
+
+```js
+import assert from "assert";
+import { parse } from "espree";
+import { namedTypes as n, NodePath,} from "ast-types";
+
+const deb = (x) => JSON.stringify(x, null, 2);
+
+// "catch block scope"
+var catchWithVarDecl = `
+  function foo(e) {
+    try {
+      bar();
+    } catch (e) {
+      var f = e + 1;
+      return function(g) {
+        return e + g;
+      };
+    }
+    return f;
+  }
+`;
+
+var path = new NodePath(parse(catchWithVarDecl));
+var fooPath = path.get("body", 0);
+var fooScope = fooPath.scope;
+var catchPath = fooPath.get("body", "body", 0, "handler");
+var catchScope = catchPath.scope;
+
+// it should not affect outer scope declarations
+n.FunctionDeclaration.assert(fooScope.node);
+assert.strictEqual(fooScope.declares("e"), true);
+assert.strictEqual(fooScope.declares("f"), true);
+assert.strictEqual(fooScope.lookup("e"), fooScope);
+
+//it should declare only the guard parameter
+n.CatchClause.assert(catchScope.node);
+assert.strictEqual(catchScope.declares("e"), true);
+assert.strictEqual(catchScope.declares("f"), false);
+assert.strictEqual(catchScope.lookup("e"), catchScope);
+assert.strictEqual(catchScope.lookup("f"), fooScope);
+
+//it("should shadow only the parameter in nested scopes", function() {
+var closurePath = catchPath.get("body", "body", 1, "argument");
+var closureScope = closurePath.scope;
+n.FunctionExpression.assert(closureScope.node);
+assert.strictEqual(closureScope.declares("e"), false);
+assert.strictEqual(closureScope.declares("f"), false);
+assert.strictEqual(closureScope.declares("g"), true);
+assert.strictEqual(closureScope.lookup("g"), closureScope);
+assert.strictEqual(closureScope.lookup("e"), catchScope);
+assert.strictEqual(closureScope.lookup("f"), fooScope);
 ```
 
 ### Warning the use of Old JS arguments.callee
@@ -489,8 +663,8 @@ console.log(recast.print(ast).code);
 
 These two rules may help to understand the semantics of `this` when used in JS functions: 
 
-1. Arrow functions take their value of "this" from the lexical scope.
-2. Functions take their value of "this" from the context object.
+1. Arrow functions take their value of "`this`" from the lexical scope.
+2. Functions take their value of "`this`" from the context object.
 
 The following example illutrates these rules:
 
@@ -517,7 +691,7 @@ If we are considering to rewrite some function as an arrow function, a conservat
 
 The traversing of the AST at [crguezl/hello-ast-types/check-this-usage.js](https://github.com/crguezl/hello-ast-types/blob/master/check-this-usage.js) attempts to detect when `this` (or `super()` or something like `super.meth()`) is used inside the body of a function. 
 
-```
+```js
   hello-ast-types git:(master) node check-this-usage.js 
 
 function tutu() {
