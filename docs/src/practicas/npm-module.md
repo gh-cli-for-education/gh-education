@@ -26,7 +26,7 @@ rubrica:
   - Se ha hecho un buen uso del versionado semántico en la evolución del módulo
 ---
 
-# {{ frontmatter.title }}
+# {{ $frontmatter.title }}
 
 ## Objetivos
 
