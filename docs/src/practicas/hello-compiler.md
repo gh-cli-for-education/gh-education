@@ -186,18 +186,12 @@ Lea la sección [GitHub Actions](/temas/introduccion-a-javascript/github-actions
 * [Tipos de Nodos del AST](/temas/introduccion-a-pl/espree-visitorkeys) y nombres de las propiedades de los hijos
 * [Escodegen repo en GitHub](https://github.com/estools/escodegen)
   - [Escodegen API Doc](https://github.com/estools/escodegen/wiki/API)
-
-### Have a look
-
-* [JAVASCRIPT AST VISUALIZER](https://resources.jointjs.com/demos/javascript-ast) jointjs demos
-* [Espree](https://github.com/eslint/espree)
-  * [Options for parse and tokenize methods](https://github.com/eslint/espree#options)
+* [Jison Documentation](https://gerhobbelt.github.io/jison/docs//)
 
 ### Jison and Syntax Analysis
 
 * [Análisis Sintáctico Ascendente en JavaScript](http://crguezl.github.io/pl-html/node43.html)
 * [Jison](/temas/syntax-analysis/analisis-LR/#introduccion-al-analisis-lr)
-* [Jison Documentation](https://gerhobbelt.github.io/jison/docs//)
 * [Mi primer proyecto utilizando Jison](https://ericknavarro.io/2019/07/21/17-Mi-primer-proyecto-utilizando-Jison-Linux/) por Erick Navarro
 * [Folder jison/examples from the Jison distribution](https://github.com/zaach/jison/tree/master/examples)
 * [Jison Debugger](https://nolanlawson.github.io/jison-debugger/)
@@ -210,4 +204,10 @@ Lea la sección [GitHub Actions](/temas/introduccion-a-javascript/github-actions
 * <a href="https://medium.com/basecs/leveling-up-ones-parsing-game-with-asts-d7a6fc2400ff" rel="nofollow">Leveling Up One’s Parsing Game With ASTs</a> by <a href="https://twitter.com/vaidehijoshi" rel="nofollow">Vaidehi Joshi</a> * <em> 👍</em>
 
 * [Lunar Arithmetic](https://en.wikipedia.org/wiki/Lunar_arithmetic)
+
+### Have a look
+
+* [JAVASCRIPT AST VISUALIZER](https://resources.jointjs.com/demos/javascript-ast) jointjs demos
+* [Espree](https://github.com/eslint/espree)
+  * [Options for parse and tokenize methods](https://github.com/eslint/espree#options)
 
