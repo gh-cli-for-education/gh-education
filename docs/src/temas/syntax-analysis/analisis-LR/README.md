@@ -9,10 +9,10 @@ title: Análisis LR
 
 * [Jison Documentation](https://gerhobbelt.github.io/jison/docs/)
 * [Jison Debugger](https://nolanlawson.github.io/jison-debugger/) ¡No te lo pierdas!
-* [Folder jison/examples from the Jison distribution](https://github.com/zaach/jison/tree/master/examples)
+* [Mi primer proyecto utilizando Jison](https://ericknavarro.io/2019/07/21/17-Mi-primer-proyecto-utilizando-Jison-Linux/) por Erick Navarro
 * [Repo ULL-ESIT-PL-1718/jison-aSb](https://github.com/ULL-ESIT-PL-1718/jison-aSb)
 * [Repo ULL-ESIT-PL-1718/ull-etsii-grado-pl-jisoncalc](https://github.com/ULL-ESIT-PL-1718/ull-etsii-grado-pl-jisoncalc)
-
+* [Folder jison/examples from the Jison distribution](https://github.com/zaach/jison/tree/master/examples)
 
 ## Introducción al Análisis LR
 

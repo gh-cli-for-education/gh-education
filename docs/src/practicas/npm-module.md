@@ -75,7 +75,7 @@ El informe de la práctica `README.md` se hace en este repo.
 
 Repase la sección [Making a Project with the two repos: git submodule](/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html#making-a-project-with-the-two-repos-git-submodule)
 
-## Constant Folding of MemberExpression literals
+## Challenge: Constant Folding of MemberExpression literals
 
 Añada ahora plegado de constantes para métodos (con argumentos plegables) y propiedades de los arrays. Esto es, expresiones como:
 
@@ -131,7 +131,13 @@ Other possible optional extensions are:
 
 ## References
 
+### Constant Folding
+
+* [Transformación de plegado de constantes](/temas/introduccion-a-pl/master-the-art-of-the-ast.html#constant-folding) en estos apuntes
 * Babel plugin [minify-constant-folding](https://github.com/babel/minify/tree/master/packages/babel-plugin-minify-constant-folding)
+
+### Packages
+
 * [Creating and Publishing a node.js Module in GitHub and NPM Registries](/temas/introduccion-a-javascript/creating-and-publishing-npm-module)
 * [Jest](/temas/introduccion-a-javascript/jest)
 * [Módulos](/temas/introduccion-a-javascript/modulos)
@@ -144,8 +150,10 @@ Other possible optional extensions are:
 * [Working with scoped packages](https://docs.npmjs.com/getting-started/scoped-packages)
 * [npm-scope manual: Scoped packages](https://docs.npmjs.com/misc/scope#publishing-public-scoped-packages-to-the-public-npm-registry)
 * [Package.json documentation en npm site](https://docs.npmjs.com/files/package.json)
-* Semantic versioning and npm
-    * [Semantic versioning and npm](https://docs.npmjs.com/getting-started/semantic-versioning)
-    * [Semantic Versioning: Why You Should Be Using it](https://www.sitepoint.com/semantic-versioning-why-you-should-using/) SitePoint
-    * [YouTube Video: Semantic versioning and npm](https://youtu.be/kK4Meix58R4)
-    * [El comando npm version](https://docs.npmjs.com/cli/version)
+
+### Semantic versioning and npm
+
+* [Semantic versioning and npm](https://docs.npmjs.com/getting-started/semantic-versioning)
+* [Semantic Versioning: Why You Should Be Using it](https://www.sitepoint.com/semantic-versioning-why-you-should-using/) SitePoint
+* [YouTube Video: Semantic versioning and npm](https://youtu.be/kK4Meix58R4)
+* [El comando npm version](https://docs.npmjs.com/cli/version)

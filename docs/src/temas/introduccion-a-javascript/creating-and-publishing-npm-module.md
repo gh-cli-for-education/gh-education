@@ -1399,7 +1399,7 @@ Inicializado repositorio Git vacío en /Users/casiano/local/src/github-actions-l
 To add the other repos to this one we use 
 
 ```
-git sumodule add <repo url>
+git submodule add <repo url>
 ```
 
 Example:
