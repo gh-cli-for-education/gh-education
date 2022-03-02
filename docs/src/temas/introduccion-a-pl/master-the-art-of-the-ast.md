@@ -12,7 +12,7 @@ The following code uses estraverse to implement a simplified version of the AST 
 ```js
 // See https://github.com/babel/minify/tree/master/packages/babel-plugin-minify-constant-folding
 const fs = require("fs");
-const deb = require('../src/deb.js');
+const deb = require("../src/deb.js");
 const escodegen = require("escodegen");
 const espree = require("espree");
 const estraverse = require("estraverse");
@@ -26,33 +26,22 @@ var a = 2+3*5+b;
 `;
 
 function replaceByLiteral(n) {
-    n.type = "Literal";
-    
-    n.value = eval(`${n.left.raw} ${n.operator} ${n.right.raw}`);
-    n.raw = String(n.value);
+  n.type = "Literal";
 
-    delete(n.left);
-    delete(n.right);
+  n.value = eval(`${n.left.raw} ${n.operator} ${n.right.raw}`);
+  n.raw = String(n.value);
+
+  delete n.left;
+  delete n.right;
 }
 
 const t = espree.parse(input, { ecmaVersion: 6, loc: false });
-//deb(t);
 estraverse.traverse(t, {
   leave: function (n, p) {
     if (
-      n.type == "BinaryExpression" &&
-      n.left.type == "Literal" &&
-      n.right.type == "Literal"
-    ) {
-        let left = n.left.value;
-        let right = n.right.value;
-        if (typeof left == 'string' || typeof right == 'string') {
-          replaceByLiteral(n, 'string')
-        } else if (typeof left == 'number') { 
-          replaceByLiteral(n, 'number')
-        }
-        else { /* leave it */}
-    }
+      n.type == "BinaryExpression" && 
+      n.left.type == "Literal" && n.right.type == "Literal"
+    ) { replaceByLiteral(n); }
   },
 });
 deb(t);
