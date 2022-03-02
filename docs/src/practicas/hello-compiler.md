@@ -39,7 +39,7 @@ $$12 \& 7=\min\{12,7\}=7$$
 
 Escriba un traductor de estas expresiones aritméticas a un programa JavaScript que las compute y las imprima.
 
-Supondremos que el mínimo `&` tiene mas prioridad que el máximo `@`. Por ejemplo, la entrada $234 @ 325 \&  57$ debería ser traducida al siguiente código JS:
+**Supondremos que el mínimo `&` tiene mas prioridad que el máximo `@`**. Por ejemplo, la entrada $234 @ 325 \&  57$ debería ser traducida al siguiente código JS:
 
 ```js
 console.log(Math.max(234, Math.min(325,57)))

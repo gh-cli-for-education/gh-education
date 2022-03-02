@@ -489,6 +489,8 @@ path.get("elements").insertAt(5, newNode);
 
 File [crguezl/hello-ast-types/scope-catch.js](https://github.com/crguezl/hello-ast-types/blob/master/scope-catch.js)
 
+[See the AST](https://astexplorer.net/#/gist/f00452c960b249ed36aacc08cacaaa34/646c9796cf42772a97f8b6448a12e99f7610838c) for the input source.
+
 ```js
 import assert from "assert";
 import { parse } from "espree";
@@ -530,7 +532,8 @@ assert.strictEqual(catchScope.declares("f"), false);
 assert.strictEqual(catchScope.lookup("e"), catchScope);
 assert.strictEqual(catchScope.lookup("f"), fooScope);
 
-//it("should shadow only the parameter in nested scopes", function() {
+// it should shadow only the parameter in nested scopes
+// The argument of the return inside the catch
 var closurePath = catchPath.get("body", "body", 1, "argument");
 var closureScope = closurePath.scope;
 n.FunctionExpression.assert(closureScope.node);
@@ -888,10 +891,11 @@ More on JSCodeshift in the article [Write Code to Rewrite Your Code: jscodeshift
 * [fczbkk/talk-2021-09-22-webexpo-codemod](https://github.com/fczbkk/talk-2021-09-22-webexpo-codemod) GitHub Repo
 
 
-#### ast-types and recast 
+### ast-types and recast 
 
 * [recast](https://github.com/benjamn/recast)
 * [ast-types examples in crguezl/hello-ast-types](https://github.com/crguezl/hello-ast-types)
+* [api documentation for ast-types (v0.9.11)](https://npmdoc.github.io/node-npmdoc-ast-types/build/apidoc.html#apidoc.tableOfContents) (Don't trust it. Current version is 0.15) 
 
 ### Estraverse
 
