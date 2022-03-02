@@ -71,6 +71,8 @@ Repase la sección [Testing in Production](/temas/introduccion-a-javascript/crea
 Usando `git submodule` configure como super-project el repo asignado `super-constant-folding-aluXXX` para que contenga
 a a los dos repos: en el que ha desarrollado el módulo npm `constant-folding-aluXXX` y el repo para las pruebas en tiempo de producción `testing-constant-folding-aluXXX`.
 
+El informe de la práctica `README.md` se hace en este repo.
+
 Repase la sección [Making a Project with the two repos: git submodule](/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html#making-a-project-with-the-two-repos-git-submodule)
 
 ## Constant Folding of MemberExpression literals
