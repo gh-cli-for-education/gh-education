@@ -15,7 +15,7 @@ rubrica:
   - Contiene suficientes tests 
   - "Estudio de covering"
   - Se ha hecho CI con GitHub Actions
-  - Los informes están bien presentados
+  - Los informes están bien presentados (informe en el superrepo)
   - "La documentación es completa: API, ejecutable, instalación, etc." 
   - "Opcional: publicar la documentación de la API usando GitHub Pages en la carpeta <code>docs/</code>"
   - 
