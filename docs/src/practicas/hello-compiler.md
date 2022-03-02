@@ -111,12 +111,12 @@ graph TB
     A((e))--> B((e))
     A-->C(("@"))
     A-->D((e))
-    B--> F(("N(2)"))
-    D-->G((e))
-    D-->H(("&"))
-    D-->I((e))
-    G-->K(("N(3)"))
-    I-->L(("N(4)"))
+    B-->F(("e"))
+    B-->G(("&"))
+    B-->H(("e"))
+    D-->I(("N(4)"))
+    F-->K(("N(2)"))
+    H-->L(("N(3)"))
   end
 ```
 that leads to the interpretation `(2&3)@4`.
@@ -203,11 +203,11 @@ Lea la sección [GitHub Actions](/temas/introduccion-a-javascript/github-actions
 * [Repo ULL-ESIT-PL-1718/ull-etsii-grado-pl-jisoncalc](https://github.com/ULL-ESIT-PL-1718/ull-etsii-grado-pl-jisoncalc)
 * <a href="https://medium.com/basecs/leveling-up-ones-parsing-game-with-asts-d7a6fc2400ff" rel="nofollow">Leveling Up One’s Parsing Game With ASTs</a> by <a href="https://twitter.com/vaidehijoshi" rel="nofollow">Vaidehi Joshi</a> * <em> 👍</em>
 
-* [Lunar Arithmetic](https://en.wikipedia.org/wiki/Lunar_arithmetic)
 
 ### Have a look
 
 * [JAVASCRIPT AST VISUALIZER](https://resources.jointjs.com/demos/javascript-ast) jointjs demos
 * [Espree](https://github.com/eslint/espree)
   * [Options for parse and tokenize methods](https://github.com/eslint/espree#options)
+* [Lunar Arithmetic](https://en.wikipedia.org/wiki/Lunar_arithmetic)
 
