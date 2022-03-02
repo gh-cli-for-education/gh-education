@@ -190,6 +190,7 @@ Lea la sección [GitHub Actions](/temas/introduccion-a-javascript/github-actions
 * [Análisis Sintáctico Ascendente en JavaScript](http://crguezl.github.io/pl-html/node43.html)
 * [Jison](/temas/syntax-analysis/analisis-LR/#introduccion-al-analisis-lr)
 * [Jison Documentation](https://gerhobbelt.github.io/jison/docs//)
+* [Mi primer proyecto utilizando Jison](https://ericknavarro.io/2019/07/21/17-Mi-primer-proyecto-utilizando-Jison-Linux/) por Erick Navarro
 * [Folder jison/examples from the Jison distribution](https://github.com/zaach/jison/tree/master/examples)
 * [Jison Debugger](https://nolanlawson.github.io/jison-debugger/)
 * [Precedencia y Asociatividad](http://crguezl.github.io/pl-html/node57.html)
