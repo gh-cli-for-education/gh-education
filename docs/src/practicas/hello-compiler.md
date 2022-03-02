@@ -179,14 +179,22 @@ Lea la sección [GitHub Actions](/temas/introduccion-a-javascript/github-actions
 
 ## References
 
+### Essentials for this lab
+
 * See the examples in the repo [crguezl/hello-jison](https://github.com/crguezl/hello-jison)
 * [https://astexplorer.net](https://astexplorer.net)
-* [JAVASCRIPT AST VISUALIZER](https://resources.jointjs.com/demos/javascript-ast) jointjs demos
-* [Tipos de Nodos del AST](/temas/introduccion-a-pl/espree-visitorkeys)
-* [Espree](https://github.com/eslint/espree)
-  * [Options for parse and tokenize methods](https://github.com/eslint/espree#options)
+* [Tipos de Nodos del AST](/temas/introduccion-a-pl/espree-visitorkeys) y nombres de las propiedades de los hijos
 * [Escodegen repo en GitHub](https://github.com/estools/escodegen)
   - [Escodegen API Doc](https://github.com/estools/escodegen/wiki/API)
+
+### Have a look
+
+* [JAVASCRIPT AST VISUALIZER](https://resources.jointjs.com/demos/javascript-ast) jointjs demos
+* [Espree](https://github.com/eslint/espree)
+  * [Options for parse and tokenize methods](https://github.com/eslint/espree#options)
+
+### Jison and Syntax Analysis
+
 * [Análisis Sintáctico Ascendente en JavaScript](http://crguezl.github.io/pl-html/node43.html)
 * [Jison](/temas/syntax-analysis/analisis-LR/#introduccion-al-analisis-lr)
 * [Jison Documentation](https://gerhobbelt.github.io/jison/docs//)
