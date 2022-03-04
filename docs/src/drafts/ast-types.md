@@ -6,7 +6,7 @@ date: 2022/02/24
 delivery: "2022/03/17"
 order: 9
 layout: Practica
-prev: npm-module.md
+prev: 
 sidebar: auto
 rubrica: 
   - El paquete está publicado en npmjs con ámbito <code>aluXXX</code>
@@ -108,10 +108,10 @@ rules.
 
 ## References
 
-### Constant Folding
+### ast-types
 
-* [Transformación de plegado de constantes](/temas/introduccion-a-pl/master-the-art-of-the-ast.html#constant-folding) en estos apuntes
-* Babel plugin [minify-constant-folding](https://github.com/babel/minify/tree/master/packages/babel-plugin-minify-constant-folding)
+* [ast-types in this notes]((/temas/introduccion-a-pl/master-the-art-of-the-ast.html#ast-types)
+* [ast-types examples in crguezl/hello-ast-types](https://github.com/crguezl/hello-ast-types)
 
 ### Packages
 
