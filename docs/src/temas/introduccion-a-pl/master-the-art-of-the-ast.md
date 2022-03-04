@@ -40,7 +40,7 @@ estraverse.traverse(t, {
   leave: function (n, p) {
     if (
       n.type == "BinaryExpression" && 
-      n.left.type == "Literal" && n.right.type == "Literal"
+        n.left.type == "Literal" && n.right.type == "Literal"
     ) { replaceByLiteral(n); }
   },
 });
@@ -134,7 +134,7 @@ See also the video lecture [SpiderMonkey Parser API: A Standard For Structured J
 
 ### Simple Example
 
-[Here is an example](https://github.com/crguezl/hello-ast-types) of usage:
+[Here is an example](https://github.com/crguezl/hello-ast-types) of usage of [ast-types](https://github.com/benjamn/ast-types):
 
 ```js
 import assert from "assert";

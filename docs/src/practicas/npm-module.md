@@ -57,7 +57,7 @@ Repase las secciones [Testing with Mocha and Chai](/temas/introduccion-a-javascr
 ## Documentación
 
 [Documente](/temas/introduccion-a-javascript/documentation)
-el módulo incorporando un `README.md` y la documentación de la función exportada.
+el módulo incorporando un `README.md` y la documentación de la función exportada usando [JsDoc](/temas/introduccion-a-javascript/documentation.html).
 Repase la sección [Documenting the JavaScript Sources](/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html#documenting-the-javascript-sources)
 
 ## Pruebas de Producción
@@ -139,10 +139,8 @@ Other possible optional extensions are:
 ### Packages
 
 * [Creating and Publishing a node.js Module in GitHub and NPM Registries](/temas/introduccion-a-javascript/creating-and-publishing-npm-module)
-* [Jest](/temas/introduccion-a-javascript/jest)
 * [Módulos](/temas/introduccion-a-javascript/modulos)
 * [Node.js Packages](/temas/introduccion-a-javascript/nodejspackages)
-* [Documentation](/temas/introduccion-a-javascript/documentation)
 * [Instalación de Módulos desde GitHub](/temas/introduccion-a-javascript/nodejspackages.html#instalaci%C3%B3n-desde-github)
 * [Introducción a los Módulos en JS](https://lenguajejs.com/automatizadores/introduccion/commonjs-vs-es-modules/) por Manz
 * [@ull-esit-dsi-1617/scapegoat](https://www.npmjs.com/package/@ull-esit-dsi-1617/scapegoat) en npm
@@ -150,6 +148,12 @@ Other possible optional extensions are:
 * [Working with scoped packages](https://docs.npmjs.com/getting-started/scoped-packages)
 * [npm-scope manual: Scoped packages](https://docs.npmjs.com/misc/scope#publishing-public-scoped-packages-to-the-public-npm-registry)
 * [Package.json documentation en npm site](https://docs.npmjs.com/files/package.json)
+
+### Testing and Documentation
+
+* [Jest](/temas/introduccion-a-javascript/jest)
+* [Mocha](/temas/introduccion-a-javascript/mocha)
+* [Documentation](/temas/introduccion-a-javascript/documentation)
 
 ### Semantic versioning and npm
 

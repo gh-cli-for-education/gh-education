@@ -6,6 +6,7 @@ module.exports = [
     {text: "Intro to LR Parser Generators with Jison", link: "/temas/syntax-analysis/analisis-LR/"},
     {text: "Testing", link: "/temas/introduccion-a-javascript/pruebas.html"},
     {text: "GitHub Actions", link: "/temas/introduccion-a-javascript/github-actions.html"},
+    {text: "Publishing a npm module", link: "/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html"},
     
 
 /*

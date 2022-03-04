@@ -88,6 +88,7 @@ const navigationBar = [
     items: [
       {text: 'Meet', link: 'https://meet.google.com/eha-yfij-zmo'},
       {text: 'Chat', link: 'https://mail.google.com/chat/u/1/#chat/welcome'},
+      {text: 'Spreadsheets', link: 'https://docs.google.com/spreadsheets/u/1/?tgif=d'},
       {
         text: 'Vídeos', 
         items: [

@@ -6,11 +6,62 @@ title: Documenting  JavaScript Programs
 
 ## JSDoc
 
+* [@use JSDoc](https://jsdoc.app/)
 - [jsdoc npm package](https://www.npmjs.com/package/jsdoc), 
 * [JSDoc format: Wikipedia](https://en.wikipedia.org/wiki/JSDoc)
+
+
 * [An introduction to JSDoc](http://2ality.com/2011/08/jsdoc-intro.html)
 * [Book *Speaking JavaScript: An In-Depth Guide for Programmers* by Dr. Axel Rauschmayer: Chapter 29. JSDoc: Generating API Documentation](http://speakingjs.com/es5/ch29.html)
-* [Getting Started with JSDoc 3](http://usejsdoc.org/about-getting-started.html)
+
+
+* JSDoc grammars:
+  * PegJS grammar [jsdoctypeparser/jsdoctypeparser/peg_src/jsdoctype.pegjs](https://github.com/jsdoctypeparser/jsdoctypeparser/blob/master/peg_src/jsdoctype.pegjs)
+  * PegJS [hegemonic/catharsis/lib/parser.pegjs](https://github.com/hegemonic/catharsis/blob/main/lib/parser.pegjs) or Google Closure Compiler and JSDoc type expressions.
+
+### jsdoc-to-markdown
+
+[jsdoc-to-markdown](https://github.com/jsdoc2md/jsdoc-to-markdown) generates markdown API documentation from [jsdoc](http://usejsdoc.org) annotated source code. Useful for injecting API docs into project README files.
+
+1\. Document your code using valid jsdoc comments.
+
+```js
+/**
+ * A quite wonderful function.
+ * @param {object} - Privacy gown
+ * @param {object} - Security
+ * @returns {survival}
+ */
+function protection (cloak, dagger) {}
+```
+
+2\. Run a command.
+
+```sh
+$ jsdoc2md example.js
+```
+
+3\. Get markdown output.
+
+```markdown
+
+## protection(cloak, dagger) ⇒ <code>survival</code>
+A quite wonderful function.
+
+**Kind**: global function
+
+| Param  | Type                | Description  |
+| ------ | ------------------- | ------------ |
+| cloak  | <code>object</code> | Privacy gown |
+| dagger | <code>object</code> | Security     |
+
+```
+
+
+See also
+
+* [API documentation](https://github.com/jsdoc2md/jsdoc-to-markdown/blob/master/docs/API.md)
+* The [wiki](https://github.com/jsdoc2md/jsdoc-to-markdown/wiki) for example output, FAQs, tutorials, plugins, use with gulp/grunt etc.
 
 ## Vuepress Autodoc Plugin
 

@@ -656,7 +656,8 @@ For example, to write a github action to publish a npm package in the npm regist
 I surely need to give GitHub a token so that it can work on my name and publish 
 the package. Thus, the procedure will be:
 
-1. You create a token for npm with [npm token create](https://docs.npmjs.com/creating-and-viewing-authentication-tokens) with read and publish permits:
+
+* You create a token for npm with [npm token create](https://docs.npmjs.com/creating-and-viewing-authentication-tokens) with read and publish permits:
    
    ```
     [~/.../lexer-generator(master)]$ npm token create
@@ -673,8 +674,11 @@ the package. Thus, the procedure will be:
     └────────────────┴──────────────────────────────────────┘
   ```
 
-3. Set the secret token in the secrets section of your repo with name for example `NPM_TOKEN`
-4. Make the secret accesible to the GitHub Action via the `secrets` context
+
+* Then you set the secret token in the secrets section of your repo with name for example `NPM_TOKEN`
+
+Finally, make the secret accessible to the GitHub Action via the `secrets` context:
+
 
 ```yml
 name: Node.js Package
