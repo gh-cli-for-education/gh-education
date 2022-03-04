@@ -590,6 +590,12 @@ function tutu(x) {
 }
 ```
 
+[`arguments`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) is an Array-like object accessible inside functions that contains the values of the arguments passed to that function.
+
+The `array.slice(1)` method returns a shallow copy of  array into a new array object selected from `1` to the end of the array. The original `arguments` will not be modified. Since `arguments` is not an array it has o `slice`method and we have to resort to use the JS `call` method of the function objects.
+
+The `call(arguments, 1)` method calls `Array.prototype.slice`  with the value of `this` set to `arguments`.
+
 See the file [spread-operator.js in the repo crguezl/hello-ast-types](https://github.com/crguezl/hello-ast-types/blob/master/spread-operator.js)
 
 ::: danger AST compatibility
