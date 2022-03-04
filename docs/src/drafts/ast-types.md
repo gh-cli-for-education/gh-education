@@ -92,7 +92,7 @@ rules.
 
 ### ast-types
 
-* [ast-types in this notes]((/temas/introduccion-a-pl/master-the-art-of-the-ast.html#ast-types)
+* [ast-types in this notes](/temas/introduccion-a-pl/master-the-art-of-the-ast.html#ast-types)
 * [ast-types examples in crguezl/hello-ast-types](https://github.com/crguezl/hello-ast-types)
 
 ### Packages
