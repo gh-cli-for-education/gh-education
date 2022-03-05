@@ -41,34 +41,36 @@ Una parte de los conceptos y habilidades a adquirir con esta práctica se explic
 ## Pruebas
 
 Deberá añadir pruebas usando [Mocha y Chai](/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html#testing-with-mocha-and-chai) o [Jest](/temas/introduccion-a-javascript/jest).
-Repase las secciones [Testing with Mocha and Chai](/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html#testing-with-mocha-and-chai) y [Jest](/temas/introduccion-a-javascript/jest). Añada un estudio de covering. See the notes in [covering](/temas/introduccion-a-javascript/covering). 
+Repase las secciones [Testing with Mocha and Chai](/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html#testing-with-mocha-and-chai) y [Jest](/temas/introduccion-a-javascript/jest). Añada un estudio de covering. See the notes in [covering](/temas/introduccion-a-javascript/covering). Añada CI con GitHub Actions.
 
 ## Informe y Documentación
-
 
 [Documente](/temas/introduccion-a-javascript/documentation)
 el módulo incorporando un `README.md`: Como se instala, como se usa el ejecutable, como se carga la librería, etc.
 
 Use GitHub Pages en el directorio `docs`.
 
-Añada un fichero con nombre [`.nojekyll`](https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/) en su directorio `docs/`.
+No haga el informe de la práctica en el `README.md`  sino que utilice el generador estático [Vuepress](https://vuepress.vuejs.org/guide/) para hacer el informe.
 
-La documentación de la API de la función exportada usando [JsDoc](/temas/introduccion-a-javascript/documentation.html) la deja accesible en el despliegue (directorio `docs/api`).
+Para el [despliegue](https://vuepress.vuejs.org/guide/deploy.html#deploying) del informe puede 
+
+- mover los ficheros generados por VuePress del directorio `src/.vuepress/dist/` 
+al directorio `docs/`).
+- Recuerde poner `base` en su Vuepress `config.js` con el nombre de su repo. Algo así:
+
+  ```js
+  module.exports = {
+    title: 'Lab ast-types Report',
+    base: '/ast-types-casiano-rodriguez-leon-alumno5/',
+    ...
+  }
+  ```
+- Añada un fichero con nombre [`.nojekyll`](https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/) en su directorio `docs/`.
+
+La documentación de la API de la función exportada usando [JsDoc](/temas/introduccion-a-javascript/documentation.html) la puede dejar accesible en el despliegue (directorio `docs/api`) o puede tratar de integrarla con [Vuepress JsDoc Plugin](https://vuepress-jsdoc-example.vercel.app/code/). 
 
 Añada el informe de Covering también (directorio `docs/covering` o similar).
 
-No haga el informe de la práctica en el `README.md`  sino que utilice el generador estático [Vuepress](https://vuepress.vuejs.org/guide/) para hacer el informe.
-
-Para el [despliegue](https://vuepress.vuejs.org/guide/deploy.html#deploying) del informe puede mover los ficheros generados por VuePress del directorio `src/.vuepress/dist/` 
-al directorio `docs/`). Recuerde poner `base` en su Vuepress `config.js` con el nombre de su repo. Algo así:
-
-```js
-module.exports = {
-  title: 'Lab ast-types Report',
-  base: '/ast-types-casiano-rodriguez-leon-alumno5/',
-  ...
-}
-```
 
 ## Challenge: SpreadElements inside an ArrayExpression
 
@@ -86,7 +88,10 @@ The same can be done in former versions of JS using `Array.concat`:
 > parts = ['shoulders', 'knees'];
 > lyrics = [].concat(['head'], parts, ['and'], ['toes'])
 [ 'head', 'shoulders', 'knees', 'and', 'toes' ] // makes a shallow copy of parts
+> lyrics = ['head'].concat(parts).concat(['and', 'toes']) // same
 ``` 
+
+But can be achieved with other strategies.
 
 Extend your translator to cover this use of the spread operator inside an `ArrayExpression`.
 
@@ -115,11 +120,20 @@ rules.
 * [npm-scope manual: Scoped packages](https://docs.npmjs.com/misc/scope#publishing-public-scoped-packages-to-the-public-npm-registry)
 * [Package.json documentation en npm site](https://docs.npmjs.com/files/package.json)
 
-### Testing and Documentation
+### Testing 
 
 * [Jest](/temas/introduccion-a-javascript/jest)
 * [Mocha](/temas/introduccion-a-javascript/mocha)
-* [Documentation](/temas/introduccion-a-javascript/documentation)
+
+### Documentation
+
+* [Vuepress](https://vuepress.vuejs.org/guide/)
+  * [Deployment](https://vuepress.vuejs.org/guide/deploy.html#deploying)
+  * [Vuepress JsDoc Plugin](https://vuepress-jsdoc-example.vercel.app/code/)
+  * [jsdoc2vuepress](https://www.npmjs.com/package/jsdoc2vuepress)
+  * [Vuepress Autodoc Plugin](https://bprinty.github.io/vuepress-plugin-autodoc/#overview)
+* [.nojekyll](https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/) Bypassing Jekyll on GitHub Pages
+* [JSDoc and others](/temas/introduccion-a-javascript/documentation) in this notes
 
 ### Semantic versioning and npm
 
