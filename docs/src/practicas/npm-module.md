@@ -17,11 +17,12 @@ rubrica:
   - Se ha hecho CI con GitHub Actions
   - Los informes están bien presentados (informe en el superrepo)
   - "La documentación es completa: API, ejecutable, instalación, etc." 
-  - "Opcional: publicar la documentación de la API usando GitHub Pages en la carpeta <code>docs/</code>"
   - 
-    - Las <i>pruebas de producción</i> funcionan bien
-    - Probar que la librería está accesible y funciona 
-    - Probar que el ejecutable queda correctamente instalado, puede ser ejecutado con el nombre publicado y produce salidas correctas
+    - "Opcional: publicar la documentación de la API usando GitHub Pages en la carpeta <code>docs/</code>" 
+    - "Ha editado la sección <i>About</i> del repo con el enlace a la página web de la API"
+  - Las <i>pruebas de producción</i> funcionan bien
+  - Probar que la librería está accesible y funciona 
+  - Probar que el ejecutable queda correctamente instalado, puede ser ejecutado con el nombre publicado y produce salidas correctas
   - El superproyecto está correctamente estructurado usando submódulos
   - Se ha hecho un buen uso del versionado semántico en la evolución del módulo
 ---

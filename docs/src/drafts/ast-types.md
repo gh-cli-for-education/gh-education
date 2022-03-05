@@ -9,21 +9,15 @@ layout: Practica
 prev: 
 sidebar: auto
 rubrica: 
-  - El paquete está publicado en npmjs con ámbito <code>aluXXX</code>
+  - El paquete está publicado en gitHub Registry con el ámbito de la organización
   - Contiene un ejecutable que se ejecuta correctamente (<code>--help</code>, etc.)
-  - The folding has been extended for Array Membership literal nodes 
+  - The <code>spread</code> has been extended for SpreadElements inside an ArrayExpression 
   - El módulo exporta las funciones adecuadas
-  - Contiene suficientes tests 
+  - Contiene tests 
   - "Estudio de covering"
   - Se ha hecho CI con GitHub Actions
-  - Los informes están bien presentados (informe en el superrepo)
-  - "La documentación es completa: API, ejecutable, instalación, etc." 
-  - "Opcional: publicar la documentación de la API usando GitHub Pages en la carpeta <code>docs/</code>"
-  - 
-    - Las <i>pruebas de producción</i> funcionan bien
-    - Probar que la librería está accesible y funciona 
-    - Probar que el ejecutable queda correctamente instalado, puede ser ejecutado con el nombre publicado y produce salidas correctas
-  - El superproyecto está correctamente estructurado usando submódulos
+  - Módulo bien documentado 
+  - Informe hecho con Vuepress desplegado
   - Se ha hecho un buen uso del versionado semántico en la evolución del módulo
 ---
 
@@ -32,7 +26,7 @@ rubrica:
 ## Objetivos
 
 Construya un paquete npm y 
-publíquelo en GitHub Registry con nombre `spread-2-es5` 
+publíquelo en [GitHub Registry](/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html#what-is-github-registry) con ámbito `@ULL-ESIT-PL-2122` y nombre el nombre del repo asignado.
 
 El módulo además de exportar la función `spread` provee un ejecutable `spread` que se llama así:
 
@@ -40,49 +34,61 @@ El módulo además de exportar la función `spread` provee un ejecutable `spread
 spread input.js output.js
 ```
 
-el cual realiza [una traducción del operador es6 `...` a versiones anteriores de JS](/temas/introduccion-a-pl/master-the-art-of-the-ast.html#translating-the-es6-spread-operator-to-es5) sobre `input.js` dejando la salida en `output.js`.
+el cual realiza [una traducción del operador es6 `...` a versiones anteriores de JS](/temas/introduccion-a-pl/master-the-art-of-the-ast.html#translating-the-es6-spread-operator-to-es5) sobre `input.js` dejando la salida en `output.js`. Tiene una solución en la sección [Translating the ES6 spread operator ... to ES5](/temas/introduccion-a-pl/master-the-art-of-the-ast.html#translating-the-es6-spread-operator-to-es5) de estos apuntes.
 
 Una parte de los conceptos y habilidades a adquirir con esta práctica se explican en la sección [Creating and publishing a node.js module en GitHub y en NPM](/temas/introduccion-a-javascript/creating-and-publishing-npm-module). Léala con detenimiento antes de hacer esta práctica. 
 
 ## Pruebas
 
 Deberá añadir pruebas usando [Mocha y Chai](/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html#testing-with-mocha-and-chai) o [Jest](/temas/introduccion-a-javascript/jest).
-Repase las secciones [Testing with Mocha and Chai](/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html#testing-with-mocha-and-chai) y [Jest](/temas/introduccion-a-javascript/jest).
+Repase las secciones [Testing with Mocha and Chai](/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html#testing-with-mocha-and-chai) y [Jest](/temas/introduccion-a-javascript/jest). Añada un estudio de covering. See the notes in [covering](/temas/introduccion-a-javascript/covering). 
 
-## Documentación
+## Informe y Documentación
 
-Escriba un tutorial usando Vuepreess.
 
 [Documente](/temas/introduccion-a-javascript/documentation)
-el módulo incorporando un `README.md` y la documentación de la función exportada usando [JsDoc](/temas/introduccion-a-javascript/documentation.html).
-Repase la sección [Documenting the JavaScript Sources](/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html#documenting-the-javascript-sources)
+el módulo incorporando un `README.md`: Como se instala, como se usa el ejecutable, como se carga la librería, etc.
 
+Use GitHub Pages en el directorio `docs`.
 
-## Challenge: Spread in array literals
+Añada un fichero con nombre [`.nojekyll`](https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/) en su directorio `docs/`.
 
-With spread syntax it is easy to create a new array using an existing array:
+La documentación de la API de la función exportada usando [JsDoc](/temas/introduccion-a-javascript/documentation.html) la deja accesible en el despliegue (directorio `docs/api`).
+
+Añada el informe de Covering también (directorio `docs/covering` o similar).
+
+No haga el informe de la práctica en el `README.md`  sino que utilice el generador estático [Vuepress](https://vuepress.vuejs.org/guide/) para hacer el informe.
+
+Para el [despliegue](https://vuepress.vuejs.org/guide/deploy.html#deploying) del informe puede mover los ficheros generados por VuePress del directorio `src/.vuepress/dist/` 
+al directorio `docs/`). Recuerde poner `base` en su Vuepress `config.js` con el nombre de su repo. Algo así:
+
+```js
+module.exports = {
+  title: 'Lab ast-types Report',
+  base: '/ast-types-casiano-rodriguez-leon-alumno5/',
+  ...
+}
+```
+
+## Challenge: SpreadElements inside an ArrayExpression
+
+With ES6 spread syntax it is easy to create a new array using an existing array:
 
 ```js
 let parts = ['shoulders', 'knees'];
 let lyrics = ['head', ...parts, 'and', 'toes'];
 //  ["head", "shoulders", "knees", "and", "toes"]
 ```
-This can be done in former versions of JS using concat:
+
+The same can be done in former versions of JS using `Array.concat`:
 
 ```js
-lyrics = [].concat('head', parts, ['and'], ['toes'])
+> parts = ['shoulders', 'knees'];
+> lyrics = [].concat(['head'], parts, ['and'], ['toes'])
+[ 'head', 'shoulders', 'knees', 'and', 'toes' ] // makes a shallow copy of parts
 ``` 
 
-Here is a simpler example:
-
-```js
-let arr = [1, 2, 3];
-let arr2 = [...arr];       // makes a copy of arr
-let arr3 = [].concat(arr); // makes a copy of arr
-``` 
-
-Extend your translator to consider only the last case: spread operator on an array `[...b]`
-(feel free to consider the general case if you have time).
+Extend your translator to cover this use of the spread operator inside an `ArrayExpression`.
 
 Publish it and update the version following the
 [Semantic Versioning](/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html#semantic-versioning)
@@ -99,6 +105,7 @@ rules.
 
 * [Creating and Publishing a node.js Module in GitHub and NPM Registries](/temas/introduccion-a-javascript/creating-and-publishing-npm-module)
 * [Módulos](/temas/introduccion-a-javascript/modulos)
+* [Node.js docs. Modules: ECMAScript modules](https://nodejs.org/api/esm.html#introduction)
 * [Node.js Packages](/temas/introduccion-a-javascript/nodejspackages)
 * [Instalación de Módulos desde GitHub](/temas/introduccion-a-javascript/nodejspackages.html#instalaci%C3%B3n-desde-github)
 * [Introducción a los Módulos en JS](https://lenguajejs.com/automatizadores/introduccion/commonjs-vs-es-modules/) por Manz

@@ -590,13 +590,15 @@ function tutu(x) {
 }
 ```
 
-[`arguments`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) is an Array-like object accessible inside functions that contains the values of the arguments passed to that function.
+[`arguments`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) is an Array-like object (**but is not an array!**) accessible inside functions that contains the values of the arguments passed to that function.
 
-The `array.slice(1)` method returns a shallow copy of  array into a new array object selected from `1` to the end of the array. The original `arguments` will not be modified. Since `arguments` is not an array it has o `slice`method and we have to resort to use the JS `call` method of the function objects.
+The `array.slice(1)` method returns a shallow copy of  `array` into a new array object selected from `1` to the end of the array. The original `array` will not be modified. 
+
+Since `arguments` is not an array, we can't use directly the `slice` method and have to resort to use the JS `call` method of the function objects instead.
 
 The `call(arguments, 1)` method calls `Array.prototype.slice`  with the value of `this` set to `arguments`.
 
-See the file [spread-operator.js in the repo crguezl/hello-ast-types](https://github.com/crguezl/hello-ast-types/blob/master/spread-operator.js)
+See the code in the file [spread-operator.js in the repo crguezl/hello-ast-types](https://github.com/crguezl/hello-ast-types/blob/master/spread-operator.js)
 
 ::: danger AST compatibility
 I have used `espree` to generate the initial AST. It seems to have some incompatibilities with the 
@@ -625,7 +627,7 @@ var sliceExpr = b.memberExpression(
   );
 ```
 
-Since I wasn't in the mood to build the AST using the ast-builders I resourced to espree:
+Let us try our translator with the following input code:
 
 ```js 
 let code = `
@@ -633,7 +635,11 @@ function tutu(x, ...rest) {
     return x + rest[0];
 }
 `;
-// Warning!!! the AST produced by Espree doesn't seem to be fully compatible with ast-types
+```
+
+And build the  AST with Espree. Altough Espree tries hard to be compatible with Esprima and ast-types is based on Esprima it seems to me that Espree and ast-types have some incompatibilities.
+
+```js
 let ast = espree.parse(code, {ecmaVersion: 7, loc: false});
 ```
 
