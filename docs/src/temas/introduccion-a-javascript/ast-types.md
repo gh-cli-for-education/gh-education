@@ -24,7 +24,10 @@ See also the video lecture [SpiderMonkey Parser API: A Standard For Structured J
 
 ### Simple Example
 
-[Here is an example](https://github.com/crguezl/hello-ast-types) of usage of [ast-types](https://github.com/benjamn/ast-types):
+The repo [crguezl/hello-ast-types](https://github.com/crguezl/hello-ast-types) contains  examples to learn  `ast-types`.
+
+The program in file [index.js](https://github.com/crguezl/hello-ast-types/blob/master/index.js) contains a simple example
+of usage of [ast-types](https://github.com/benjamn/ast-types):
 
 ```js
 import assert from "assert";
@@ -446,7 +449,7 @@ and [crguezl/hello-ast-types/visitmemberexpression.js](https://github.com/crguez
 
 ### Translating the ES6 spread operator ... to ES5
 
-Spread syntax (`...`) allows an iterable such as an array expression or string to be expanded in places where 
+On one side, the spread syntax (`...`) allows an iterable such as an array expression or string to be expanded in places where 
 * zero or more arguments (for function calls) or 
 * elements (for array literals) are expected, or 
 * an object expression to be expanded in places where zero or more key-value pairs (for object literals) are expected.
@@ -462,6 +465,15 @@ console.log(sum(...numbers));
 // expected output: 6
 ```
 
+On the other side it allows for a variable number of arguments that are received inside the function as an array:
+
+```js
+function tutu(x, ...rest) {
+    return x + rest.length;
+}
+console.log(tutu(2,5,9))
+// expected output: 4
+```
 The following transformation approach the translation of the spread operator so that an input like:
 
 ```js
