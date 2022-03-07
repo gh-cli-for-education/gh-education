@@ -60,7 +60,6 @@ This next command will prompt you for an email and password, **create or verify 
 
 ### Create a user in the npm registry using the npm web interface
 
-Another way to register in npm is [using the npm web interface](/temas/introduccion-a-javascript/nodejspackages.html#ejercicio-darse-de-alta-en-npm)
 
 !!!include(temas/introduccion-a-javascript/alta-en-npm.md)!!!
 

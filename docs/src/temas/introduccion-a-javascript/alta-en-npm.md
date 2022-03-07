@@ -20,7 +20,8 @@ Abrir el navegador.
 
 Vaya a su cuenta de correo: debería tener un email de npm.
 
-¡Verifique su email!
+Este es un paso en el que muchos nos despistamos.
+
 :::
 
 Una vez creada la cuenta, hay que abrir sesión con el servidor NPM para poder publicar paquetes en él. Abrir una consola.
