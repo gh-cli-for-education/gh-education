@@ -16,41 +16,7 @@ title: CommonJS Modules. Importación y Exportación
 
 ## Ejercicio: Darse de alta en NPM
 
-Para comenzar, crearemos una cuenta de usuario en el repositorio de NPM mediante la cual publicar nuestros propios paquetes:
-
-1. Abrir el navegador.
-2. Ir a [https://npmjs.org](https://npmjs.org)
-3. Hacer clic en el enlace [sign up](https://www.npmjs.com/login)
-4. Rellenar el formulario de alta:
-  - ![Formulario para crear la cuenta en npmjs.org](./crearcuentanpm.png)
-5. Aceptar los términos de licencia.
-6. Hacer clic en el botón Create an Account para crear la cuenta.
-7. Una vez creada la cuenta, hay que abrir sesión con el servidor NPM para poder publicar paquetes en él. Abrir una consola.
-8. Conectar al repositorio: 
-   1. `$ npm login`
-   2. Rellene los datos que le solicita.
-   3. Consultar la cuenta con la que tenemos abierta la sesión:
-   ```
-    $ npm whoami
-   ```
-
-**Otra forma de darse de alta desde línea de comandos:**
-
-* Ejecuta en la terminal estos comandos:
-
-	```bash
-			npm set init.author.name "Casiano Rodriguez-Leon"
-			npm set init.author.email "whatever@gmail.com"
-			npm set init.author.url "https://github.com/crguezl"
-	```
-* El siguiente comando nos perdirá un email y una  password, creando o verificando 
-un usuario en el [npm registry](https://docs.npmjs.com/misc/registry), y 
-guardará el token en el fichero 
-`~/.npmrc`:
-
-	```bash
-			npm adduser
-	```
+!!!include(temas/introduccion-a-javascript/alta-en-npm.md)!!!
 
 ## Creación de Paquetes y Módulos en NodeJS
 

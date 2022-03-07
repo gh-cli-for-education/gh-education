@@ -51,12 +51,21 @@ npm set init.author.email "whatever@gmail.com"
 npm set init.author.url "https://github.com/crguezl"
 ```
 
+### Create a user in the npm registry with npm adduser
+
 This next command will prompt you for an email and password, **create or verify a user in the npm registry**, and save the credentials to the
 `~/.npmrc` file.
 
     npm adduser
 
-another way to register in npm is [using the npm web interface](/assets/temas/introduccion-a-javascript/nodejspackages.html#ejercicio-darse-de-alta-en-npm)
+### Create a user in the npm registry using the npm web interface
+
+Another way to register in npm is [using the npm web interface](/temas/introduccion-a-javascript/nodejspackages.html#ejercicio-darse-de-alta-en-npm)
+
+!!!include(temas/introduccion-a-javascript/alta-en-npm.md)!!!
+
+
+### Example of `.npmrc` file
 
 Here is an example of `.npmrc` file
 
