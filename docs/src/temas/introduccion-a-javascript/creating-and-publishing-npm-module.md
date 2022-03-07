@@ -182,7 +182,6 @@ Logged in as crguezl on https://npm.pkg.github.com/.
 This will append lines like these in your `~/.npmrc` configuration file:
 
 ```
-@ULL-ESIT-PL-1920:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=<your-token>
 ```
 

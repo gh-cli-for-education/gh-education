@@ -6,6 +6,7 @@ delivery: "2022/03/10"
 order: 8
 layout: Practica
 prev: hello-compiler.md
+next: ast-types.md
 sidebar: auto
 rubrica: 
   - El paquete está publicado en npmjs con ámbito <code>aluXXX</code>
