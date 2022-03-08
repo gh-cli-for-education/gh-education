@@ -134,9 +134,10 @@ The `NodePath` object passed to visitor methods is a wrapper around an AST
 node, and it serves to provide access to the chain of ancestor objects
 (all the way back to the root of the AST) and **scope** information.
 
-In general, `path.node` refers to the wrapped node, `path.parent.node`
-refers to the nearest `Node` ancestor, `path.parent.parent.node` to the
-grandparent, and so on.
+In general, 
+* `path.node` refers to the wrapped node, 
+* `path.parent.node` refers to the nearest `Node` ancestor, 
+* `path.parent.parent.node` to the grandparent, and so on.
 
 ::: warning
 Note that `path.node` may not be a **direct** property value of
@@ -147,6 +148,8 @@ an element of an array that is a direct child of the parent node:
 path.node === path.parent.node.elements[3]
 ```
 :::
+
+### path.parentPath
 
 You should know that `path.parentPath` provides
 finer-grained access to the complete path of objects (not just the `Node`
