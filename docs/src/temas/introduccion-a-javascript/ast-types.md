@@ -118,6 +118,7 @@ assert.ok(!n.Statement.check(ifFoo.test));
 ### Path objects
 
 ast-types defines methods to 
+
 1. traverse the AST, 
 2. access node fields and 
 3. build new nodes. 
@@ -148,6 +149,41 @@ an element of an array that is a direct child of the parent node:
 path.node === path.parent.node.elements[3]
 ```
 :::
+
+#### Example hello-ast-types.js
+
+See file [/crguezl/hello-ast-types/hello-ast-types.js](https://github.com/crguezl/hello-ast-types/blob/master/hello-ast-types.js):
+
+```js
+import { parse } from "espree";
+import { NodePath } from "ast-types";
+import deb from "./deb.js";
+
+var programPath = new NodePath(parse("x = 1; y = 2"));
+
+console.log(deb(programPath.node));
+debugger;
+
+var xExpressionStatement = programPath.get("body", 0);
+var yExpressionStatement = programPath.get("body", 1);
+
+var xAssignmentExpression = xExpressionStatement.get("expression");
+var yAssignmentExpression = yExpressionStatement.get("expression");
+
+console.log( // Not a direct property but an element of an array
+  xExpressionStatement.node === xExpressionStatement.parent.node.body[0] // true
+)
+console.log(deb(xAssignmentExpression.node));
+console.log(deb(yAssignmentExpression.node));
+```
+
+```
+➜  hello-ast-types git:(master) ✗ node --inspect-brk hello-ast-types.js 
+```
+
+1. [Code of deb.js](/temas/introduccion-a-pl/code-examples/deb-js)
+1. Output of [console.log(deb(programPath.node));](/temas/introduccion-a-pl/code-examples/xeq1yeq2-json)
+2. Outputs of [console.log(deb(xAssignmentExpression.node));](/temas/introduccion-a-pl/code-examples/xAssignmentExpresson-node)
 
 ### path.parentPath
 
