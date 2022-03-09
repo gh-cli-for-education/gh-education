@@ -107,7 +107,7 @@ c;
 [c, b, a];
 ```
 
-**Implemente al menos 4**.
+Implemente las transformaciones necesarias para cubrir al menos tres de los ejemplos mostrados arriba.
 
 Publique ahora esta mejora en la funcionalidad del módulo.  
 
