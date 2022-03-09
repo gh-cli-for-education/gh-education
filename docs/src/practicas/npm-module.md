@@ -82,7 +82,7 @@ Repase la sección [Making a Project with the two repos: git submodule](/temas/i
 Añada ahora plegado de constantes para métodos (con argumentos plegables) y propiedades de los arrays. Esto es, expresiones como:
 
 ```js
-[a, b, c].concat([d, e], f, g, [h]);
+["a", "b", "c"].concat(["d", "e"], "f", "g", ["h"]);
 ["a", "b", "c"].join();
 ["a", "b", "c"].join('@');
 [1, 2, 3].length;
@@ -96,7 +96,7 @@ Añada ahora plegado de constantes para métodos (con argumentos plegables) y pr
 Serán evaluadas en tiempo de compilación produciendo:
 
 ```js
-[a, b, c, d, e, f, g, h];
+["a", "b", "c", "d", "e", "f", "g", "h"];
 "a,b,c";
 "a@b@c";
 3;
@@ -113,7 +113,7 @@ Publique ahora una mejora en la funcionalidad del módulo.
 
 Repase la sección [Semantic Versioning](/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html#semantic-versioning)
 
-Other possible optional extensions are:
+Other possible **optional** extensions are:
 
 * Constant folding for methods and properties of Literal Strings:
 
