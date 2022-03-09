@@ -150,7 +150,7 @@ path.node === path.parent.node.elements[3]
 ```
 :::
 
-#### Example hello-ast-types.js
+### Example hello-ast-types.js
 
 See file [/crguezl/hello-ast-types/hello-ast-types.js](https://github.com/crguezl/hello-ast-types/blob/master/hello-ast-types.js):
 
@@ -182,8 +182,12 @@ console.log(deb(yAssignmentExpression.node));
 ```
 
 1. [Code of deb.js](/temas/introduccion-a-pl/code-examples/deb-js)
-1. Output of [console.log(deb(programPath.node));](/temas/introduccion-a-pl/code-examples/xeq1yeq2-json)
-2. Outputs of [console.log(deb(xAssignmentExpression.node));](/temas/introduccion-a-pl/code-examples/xAssignmentExpresson-node)
+
+
+<<< @/src/temas/introduccion-a-pl/code-examples/deb.js
+
+2. Output of [console.log(deb(programPath.node));](/temas/introduccion-a-pl/code-examples/xeq1yeq2-json)
+3. Outputs of [console.log(deb(xAssignmentExpression.node));](/temas/introduccion-a-pl/code-examples/xAssignmentExpresson-node)
 
 ### path.parentPath
 
