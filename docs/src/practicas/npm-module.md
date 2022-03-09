@@ -107,7 +107,9 @@ c;
 [c, b, a];
 ```
 
-Publique ahora una mejora en la funcionalidad del módulo.  
+No hace falta que las implemente todas.
+
+Publique ahora esta mejora en la funcionalidad del módulo.  
 
 ¿Como debe en cambiar el nº de versión?
 
