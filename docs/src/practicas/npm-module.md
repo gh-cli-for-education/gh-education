@@ -89,8 +89,8 @@ Añada ahora plegado de constantes para métodos (con argumentos plegables) y pr
 [1, 2, 3][2-1];
 [1, 2, 3].shift();
 [1, 2, 3].slice(0, 1+1);
-[a, b, c].pop();
-[a, b, c].reverse();
+[a, b, c].pop(); // substitute the MemberExpression node by the last AST in the "elements" array of the object Array Expression
+[a, b, c].reverse(); // reverse the ASTs
 ```
 
 Serán evaluadas en tiempo de compilación produciendo:
@@ -107,7 +107,7 @@ c;
 [c, b, a];
 ```
 
-No hace falta que las implemente todas.
+**No hace falta que las implemente todas**
 
 Publique ahora esta mejora en la funcionalidad del módulo.  
 
