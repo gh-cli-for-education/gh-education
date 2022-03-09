@@ -107,7 +107,7 @@ c;
 [c, b, a];
 ```
 
-**No hace falta que las implemente todas**
+**Implemente al menos 4**.
 
 Publique ahora esta mejora en la funcionalidad del módulo.  
 
