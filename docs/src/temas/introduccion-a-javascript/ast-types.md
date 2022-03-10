@@ -574,7 +574,8 @@ graph TB
 ```
 
 (For the sake of conciseness I have substituted the `memberExpression` by a dot `.`)
-resulting in this code:
+
+We can build the auxiliary AST for the expression `Array.prototype.slice.call`  with this code:
 
 ```js
 var sliceExpr = b.memberExpression(
