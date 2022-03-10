@@ -550,13 +550,33 @@ I have used `espree` to generate the initial AST. It seems to have some incompat
 AST used by `ast-types`.
 ::: 
 
-We load the libs and build an auxiliary AST for the expression `Array.prototype.slice.call`:
+We load the libs needed:
 
 ```js
 import { namedTypes as n, builders as b, visit } from "ast-types";
 import recast from "recast";
 import * as espree from  "espree";
+``` 
 
+and we have to build an auxiliary AST for the expression `Array.prototype.slice.call`,
+which is deeper in `Array.prototype`:
+
+```mermaid
+graph TB
+  subgraph AST for 'Array.prototype.slice.call'
+    A((.))-->|"object"| B((.))
+    A-->|"property"| F((call))
+    B-->|"object"| C((.))
+    B-->|"property"| G((slice))
+    C-->|"object"| D(("Array"))
+    C-->|"property"| E(("prototype"))
+  end
+```
+
+(For the sake of conciseness I have substituted the `memberExpression` by a dot `.`)
+resulting in this code:
+
+```js
 var sliceExpr = b.memberExpression(
     b.memberExpression(             // object
       b.memberExpression(           // object
@@ -573,10 +593,11 @@ var sliceExpr = b.memberExpression(
 ```
 
 ::: warning Explanation of the `false` values
-On a `memberExpression` node (and also in other nodes as well) there is a boolean property called `computed`. If `computed` is `true`, the node corresponds to a computed (`a[b]`) member expression and property is an `Expression`. If `computed` is `false`, the node corresponds to a static (`a.b`) member expression and `property` has to be an `Identifier`. In `Array.prototype.slice.call` all the `computed` properties are `false` since it is a chain of static member expressions.
+On a `memberExpression` node (and also in other nodes as well) there is a boolean property called `computed`. If `computed` is `true`, the node corresponds to a computed (`a[b]`) member expression and property is an `Expression`. If `computed` is `false`, the node corresponds to a static (`a.b`) member expression and `property` has to be an `Identifier`. In the AST of `Array.prototype.slice.call` all the `computed` properties are `false` since it is a chain of static member expressions.
 
-See [astexplorer](https://astexplorer.net/#/gist/13276333fa88b6663fe011ae83e7f7e0/bd4124131535f9bd6fd3bb512147e6d7d4dab354)
+See the [ast](https://astexplorer.net/#/gist/13276333fa88b6663fe011ae83e7f7e0/bd4124131535f9bd6fd3bb512147e6d7d4dab354) for `a[b]`
 :::
+
 
 Let us try our translator with the following input code:
 
