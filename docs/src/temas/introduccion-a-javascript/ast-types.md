@@ -662,6 +662,11 @@ Remember that
  
 * The array `unshift` method allow us to insert at the beginning ot body  the AST of `restVarDecl`
 
+* It's your responsibility to call `this.traverse` with some `NodePath` object (usually the one passed into the `visitor` method) before the `visitor` method returns, or return `false` to
+indicate that the traversal need not continue any further down this subtree. An assertion will fail if you forget to call it. 
+
+* Because you can call `this.traverse` at any point in the visitor method, it's up to the programmer whether the traversal is pre-order, post-order, or both
+
 ### Checking if a function refers to `this`
 
 These two rules may help to understand the semantics of `this` when used in JS functions: 
