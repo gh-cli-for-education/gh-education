@@ -573,7 +573,9 @@ var sliceExpr = b.memberExpression(
 ```
 
 ::: warning Explanation of the `false` values
-On a `memberExpression` node (and also in other nodes as well) there is a boolean property called `computed`. If `computed` is `true`, the node corresponds to a computed (`a[b]`) member expression and property is an `Expression`. If `computed` is `false`, the node corresponds to a static (`a.b`) member expression and `property` has to be an `Identifier`.
+On a `memberExpression` node (and also in other nodes as well) there is a boolean property called `computed`. If `computed` is `true`, the node corresponds to a computed (`a[b]`) member expression and property is an `Expression`. If `computed` is `false`, the node corresponds to a static (`a.b`) member expression and `property` has to be an `Identifier`. In `Array.prototype.slice.call` all the `computed` properties are `false` since it is a chain of static member expressions.
+
+See [astexplorer](https://astexplorer.net/#/gist/13276333fa88b6663fe011ae83e7f7e0/bd4124131535f9bd6fd3bb512147e6d7d4dab354)
 :::
 
 Let us try our translator with the following input code:
