@@ -106,6 +106,13 @@ rules.
 * [ast-types in this notes](/temas/introduccion-a-pl/master-the-art-of-the-ast.html#ast-types)
 * [ast-types examples in crguezl/hello-ast-types](https://github.com/crguezl/hello-ast-types)
 
+### ASTs Anatomy
+
+* [Esprima AST syntax and format](https://docs.esprima.org/en/latest/syntax-tree-format.html)
+* [The ESTree Spec](https://github.com/estree/estree)
+  * [es2015](https://github.com/estree/estree/blob/master/es2015.md)
+
+
 ### Packages
 
 * [Creating and Publishing a node.js Module in GitHub and NPM Registries](/temas/introduccion-a-javascript/creating-and-publishing-npm-module)

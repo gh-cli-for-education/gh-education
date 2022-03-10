@@ -558,19 +558,23 @@ import recast from "recast";
 import * as espree from  "espree";
 
 var sliceExpr = b.memberExpression(
-    b.memberExpression(
-      b.memberExpression(
-        b.identifier("Array"),
-        b.identifier("prototype"),
+    b.memberExpression(             // object
+      b.memberExpression(           // object
+        b.identifier("Array"),      // object
+        b.identifier("prototype"),  // property
         false
       ),
-      b.identifier("slice"),
+      b.identifier("slice"),         // property
       false
     ),
-    b.identifier("call"),
+    b.identifier("call"),           // property
     false
   );
 ```
+
+::: warning Explanation of the `false` values
+On a `memberExpression` node (and also in other nodes as well) there is a boolean property called `computed`. If `computed` is `true`, the node corresponds to a computed (`a[b]`) member expression and property is an `Expression`. If `computed` is `false`, the node corresponds to a static (`a.b`) member expression and `property` has to be an `Identifier`.
+:::
 
 Let us try our translator with the following input code:
 
