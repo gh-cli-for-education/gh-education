@@ -573,7 +573,7 @@ graph TB
   end
 ```
 
-(For the sake of conciseness I have substituted the `memberExpression` by a dot `.`)
+(For the sake of conciseness I have substituted the `memberExpression` type by a dot `.` in the figure)
 
 We can build the auxiliary AST for the expression `Array.prototype.slice.call`  with this code:
 
