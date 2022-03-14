@@ -11,7 +11,7 @@ clases: [ '2021/05/10', '2021/05/05', '2021/05/04', '2021/05/03', '2021/04/28' ]
   * [Nearley.js Grammar in Nearley.js](https://github.com/kach/nearley/blob/master/lib/nearley-language-bootstrapped.ne)
 * [Repo ULL-ESIT-PL/learning-nearley](https://github.com/ULL-ESIT-PL/learning-nearley/)
 
-## Lexical Analysisi with Moo 
+## Lexical Analysis with Moo 
 
 * [Nearley.JS Compatible Tokenizers](https://nearley.js.org/docs/tokenizers)
 * See section [Lexical Analysis with Moo](moo)
