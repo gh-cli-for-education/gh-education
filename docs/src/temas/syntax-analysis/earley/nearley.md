@@ -218,16 +218,6 @@ top of the generated code.
 
 See section [Importing other grammars](importing-grammars)
 
-### What's next?
-
-Now that you have a grammar, you're ready to [learn how to use it to build a
-parser!](parser)
-
-* [Nearley.JS Home Page](https://nearley.js.org/)
-* [Nearley.JS GitHub repo](https://github.com/kach/nearley) is a JS parser generator using the Early algorithm
-  * [Nearley.js Grammar in Nearley.js](https://github.com/kach/nearley/blob/master/lib/nearley-language-bootstrapped.ne)
-* [Repo ULL-ESIT-PL/learning-nearley](https://github.com/ULL-ESIT-PL/learning-nearley/)
-
 ## Lexical Analysis with Moo 
 
 * [Nearley.JS Compatible Tokenizers](https://nearley.js.org/docs/tokenizers)
@@ -244,6 +234,12 @@ This study by Toby Ho shows a case in which NearleyJS is 200 times slower than a
 See the section [The Earley Algorithm Explained](algorithm)
 
 ## References
+
+* [Repo ULL-ESIT-PL/learning-nearley](https://github.com/ULL-ESIT-PL/learning-nearley/)
+
+* [Nearley.JS Home Page](https://nearley.js.org/)
+* [Nearley.JS GitHub repo](https://github.com/kach/nearley) is a JS parser generator using the Early algorithm
+  * [Nearley.js Grammar in Nearley.js](https://github.com/kach/nearley/blob/master/lib/nearley-language-bootstrapped.ne)
 
 * [Toby Ho Course on How to Make a Parser with Nearley.JS](toby-ho-course)
 * [Tokenizers for nearley.js](https://nearley.js.org/docs/tokenizers)
