@@ -656,9 +656,9 @@ Remember that
 
 * The `path` argument passed to the `visitFunction` function is a `NodePath` object whose `node` property is the `Function` node being visited. 
 
-* `Function` nodes in `ast-types` stand for all kid of functions: `FunctionDeclaration`, `FunctionExpression` and `ArrowFunctionExpression`. 
+* `Function` nodes in `ast-types` stand for [all kid of functions](https://github.com/estree/estree/blob/18bd9afbe8c348caca82057f1849614d98d6d0b6/es2015.md#functions): `FunctionDeclaration`, `FunctionExpression` and `ArrowFunctionExpression`. Therefore the `visitFunction` method is called for any node whose type is a subtype of `Function`.
 
-* The `get` method of the `NodePath` object allow us to access and lazily create the NodePath of the  descendants: `path.get("body", "body")` (Remember that the statements of a function are in the `.body.body` of the `Function` node)
+* The `get` method of the `NodePath` object allow us to access and lazily create the `NodePath` of the  descendants: `path.get("body", "body")` (Remember that the statements of a function are in the `.body.body` of the `Function` node)
  
 * The array `unshift` method allow us to insert at the beginning ot body  the AST of `restVarDecl`
 
