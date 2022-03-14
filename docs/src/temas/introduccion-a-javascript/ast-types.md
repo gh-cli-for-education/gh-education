@@ -624,7 +624,7 @@ visit(ast, {
     const node = path.node;
     this.traverse(path);
 
-    let lastArg = node.params.pop(); // Remove the 'rest' parameter
+    let lastArg = node.params[node.params.length-1];
     if (lastArg.type !== "RestElement") return;
     
     // For the purposes of this example, we won't worry about functions
