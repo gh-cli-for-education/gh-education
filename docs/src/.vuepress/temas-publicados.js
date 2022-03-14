@@ -7,6 +7,9 @@ module.exports = [
     {text: "Testing", link: "/temas/introduccion-a-javascript/pruebas.html"},
     {text: "GitHub Actions", link: "/temas/introduccion-a-javascript/github-actions.html"},
     {text: "Publishing a npm module", link: "/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html"},
+    {text: "Gramáticas Independientes del Contexto", link: "/temas/syntax-analysis/teoria.html"},
+    {text: "Earley Parsers", link: "/temas/syntax-analysis/earley/nearley.html"},
+
     
 
 /*
