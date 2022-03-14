@@ -220,7 +220,6 @@ See section [Importing other grammars](importing-grammars)
 
 ## Lexical Analysis with Moo 
 
-* [Nearley.JS Compatible Tokenizers](https://nearley.js.org/docs/tokenizers)
 * See section [Lexical Analysis with Moo](moo)
 
 ## Performance of NearleyJS
