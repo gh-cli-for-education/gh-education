@@ -11,13 +11,14 @@ clases: [ '2021/05/10', '2021/05/05', '2021/05/04', '2021/05/03', '2021/04/28' ]
   * [Nearley.js Grammar in Nearley.js](https://github.com/kach/nearley/blob/master/lib/nearley-language-bootstrapped.ne)
 * [Repo ULL-ESIT-PL/learning-nearley](https://github.com/ULL-ESIT-PL/learning-nearley/)
 
-## Moo 
+## Lexical Analysisi with Moo 
 
-See [Lexical Analysis with Moo](moo)
+* [Nearley.JS Compatible Tokenizers](https://nearley.js.org/docs/tokenizers)
+* See section [Lexical Analysis with Moo](moo)
 
 ## Performance of NearleyJS
 
-The study shows a case in which NearleyJS is 200 times slower than a Recursive Descendant Functional parser :disappointed:.
+This study by Toby Ho shows a case in which NearleyJS is 200 times slower than a Recursive Descendant Functional parser :disappointed:.
 
 <youtube id="njWmVljrhEE"></youtube> 
 
