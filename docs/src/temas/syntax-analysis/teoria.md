@@ -20,9 +20,6 @@ construyen el árbol desde las hojas hacia la raíz.
 Los descendentes lo
 hacen en modo inverso. 
 
-El que describiremos aquí es un descendente: se denomina **método de análisis predictivo descendente recursivo**.
-
-
 ## Gramáticas Independientes del Contexto {#gramaticas}
 
 Supongamos una gramática $G = (\Sigma, V, P, S)$ con alfabeto $\Sigma$, conjunto de variables sintácticas (o no terminales) $V$, reglas de producción $P$ y símbolo de arranque $S$.
