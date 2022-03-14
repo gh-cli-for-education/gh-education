@@ -1,10 +1,12 @@
 ---
-title: "Ambiguity"
+title: "Ambiguity in Nearley.JS"
 published: true
 video: "zsy84y6S-Ww"
 drive: "https://drive.google.com/file/d/18kRZAQyZemvkSctO32tJ-542Vc5zstNQ/view?usp=sharing"
 summary:  "Let's continue with Nearley.JS"  
 ---
+
+# {{ $frontmatter.title }}
 
 ## Learning Nearley.JS
 
