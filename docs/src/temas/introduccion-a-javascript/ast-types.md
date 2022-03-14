@@ -627,10 +627,6 @@ visit(ast, {
     let lastArg = node.params[node.params.length-1];
     if (lastArg.type !== "RestElement") return;
     
-    // For the purposes of this example, we won't worry about functions
-    // with Expression bodies.
-    n.BlockStatement.assert(node.body);
-
     //   var rest = Array.prototype.slice.call(arguments, n);
     const restVarDecl = b.variableDeclaration("var", [
       b.variableDeclarator(
