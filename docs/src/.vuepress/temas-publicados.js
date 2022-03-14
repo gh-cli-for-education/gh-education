@@ -10,6 +10,7 @@ module.exports = [
     {text: "Gramáticas Independientes del Contexto", link: "/temas/syntax-analysis/teoria.html"},
     {text: "Earley Parsers", link: "/temas/syntax-analysis/earley/nearley.html"},
     {text: "Ambiguity", link: "/temas/syntax-analysis/earley/ambiguity.html"},
+    {text: "Abstract Syntax Trees", link: "/temas/syntax-analysis/ast.html"},
 
 
 
