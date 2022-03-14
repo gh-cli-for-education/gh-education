@@ -8,11 +8,6 @@ summary:  "Let's continue with Nearley.JS"
 
 # {{ $frontmatter.title }}
 
-## Learning Nearley.JS
-
-See the examples at <https://github.com/ULL-ESIT-PL/learning-nearley/tree/develop/examples>
-
-
 ## ambiguous.ne
 
 ```
@@ -195,6 +190,7 @@ _ -> [\s]:*     {% function(d) {return null; } %}
 
 ## References
 
+* See the examples at <https://github.com/ULL-ESIT-PL/learning-nearley/tree/develop/examples>
 * [Examples](https://github.com/ULL-ESIT-PL/learning-nearley/tree/develop/examples)
 * [Esquemas de Traducción y Definiciones Dirigidas por la Sintaxis](https://crguezl.github.io/pl-html/node58.html)
 * [Compiler Theory:Syntax-Directed Translation](https://www.csd.uwo.ca/~mmorenom/CS447/Lectures/Translation.html/Translation.html) by Marc Moreno Maza
