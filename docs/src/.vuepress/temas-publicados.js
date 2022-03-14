@@ -9,8 +9,9 @@ module.exports = [
     {text: "Publishing a npm module", link: "/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html"},
     {text: "Gramáticas Independientes del Contexto", link: "/temas/syntax-analysis/teoria.html"},
     {text: "Earley Parsers", link: "/temas/syntax-analysis/earley/nearley.html"},
+    {text: "Ambiguity", link: "/temas/syntax-analysis/earley/ambiguity.html"},
 
-    
+
 
 /*
 This has to be the last or the first
