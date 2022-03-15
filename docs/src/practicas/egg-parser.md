@@ -31,6 +31,8 @@ El módulo  exportará un objeto con al menos la propiedad `{ parseFromfile }`.
 
 * `parseFromFile(inputFile)` es una función que devuelve el AST construído a partir de los contenidos del programa en lenguaje Egg contenido en el fichero con nombre `inputFile`
 
+La gramática del lenguaje Egg se describe en la sección [Gramáticas Independientes del Contexto](/temas/syntax-analysis/teoria.html#gramaticas-independientes-del-contexto).
+
 Se deberá proveer un ejecutable `eggc` con una interfaz como esta:
 
 ```
