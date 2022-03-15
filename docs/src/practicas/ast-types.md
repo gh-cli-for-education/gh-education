@@ -6,8 +6,8 @@ delivery: "2022/03/17"
 order: 9
 layout: Practica
 prev: npm-module.md
-next: ../drafts/egg-parser.md
-sidebar: auto
+next: egg-parser.md
+sidebar: true
 rubrica: 
   - El paquete está publicado en gitHub Registry con el ámbito de la organización
   - Contiene un ejecutable que se ejecuta correctamente (<code>--help</code>, etc.)

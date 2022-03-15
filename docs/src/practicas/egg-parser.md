@@ -1,17 +1,16 @@
 ---
 title: "egg-parser"
-permalink: /practicas/egg-parser.html
 published: true
 date: 2022/03/18
 delivery: "2022/03/24"
 order: 10
 layout: Practica
-prev: ast
-sidebar: auto
+prev: ast-types.md
+sidebar: true
 rubrica: 
   - El paquete está publicado en gitHub Registry con el ámbito de la organización
   - Contiene un ejecutable que se ejecuta correctamente (<code>--help</code>, etc.)
-  - The <code>parse</code> builds the correct ASTs for the Egg language 
+  - The <code>parse</code> builds the correct ASTs for the Egg language for a sufficient number of examples
   - El módulo exporta las funciones adecuadas
   - Contiene tests 
   - "Estudio de covering"
