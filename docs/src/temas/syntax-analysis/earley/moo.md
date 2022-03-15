@@ -56,6 +56,15 @@ multiplication -> %number %ws %times %ws %number {% ([first, , , , second]) => f
 trig -> "sin" %ws %number {% ([, , x]) => Math.sin(x) %}
 ```
 
+```
+✗ nearleyc nearley-with-moo-example.ne -o nearley-with-moo-example.js 
+✗ nearley-test -qi '2 * 3' nearley-with-moo-example.js 
+[ 6 ]
+}
+✗ nearley-test -qi 'sin 3' nearley-with-moo-example.js 
+[ 0.1411200080598672 ]
+```
+
 Have a look at [the Moo documentation](https://github.com/tjvr/moo#usage) to
 learn more about writing a tokenizer.
 
