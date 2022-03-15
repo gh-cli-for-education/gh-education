@@ -251,6 +251,11 @@ expcomma.egg    if.egg          one-err-2.egg   scope.egg       sum.egg.evm
 fun.egg         main.js         one-err.egg     string.egg      two.egg
 ```
 
+::: danger Nota de Advertencia
+
+En algunos de los ejemplos, vídeos, repos, etc. que acompañan esta práctica puede notar algunas 
+inconsistencias en el lenguaje Egg debidas a que casi en cada curso hemos ido haciendo alias de algunos de los nombres de los constructos. Por ejemplo, a veces  en un vídeo en vez de `fun` usamos `->` y en algún ejemplo en los apuntes en vez de `element` se usa `<-`, etc. También en algún ejemplo aparecen llavitas `{` y `}` en vez de paréntesis (de nuevo una llave aquí es un alias del correspondiente paréntesis). Son cambios triviales que no deberían afectar a la comprensión del texto.
+:::
 
 ## Publicación del módulo 
 
