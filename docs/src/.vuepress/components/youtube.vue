@@ -20,7 +20,11 @@
         },
         computed: {
           src() {
-            return "https://www.youtube-nocookie.com/embed/"+this.id
+            //console.log(this.$page.frontmatter.video);
+            let id = (this.$page && this.$page.frontmatter && this.$page.frontmatter.video);
+            if (this.id) id = this.id;
+            //console.log(id);
+            return "https://www.youtube-nocookie.com/embed/"+id
           }
         } 
     }
