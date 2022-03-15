@@ -195,7 +195,7 @@ In ECMAScript, there are several situations where **the identification of lexica
 
 This requires *multiple goal symbols* for the lexical grammar. The use of multiple lexical goals ensures that there are no lexical ambiguities that would affect **automatic semicolon insertion**. 
 
-For example, there are no syntactic grammar contexts where both a leading division or division-assignment, and a leading [RegularExpressionLiteral](https://tc39.es/ecma262/#prod-RegularExpressionLiteral) are permitted. 
+For example, **there are no syntactic grammar contexts where both a leading division or division-assignment, and a leading [RegularExpressionLiteral](https://tc39.es/ecma262/#prod-RegularExpressionLiteral) are permitted**. 
 
 This is not affected by semicolon insertion (see [12.5](https://tc39.es/ecma262/#prod-RegularExpressionLiteral)); in examples such as lines 4 and 5 in the following code:
 
