@@ -32,7 +32,7 @@ El módulo  exportará un objeto con al menos la propiedad `{ parseFromfile }`.
 
 * `parseFromFile(inputFile)` es una función que devuelve el AST construído a partir de los contenidos del programa `inputFile`
 
-Se deberá provee también un ejecutable `eggc` con una interfaz como esta:
+Se deberá proveer un ejecutable `eggc` con una interfaz como esta:
 
 ```
 ➜  prefix-lang git:(master) ✗ bin/eggc.js -h
@@ -52,7 +52,7 @@ Options:
 
 Puede usar el ejecutable `evm` (las siglas corresponden a Egg virtual Machine) del paquete ["@crguezl/eloquentjsegg"](https://www.npmjs.com/package/@crguezl/eloquentjsegg) para comprobar que los ASTs generados funcionan. 
 
-Sigue un ejemplo:
+Sigue un ejemplo (compatible ["@crguezl/eloquentjsegg"](https://www.npmjs.com/package/@crguezl/eloquentjsegg) versión 1.2.6) de como debería funcionar nuestro parser `eggc`:
 
 ```ruby
 ➜  prefix-lang git:(master) ✗ cat test/examples/array.egg 
@@ -241,7 +241,7 @@ A continuación podemos usar el ejecutable `evm` para interpretar el árbol:
 5
 ```
 
-en el directorio tiene algunos ejemplos de programas egg  que puede usar para comprobar el buen funcionamiento de su parser:
+en el directorio `node_modules/@crguezl/eloquentjsegg/examples` tiene algunos ejemplos de programas egg  que puede usar para comprobar el buen funcionamiento de su parser:
 
 ```
 ➜  prefix-lang git:(master) ✗ ls  node_modules/@crguezl/eloquentjsegg/examples 
@@ -250,6 +250,8 @@ expcomma.egg    if.egg          one-err-2.egg   scope.egg       sum.egg.evm
 fun.egg         main.js         one-err.egg     string.egg      two.egg
 ```
 
+
+## Publicación del módulo 
 
 Una parte de los conceptos y habilidades a adquirir con esta práctica se explican en la sección [Creating and publishing a node.js module en GitHub y en NPM](/temas/introduccion-a-javascript/creating-and-publishing-npm-module). Léala con detenimiento antes de hacer esta práctica. 
 
