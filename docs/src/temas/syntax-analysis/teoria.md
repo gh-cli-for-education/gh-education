@@ -171,7 +171,7 @@ apply: /* vacio */
 
 y que:
 
-$L_{apply}(EggGrammar) = \{ x \in \Sigma^* : apply \stackrel{*}{\Longrightarrow} x \}$
+$L_{apply}(EggGrammar) = \{ x \in \Sigma^\star : apply \stackrel{\star}{\Longrightarrow} x \}$
 
 ## ECMAScript A Complex Language Specification
 
