@@ -90,7 +90,7 @@ con aridad:
 * $\rho(APPLY) = 2$ un *APPLY* tiene dos hijos: el hijo *OPERATOR* y el hijo *ARGS* que es un array
 * $\rho(ARRAY) = *$ los arrays contienen diferentes números de árboles
 
-## Implementación de los Nodos de los AST de Egg
+## Anatomía de los AST para Egg
 
 En cuanto a la implementación, al igual que con los tokens, los nodos son objetos y tienen propiedades.
 Todos los nodos tiene una propiedad `type` que determina que tipo de nodo es y por tanto su aridad.

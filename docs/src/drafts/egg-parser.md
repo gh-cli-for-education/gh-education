@@ -1,17 +1,17 @@
 ---
-title: "ast-types"
+title: "egg-parser"
+permalink: /practicas/egg-parser.html
 published: true
-date: 2022/02/24
-delivery: "2022/03/17"
-order: 9
+date: 2022/03/18
+delivery: "2022/03/24"
+order: 10
 layout: Practica
-prev: npm-module.md
-next: ../drafts/egg-parser.md
+prev: ast
 sidebar: auto
 rubrica: 
   - El paquete está publicado en gitHub Registry con el ámbito de la organización
   - Contiene un ejecutable que se ejecuta correctamente (<code>--help</code>, etc.)
-  - The <code>spread</code> has been extended for SpreadElements inside an ArrayExpression 
+  - The <code>parse</code> builds the correct ASTs for the Egg language 
   - El módulo exporta las funciones adecuadas
   - Contiene tests 
   - "Estudio de covering"
@@ -28,13 +28,228 @@ rubrica:
 Construya un paquete npm y 
 publíquelo en [GitHub Registry](/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html#what-is-github-registry) con ámbito `@ULL-ESIT-PL-2122` y nombre el nombre del repo asignado.
 
-El módulo además de exportar la función `spread` provee un ejecutable `spread` que se llama así:
+El módulo  exportará un objeto con al menos la propiedad `{ parseFromfile }`. 
+
+* `parseFromFile(inputFile)` es una función que devuelve el AST construído a partir de los contenidos del programa `inputFile`
+
+Se deberá provee también un ejecutable `eggc` con una interfaz como esta:
 
 ```
-spread input.js output.js
+➜  prefix-lang git:(master) ✗ bin/eggc.js -h
+Usage: eggc [options] <origin>
+
+Compile a Egg lang file
+
+Arguments:
+  origin                   The path of the file to compile
+
+Options:
+  -V, --version            output the version number
+  -o, --out <destination>  Path for output file. If it isn't specified the path of the origin file will be
+                           used,changing the extension to .json
+  -h, --help               display help for command
 ```
 
-el cual realiza [una traducción del operador es6 `...` a versiones anteriores de JS](/temas/introduccion-a-pl/master-the-art-of-the-ast.html#translating-the-es6-spread-operator-to-es5) sobre `input.js` dejando la salida en `output.js`. Tiene una solución en la sección [Translating the ES6 spread operator ... to ES5](/temas/introduccion-a-pl/master-the-art-of-the-ast.html#translating-the-es6-spread-operator-to-es5) de estos apuntes.
+Puede usar el ejecutable `evm` (las siglas corresponden a Egg virtual Machine) del paquete ["@crguezl/eloquentjsegg"](https://www.npmjs.com/package/@crguezl/eloquentjsegg) para comprobar que los ASTs generados funcionan. 
+
+Sigue un ejemplo:
+
+```ruby
+➜  prefix-lang git:(master) ✗ cat test/examples/array.egg 
+do(
+  def(x, arr(arr(1,4),5,7)),
+  print([](x,0)), # [1,4]
+  print([](x,1))  # 5
+)
+```
+
+Nuestro parser deberà producir un AST conforme a la especificación dada en la sección [Anatomía de los AST para Egg](/temas/syntax-analysis/ast.html#anatomia-de-los-ast-para-egg)
+
+```
+➜  prefix-lang git:(master) ✗ bin/eggc.js test/examples/array.egg -o test/ast/array.json
+```
+
+Algo como esto:
+
+```json
+➜  prefix-lang git:(master) ✗ cat test/ast/array.json
+{
+  "type": "apply",
+  "operator": {
+    "type": "word",
+    "offset": 0,
+    "lineBreaks": 0,
+    "line": 1,
+    "col": 1,
+    "name": "do"
+  },
+  "args": [
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "offset": 6,
+        "lineBreaks": 0,
+        "line": 2,
+        "col": 3,
+        "name": "def"
+      },
+      "args": [
+        {
+          "type": "word",
+          "offset": 10,
+          "lineBreaks": 0,
+          "line": 2,
+          "col": 7,
+          "name": "x"
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "offset": 13,
+            "lineBreaks": 0,
+            "line": 2,
+            "col": 10,
+            "name": "arr"
+          },
+          "args": [
+            {
+              "type": "apply",
+              "operator": {
+                "type": "word",
+                "offset": 17,
+                "lineBreaks": 0,
+                "line": 2,
+                "col": 14,
+                "name": "arr"
+              },
+              "args": [
+                {
+                  "type": "value",
+                  "value": 1,
+                  "raw": "1"
+                },
+                {
+                  "type": "value",
+                  "value": 4,
+                  "raw": "4"
+                }
+              ]
+            },
+            {
+              "type": "value",
+              "value": 5,
+              "raw": "5"
+            },
+            {
+              "type": "value",
+              "value": 7,
+              "raw": "7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "offset": 35,
+        "lineBreaks": 0,
+        "line": 3,
+        "col": 3,
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "offset": 41,
+            "lineBreaks": 0,
+            "line": 3,
+            "col": 9,
+            "name": "[]"
+          },
+          "args": [
+            {
+              "type": "word",
+              "offset": 44,
+              "lineBreaks": 0,
+              "line": 3,
+              "col": 12,
+              "name": "x"
+            },
+            {
+              "type": "value",
+              "value": 0,
+              "raw": "0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "offset": 61,
+        "lineBreaks": 0,
+        "line": 4,
+        "col": 3,
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "offset": 67,
+            "lineBreaks": 0,
+            "line": 4,
+            "col": 9,
+            "name": "[]"
+          },
+          "args": [
+            {
+              "type": "word",
+              "offset": 70,
+              "lineBreaks": 0,
+              "line": 4,
+              "col": 12,
+              "name": "x"
+            },
+            {
+              "type": "value",
+              "value": 1,
+              "raw": "1"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+A continuación podemos usar el ejecutable `evm` para interpretar el árbol:
+
+```
+➜  prefix-lang git:(master) ✗ npx evm test/ast/array.json
+[ 1, 4 ]
+5
+```
+
+en el directorio tiene algunos ejemplos de programas egg  que puede usar para comprobar el buen funcionamiento de su parser:
+
+```
+➜  prefix-lang git:(master) ✗ ls  node_modules/@crguezl/eloquentjsegg/examples 
+array.egg       greater-x-5.egg main2.js        one.egg         sum.egg         unbalanced.egg
+expcomma.egg    if.egg          one-err-2.egg   scope.egg       sum.egg.evm
+fun.egg         main.js         one-err.egg     string.egg      two.egg
+```
+
 
 Una parte de los conceptos y habilidades a adquirir con esta práctica se explican en la sección [Creating and publishing a node.js module en GitHub y en NPM](/temas/introduccion-a-javascript/creating-and-publishing-npm-module). Léala con detenimiento antes de hacer esta práctica. 
 
