@@ -173,7 +173,7 @@ y que:
 
 $L_{apply}(EggGrammar) = \{ x \in \Sigma^* : apply \stackrel{*}{\Longrightarrow} x \}$
 
-## ECMAScript Language Specification
+## ECMAScript A Complex Language Specification
 
 This [Ecma Standard](https://tc39.es/ecma262/#sec-intro) **defines the ECMAScript 2022 Language**. 
 
@@ -195,12 +195,53 @@ It is the thirteenth edition of the ECMAScript Language Specification. Since pub
 * [[A.8] Regular Expressions](https://tc39.es/ecma262/#sec-regular-expressions "Regular Expressions")
 
 
-
 ### ECMAScript Language: Lexical Specification
 
 * [[A.1] Lexical Grammar](https://tc39.es/ecma262/#sec-lexical-grammar "Lexical Grammar")
 * [12 ECMAScript Language: Lexical Grammar](https://tc39.es/ecma262/#sec-ecmascript-language-lexical-grammar)
 * [11 ECMAScript Language: Source Text](https://tc39.es/ecma262/#sec-ecmascript-language-source-code)
+
+### Lexical Ambiguity Example
+
+The source text of an ECMAScript is first converted into a sequence of input elements, which are 
+* tokens, 
+* line terminators, 
+* comments, or 
+* white space. 
+
+The source text is scanned from left to right, repeatedly taking the longest possible sequence of code points as the next input element.
+
+In ECMAScript, there are several situations where **the identification of lexical input elements is sensitive to the syntactic grammar context** that is consuming the input elements. 
+
+This requires *multiple goal symbols* for the lexical grammar. The use of multiple lexical goals ensures that there are no lexical ambiguities that would affect **automatic semicolon insertion**. 
+
+For example, there are no syntactic grammar contexts where both a leading division or division-assignment, and a leading [RegularExpressionLiteral](https://tc39.es/ecma262/#prod-RegularExpressionLiteral) are permitted. 
+
+This is not affected by semicolon insertion (see [12.5](https://tc39.es/ecma262/#prod-RegularExpressionLiteral)); in examples such as lines 4 and 5 in the following code:
+
+```js{4,5}
+let tutu = { map(_) { return 2}}
+let a = 5, b = 8, hi = 4, c = "hello", d =
+    g = { exec(_) { return tutu; }}
+a = b
+/hi/g.exec(c).map(d)
+console.log(a);
+```   
+
+where the first non-whitespace, non-comment code point after a [LineTerminator](https://tc39.es/ecma262/#prod-LineTerminator) is the `/` (*U+002F unicode name SOLIDUS*) and **the syntactic context allows division or division-assignment**, no semicolon is inserted at the `LineTerminator`!. 
+
+That is, the above example is interpreted in the same way as:
+
+```js
+a = b / hi / g.exec(c).map(d);
+```
+
+When we run the code above, we get:
+
+```
+➜  prefix-lang git:(master) ✗ node examples/lexical-ambiguity.js
+1
+```
 
 ### ECMA TC39 at GitHub 
 
