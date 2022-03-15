@@ -98,14 +98,55 @@ expression -> number "+" number {%
 number -> [0-9]:+ {% d => parseInt(d[0].join("")) %}
 ```
 
+To compile it with neraley:
+
+``` 
+➜  examples git:(main) ✗ nearleyc postprocessors-example.ne -o postprocessors-example.js 
+```
+
+and we can execute the resulting parser with `nearley-test`:
+
+```
+➜  examples git:(main) ✗ nearley-test -i '5+10' postprocessors-example.js               
+Table length: 5
+Number of parses: 1
+Parse Charts
+Chart: 0
+0: {expression →  ● number "+" number}, from: 0
+1: {number →  ● number$ebnf$1}, from: 0
+2: {number$ebnf$1 →  ● /[0-9]/}, from: 0
+3: {number$ebnf$1 →  ● number$ebnf$1 /[0-9]/}, from: 0
+
+Chart: 1
+0: {number$ebnf$1 → /[0-9]/ ● }, from: 0
+1: {number$ebnf$1 → number$ebnf$1 ● /[0-9]/}, from: 0
+2: {number → number$ebnf$1 ● }, from: 0
+3: {expression → number ● "+" number}, from: 0
+
+Chart: 2
+0: {expression → number "+" ● number}, from: 0
+1: {number →  ● number$ebnf$1}, from: 2
+2: {number$ebnf$1 →  ● /[0-9]/}, from: 2
+3: {number$ebnf$1 →  ● number$ebnf$1 /[0-9]/}, from: 2
+
+Chart: 3
+0: {number$ebnf$1 → /[0-9]/ ● }, from: 2
+1: {number$ebnf$1 → number$ebnf$1 ● /[0-9]/}, from: 2
+2: {number → number$ebnf$1 ● }, from: 2
+3: {expression → number "+" number ● }, from: 0
+
+Chart: 4
+0: {number$ebnf$1 → number$ebnf$1 /[0-9]/ ● }, from: 2
+1: {number$ebnf$1 → number$ebnf$1 ● /[0-9]/}, from: 2
+2: {number → number$ebnf$1 ● }, from: 2
+3: {expression → number "+" number ● }, from: 0
+```
+
 The rules above will parse the string `5+10` into 
 
-```js 
-{ 
-  operator: "sum",
-  leftOperand: 5, 
-  rightOperand: 10 
-}
+```
+Parse results: 
+[ { operator: 'sum', leftOperand: 5, rightOperand: 10 } ]
 ```
 
 The postprocessor can be any function with signature 

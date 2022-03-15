@@ -6,7 +6,7 @@ title: Árboles de Análisis Abstracto
 
 <!-- {#section:eyapaat} -->
 
-Un Árbol de Análisis Abstracto (denotado *AAA*, en inglés *AST*) porta la misma información que el árbol de análisis sintáctico concreto pero de forma mas condensada, eliminándose
+Un Árbol de Análisis Abstracto (denotado *AAA*, en inglés *AST*) porta la misma información que el árbol de análisis sintáctico **concreto** (denominado también *parsing tree*) pero de forma mas condensada, eliminándose
 terminales y producciones que no aportan información.
 
 *The data structure that the parser will use to describe a program consists of node objects, each of which has a **type** property indicating the kind of expression it is and other properties to describe its content.*
@@ -112,7 +112,7 @@ For example, The AST resulting from parsing the input
 ``` 
 would be represented like this term:
 
-```
+```ruby
 APPLY(
   WORD, 
   ARRAY[
@@ -124,7 +124,7 @@ APPLY(
 
 or if we want to explicit the attributes we can extend the notation to look like this: 
 
-```
+```ruby
 APPLY(
   operator: WORD{name:>}, 
   args:     ARRAY[
@@ -170,7 +170,7 @@ Here is the JSON:
 
 Otro ejemplo, el AST para `+(a,*(4,5))` sería 
 
-```
+```ruby
 APPLY(
   WORD,
   ARRAY[
@@ -185,7 +185,7 @@ APPLY(
 
 Que explicitando los atributos sería: 
 
-```
+```ruby
 APPLY(
   operator: WORD[{name: +},
   args: ARRAY[
@@ -204,7 +204,7 @@ Una Gramática Árbol en nuestra definición
 es una cuadrupla $((\Sigma, \rho), N, P, S)$, donde:
 
 -   $(\Sigma, \rho)$ es un alfabeto con aridad
-    $\rho: \Sigma \rightarrow ℕ_0 \cup \{ * \}$
+    $\rho: \Sigma \rightarrow ℕ_0 \cup \{ \star \}$
 
 -   $N$ es un conjunto finito de variables sintácticas o no terminales
 
@@ -283,70 +283,6 @@ For example, the expression "`A//B/*[1]`" selects the first child ("`*[1]`"), wh
 
 The language [jq](https://stedolan.github.io/jq/manual/) to select sub-objects inside a JSON is another example.
 
-## Códigos para la Construcción de los ASTs de Egg con un algoritmo PDR
+## References
 
-### Código de parse 
-
-```js
-function parse(p) {
-  setProgram(p);
-  lex();
-  let result = parseExpression();
-   if (lookahead !== null)
-    throw new SyntaxError(`Unexpected input after reached the end of parsing ${lineno}: ${program.slice(0,10)}`);
-
-  return result;
-}
-```
-
-### Código de parseExpression
-
-```js
-function parseExpression() {
-  let expr;
-
-  if (lookahead.type == "STRING") {
-    expr = {type: "value", value: lookahead.value};
-    lex();
-    return expr;
-  } else if (lookahead.type == "NUMBER") {
-    expr = {type: "value", value: lookahead.value};
-    lex();
-    return expr;
-  } else if (lookahead.type == "WORD") {
-    expr = {type: "word", name: lookahead.value};
-    lex();
-    return parseApply(expr);
-  } else {
-    throw new SyntaxError(`Unexpected syntax line ${lineno}: ${program.slice(0,10)}`);
-  }
-}
-```
-
-### Código de parseApply
-
-```js
-function parseApply(tree) {
-  if (!lookahead) return tree;   // apply: /* vacio */
-  if (lookahead.type !== "LP") return tree; // apply: /* vacio */
-
-  lex();
-
-  tree = {type: 'apply', operator: tree, args: []};
-  while (lookahead && lookahead.type !== "RP") {
-    let arg = parseExpression();
-    tree.args.push(arg);
-
-    if (lookahead && lookahead.type == "COMMA") {
-      lex();
-    } else if (!lookahead || lookahead.type !== "RP") {
-      throw new SyntaxError(`Expected ',' or ')'  at line ${lineno}: ... ${program.slice(0,20)}`);
-    }
-  }
-  if (!lookahead)  throw new SyntaxError(`Expected ')'  at line ${lineno}: ... ${program.slice(0,20)}`);
-  lex();
-
-  return parseApply(tree);
-}
-```
-
+* [Códigos para la Construcción de los ASTs de Egg con un algoritmo PDR](/temas/syntax-analysis/analisis-descendente-predictivo-recursivo/egg-parsers-ast)
