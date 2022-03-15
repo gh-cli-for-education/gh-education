@@ -3,7 +3,7 @@
         <li v-for="page in classFiles" :key="page.key"> <a :href="path.basename(page.path)">{{ page.title }}</a> 
         <ul>
           <li>{{ page.frontmatter.summary }}</li>
-          <li v-if="page.frontmatter.video"><a :href="page.frontmatter.video" target="_blank">Vídeo</a></li>
+          <li v-if="page.frontmatter.video"><a :href="getUrl(page.frontmatter.video)" target="_blank">Vídeo</a></li>
         </ul>
         </li>
     </ol>
@@ -26,6 +26,10 @@
             getDate(page) {
                 let m = /(\d+.\d+.\d+)/.exec(page.relativePath);
                 return m? m[1] : null
+            },
+            getUrl(idOrurl) {
+                if (/https/.test(idOrurl)) return idOrurl;
+                return "https://youtu.be/"+idOrurl;
             }
         },
         computed: {
@@ -47,7 +51,10 @@
                 //console.log(this.getDate(clases[0]));
                 return clases.sort( compare );
             }, 
-        
+            video() {
+                url = this.page.frontmatter.video
+                return url;
+            }
         }
     }
 </script>
