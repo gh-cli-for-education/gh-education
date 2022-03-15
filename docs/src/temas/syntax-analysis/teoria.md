@@ -200,9 +200,7 @@ For example, **there are no syntactic grammar contexts where both a leading divi
 This is not affected by semicolon insertion (see [12.5](https://tc39.es/ecma262/#prod-RegularExpressionLiteral)); in examples such as lines 4 and 5 in the following code:
 
 ```js{4,5}
-let tutu = { map(_) { return 2}}
-let a = 5, b = 8, hi = 4, c = "hello", d =
-    g = { exec(_) { return tutu; }}
+let {a, b, hi, g, c, d} = require('./hidden-amb')
 a = b
 /hi/g.exec(c).map(d)
 console.log(a);
@@ -221,6 +219,14 @@ When we run the code above, we get:
 ```
 ➜  prefix-lang git:(master) ✗ node examples/lexical-ambiguity.js
 1
+```
+The file `examples/hidden-amb.js` contains: 
+
+```js
+let tutu = { map(_) { return 2}}
+let a = 5, b = 8, hi = 4, c = "hello", d =
+    g = { exec(_) { return tutu; }}
+module.exports = {a, b, hi, c, d, g}
 ```
 
 ### ECMAScript Language: Grammar
