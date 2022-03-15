@@ -1,7 +1,7 @@
 
 # Gramáticas y Lenguajes Generados
 
-## Gramáticas Independientes del Contexto {#gramaticas}
+## Gramáticas Independientes del Contexto
 
 Supongamos una gramática $G = (\Sigma, V, P, S)$ con alfabeto $\Sigma$, conjunto de variables sintácticas (o no terminales) $V$, reglas de producción $P$ y símbolo de arranque $S$.
 
@@ -67,15 +67,15 @@ $\Longrightarrow W[print] (e) a$ (Ya que $a \longrightarrow  (e) a$)
 
 $\Longrightarrow  W [print] (e)$ (Ya que  $a \longrightarrow \epsilon$)
 
-$\Longrightarrow W[print] (W[**] a)$ (Aquí hizo $e \longrightarrow W a$)
+$\Longrightarrow W[print] (W[\star\star] a)$ (Aquí hizo $e \longrightarrow W a$)
 
-$\Longrightarrow W[print] (W[**] (e, e) a )$  (Aquí hizo $a \longrightarrow (e, e) a$)
+$\Longrightarrow W[print] (W[\star\star] (e, e) a )$  (Aquí hizo $a \longrightarrow (e, e) a$)
 
-$\Longrightarrow W[print] (W[**] (e, e) (e) a )$ (La última *a* hizo $a \longrightarrow  (e) a$)
+$\Longrightarrow W[print] (W[\star\star] (e, e) (e) a )$ (La última *a* hizo $a \longrightarrow  (e) a$)
 
-$\Longrightarrow  W[print] (W[**] (e, e) (e))$  (La última $a$ hace $\epsilon$)
+$\Longrightarrow  W[print] (W[\star\star] (e, e) (e))$  (La última $a$ hace $\epsilon$)
 
-$\overset{*}{\Longrightarrow} W[print] (W[**] (W[g], W[f]) (N[8]))$ (después de aplicar reiteradas veces las reglas)
+$\overset{\star}{\Longrightarrow} W[print] (W[\star\star] (W[g], W[f]) (N[8]))$ (después de aplicar reiteradas veces las reglas)
 
 En forma gráfica, tenemos el árbol sintáctico concreto que sigue:
 
@@ -146,14 +146,13 @@ Para cada variable sintáctica
 $A \in V$ el lenguaje
 generado desde la variable $A$ se define como:
 
-$L_A(G) = \{ x \in \Sigma^* : A \stackrel{*}{\Longrightarrow} x \}$
+$L_A(G) = \{ x \in \Sigma^\star: A \stackrel{\star}{\Longrightarrow} x \}$
 
-Esto es, $L_A(G)$ es el conjunto de frases del alfabeto que **derivan** en varias substituciones desde la variable $A$.
+Esto es, $L_A(G)$ es el conjunto de frases del alfabeto que **derivan** en varias substituciones desde la variable $A$. 
 
-En los métodos de Análisis Sintáctico Descendente Recursivo (PDR) se asocia una subrutina con cada variable sintáctica
-$A \in V$. 
+El lenguaje Egg es el conjunto de frases $L_{expression}(EggGrammar) = \{ x \in \Sigma^\star: expression \stackrel{\star}{\Longrightarrow} x \}$ donde $EggGrammar$ es la gramática definida arriba.
 
-La función de dicha subrutina (que de ahora en adelante llamaremos `parseA()`) es reconocer $L_A(G)$.
+El problema a considerar es el de construir para un lenguaje  $L_A(G)$  una función `parseA()` que reconozca las frases del lenguaje   $L_A(G)$.
 
 Siguiendo con el ejemplo de Egg, en $L_{apply}(EggGrammar)$ tenemos frases como:
 
@@ -174,3 +173,25 @@ y que:
 
 $L_{apply}(EggGrammar) = \{ x \in \Sigma^* : apply \stackrel{*}{\Longrightarrow} x \}$
 
+## ECMAScript Language Specification
+
+### ECMAScript Language: Grammar
+
+* [A Grammar Summary](https://tc39.es/ecma262/#sec-grammar-summary)
+* [[A.2] Expressions](https://tc39.es/ecma262/#sec-lexical-grammar "Expressions")
+* [[A.3] Statements](https://tc39.es/ecma262/#sec-statements "Statements")
+* [[A.4] Functions and Classes](https://tc39.es/ecma262/#sec-functions-and-classes "Functions and Classes")
+* [[A.5] Scripts and Modules](https://tc39.es/ecma262/#sec-scripts-and-modules "Scripts and Modules")
+* [[A.6] Number Conversions](https://tc39.es/ecma262/#sec-number-conversions "Number Conversions")
+* [[A.7] Universal Resource Identifier Character Classes](https://tc39.es/ecma262/#sec-universal-resource-identifier-character-classes "Universal Resource Identifier Character Classes")
+* [[A.8] Regular Expressions](https://tc39.es/ecma262/#sec-regular-expressions "Regular Expressions")
+
+* [13 ECMAScript Language: Expressions](https://tc39.es/ecma262/#sec-ecmascript-language-expressions)
+* [14 ECMAScript Language: Statements and Declarations](https://tc39.es/ecma262/#sec-ecmascript-language-statements-and-declarations)
+* [15 ECMAScript Language: Functions and Classes](https://tc39.es/ecma262/#sec-ecmascript-language-functions-and-classes)
+
+### ECMAScript Language: Lexical Grammar
+
+* [[A.1] Lexical Grammar](https://tc39.es/ecma262/#sec-lexical-grammar "Lexical Grammar")
+* [12 ECMAScript Language: Lexical Grammar](https://tc39.es/ecma262/#sec-ecmascript-language-lexical-grammar)
+* [11 ECMAScript Language: Source Text](https://tc39.es/ecma262/#sec-ecmascript-language-source-code)

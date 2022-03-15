@@ -76,8 +76,6 @@ However, you can use any lexer that conforms to the following interface:
 - `formatError(token)` returns a string with an error message describing a
   parse error at that token (for example, the string might contain the line and
   column where the error was found).
-- `has(name)` returns true if the lexer can emit tokens with that name. This is
-  used to resolve `%`-specifiers in compiled nearley grammars.
 
 > Note: if you are searching for a lexer that allows indentation-aware
 > grammars (like in Python), you can still use moo. See [this
