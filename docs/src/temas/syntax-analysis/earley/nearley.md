@@ -98,7 +98,7 @@ expression -> number "+" number {%
 number -> [0-9]:+ {% d => parseInt(d[0].join("")) %}
 ```
 
-To compile it with neraley:
+To compile it with nearley:
 
 ``` 
 ➜  examples git:(main) ✗ nearleyc postprocessors-example.ne -o postprocessors-example.js 
