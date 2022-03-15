@@ -175,22 +175,26 @@ $L_{apply}(EggGrammar) = \{ x \in \Sigma^* : apply \stackrel{*}{\Longrightarrow}
 
 ## ECMAScript Language Specification
 
+This [Ecma Standard](https://tc39.es/ecma262/#sec-intro) defines the ECMAScript 2022 Language. It is the thirteenth edition of the ECMAScript Language Specification. Since publication of the first edition in 1997, ECMAScript has grown to be one of the world's most widely used general-purpose programming languages. It is best known as the language embedded in web browsers but has also been widely adopted for server and embedded applications.
+
 ### ECMAScript Language: Grammar
 
-* [A Grammar Summary](https://tc39.es/ecma262/#sec-grammar-summary)
+* [A Grammar Summary](https://tc39.es/ecma262/#sec-grammar-summary) (Appendix with the whole grammar)
+  * [Grammar Notation Explained](https://tc39.es/ecma262/#sec-grammar-notation)
 * [[A.2] Expressions](https://tc39.es/ecma262/#sec-lexical-grammar "Expressions")
+  * [13 ECMAScript Language: Expressions](https://tc39.es/ecma262/#sec-ecmascript-language-expressions)
 * [[A.3] Statements](https://tc39.es/ecma262/#sec-statements "Statements")
+  * [14 ECMAScript Language: Statements and Declarations](https://tc39.es/ecma262/#sec-ecmascript-language-statements-and-declarations)
 * [[A.4] Functions and Classes](https://tc39.es/ecma262/#sec-functions-and-classes "Functions and Classes")
+  * [15 ECMAScript Language: Functions and Classes](https://tc39.es/ecma262/#sec-ecmascript-language-functions-and-classes)
 * [[A.5] Scripts and Modules](https://tc39.es/ecma262/#sec-scripts-and-modules "Scripts and Modules")
 * [[A.6] Number Conversions](https://tc39.es/ecma262/#sec-number-conversions "Number Conversions")
 * [[A.7] Universal Resource Identifier Character Classes](https://tc39.es/ecma262/#sec-universal-resource-identifier-character-classes "Universal Resource Identifier Character Classes")
 * [[A.8] Regular Expressions](https://tc39.es/ecma262/#sec-regular-expressions "Regular Expressions")
 
-* [13 ECMAScript Language: Expressions](https://tc39.es/ecma262/#sec-ecmascript-language-expressions)
-* [14 ECMAScript Language: Statements and Declarations](https://tc39.es/ecma262/#sec-ecmascript-language-statements-and-declarations)
-* [15 ECMAScript Language: Functions and Classes](https://tc39.es/ecma262/#sec-ecmascript-language-functions-and-classes)
 
-### ECMAScript Language: Lexical Grammar
+
+### ECMAScript Language: Lexical Specification
 
 * [[A.1] Lexical Grammar](https://tc39.es/ecma262/#sec-lexical-grammar "Lexical Grammar")
 * [12 ECMAScript Language: Lexical Grammar](https://tc39.es/ecma262/#sec-ecmascript-language-lexical-grammar)
