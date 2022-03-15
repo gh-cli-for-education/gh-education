@@ -175,7 +175,9 @@ $L_{apply}(EggGrammar) = \{ x \in \Sigma^* : apply \stackrel{*}{\Longrightarrow}
 
 ## ECMAScript Language Specification
 
-This [Ecma Standard](https://tc39.es/ecma262/#sec-intro) defines the ECMAScript 2022 Language. It is the thirteenth edition of the ECMAScript Language Specification. Since publication of the first edition in 1997, ECMAScript has grown to be one of the world's most widely used general-purpose programming languages. It is best known as the language embedded in web browsers but has also been widely adopted for server and embedded applications.
+This [Ecma Standard](https://tc39.es/ecma262/#sec-intro) **defines the ECMAScript 2022 Language**. 
+
+It is the thirteenth edition of the ECMAScript Language Specification. Since publication of the first edition in 1997, ECMAScript has grown to be one of the world's most widely used general-purpose programming languages. It is best known as the language embedded in web browsers but has also been widely adopted for server and embedded applications.
 
 ### ECMAScript Language: Grammar
 
