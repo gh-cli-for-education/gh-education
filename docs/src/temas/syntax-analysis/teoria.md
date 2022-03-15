@@ -229,6 +229,8 @@ let a = 5, b = 8, hi = 4, c = "hello", d =
 module.exports = {a, b, hi, c, d, g}
 ```
 
+See the code in the repo [crguezl/js-lexical-ambiguity](https://github.com/crguezl/js-lexical-ambiguity/blob/master/lexical-ambiguity.js)
+
 ### ECMAScript Language: Grammar
 
 * [A Grammar Summary](https://tc39.es/ecma262/#sec-grammar-summary) (Appendix with the whole grammar)
