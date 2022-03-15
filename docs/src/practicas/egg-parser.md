@@ -297,6 +297,8 @@ Añada el informe de Covering también (directorio `docs/covering` o similar).
 
 ## Challenge
 
+* Asegúrese de producir mensajes de error significativos informando de los números de línea y columna correctos
+
 ## References
 
 ### Testing 
