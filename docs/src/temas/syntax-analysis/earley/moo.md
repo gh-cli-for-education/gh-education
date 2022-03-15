@@ -71,6 +71,13 @@ and execution:
 [ 0.1411200080598672 ]
 ```
 
+Note how the management of white spaces is cumbersome and leads to errors:
+
+```
+✗ nearley-test -qi 'sin 3 ' nearley-with-moo-example.js
+Error: Syntax error at line 1 col 6
+```
+
 Have a look at [the Moo documentation](https://github.com/tjvr/moo#usage) to
 learn more about writing a tokenizer.
 
