@@ -179,7 +179,7 @@ This [Ecma Standard](https://tc39.es/ecma262/#sec-intro) **defines the ECMAScrip
 
 It is the thirteenth edition of the ECMAScript Language Specification. Since publication of the first edition in 1997, ECMAScript has grown to be one of the world's most widely used general-purpose programming languages. It is best known as the language embedded in web browsers but has also been widely adopted for server and embedded applications.
 
-Although ECMAScript started as a language with a simple design, over the years that design has become more and more complex. The next section is just an illustration of how some language design decisions lead to a growth in complexity.
+Although ECMAScript started as a language with a simple design, over the years that design has become more and more complex. The following section is just an illustration of how some design decisions have led to increased complexity in interpreting and implementing the language.
 
 ### Lexical Ambiguity Example
 
