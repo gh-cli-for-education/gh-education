@@ -29,7 +29,7 @@ publíquelo en [GitHub Registry](/temas/introduccion-a-javascript/creating-and-p
 
 El módulo  exportará un objeto con al menos la propiedad `{ parseFromfile }`. 
 
-* `parseFromFile(inputFile)` es una función que devuelve el AST construído a partir de los contenidos del programa `inputFile`
+* `parseFromFile(inputFile)` es una función que devuelve el AST construído a partir de los contenidos del programa en lenguaje Egg contenido en el fichero con nombre `inputFile`
 
 Se deberá proveer un ejecutable `eggc` con una interfaz como esta:
 
