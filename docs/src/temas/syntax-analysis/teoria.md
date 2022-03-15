@@ -220,7 +220,7 @@ When we run the code above, we get:
 ➜  prefix-lang git:(master) ✗ node examples/lexical-ambiguity.js
 1
 ```
-The file `examples/hidden-amb.js` contains: 
+The contents of file `examples/hidden-amb.js` explain why the output is `1`: 
 
 ```js
 let tutu = { map(_) { return 2}}
