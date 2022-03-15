@@ -295,60 +295,9 @@ La documentación de la API de la función exportada usando [JsDoc](/temas/intro
 Añada el informe de Covering también (directorio `docs/covering` o similar).
 
 
-## Challenge: SpreadElements inside an ArrayExpression
-
-With ES6 spread syntax it is easy to create a new array using an existing array:
-
-```js
-let parts = ['shoulders', 'knees'];
-let lyrics = ['head', ...parts, 'and', 'toes'];
-//  ["head", "shoulders", "knees", "and", "toes"]
-```
-
-The same can be done in former versions of JS using `Array.concat`:
-
-```js
-> parts = ['shoulders', 'knees'];
-> lyrics = [].concat(['head'], parts, ['and'], ['toes'])
-[ 'head', 'shoulders', 'knees', 'and', 'toes' ] // makes a shallow copy of parts
-> lyrics = ['head'].concat(parts).concat(['and', 'toes']) // same
-``` 
-
-But can be achieved with other strategies.
-
-Extend your translator to cover this use of the spread operator inside an `ArrayExpression`.
-
-Publish it and update the version following the
-[Semantic Versioning](/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html#semantic-versioning)
-rules.
+## Challenge
 
 ## References
-
-### ast-types
-
-* [ast-types in this notes](/temas/introduccion-a-pl/master-the-art-of-the-ast.html#ast-types)
-* [ast-types examples in crguezl/hello-ast-types](https://github.com/crguezl/hello-ast-types)
-
-### ASTs Anatomy
-
-* [Esprima AST syntax and format](https://docs.esprima.org/en/latest/syntax-tree-format.html)
-* [The ESTree Spec](https://github.com/estree/estree)
-  * [es2015](https://github.com/estree/estree/blob/master/es2015.md)
-
-
-### Packages
-
-* [Creating and Publishing a node.js Module in GitHub and NPM Registries](/temas/introduccion-a-javascript/creating-and-publishing-npm-module)
-* [Módulos](/temas/introduccion-a-javascript/modulos)
-* [Node.js docs. Modules: ECMAScript modules](https://nodejs.org/api/esm.html#introduction)
-* [Node.js Packages](/temas/introduccion-a-javascript/nodejspackages)
-* [Instalación de Módulos desde GitHub](/temas/introduccion-a-javascript/nodejspackages.html#instalaci%C3%B3n-desde-github)
-* [Introducción a los Módulos en JS](https://lenguajejs.com/automatizadores/introduccion/commonjs-vs-es-modules/) por Manz
-* [@ull-esit-dsi-1617/scapegoat](https://www.npmjs.com/package/@ull-esit-dsi-1617/scapegoat) en npm
-* [How to install an npm package from GitHub directly?](https://stackoverflow.com/questions/17509669/how-to-install-an-npm-package-from-github-directly) in StackOverflow
-* [Working with scoped packages](https://docs.npmjs.com/getting-started/scoped-packages)
-* [npm-scope manual: Scoped packages](https://docs.npmjs.com/misc/scope#publishing-public-scoped-packages-to-the-public-npm-registry)
-* [Package.json documentation en npm site](https://docs.npmjs.com/files/package.json)
 
 ### Testing 
 
