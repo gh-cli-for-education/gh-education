@@ -55,9 +55,15 @@ multiplication -> %number %ws %times %ws %number {% ([first, , , , second]) => f
 # Literal strings now match tokens with that text:
 trig -> "sin" %ws %number {% ([, , x]) => Math.sin(x) %}
 ```
+Compilation:
 
 ```
 ✗ nearleyc nearley-with-moo-example.ne -o nearley-with-moo-example.js 
+```
+
+and execution:
+
+```
 ✗ nearley-test -qi '2 * 3' nearley-with-moo-example.js 
 [ 6 ]
 }
