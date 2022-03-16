@@ -283,8 +283,8 @@ al directorio `docs/`).
 
   ```js
   module.exports = {
-    title: 'Lab ast-types Report',
-    base: '/ast-types-casiano-rodriguez-leon-alumno5/',
+    title: 'Lab egg-parser Report',
+    base: '/egg-parser-casiano-rodriguez-leon-alumno5/',
     ...
   }
   ```
