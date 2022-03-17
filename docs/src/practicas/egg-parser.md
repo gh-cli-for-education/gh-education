@@ -8,9 +8,9 @@ layout: Practica
 prev: ast-types.md
 sidebar: true
 rubrica: 
-  - El paquete está publicado en gitHub Registry con el ámbito de la organización
+  - El paquete está publicado en GitHub Registry con el ámbito de la organización
   - Contiene un ejecutable que se ejecuta correctamente (<code>--help</code>, etc.)
-  - The <code>parse</code> builds the correct ASTs for the Egg language for a sufficient number of examples
+  - The <code>parser</code> builds the correct ASTs for the Egg language for a sufficient number of examples
   - El módulo exporta las funciones adecuadas
   - Contiene tests 
   - "Estudio de covering"
@@ -136,7 +136,11 @@ Una parte de los conceptos y habilidades a adquirir con esta práctica se explic
 ## Pruebas
 
 Deberá añadir pruebas usando [Mocha y Chai](/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html#testing-with-mocha-and-chai) o [Jest](/temas/introduccion-a-javascript/jest).
-Repase las secciones [Testing with Mocha and Chai](/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html#testing-with-mocha-and-chai) y [Jest](/temas/introduccion-a-javascript/jest). Añada un estudio de covering. See the notes in [covering](/temas/introduccion-a-javascript/covering). Añada CI con GitHub Actions.
+Repase las secciones [Testing with Mocha and Chai](/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html#testing-with-mocha-and-chai) y [Jest](/temas/introduccion-a-javascript/jest).
+
+Añada un estudio de covering. See the notes in [covering](/temas/introduccion-a-javascript/covering). 
+
+Añada CI con GitHub Actions.
 
 ## Informe y Documentación
 
