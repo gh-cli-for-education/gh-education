@@ -7,6 +7,7 @@ order: 10
 layout: Practica
 prev: ast-types.md
 sidebar: true
+template: "https://github.com/crguezl/egg-parser-template"
 rubrica: 
   - El paquete está publicado en GitHub Registry con el ámbito de la organización
   - Contiene un ejecutable que se ejecuta correctamente (<code>--help</code>, etc.)
@@ -209,3 +210,4 @@ Añada el informe de Covering también (directorio `docs/covering` o similar).
 * [Semantic Versioning: Why You Should Be Using it](https://www.sitepoint.com/semantic-versioning-why-you-should-using/) SitePoint
 * [YouTube Video: Semantic versioning and npm](https://youtu.be/kK4Meix58R4)
 * [El comando npm version](https://docs.npmjs.com/cli/version)
+
