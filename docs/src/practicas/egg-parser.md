@@ -82,7 +82,11 @@ A continuación podemos usar el ejecutable `evm` para interpretar el árbol:
 5
 ```
 
-en el directorio `node_modules/@crguezl/eloquentjsegg/examples` tiene algunos ejemplos de programas egg  que puede usar para comprobar el buen funcionamiento de su parser:
+Observe que puesto que el paquete ["@crguezl/eloquentjsegg"](https://www.npmjs.com/package/@crguezl/eloquentjsegg) ha sido instalado localmente, necesitamos hacer uso de [npx](https://www.npmjs.com/package/npx) para ejecutar el intérprete `evm`.
+
+`npx <command>[@version] [command-arg]...` executes `<command>` either from a local `node_modules/.bin`, or from a central cache (usually in `~/.npm/cacache`), installing any packages needed in order for `<command>` to run. By default, `npx` will check whether `<command>` exists in `$PATH`, or in the local project binaries, and execute that. If `<command>` is not found, it will be installed prior to execution.
+
+En el directorio `node_modules/@crguezl/eloquentjsegg/examples` tiene algunos ejemplos de programas egg  que puede usar para comprobar el buen funcionamiento de su parser:
 
 ```
 ➜  prefix-lang git:(master) ✗ ls  node_modules/@crguezl/eloquentjsegg/examples 
