@@ -187,7 +187,7 @@ Que explicitando los atributos sería:
 
 ```ruby
 APPLY(
-  operator: WORD[{name: +},
+  operator: WORD{name: +},
   args: ARRAY[
     WORD{name: a}, 
     APPLY(

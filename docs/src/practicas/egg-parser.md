@@ -64,13 +64,39 @@ do(
 )
 ```
 
-Nuestro parser deberà producir un AST conforme a la especificación dada en la sección [Anatomía de los AST para Egg](/temas/syntax-analysis/ast.html#anatomia-de-los-ast-para-egg)
+Nuestro parser deberà por tanto producir un AST conforme a la especificación dada en la sección [Anatomía de los AST para Egg](/temas/syntax-analysis/ast.html#anatomia-de-los-ast-para-egg). Esto es, deberá estar conforme a esta gramática árbol:
 
 ```
-➜  prefix-lang git:(master) ✗ bin/eggc.js test/examples/array.egg -o test/ast/array.json
+ast: VALUE{value}
+   | WORD{name} 
+   | APPLY( operator:WORD args:( ast * ))
 ```
 
-Algo como esto:
+Los `APPLY` tienen dos atributos `operator` y `args`. `args` es un ARRAY con tantos elementos como argumentos admite el `operator`. Los nodos `WORD` son nodos hoja y tienen al menos el atributo `name`. 
+Los nodos `VALUE` tienen al menos el atributo `value`.
+
+Por ejemplo, el AST para `+(a,*(4,5))` se podría describir mediante este término: 
+
+```ruby
+APPLY(
+  operator: WORD{name: +},
+  args: [
+    WORD{name: a}, 
+    APPLY(
+      name: WORD{name:*}, 
+      args: [VALUE{value:4}, VALUE{value:5}]
+    )
+   ]
+)
+``` 
+
+El ejecutable ` bin/eggc.js` deberá producir un fichero JSON con el ast:
+
+```
+✗ bin/eggc.js test/examples/array.egg -o test/ast/array.json
+```
+
+Puede ver los contenidos del ast para el ejemplo [test/examples/array.egg](https://github.com/ULL-ESIT-PL-1617/egg/blob/539ddbc8f63d51641626dc03395796e3c01c2789/examples/array.egg) haciendo click sobre este enlace:
 
 [➜  prefix-lang git:(master) ✗ cat test/ast/array.json](/temas/syntax-analysis/earley/array-json)
 
@@ -84,7 +110,9 @@ A continuación podemos usar el ejecutable `evm` para interpretar el árbol:
 
 Observe que puesto que el paquete ["@crguezl/eloquentjsegg"](https://www.npmjs.com/package/@crguezl/eloquentjsegg) ha sido instalado localmente, necesitamos hacer uso de [npx](https://www.npmjs.com/package/npx) para ejecutar el intérprete `evm`.
 
+::: tip
 `npx <command>[@version] [command-arg]...` executes `<command>` either from a local `node_modules/.bin`, or from a central cache (usually in `~/.npm/cacache`), installing any packages needed in order for `<command>` to run. By default, `npx` will check whether `<command>` exists in `$PATH`, or in the local project binaries, and execute that. If `<command>` is not found, it will be installed prior to execution.
+::: 
 
 En el directorio `node_modules/@crguezl/eloquentjsegg/examples` tiene algunos ejemplos de programas egg  que puede usar para comprobar el buen funcionamiento de su parser:
 
@@ -145,10 +173,21 @@ Añada el informe de Covering también (directorio `docs/covering` o similar).
 
 ## References
 
+### Nearley.js 
+
+* [Repo ULL-ESIT-PL/learning-nearley](https://github.com/ULL-ESIT-PL/learning-nearley/)
+* [Nearley.JS Home Page](https://nearley.js.org/)
+
+### moo
+
+* [Tokenizers for nearley.js](https://nearley.js.org/docs/tokenizers)
+* [moo-ignore](https://www.npmjs.com/package/moo-ignore)
+* [moo](https://www.npmjs.com/package/moo/)
+
 ### Testing 
 
-* [Jest](/temas/introduccion-a-javascript/jest)
 * [Mocha](/temas/introduccion-a-javascript/mocha)
+* [Jest](/temas/introduccion-a-javascript/jest)
 
 ### Documentation
 
