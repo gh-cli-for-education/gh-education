@@ -86,9 +86,8 @@ The same can be done in former versions of JS using `Array.concat`:
 
 ```js
 > parts = ['shoulders', 'knees'];
-> lyrics = [].concat(['head'], parts, ['and'], ['toes'])
+> lyrics = [].concat('head', parts, 'and', 'toes')
 [ 'head', 'shoulders', 'knees', 'and', 'toes' ] // makes a shallow copy of parts
-> lyrics = ['head'].concat(parts).concat(['and', 'toes']) // same
 ``` 
 
 But can be achieved with other strategies.
