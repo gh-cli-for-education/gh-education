@@ -84,7 +84,7 @@ APPLY(
   args: [
     WORD{name: a}, 
     APPLY(
-      name: WORD{name:*}, 
+      operator: WORD{name:*}, 
       args: [VALUE{value:4}, VALUE{value:5}]
     )
    ]
