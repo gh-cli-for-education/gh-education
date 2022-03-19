@@ -15,7 +15,7 @@ rubrica:
   - It includes a sufficient number of examples in the folder <code>examples</code>
   - El módulo exporta las funciones adecuadas
   - Contiene suficientes tests
-  - Se ha incluído un workflow sencillo para convertir un ejemplo en un test 
+  - Se provee un workflow sencillo para convertir rápidamente un ejemplo operativo en un test 
   - "Estudio de covering"
   - Se ha hecho CI con GitHub Actions
   - Módulo bien documentado 
