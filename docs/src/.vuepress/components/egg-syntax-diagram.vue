@@ -80,8 +80,8 @@
     <g>
     <path d="M358 31h0"></path>
     <path d="M410 31h0"></path>
-    <rect x="358" y="20" width="52" height="22"></rect>
-    <text x="384" y="35">null</text>
+    <!--<rect x="358" y="20" width="52" height="22"></rect>-->
+    <text x="384" y="35">ε</text>
     </g>
     <path d="M410 31h10"></path>
     </g>
