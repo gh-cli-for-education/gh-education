@@ -34,6 +34,11 @@ El módulo  exportará un objeto con al menos la propiedad `{ parseFromfile }`.
 
 La gramática del lenguaje Egg se describe en la sección [Gramáticas Independientes del Contexto](/temas/syntax-analysis/teoria.html#gramaticas-independientes-del-contexto).
 
+This is the equivalent syntax diagram:
+
+<egg-syntax-diagram>
+</egg-syntax-diagram>
+
 Se deberá proveer un ejecutable `eggc` con una interfaz como esta:
 
 ```

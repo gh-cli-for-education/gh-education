@@ -226,3 +226,4 @@ presented in the second half of the [talk Parsing, Compiling, and Static Metapro
   * [Options for parse and tokenize methods](https://github.com/eslint/espree#options)
 * <a href="https://astexplorer.net/" target="_blank">astexplorer.net demo</a>
 * [idgrep.coffee](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk/blob/master/idgrep.coffee)
+* [Compiler Explorer](https://godbolt.org/)
