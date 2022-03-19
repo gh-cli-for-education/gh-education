@@ -11,9 +11,11 @@ template: "https://github.com/crguezl/egg-parser-template"
 rubrica: 
   - El paquete está publicado en GitHub Registry con el ámbito de la organización
   - Contiene un ejecutable que se ejecuta correctamente (<code>--help</code>, etc.)
-  - The <code>parser</code> builds the correct ASTs for the Egg language for a sufficient number of examples
+  - The <code>parser</code> builds the correct ASTs for the Egg language 
+  - It includes a sufficient number of examples
   - El módulo exporta las funciones adecuadas
-  - Contiene tests 
+  - Contiene suficientes tests
+  - Se ha incluído un workflow sencillo para converitr un ejemplo en un test 
   - "Estudio de covering"
   - Se ha hecho CI con GitHub Actions
   - Módulo bien documentado 
