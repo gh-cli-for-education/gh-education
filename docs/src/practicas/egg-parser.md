@@ -97,6 +97,8 @@ APPLY(
 )
 ``` 
 
+A la derecha del tipo de nodo y entre llaves escribimos las parejas` atributo: valor` que nos interesa resaltar. 
+
 El ejecutable ` bin/eggc.js` deberá producir un fichero JSON con el ast:
 
 ```
