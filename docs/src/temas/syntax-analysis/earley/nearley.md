@@ -13,7 +13,7 @@ modules.
 
 You can find many examples of nearley grammars online, as well as some in the
 `examples/` directory of the 
-[Github repository](http://github.com/Hardmath123/nearley).
+[Github repository](https://github.com/Hardmath123/nearley).
 
 ### Vocabulary
 
@@ -24,7 +24,7 @@ You can find many examples of nearley grammars online, as well as some in the
   the condition and body of the if statement.
 - A *rule* (or production rule) is a definition of a nonterminal. For example,
   
-  ```ne
+  ```
   ifStatement -> "if" condition "then" statement "endif"
   ```
   is the rule according to which the if statement nonterminal, `ifStatement`,
@@ -32,7 +32,7 @@ You can find many examples of nearley grammars online, as well as some in the
   nonterminal can be described by multiple rules. For example, we can add a
   second rule
 
-  ```ne
+  ```
   ifStatement -> "if" condition "then" statement "else" statement "endif"
   ```
   
@@ -42,7 +42,7 @@ By default, nearley attempts to parse the first nonterminal defined in the
 grammar. In the following grammar, nearley will try to parse input text as an
 `expression`.
 
-```ne
+```
 expression -> number "+" number
 expression -> number "-" number
 expression -> number "*" number
@@ -66,7 +66,7 @@ The keyword `null` stands for the **epsilon rule** $\epsilon$, which matches not
 following nonterminal matches zero or more `cow`s in a row, such as
 `cowcowcow`:
 
-```ne
+```
 a -> null | a "cow"
 ```
 ::: 

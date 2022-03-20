@@ -2,7 +2,7 @@
 
 Macros allow you to create polymorphic rules:
 
-```ne
+```
 # Matches "'Hello?' 'Hello?' 'Hello?'"
 matchThree[X] -> $X " " $X " " $X
 inQuotes[X] -> "'" $X "'"
@@ -13,7 +13,7 @@ main -> matchThree[inQuotes["Hello?"]]
 Macros are dynamically scoped, which means they see arguments passed to parent
 macros:
 
-```ne
+```
 # Matches "Cows oink." and "Cows moo!"
 sentence[ANIMAL, PUNCTUATION] -> animalGoes[("moo" | "oink" | "baa")] $PUNCTUATION
 animalGoes[SOUND] -> $ANIMAL " " $SOUND # uses $ANIMAL from its caller

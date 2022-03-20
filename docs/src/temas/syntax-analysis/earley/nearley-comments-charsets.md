@@ -5,7 +5,7 @@
 Comments are marked with '#'. Everything from `#` to the end of a line is
 ignored:
 
-```ne
+```
 expression -> number "+" number # sum of two numbers
 ```
 

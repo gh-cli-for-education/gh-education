@@ -45,7 +45,7 @@ Here is an example of use of `nyc`:
 
 To run it:
 
-```➜  hello-compilers-solution git:(master) ✗ npm run cov
+```  hello-compilers-solution git:(master) ✗ npm run cov
 
 > hello-compilers@1.0.1 cov
 > nyc npm run test

@@ -7,7 +7,7 @@ sidebar: false
 # {{ $frontmatter.title }}
 
 * [Eloquent JS 3rd Edition](https://eloquentjavascript.net/)
-* [Eloquent JS 2nd Edition](http://eloquentjavascript.net/2nd_edition/)
+* [Eloquent JS 2nd Edition](https://eloquentjavascript.net/2nd_edition/)
 * <a :href="$frontmatter.bull_permanente+'/5ljpb5/ullabsysULL00228966c-8'">Compilers : principles, techniques, and tools.</a> Alfred V. Aho Ravi Sethi; Jeffrey DavidUllman 1942-1988
   - Disponible en: Informática	B.Informática. Sala de Lectura	Préstamo exterior	I*D.3.4 AHO com
   - Disponible en: Matemáticas y Física	B.Mát. y Física	Sala de Lectura	Préstamo exterior	I*D.3.4 AHO com
@@ -17,7 +17,7 @@ sidebar: false
 * [The Modern JavaScript Tutorial. https://javascript.info/](https://javascript.info/)
 * [GitHub Repo: Awesome Compilers](https://github.com/aalhour/awesome-compilers#javascript)
  A curated list of awesome resources, learning materials, tools, frameworks, platforms, technologies and source code projects in the field of Compilers, Interpreters and Runtimes. This list has a bias towards education.
-* [UC Berkeley. CS294-113: Virtual Machines and Managed Runtimes](http://www.wolczko.com/CS294/index.html) by [Mario Wolczko](http://www.wolczko.com/)
+* [UC Berkeley. CS294-113: Virtual Machines and Managed Runtimes](https://www.wolczko.com/CS294/index.html) by [Mario Wolczko](https://www.wolczko.com/)
   - [Virtual Machines Summer School 2016 (#vmss16)](https://soft-dev.org/events/vmss16/) May 31, 12:00 - June 3 2016, 16:00 Cumberland Lodge, UK
 * [Nearley](https://github.com/kach/nearley) is a JS parser generator using the Early algorithm
 * [GitHub Learning Lab Courses](https://lab.github.com/)

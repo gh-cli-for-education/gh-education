@@ -21,8 +21,8 @@ title: Pruebas, Integración y Calidad
 
 ## Mocha 
 
-* [MochaJS documentation](http://mochajs.org/)
-* [Getting Started](http://mochajs.org/#getting-started)
+* [MochaJS documentation](https://mochajs.org/)
+* [Getting Started](https://mochajs.org/#getting-started)
 
 
 ## Jest
@@ -48,9 +48,9 @@ Jest también proporciona [snapshots testing](https://jestjs.io/docs/en/snapshot
 * Mas sobre [Mocha](mocha) en estos apuntes
 * Mas sobre [Jest](jest) en estos apuntes
 * Stubbing and Mocking with the Sinon Library
-  * [Sinon API](http://sinonjs.org/releases/v1.17.7/)
+  * [Sinon API](https://sinonjs.org/releases/v1.17.7/)
   * [Side effects of stubbing console in tests](https://gyandeeps.com/console-stubbing/)
-  * [Unit Test like a Secret Agent with Sinon.js](http://elijahmanor.com/unit-test-like-a-secret-agent-with-sinon-js/) by Elijah Manor
+  * [Unit Test like a Secret Agent with Sinon.js](https://elijahmanor.com/unit-test-like-a-secret-agent-with-sinon-js/) by Elijah Manor
 * Apuntes del curso 16/17 sobre Herramientas para Pruebas
   * [Sección Pruebas en los Apuntes del curso 16/17](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/apuntes/pruebas/)
     * [Mocha](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/apuntes/pruebas/mocha.html)

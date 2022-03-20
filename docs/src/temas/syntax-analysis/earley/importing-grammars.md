@@ -3,7 +3,7 @@
 
 You can include the content of other grammar files:
 
-```ne
+```
 @include "../misc/primitives.ne" # path relative to file being compiled
 sum -> number "+" number # uses "number" from the included file
 ```
@@ -12,7 +12,7 @@ There are some common nonterminals like "integer" and "double-quoted string"
 that ship with nearley to help you prototype grammars efficiently. You can
 include them using the `@builtin` directive:
 
-```ne
+```
 @builtin "number.ne"
 main -> int:+
 ```

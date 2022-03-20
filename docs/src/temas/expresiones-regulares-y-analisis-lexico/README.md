@@ -43,7 +43,7 @@ var re = new RegExp("\\w+");
 #### Ejercicio
 
 - Ejercicio: [Usar new Regexp("string") versus slash literal](https://youtu.be/ASQ35gSjmeI). Similitudes y diferencias. Vídeo del profesor
-- [![](http://i3.ytimg.com/vi/ASQ35gSjmeI/hqdefault.jpg)](https://youtu.be/ASQ35gSjmeI)
+- [![](https://i3.ytimg.com/vi/ASQ35gSjmeI/hqdefault.jpg)](https://youtu.be/ASQ35gSjmeI)
 - Explique la diferencia observada entre las dos formas de construir una RegExp
 
 ### Test
@@ -390,9 +390,9 @@ Ejecución:
 
 <!--
 
-* [Eloquent JavaScript (3d Edition): Regular Expressions](http://eloquentjavascript.net/3rd_edition/09_regexp.html)
+* [Eloquent JavaScript (3d Edition): Regular Expressions](https://eloquentjavascript.net/3rd_edition/09_regexp.html)
   - Ejercicio: [Usar new Regexp("string") versus slash literal](https://youtu.be/ASQ35gSjmeI). Similitudes y diferencias. Vídeo del profesor
-  - [![](http://i3.ytimg.com/vi/ASQ35gSjmeI/hqdefault.jpg)](https://youtu.be/ASQ35gSjmeI)
+  - [![](https://i3.ytimg.com/vi/ASQ35gSjmeI/hqdefault.jpg)](https://youtu.be/ASQ35gSjmeI)
   - Explique la diferencia observada entre las dos formas de construir una RegExp
 
 -->
@@ -428,8 +428,7 @@ console.log(stripComments("1 + /* 2 */3"));
 console.log(stripComments("1 /* a */+/* b */ 1"));
 ```
 
-* [EJS: Greed and Lazy Operators](https://eloquentjavascript.net/09_regexp.
-html#h_kiECehz+i+)
+* [EJS: Greed and Lazy Operators](https://eloquentjavascript.net/09_regexp.html#h_kiECehz+i+)
 
 #### Lazy Quantifiers
 
@@ -518,7 +517,7 @@ but only if there’s no `Y` before it.
 
 ### Ejercicio: Poner Blanco después de Coma
 
-Busque una solución al siguiente ejercicio (véase ’Regex to add space after punctuation sign’ en [PerlMonks](http://www.perlmonks.org/?node_id=319742)).
+Busque una solución al siguiente ejercicio (véase ’Regex to add space after punctuation sign’ en [PerlMonks](https://www.perlmonks.org/?node_id=319742)).
 Se quiere poner un espacio en blanco después de la aparición de cada coma:
 
 ```js
@@ -798,8 +797,8 @@ while (match = regexp.exec(str)) {
 
 See also:
 
-* [Example: using sticky matching for tokenizing](http://2ality.com/2015/07/regexp-es6.html#example-using-sticky-matching-for-tokenizing) inside 
-the chapter [New regular expression features in ECMAScript 6](http://2ality.com/2015/07/regexp-es6.html#example-using-sticky-matching-for-tokenizing)
+* [Example: using sticky matching for tokenizing](https://2ality.com/2015/07/regexp-es6.html#example-using-sticky-matching-for-tokenizing) inside 
+the chapter [New regular expression features in ECMAScript 6](https://2ality.com/2015/07/regexp-es6.html#example-using-sticky-matching-for-tokenizing)
 
 ### Parsing Ficheros **ini**
 
@@ -809,7 +808,7 @@ the chapter [New regular expression features in ECMAScript 6](http://2ality.com/
 
 A  web app with a lexical analyzer of INI files:
 
-- [Parsing ini files](http://crguezl.github.io/pl-grado-ini-files/): deployment 
+- [Parsing ini files](https://crguezl.github.io/pl-grado-ini-files/): deployment 
 - [Repo con el código del parsing de ficheros ini](https://github.com/crguezl/pl-grado-ini-files)
 - [ini.js](https://github.com/crguezl/pl-grado-ini-files/blob/gh-pages/ini.js) entry file
 
@@ -849,7 +848,7 @@ One advantage of Unicode over other possible sets is that
 
 #### Planes
 
-In the [Unicode](https://en.wikipedia.org/wiki/Unicode "Unicode") standard, a **plane** is a continuous group of 65,536 ($$2^{16}$$) [code points](https://en.wikipedia.org/wiki/Code_point "Code point"). The Unicode code space is divided into seventeen planes. 
+In the [Unicode](https://en.wikipedia.org/wiki/Unicode "Unicode") standard, a **plane** is a continuous group of 65,536 ($2^{16}$) [code points](https://en.wikipedia.org/wiki/Code_point "Code point"). The Unicode code space is divided into seventeen planes. 
 
 The BMP is the first (code points from U+0000 to U+FFFF), the other 16 planes are called **astral planes**. Worth noting that planes 3 to 13 are currently empty.
 
@@ -1215,41 +1214,41 @@ Unicode supports many different properties, their full list would require more s
 
 * Original [slevithan/xregexp repo en GitHub. Documentación](https://github.com/slevithan/xregexp)
 
-* [http://xregexp.com/ website](http://xregexp.com/): Documentación
+* [https://xregexp.com/ website](https://xregexp.com/): Documentación
 
 
-#### [API de XRegExp](http://xregexp.com/api/)
+#### [API de XRegExp](https://xregexp.com/api/)
 
-- [XRegExp](http://xregexp.com/api/#XRegExp)
-- [XRegExp.addToken](http://xregexp.com/api/#addToken)
-- [XRegExp.build](http://xregexp.com/api/#build) (addon)
-- [XRegExp.cache](http://xregexp.com/api/#cache)
-- [XRegExp.escape](http://xregexp.com/api/#escape)
-- [XRegExp.exec](http://xregexp.com/api/#exec)
-- [XRegExp.forEach](http://xregexp.com/api/#forEach)
-- [XRegExp.globalize](http://xregexp.com/api/#globalize)
-- [XRegExp.install](http://xregexp.com/api/#install)
-- [XRegExp.isInstalled](http://xregexp.com/api/#isInstalled)
-- [XRegExp.isRegExp](http://xregexp.com/api/#isRegExp)
-- [XRegExp.match](http://xregexp.com/api/#match)
-- [XRegExp.matchChain](http://xregexp.com/api/#matchChain)
-- [XRegExp.matchRecursive](http://xregexp.com/api/#matchRecursive) (addon)
-- [XRegExp.replace](http://xregexp.com/api/#replace)
-- [XRegExp.replaceEach](http://xregexp.com/api/#replaceEach)
-- [XRegExp.split](http://xregexp.com/api/#split)
-- [XRegExp.test](http://xregexp.com/api/#test)
-- [XRegExp.uninstall](http://xregexp.com/api/#uninstall)
-- [XRegExp.union](http://xregexp.com/api/#union)
-- [XRegExp.version](http://xregexp.com/api/#version)
+- [XRegExp](https://xregexp.com/api/#XRegExp)
+- [XRegExp.addToken](https://xregexp.com/api/#addToken)
+- [XRegExp.build](https://xregexp.com/api/#build) (addon)
+- [XRegExp.cache](https://xregexp.com/api/#cache)
+- [XRegExp.escape](https://xregexp.com/api/#escape)
+- [XRegExp.exec](https://xregexp.com/api/#exec)
+- [XRegExp.forEach](https://xregexp.com/api/#forEach)
+- [XRegExp.globalize](https://xregexp.com/api/#globalize)
+- [XRegExp.install](https://xregexp.com/api/#install)
+- [XRegExp.isInstalled](https://xregexp.com/api/#isInstalled)
+- [XRegExp.isRegExp](https://xregexp.com/api/#isRegExp)
+- [XRegExp.match](https://xregexp.com/api/#match)
+- [XRegExp.matchChain](https://xregexp.com/api/#matchChain)
+- [XRegExp.matchRecursive](https://xregexp.com/api/#matchRecursive) (addon)
+- [XRegExp.replace](https://xregexp.com/api/#replace)
+- [XRegExp.replaceEach](https://xregexp.com/api/#replaceEach)
+- [XRegExp.split](https://xregexp.com/api/#split)
+- [XRegExp.test](https://xregexp.com/api/#test)
+- [XRegExp.uninstall](https://xregexp.com/api/#uninstall)
+- [XRegExp.union](https://xregexp.com/api/#union)
+- [XRegExp.version](https://xregexp.com/api/#version)
 
 #### XRegExp instance properties
 
-- [\<regexp>.xregexp.source](http://xregexp.com/api/#dot-source) (The original pattern provided to the XRegExp constructor)
-- [\<regexp>.xregexp.flags](http://xregexp.com/api/#dot-flags) (The original flags provided to the XRegExp constructor)
+- [\<regexp>.xregexp.source](https://xregexp.com/api/#dot-source) (The original pattern provided to the XRegExp constructor)
+- [\<regexp>.xregexp.flags](https://xregexp.com/api/#dot-flags) (The original flags provided to the XRegExp constructor)
 
 #### XRegExp. Unicode
 
-*  [XRegExp Plugins](http://xregexp.com/plugins/)
+*  [XRegExp Plugins](https://xregexp.com/plugins/)
 *  [Regular Expressions.info: Unicode Regular Expressions](https://www.regular-expressions.info/unicode.html)
 
 ### Módulo @ull-esit-pl/uninums
@@ -1286,7 +1285,7 @@ Javascript supports Unicode strings, but parsing such strings to numbers is unsu
 
 ### Extensiones a las Expresiones Regulares en ECMA6
 
-* [New regular expression features in ECMAScript 6](http://www.2ality.com/2015/07/regexp-es6.html)
+* [New regular expression features in ECMAScript 6](https://www.2ality.com/2015/07/regexp-es6.html)
 
 
 
@@ -1296,29 +1295,29 @@ Antiguos apuntes del profesor sobre el uso de RegExp en otros lenguajes:
 
 ### Perl
 
-* [Expresiones Regulares en Perl](http://crguezl.github.io/ull-etsii-grado-pl-apuntes/node96.html)
+* [Expresiones Regulares en Perl](https://crguezl.github.io/ull-etsii-grado-pl-apuntes/node96.html)
 
 ### Varios Lenguajes
 
-* [Expresiones Regulares en varios lenguajes](http://crguezl.github.io/ull-etsii-grado-pl-apuntes/node100.html)
+* [Expresiones Regulares en varios lenguajes](https://crguezl.github.io/ull-etsii-grado-pl-apuntes/node100.html)
 
 ### Python
 
-* [Python](http://crguezl.github.io/ull-etsii-grado-pl-apuntes/node100.html#SECTION05440050000000000000)
+* [Python](https://crguezl.github.io/ull-etsii-grado-pl-apuntes/node100.html#SECTION05440050000000000000)
 
 ### Ruby
 
-* [Ruby](http://crguezl.github.io/ull-etsii-grado-pl-apuntes/node100.html#SECTION05440060000000000000)
+* [Ruby](https://crguezl.github.io/ull-etsii-grado-pl-apuntes/node100.html#SECTION05440060000000000000)
 
 ### C and C++
 
 * [C++ Regex 101](https://www.fluentcpp.com/2020/02/28/c-regex-101-simple-code-for-simple-cases-with-regexes/  )
-* [Expresiones Regulares en C](http://crguezl.github.io/ull-etsii-grado-pl-apuntes/node80.html)
+* [Expresiones Regulares en C](https://crguezl.github.io/ull-etsii-grado-pl-apuntes/node80.html)
 
 ### sed
 
 * [sed, a stream editor](https://www.gnu.org/software/sed/manual/sed.html)
-* [Expresiones Regulares en sed](http://crguezl.github.io/ull-etsii-grado-pl-apuntes/node83.html)
+* [Expresiones Regulares en sed](https://crguezl.github.io/ull-etsii-grado-pl-apuntes/node83.html)
 
 ## Análisis Léxico
 
@@ -1326,7 +1325,7 @@ Antiguos apuntes del profesor sobre el uso de RegExp en otros lenguajes:
 * [Descripción de la Práctica: Analizador Léxico para Un Subconjunto de JavaScript](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/practicas/practicaanalisislexicotdop2018.html) gitbooks.io
 * [Compiler Construction by Wikipedians](https://books.google.es/books?id=nMZnyp_zW8AC&pg=PA570#v=onepage&q=Lexical&f=false). Chapter  Lexical Analysis
 * [Un caso a estudiar: El módulo npm lexical-parser](https://github.com/Eitz/lexical-parser)
-* [Esprima. Chapter 3. Lexical Analysis (Tokenization)](http://esprima.readthedocs.io/en/latest/lexical-analysis.html)
+* [Esprima. Chapter 3. Lexical Analysis (Tokenization)](https://esprima.readthedocs.io/en/latest/lexical-analysis.html)
     - [RepoULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk)
 * [jison-lex](https://github.com/zaach/jison-lex)
 * [lexer](https://github.com/aaditmshah/lexer)
@@ -1346,13 +1345,13 @@ Antiguos apuntes del profesor sobre el uso de RegExp en otros lenguajes:
 ## Referencias
 
 <!-- * [Apuntes de Expresiones Regulares](regexp) del profesor -->
-* [Eloquent JavaScript: Regular Expressions](http://eloquentjavascript.net/09_regexp.html)
+* [Eloquent JavaScript: Regular Expressions](https://eloquentjavascript.net/09_regexp.html)
 * [Chapter Regular expressions](https://javascript.info/regular-expressions) in the "Modern JavaScript Tutorial" book
-* [New regular expression features in ECMAScript 6](http://2ality.com/2015/07/regexp-es6.html) by Dr. Axel Rauschmayer
+* [New regular expression features in ECMAScript 6](https://2ality.com/2015/07/regexp-es6.html) by Dr. Axel Rauschmayer
 
 ### Otros Apuntes del Profesor
 
 * [Apuntes 16/17 de Expresiones Regulares](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/apuntes/regexp/) del profesor (gitbook)
-* [Expresiones Regulares y Análisis Léxico en JavaScript](http://crguezl.github.io/ull-etsii-grado-pl-apuntes/node70.html) Apuntes del profesor cursos 2012-2014. Latex2html, LateX, GitHub 
-* [Apuntes de la Asignatura Procesadores de Lenguajes](http://crguezl.github.io/pl-html/) GitHub Cursos 13-15 http://crguezl.github.io/pl-html
+* [Expresiones Regulares y Análisis Léxico en JavaScript](https://crguezl.github.io/ull-etsii-grado-pl-apuntes/node70.html) Apuntes del profesor cursos 2012-2014. Latex2html, LateX, GitHub 
+* [Apuntes de la Asignatura Procesadores de Lenguajes](https://crguezl.github.io/pl-html/) GitHub Cursos 13-15 https://crguezl.github.io/pl-html
   * Capítulo [Expresiones Regulares y Análisis Léxico en JavaScript](https://crguezl.github.io/pl-html/node7.html) Latex2Html, LaTeX, copy from nereida.deioc.ull.es at crguezl.github.io/pl-html

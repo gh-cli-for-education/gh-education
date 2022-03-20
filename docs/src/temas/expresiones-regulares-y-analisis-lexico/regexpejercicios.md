@@ -8,12 +8,12 @@ title: Ejercicios de Expresiones Regulares
 ### Ejercicios de EloquentJS
 
 1. Haga los ejercicios de expresiones regulares en 
-[Eloquent JavaScript](http://eloquentjavascript.net/09_regexp.html#h_TcUD2vzyMe)
+[Eloquent JavaScript](https://eloquentjavascript.net/09_regexp.html#h_TcUD2vzyMe)
 
 ### Ejercicios de Cursos Anteriores
 
 1. Haga los ejercicios de expresiones regulares en los apuntes de otros años
-[http://crguezl.github.io/pl-html/node7.html](http://crguezl.github.io/pl-html/node7.html)
+[https://crguezl.github.io/pl-html/node7.html](https://crguezl.github.io/pl-html/node7.html)
 
 ### Cadenas
 

@@ -121,7 +121,7 @@ graph TB
 ```
 that leads to the interpretation `(2&3)@4`.
 
-Read the teacher notes on [precedence and associativity](http://crguezl.github.io/pl-html/node57.html) and see the examples in the [Repo crguezl/jison-prec](https://github.com/crguezl/jison-prec).
+Read the teacher notes on [precedence and associativity](https://crguezl.github.io/pl-html/node57.html) and see the examples in the [Repo crguezl/jison-prec](https://github.com/crguezl/jison-prec).
 
 To break the ambiguity you  have to set that the precedence of the  token `&` is higher that the one of the token `@`. 
 
@@ -190,15 +190,15 @@ Lea la sección [GitHub Actions](/temas/introduccion-a-javascript/github-actions
 
 ### Jison and Syntax Analysis
 
-* [Análisis Sintáctico Ascendente en JavaScript](http://crguezl.github.io/pl-html/node43.html)
+* [Análisis Sintáctico Ascendente en JavaScript](https://crguezl.github.io/pl-html/node43.html)
 * [Jison](/temas/syntax-analysis/analisis-LR/#introduccion-al-analisis-lr)
 * [Mi primer proyecto utilizando Jison](https://ericknavarro.io/2019/07/21/17-Mi-primer-proyecto-utilizando-Jison-Linux/) por Erick Navarro
 * [Folder jison/examples from the Jison distribution](https://github.com/zaach/jison/tree/master/examples)
 * [Jison Debugger](https://nolanlawson.github.io/jison-debugger/)
-* [Precedencia y Asociatividad](http://crguezl.github.io/pl-html/node57.html)
+* [Precedencia y Asociatividad](https://crguezl.github.io/pl-html/node57.html)
     - [Repo de ejemplo crguezl/jison-prec](https://github.com/crguezl/jison-prec)
-* [Construcción de las Tablas para el Análisis SLR](http://crguezl.github.io/pl-html/node49.html)
-* [Algoritmo de Análisis LR (yacc/bison/jison)](http://crguezl.github.io/pl-html/node55.html)
+* [Construcción de las Tablas para el Análisis SLR](https://crguezl.github.io/pl-html/node49.html)
+* [Algoritmo de Análisis LR (yacc/bison/jison)](https://crguezl.github.io/pl-html/node55.html)
 * [Repo ULL-ESIT-PL-1718/jison-aSb](https://github.com/ULL-ESIT-PL-1718/jison-aSb)
 * [Repo ULL-ESIT-PL-1718/ull-etsii-grado-pl-jisoncalc](https://github.com/ULL-ESIT-PL-1718/ull-etsii-grado-pl-jisoncalc)
 * <a href="https://medium.com/basecs/leveling-up-ones-parsing-game-with-asts-d7a6fc2400ff" rel="nofollow">Leveling Up One’s Parsing Game With ASTs</a> by <a href="https://twitter.com/vaidehijoshi" rel="nofollow">Vaidehi Joshi</a> <em> 👍</em>

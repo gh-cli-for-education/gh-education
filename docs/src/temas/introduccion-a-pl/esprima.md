@@ -9,9 +9,9 @@ sidebarDepth: 3
 En el [Repo ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk) encontrará el material de esta lección.
 **Clone este repo**.
 
-The examples in this repo use a couple of JavaScript compiler frameworks: [Esprima](http://esprima.org) and Espree.
+The examples in this repo use a couple of JavaScript compiler frameworks: [Esprima](https://esprima.org) and Espree.
 
-[Espree](https://github.com/eslint/espree) started out as a fork of [Esprima](http://esprima.org) v1.2.2, the last stable published released of Esprima before work on ECMAScript 6 began. [Espree](https://github.com/eslint/espree) is now built on top of [Acorn](https://github.com/ternjs/acorn), which has a modular architecture that allows extension of core functionality. The goal of [Espree](https://github.com/eslint/espree) is to produce output that is similar to Esprima with a similar API so that it can be used in place of Esprima.
+[Espree](https://github.com/eslint/espree) started out as a fork of [Esprima](https://esprima.org) v1.2.2, the last stable published released of Esprima before work on ECMAScript 6 began. [Espree](https://github.com/eslint/espree) is now built on top of [Acorn](https://github.com/ternjs/acorn), which has a modular architecture that allows extension of core functionality. The goal of [Espree](https://github.com/eslint/espree) is to produce output that is similar to Esprima with a similar API so that it can be used in place of Esprima.
 
 ## Introducción a Espree. REPL example
 
@@ -291,7 +291,7 @@ See the examples in the repo [crguezl/hello-jison](https://github.com/crguezl/he
 ### Calculator example with PEG.js from the talk Parsing, Compiling, and Static Metaprogramming
 
 [altjs.js](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk/blob/master/altjs.js) is the code for the "AltJS language in 5 minutes" section
-presented in the second half of the [talk Parsing, Compiling, and Static Metaprogramming](http://2013.jsconf.eu/speakers/patrick-dubroy-parsing-compiling-and-static-metaprogramming.html) by Patrick Dubroy
+presented in the second half of the [talk Parsing, Compiling, and Static Metaprogramming](https://2013.jsconf.eu/speakers/patrick-dubroy-parsing-compiling-and-static-metaprogramming.html) by Patrick Dubroy
 
 
 ## References
@@ -307,4 +307,4 @@ presented in the second half of the [talk Parsing, Compiling, and Static Metapro
 * [Awesome AST](https://github.com/cowchimp/awesome-ast)  A repo like [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 * ESQuery is a library for querying the AST output by Esprima for patterns of syntax using a CSS style selector system. 
   * [esquery](https://github.com/estools/esquery) repo at GitHub
-  * Check out the [Demo](http://estools.github.io/esquery/)
+  * Check out the [Demo](https://estools.github.io/esquery/)
