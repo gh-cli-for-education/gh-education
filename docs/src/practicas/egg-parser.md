@@ -79,7 +79,7 @@ ast: VALUE{value}
    | APPLY( operator:WORD args:[ ast * ]))
 ```
 
-Los `APPLY` tienen dos atributos `operator` y `args`. `args` es un ARRAY con tantos elementos como argumentos admite el `operator`. Los nodos `WORD` son nodos hoja y tienen al menos el atributo `name`. 
+Los `APPLY` tienen dos atributos `operator` y `args`. `args` es un ARRAY conteniendo los ASTs que  se corresponden con los argumentos de `operator`. Los nodos `WORD` son nodos hoja y tienen al menos el atributo `name`. 
 Los nodos `VALUE` tienen al menos el atributo `value`.
 
 Por ejemplo, el AST para `+(a,*(4,5))` se podría describir mediante este término: 
