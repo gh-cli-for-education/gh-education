@@ -857,7 +857,7 @@ The code points contained in astral planes are called **astral code points**.
 Astral code points go from U+10000 to U+10FFFF.
 
 
-JavaScript’s representation uses 16 bits per string element, which can describe up to $$2^{16}$$ different characters. But Unicode defines more characters than that: about twice as many. So some characters, such as many emoji, *take up two character positions* in JavaScript strings.
+JavaScript’s representation uses 16 bits per string element, which can describe up to $2^{16}$ different characters. But Unicode defines more characters than that: about twice as many. So some characters, such as many emoji, *take up two character positions* in JavaScript strings.
 
 When comparing strings, JavaScript goes over the characters from left to right, comparing the Unicode codes one by one.
 
