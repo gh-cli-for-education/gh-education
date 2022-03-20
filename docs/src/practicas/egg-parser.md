@@ -74,12 +74,12 @@ do(
 Nuestro parser deberà por tanto producir un AST conforme a la especificación dada en la sección [Anatomía de los AST para Egg](/temas/syntax-analysis/ast.html#anatomia-de-los-ast-para-egg). Esto es, deberá estar conforme a esta gramática árbol:
 
 ```
-ast: VALUE{value}
-   | WORD{name} 
+ast: VALUE
+   | WORD 
    | APPLY( operator:WORD args:[ ast * ]))
 ```
 
-Los `APPLY` tienen dos atributos `operator` y `args`. `args` es un ARRAY conteniendo los ASTs que  se corresponden con los argumentos de `operator`. Los nodos `WORD` son nodos hoja y tienen al menos el atributo `name`. 
+Los nodos `APPLY` tienen dos atributos `operator` y `args`. El atributo `args` es un ARRAY conteniendo los ASTs que  se corresponden con los argumentos de `operator`. Los nodos `WORD` son nodos hoja y tienen al menos el atributo `name`. 
 Los nodos `VALUE` tienen al menos el atributo `value`.
 
 Por ejemplo, el AST para `+(a,*(4,5))` se podría describir mediante este término: 
