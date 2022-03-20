@@ -76,7 +76,7 @@ Nuestro parser deberà por tanto producir un AST conforme a la especificación d
 ```
 ast: VALUE{value}
    | WORD{name} 
-   | APPLY( operator:WORD args:( ast * ))
+   | APPLY( operator:WORD args:[ ast * ]))
 ```
 
 Los `APPLY` tienen dos atributos `operator` y `args`. `args` es un ARRAY con tantos elementos como argumentos admite el `operator`. Los nodos `WORD` son nodos hoja y tienen al menos el atributo `name`. 
