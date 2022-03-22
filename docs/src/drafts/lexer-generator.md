@@ -6,7 +6,7 @@ date: 2022/03/22
 delivery: "2022/03/31"
 order: 11
 layout: Practica
-prev: egg-parser.md
+prev: 
 sidebar: true
 template: "https://github.com/crguezl/egg-parser-template"
 rubrica:

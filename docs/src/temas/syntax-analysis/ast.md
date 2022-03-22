@@ -1,5 +1,6 @@
 ---
-title: Árboles de Análisis Abstracto 
+title: Árboles de Análisis Abstracto
+sidebar: false
 ---
 
 # {{ $frontmatter.title }}
@@ -33,7 +34,7 @@ y este un posible árbol sintáctico abstracto con la misma información que el 
 
 ## Alfabeto con Aridad o Alfabeto Árbol
 
-No deja de ser curioso que es posible definir un equivalente del cierre de Kleene $\Sigma^*$ de un alfabeto $\Sigma$ para modelizar matemáticamente los árboles.
+No deja de ser curioso que es posible definir un equivalente del cierre de Kleene $\Sigma^\star$ de un alfabeto $\Sigma$ para modelizar matemáticamente los árboles.
 
 Para ello se empieza definiendo lo que es un **alfabeto con función de aridad**:
 
@@ -52,7 +53,7 @@ $\Sigma_k = \{ a \in \Sigma :\ \rho(a) = k \}$
 
 $\Sigma_0$ son las hojas, $\Sigma_1$ son los elementos con un solo hijo,
 $\Sigma_2$ los nodos binarios, 
-$\Sigma_*$ son los nodos con aridad variable, 
+$\Sigma_\star$ son los nodos con aridad variable, 
 etc.
 
 ## Lenguaje de los Arboles o Términos
@@ -60,9 +61,9 @@ etc.
 Definimos el conjunto de los árboles $B(\Sigma)$ con alfabeto $\Sigma$ inductivamente:
 
 -  El árbol vacío está en $B(\Sigma)$
-- Todos los elementos de aridad 0  así como los de aridad variable $\Sigma_*$ están en $B(\Sigma)$:
+- Todos los elementos de aridad 0  así como los de aridad variable $\Sigma_\star$ están en $B(\Sigma)$:
     -   $a \in  \Sigma_0$ implica $a \in B(\Sigma)$
-    -   $a \in  \Sigma_*$ implica $a \in B(\Sigma)$
+    -   $a \in  \Sigma_\star$ implica $a \in B(\Sigma)$
 -   Si $b_1, \ldots , b_k \in B(\Sigma)$ y $f \in \Sigma_k$ es un
     elemento $k$-ario o bien es de aridad variable, entonces $f(b_1 \ldots  b_k) \in B(\Sigma)$
 
@@ -74,7 +75,7 @@ Al igual que cuando parseamos las cadenas hablamos de **tokens** para hablar de 
 ocurrencia en la cadena de un elemento del alfabeto aquí hablamos de **nodos** para 
 hablar de la ocurrencia de un elemento $f \in \Sigma_k$ dentro de un árbol.
 
-$B(\Sigma)$ es a los *nodos* (árboles) lo  que $\Sigma*$ es a las tokens (strings).
+$B(\Sigma)$ es a los *nodos* (árboles) lo  que $\Sigma\star$ es a las tokens (strings).
 
 
 ## Aridad  de los Nodos en Egg
@@ -88,7 +89,7 @@ con aridad:
 * $\rho(VALUE) = 0$ los nodos *VALUE* son hojas
 * $\rho(WORD) = 0$ los nodos *WORD* los consideramos hojas
 * $\rho(APPLY) = 2$ un *APPLY* tiene dos hijos: el hijo *OPERATOR* y el hijo *ARGS* que es un array
-* $\rho(ARRAY) = *$ los arrays contienen diferentes números de árboles
+* $\rho(ARRAY) = \star$ los arrays contienen diferentes números de árboles
 
 ## Anatomía de los AST para Egg
 
