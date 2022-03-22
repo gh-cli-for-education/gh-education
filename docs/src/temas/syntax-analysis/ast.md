@@ -12,7 +12,7 @@ terminales y producciones que no aportan información.
 *The data structure that the parser will use to describe a program consists of node objects, each of which has a **type** property indicating the kind of expression it is and other properties to describe its content.*
 
 El árbol de análisis sintáctico abstracto es una representación
-compactada del árbol de análisis sintáctico concreto que contiene la
+compacta del árbol de análisis sintáctico concreto que contiene la
 misma información que éste.
 
 Por ejemplo, para una gramática que acepta expresiones como:
