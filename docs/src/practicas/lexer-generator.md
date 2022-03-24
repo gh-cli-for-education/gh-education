@@ -195,8 +195,6 @@ Véase también el último ejemplo con errores en la [sección Pruebas](#pruebas
 
 ## Clases y vídeos explicando los conceptos necesarios
 
-Tóme esta práctica con calma por cuanto es  complicada.
-
 En este vídeo se introducen los conceptos de expresiones regulares que son necesarios
 para la realización de esta práctica. Especialmente 
 
