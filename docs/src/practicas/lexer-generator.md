@@ -193,9 +193,9 @@ El token `ERROR` es especial en cuanto con que casa con cualquier entrada errón
 
 Véase también el último ejemplo con errores en la [sección Pruebas](#pruebas)
 
-## Prerequisitos
+## Clases y vídeos explicando los conceptos necesarios
 
-Tóme esta práctica con calma por cuanto me parece  complicada en el estado de conocimientos de RegExps en el que estamos. Nos han faltado clases para establecer las bases necesarias.
+Tóme esta práctica con calma por cuanto es  complicada.
 
 En este vídeo se introducen los conceptos de expresiones regulares que son necesarios
 para la realización de esta práctica. Especialmente 
