@@ -195,14 +195,18 @@ Véase también el último ejemplo con errores en la [sección Pruebas](#pruebas
 
 ## Vídeos de clase explicando los fundamentos necesarios
 
+### 2020/03/24
+
 En este vídeo se introducen los conceptos de expresiones regulares que son necesarios
 para la realización de esta práctica. Especialmente 
 
-* `lastindex` en el minuto 19:30 
+* El uso de `lastindex` se introduce en el minuto 19:30 
 * El uso de la sticky flag `/y` a partir del minuto 30
 * Construcción de analizador léxico minuto 33:45
 
 <youtube id="xCNs1fT1KOc"></youtube>
+
+### 2020/03/25
 
 En  los primeros 25 minutos de este vídeo se explica como realizar una versión ligeramente diferente de esta práctica:
 
