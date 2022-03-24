@@ -349,6 +349,8 @@ const nearleyLexer = function(regexps) {
 }
 ```
 
+### nearleyLexer retorna siempre EOF 
+
 Este nuevo lexer va a retornar siempre el token reservado `EOF` cuando se alcance el final de la entrada. Es por eso que lo añadimos al mapa de tokens válidos:
 
 ```js
@@ -369,7 +371,6 @@ y en `next()` lo retornamos cuando detectamos el final de la entrada:
       }
     },
 ```
-
 
 ## Pruebas
 
