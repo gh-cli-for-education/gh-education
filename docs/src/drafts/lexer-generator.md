@@ -240,10 +240,10 @@ const myTokens = [
 ```
 -->
 
-## Sugerencias
+## Sugerencias para buildLexer
 
-Puede partir de este código en el que se combina el uso de sticky y los grupos con nombre
-
+El siguiente código ilustra el uso combinado de la opción sticky y los grupos con nombre para 
+encontrar la solución a esta práctica:
 
 ```js
 const str = 'const varName = "value"';
@@ -282,9 +282,12 @@ while (match = regexp.exec(str)) {
 }
 ```
 
-escribiendo una función `makeLexer` que recibe como argumentos un array `tokens`
+escribiendo una función `buildLexer` que recibe como argumentos un array `tokens`
 como en el ejemplo y retorna una función que hace el análisis léxico 
 correspondiente a esos tokens.
+
+## La función nearleyLexer
+
 
 ## Pruebas
 
