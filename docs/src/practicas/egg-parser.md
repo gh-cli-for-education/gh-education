@@ -6,6 +6,7 @@ delivery: "2022/03/31"
 order: 10
 layout: Practica
 prev: ast-types.md
+next: lexer-generator.md
 sidebar: true
 template: "https://github.com/crguezl/egg-parser-template"
 rubrica: 

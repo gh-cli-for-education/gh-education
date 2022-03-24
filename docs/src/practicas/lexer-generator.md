@@ -1,29 +1,27 @@
 ---
 title: Lexer Generator
-permalink: /practicas/lexer-generator
 published: true
 date: 2022/03/23
 delivery: "2022/03/31"
 order: 11
 layout: Practica
-prev: 
+prev: egg-parser.md
 sidebar: auto
 template: "https://github.com/crguezl/egg-parser-template"
 rubrica:
-  - El paquete está publicado en GitHub Registry
-  - "Opcional: La función exportada se llama con un array de pares `[[NAME, /(?<NAME>, ...)/] ... ]` en la que el nombre del token aparece repetido dos veces. Modifique la interfaz para que reciba sólo un array de expresiones regulares con nombre `[/(?<NAME> ...)/, ... ]`"
-  - El módulo exporta las funciones adecuadas
-  - Contiene suficientes tests 
+  - El paquete está publicado en GitHub Registry y se instala correctamente
+  - El módulo exporta los generadores léxicos y funcionan correctamente 
+  - "Se proporciona información de localización (offset, etc.)"
+  - El manejo de errores con el token <code>ERROR</code> es correcto
+  - Manejo de "tokens skip" correcto
+  - Contiene tests comprobando el atributo de transformación <code>value</code>
+  - Contiene tests comprobando la compatibilidad del lexer generado con Nearley.JS (egg-parser)
   - "Opcional: estudio de covering"
   - Se ha hecho CI con GitHub Actions
   - Los informes están bien presentados
   - "La documentación es completa" 
-  - "Opcional: publicar la documentación de la API usando GitHub Pages en la carpeta `docs/`"
-  - Las *pruebas de producción* funcionan bien
-  - El superproyecto está correctamente estructurado usando submódulos
+  - "Opcional: publicar la documentación de la API usando GitHub Pages en la carpeta <code>docs/</code>"
   - Se ha hecho un buen uso del versionado semántico en la evolución del módulo
-  - "Opcional: se proporciona información de localización (offset, etc.)"
-  - Manejo de errores y blancos
   - Calidad del código
 video:
   clase20200401: gO49wnWoE_s 
