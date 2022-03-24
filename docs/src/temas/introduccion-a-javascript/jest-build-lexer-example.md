@@ -1,3 +1,20 @@
+---
+---
+
+Ejemplo de pruebas con Jest:
+
+```
+➜  lexer-generator-solution git:(master) ✗ pwd -P
+/Users/casianorodriguezleon/campus-virtual/2122/pl2122/practicas-alumnos/lexer-generator/lexer-generator-solution
+➜  lexer-generator-solution git:(master) ✗ ls test
+build-lexer.test.js          test-grammar-2-args.ne       test-grammar-error-tokens.ne test-grammar.ne
+egg                          test-grammar-combined.ne     test-grammar.js
+```
+
+```
+➜  lexer-generator-solution git:(master) ✗ cat test/build-lexer.test.js 
+```
+
 ```js
 // If you want debugging output run it this way:
 // DEBUG=1 npm test

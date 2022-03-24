@@ -46,7 +46,7 @@ El módulo deberá exportar un objeto con dos funciones
 module.exports = { buildLexer, nearleyLexer };
 ```
 
-que construyen analizadores léxicos. 
+que construyen analizadores léxicos. La primera functión `buildLexer` devolverá un generador de analizadores léxicos genérico mientras que la segunda `nearleyLexer` devolverá un [analizador léxico compatible con Nearley](/temas/syntax-analysis/earley/moo.html#custom-lexers).JS. 
 
 ## La función buildLexer 
 
@@ -240,7 +240,7 @@ const myTokens = [
 ```
 -->
 
-## Sugerencias para buildLexer
+## Sugerencias para la construcción de buildLexer
 
 El siguiente código ilustra el uso combinado de la opción sticky y los grupos con nombre para 
 encontrar la solución a esta práctica:
@@ -291,7 +291,7 @@ correspondiente a esos tokens.
 
 ## Pruebas
 
-Deberá añadir pruebas usando [Jest](/temas/introduccion-a-javascript/jest}). 
+Deberá añadir pruebas usando [Jest](/temas/introduccion-a-javascript/jest). 
 
 Sigue un ejemplo:
 
@@ -306,7 +306,7 @@ egg                          test-grammar-combined.ne     test-grammar.js
 ➜  lexer-generator-solution git:(master) ✗ cat test/build-lexer.test.js 
 ```
 
-* Contenidos de [test/build-lexer.test.js](/temas//introduccion-a-javascript/jest-build-lexer-example)
+* Contenidos de [test/build-lexer.test.js](/temas/introduccion-a-javascript/jest-build-lexer-example)
 
 Ejemplo de ejecución:
 
@@ -341,7 +341,10 @@ Time:        1.291 s
 Ran all test suites.
 ```
 
-Amplíe este ejemplo para comprobar que el analizador generado puede ser utilizado desde Nearley.JS.
+### Cubrimiento de las pruebas
+
+* Añada pruebas para comprobar que el post-procesador `value` funciona correctamente
+* Amplíe este ejemplo para comprobar que el analizador `nearleyLexer`  puede ser utilizado correctamente desde Nearley.JS.
 
 ## Integración Contínua usando GitHub Actions
 
