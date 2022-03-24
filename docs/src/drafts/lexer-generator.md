@@ -46,7 +46,9 @@ El módulo deberá exportar un objeto con dos funciones
 module.exports = { buildLexer, nearleyLexer };
 ```
 
-que construyen analizadores léxicos. La primera functión `buildLexer` devolverá un generador de analizadores léxicos genérico mientras que la segunda `nearleyLexer` devolverá un [analizador léxico compatible con Nearley](/temas/syntax-analysis/earley/moo.html#custom-lexers).JS. 
+que construyen analizadores léxicos. 
+
+La primera functión `buildLexer` devolverá un generador de analizadores léxicos genérico, mientras que la segunda `nearleyLexer` devolverá un [analizador léxico compatible con Nearley.JS](https://nearley.js.org/docs/tokenizers#custom-lexers). 
 
 ## La función buildLexer 
 
@@ -96,11 +98,11 @@ La llamada
 retornará 
 
 1. Un objeto con una función `lexer` que es el analizador léxico y 
-2. Un mapa JS `validTokens` con claves los /tipos de tokens y valores las RegExps asociadas.
+2. Un mapa JS `validTokens` con claves los nombres/tipos de tokens y valores las RegExps asociadas.
 
 ### El Mapa validTokens
 
-Estos son los contenidos de `ValidTokens` volcados por la línea `console.log(validTokens);` en el ejemplo:
+Estos son los contenidos de `ValidTokens` volcados por la línea `console.log(validTokens);` en el ejemplo anterior:
 
 ```js
 ➜  lexer-generator-solution git:(master) ✗ node examples/hello.js
@@ -288,6 +290,86 @@ correspondiente a esos tokens.
 
 ## La función nearleyLexer
 
+A partir del analizador léxico generado por `buildLexer(regexps)` contruimos un segundo analizador 
+léxico con [la API que requiere nearley.JS](https://nearley.js.org/docs/tokenizers#custom-lexers). Este es el código completo de la versión actual:
+
+```js
+
+const nearleyLexer = function(regexps) {
+  const {validTokens, lexer} = buildLexer(regexps);
+  validTokens.set("EOF");
+  return {
+    currentPos: 0,
+    buffer: '',
+    lexer: lexer,
+    validTokens: validTokens,
+    regexps: regexps,
+    /**
+     * Sets the internal buffer to data, and restores line/col/state info taken from save().
+     * Compatibility not tested
+     */
+    reset: function(data, info) { 
+      this.buffer = data || '';
+      let line = info ? info.line : 1;
+      this.tokens = lexer(data, line);
+      return this;
+    },
+    /**
+     * Returns e.g. {type, value, line, col, …}. Only the value attribute is required.
+     */
+    next: function() { // next(): Token | undefined;
+      if (this.currentPos < this.tokens.length)
+        return this.tokens[this.currentPos++];
+      else if (this.currentPos == this.tokens.length) {
+        let token = this.tokens[this.currentPos-1];
+        token.type = "EOF"
+        this.currentPos++; //So that next time will return undefined
+        return token; 
+      }
+    },
+    has: function(tokenType) {
+      return validTokens.has(tokenType);
+    },
+    /**
+     * Returns an object describing the current line/col etc. This allows nearley.JS
+     * to preserve this information between feed() calls, and also to support Parser#rewind().
+     * The exact structure is lexer-specific; nearley doesn't care what's in it.
+     */
+    save: function() {
+      return this.tokens[this.currentPos];
+    }, // line and col
+    /**
+     * Returns a string with an error message describing the line/col of the offending token.
+     * You might like to include a preview of the line in question.
+     */
+    formatError: function(token) {
+      return `Error near "${token.value}" in line ${token.line}`;
+    } // string with error message
+  };
+}
+```
+
+Este nuevo lexer va a retornar siempre el token reservado `EOF` cuando se alcance el final de la entrada. Es por eso que lo añadimos al mapa de tokens válidos:
+
+```js
+  validTokens.set("EOF");
+``` 
+
+y en `next()` lo retornamos cuando detectamos el final de la entrada:
+
+```js
+    next: function() { // next(): Token | undefined;
+      if (this.currentPos < this.tokens.length)
+        return this.tokens[this.currentPos++];
+      else if (this.currentPos == this.tokens.length) {
+        let token = this.tokens[this.currentPos-1];
+        token.type = "EOF"
+        this.currentPos++; //So that next time will return undefined
+        return token; 
+      }
+    },
+```
+
 
 ## Pruebas
 
@@ -345,6 +427,7 @@ Ran all test suites.
 
 * Añada pruebas para comprobar que el post-procesador `value` funciona correctamente
 * Amplíe este ejemplo para comprobar que el analizador `nearleyLexer`  puede ser utilizado correctamente desde Nearley.JS.
+* Sustituya el analizador léxico  `moo-ignore` usado en su práctica [egg-parser](/practicas/egg-parser.html) por el correspondiente analizador generado con el generador de esta práctica y compruebe que funciona. Añádalo como una prueba de buen funcionamiento.
 
 ## Integración Contínua usando GitHub Actions
 
