@@ -195,8 +195,7 @@ Véase también el último ejemplo con errores en la [sección Pruebas](#pruebas
 
 ## Prerequisitos
 
-Tóme esta práctica con calma por cuanto me parece es  complicada en el estado de conocimientos de RegExps en el que estamos. 
-Nos ha faltado una clase para establecer las bases necesarias.
+Tóme esta práctica con calma por cuanto me parece  complicada en el estado de conocimientos de RegExps en el que estamos. Nos han faltado clases para establecer las bases necesarias.
 
 En este vídeo se introducen los conceptos de expresiones regulares que son necesarios
 para la realización de esta práctica. Especialmente 
@@ -207,7 +206,7 @@ para la realización de esta práctica. Especialmente
 
 <youtube id="xCNs1fT1KOc"></youtube>
 
-En  los primeros 25 minutos de este vídeo se explica como realizar la práctica:
+En  los primeros 25 minutos de este vídeo se explica como realizar una versión ligeramente diferente de esta práctica:
 
 * Analizadores Léxicos: 03:00
 <youtube id="4jmsZbEpW7g"></youtube>
