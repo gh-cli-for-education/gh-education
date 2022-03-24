@@ -193,7 +193,7 @@ El token `ERROR` es especial en cuanto con que casa con cualquier entrada errón
 
 Véase también el último ejemplo con errores en la [sección Pruebas](#pruebas)
 
-## Clases y vídeos explicando los conceptos necesarios
+## Vídeos de clase explicando los fundamentos necesarios
 
 En este vídeo se introducen los conceptos de expresiones regulares que son necesarios
 para la realización de esta práctica. Especialmente 
@@ -207,6 +207,7 @@ para la realización de esta práctica. Especialmente
 En  los primeros 25 minutos de este vídeo se explica como realizar una versión ligeramente diferente de esta práctica:
 
 * Analizadores Léxicos: 03:00
+
 <youtube id="4jmsZbEpW7g"></youtube>
 
 Estúdielos antes de seguir adelante
