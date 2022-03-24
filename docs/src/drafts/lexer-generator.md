@@ -427,7 +427,7 @@ Ran all test suites.
 
 * Añada pruebas para comprobar que el post-procesador `value` funciona correctamente
 * Amplíe este ejemplo para comprobar que el analizador `nearleyLexer`  puede ser utilizado correctamente desde Nearley.JS.
-* Sustituya el analizador léxico  `moo-ignore` usado en su práctica [egg-parser](/practicas/egg-parser.html) por el correspondiente analizador generado con el generador de esta práctica y compruebe que funciona. Añádalo como una prueba de buen funcionamiento.
+* Sustituya el analizador léxico basado en  `moo-ignore`/`moo` usado en su práctica [egg-parser](/practicas/egg-parser.html) por el correspondiente analizador generado con el generador de esta práctica y compruebe que funciona. Añádalo como una prueba de buen funcionamiento.
 
 ## Integración Contínua usando GitHub Actions
 
