@@ -2,7 +2,7 @@
 title: Lexer Generator
 published: true
 date: 2022/03/23
-delivery: "2022/03/31"
+delivery: "2022/04/07"
 order: 11
 layout: Practica
 prev: egg-parser.md
