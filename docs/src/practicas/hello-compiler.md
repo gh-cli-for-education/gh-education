@@ -90,7 +90,7 @@ On one side:
 
 ```mermaid
 graph TB
-  subgraph "AST for '2&3@4'"
+  subgraph "Syntax Tree for '2&3@4'"
     A((e))--> B((e))
     A-->C(("&"))
     A-->D((e))
@@ -107,7 +107,7 @@ that will lead to the interpretation `2&(3@4)`; but we have also this other synt
 
 ```mermaid
 graph TB
-  subgraph "Another AST for '2&3@4'"
+  subgraph "Another Syntax Tree for '2&3@4'"
     A((e))--> B((e))
     A-->C(("@"))
     A-->D((e))

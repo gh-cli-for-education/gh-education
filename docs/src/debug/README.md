@@ -21,12 +21,28 @@ See <https://xaksis.github.io/vue-good-table/guide/#installation>
 <https://www.npmjs.com/package/vuepress-plugin-mermaidjs>
 
 ```mermaid
+graph TB
+  subgraph "Syntax Tree for '3-2-1'"
+    A((e))--> B((e))
+    A-->C(("-"))
+    A-->D((e))
+    B--> F(("N(3)"))
+    D-->G((e))
+    D-->H(("-"))
+    D-->I((e))
+    G-->K(("N(2)"))
+    I-->L(("N(1)"))
+  end
+```
+
+```mermaid
 sequenceDiagram
 Alice->John: Hello John, how are you?
 loop every minute
     John-->Alice: Great!
 end
 ```
+
 
 <mermaid>
 stateDiagram
