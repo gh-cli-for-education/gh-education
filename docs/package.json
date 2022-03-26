@@ -26,7 +26,6 @@
     "markdown-it-include": "^2.0.0",
     "moment": "^2.29.1",
     "vue-good-table": "^2.21.11",
-    "vue2-progress-bar": "^0.1.1",
     "vuepress": "^1.5.3",
     "vuepress-plugin-mermaidjs": "^1.9.0",
     "vuepress-plugin-social-share": "^1.1.0"
@@ -34,7 +33,6 @@
   "dependencies": {
     "@saintic/vuepress-plugin-utterances": "^0.2.0",
     "axios": "^0.25.0",
-    "current-week-number": "^1.0.7",
     "vuepress-plugin-code-copy": "^1.0.6",
     "vuepress-plugin-flowchart": "^1.5.0",
     "vuepress-plugin-global-variables": "^0.2.0",
