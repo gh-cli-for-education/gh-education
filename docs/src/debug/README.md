@@ -36,6 +36,24 @@ graph TB
 ```
 
 ```mermaid
+graph TB
+  subgraph "Another Syntax Tree for '3-2-1'"
+    A((e))--> B((e))
+    A-->C(("-"))
+    A-->D((e))
+
+    B-->F(("e"))
+    B-->G(("-"))
+    B-->H(("e"))
+
+    F-->K(("N(3)"))
+    H-->L(("N(2)"))
+    D-->I(("N(1)"))
+  end
+```
+that leads to the interpretation `(3-2)-1`.
+
+```mermaid
 sequenceDiagram
 Alice->John: Hello John, how are you?
 loop every minute
