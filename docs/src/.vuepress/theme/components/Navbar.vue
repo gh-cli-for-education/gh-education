@@ -26,6 +26,8 @@
         'max-width': linksWrapMaxWidth + 'px'
       } : {}"
     >
+      <progress-bar></progress-bar>
+
       <AlgoliaSearchBox
         v-if="isAlgoliaSearch"
         :options="algolia"
