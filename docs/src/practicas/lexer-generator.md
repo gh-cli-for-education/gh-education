@@ -284,7 +284,9 @@ const nearleyLexer = function(regexps) {
 ```
 
 ::: danger modified Line
-Inside the `reset` method there was a bug. Important line:
+Inside the `reset` method there was a bug. 
+Important line that you must confirm is in your version:
+
 ```js
       this.currentPos = 0;
 ```
