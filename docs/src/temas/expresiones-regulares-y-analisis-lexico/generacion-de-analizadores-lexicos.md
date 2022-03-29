@@ -220,6 +220,7 @@ Para que nuestro generador de analizadores léxicos pueda funcionar cada una de 
 ]
 ```
 
+
 ## Referencias
 
 * Tema [Expresiones Regulares y Análisis Léxico](/temas/expresiones-regulares-y-analisis-lexico)  
@@ -229,3 +230,25 @@ Para que nuestro generador de analizadores léxicos pueda funcionar cada una de 
 * [Lab lexer-generator](/practicas/lexer-generator.html)
 * [Example: using sticky matching for tokenizing](https://2ality.com/2015/07/regexp-es6.html#example-using-sticky-matching-for-tokenizing) inside 
 the chapter [New regular expression features in ECMAScript 6](https://2ality.com/2015/07/regexp-es6.html#example-using-sticky-matching-for-tokenizing)
+
+## Referencias Adicionales sobre Análisis Léxico
+
+* [Ejemplo de Analizador Léxico para JS](https://github.com/crguezl/ull-etsii-grado-pl-minijavascript/blob/gh-pages/tokens.js)
+* [Descripción de la Práctica: Analizador Léxico para Un Subconjunto de JavaScript](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/practicas/practicaanalisislexicotdop2018.html) gitbooks.io
+* [Compiler Construction by Wikipedians](https://books.google.es/books?id=nMZnyp_zW8AC&pg=PA570#v=onepage&q=Lexical&f=false). Chapter  Lexical Analysis
+* [Un caso a estudiar: El módulo npm lexical-parser](https://github.com/Eitz/lexical-parser)
+* [Esprima. Chapter 3. Lexical Analysis (Tokenization)](https://esprima.readthedocs.io/en/latest/lexical-analysis.html)
+    - [RepoULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk)
+* [jison-lex](https://github.com/zaach/jison-lex)
+* [lexer](https://github.com/aaditmshah/lexer)
+* [Expresiones Regulares en Flex](https://ull-esit-pl-1617.github.io/apuntesingenieriainformaticaPL/node19.html)
+
+<!--
+### Práctica p9-t2-lexer
+
+* [Práctica Escribir un Analizador Léxico para Javascript (p9-t2-lexer)](practicas/p9-t2-lexer/README.md)
+
+### Práctica p9-t2-lexer-with-server
+
+* [Práctica Autenticación y Analizador Léxico para Javascript  (p9-t2-lexer-with-server)](practicas/p9-t2-lexer/README-with-server-lab)
+-->

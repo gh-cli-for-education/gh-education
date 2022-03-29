@@ -221,8 +221,6 @@ Estúdielos antes de seguir adelante
 Lea la sección 
 * [Como Escribir un Generador de Analizadores Léxicos](/temas/expresiones-regulares-y-analisis-lexico/generacion-de-analizadores-lexicos)
 
-
-
 ## La función nearleyLexer
 
 A partir del analizador léxico generado por `buildLexer(regexps)` contruimos un segundo analizador 
