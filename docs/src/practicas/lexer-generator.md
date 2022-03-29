@@ -90,7 +90,7 @@ describe el componente léxico del lenguaje.
 La llamada 
 
 ```js 
-{ validTokens, lexer } = buildLexer(myTokens)
+const { validTokens, lexer } = buildLexer(myTokens)
 ``` 
 
 retornará 
