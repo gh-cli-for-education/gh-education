@@ -795,6 +795,46 @@ while (match = regexp.exec(str)) {
 }
 ```
 
+### Como obtener el nombre de una RegExp con nombre
+
+Consideremos una expresión regular con nonmmbre:
+
+```js 
+> NUM = /(?<NUM>\d+)/
+/(?<NUM>\d+)/
+```
+La siguiente expresión regular tiene dos paréntesis para capturar el nombre y el resto de la regexp:
+
+```js
+> getName = /^[(][?]<(\w+)>(.+)[)]$/
+/^[(][?]<(\w+)>(.+)[)]$/
+```
+
+Cuando se tiene una regexp `Re`, el atributo `Re.source` contiene la cadena que defina la expresión regular.
+
+Asi pues, cuando hacemos `getName.exec(NUM.source)` obtenemos:
+
+```js
+> r = getName.exec(NUM.source)
+[
+  '(?<NUM>\\d+)',
+  'NUM',
+  '\\d+',
+  index: 0,
+  input: '(?<NUM>\\d+)',
+  groups: undefined
+]
+```
+
+En el primer paréntesis casamos con el nombre y en el segundo con la regexp:
+
+```js
+> r[1]
+'NUM'
+> r[2]
+'\\d+'
+```
+
 See also:
 
 * [Example: using sticky matching for tokenizing](https://2ality.com/2015/07/regexp-es6.html#example-using-sticky-matching-for-tokenizing) inside 
