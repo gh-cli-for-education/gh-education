@@ -28,3 +28,7 @@ Antiguos apuntes del profesor sobre el uso de RegExp en otros lenguajes:
 
 * [sed, a stream editor](https://www.gnu.org/software/sed/manual/sed.html)
 * [Expresiones Regulares en sed](https://crguezl.github.io/ull-etsii-grado-pl-apuntes/node83.html)
+
+## Flex
+
+* [Expresiones Regulares en Flex](https://ull-esit-pl-1617.github.io/apuntesingenieriainformaticaPL/node19.html)
