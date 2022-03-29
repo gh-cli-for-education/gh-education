@@ -436,6 +436,8 @@ a la expresión regular creada para que Unicode sea soportado. ¿Como debe cambi
 ## Referencias
 
 * Tema [Expresiones Regulares y Análisis Léxico](/temas/expresiones-regulares-y-analisis-lexico)  
+  * [Sección lastindex](/temas/expresiones-regulares-y-analisis-lexico/#lastindex)
+  * [Sticky flag](/temas/expresiones-regulares-y-analisis-lexico/#sticky-flag-y-searching-at-position)
 * Sección [Creating and publishing a node.js module en GitHub y en NPM](/temas/introduccion-a-javascript/creating-and-publishing-npm-module)
 * [Jest](/temas/introduccion-a-javascript/jest)
 * Sección [GitHub Registry](/temas/introduccion-a-javascript/github-registry)
