@@ -797,7 +797,7 @@ while (match = regexp.exec(str)) {
 
 ### Como obtener el nombre de una RegExp con nombre
 
-Consideremos una expresión regular con nonmmbre:
+Consideremos una expresión regular con nombre:
 
 ```js 
 > NUM = /(?<NUM>\d+)/
@@ -834,6 +834,37 @@ En el primer paréntesis casamos con el nombre y en el segundo con la regexp:
 > r[2]
 '\\d+'
 ```
+
+Para que nuestro generador de analizadores léxicos pueda funcionar cada una de las regexp proveídas debe tener un único paréntesis con nombre. Podemos comprobar si el cuerpo de la regexp en `r[2]` contiene mas paréntesis con nombre haciendo algo como esto:
+
+```js
+> OP = /(?<OP>(?<OP2>[+*\/=-]))/
+/(?<OP>(?<OP2>[+*\/=-]))/
+> r = getName.exec(OP.source)
+[
+  '(?<OP>(?<OP2>[+*\\/=-]))',
+  'OP',
+  '(?<OP2>[+*\\/=-])',
+  index: 0,
+  input: '(?<OP>(?<OP2>[+*\\/=-]))',
+  groups: undefined
+]
+```
+
+```js
+> hasNamedParen = /[(][?]<(\w+)>(.+)[)]/
+/[(][?]<(\w+)>(.+)[)]/
+> hasNamedParen.exec(r[2])
+[
+  '(?<OP2>[+*\\/=-])',
+  'OP2',
+  '[+*\\/=-]',
+  index: 0,
+  input: '(?<OP2>[+*\\/=-])',
+  groups: undefined
+]
+```
+
 
 See also:
 
