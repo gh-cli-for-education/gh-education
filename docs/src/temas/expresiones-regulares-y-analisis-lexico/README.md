@@ -731,7 +731,7 @@ via el nombre:
 [Object: null prototype] { NUM: undefined, ID: 'b', OP: undefined }
 ```
 
-Puesto que la expresión regular es un OR excluyente, sólo una de las subexpresiones
+Puesto que la expresión regular es un OR, sólo una de las subexpresiones
 casa y el resto está `undefined`. 
 Para detectar el token debemos recorrer el objeto buscando la clave cuyo valor no 
 está `undefined`:
