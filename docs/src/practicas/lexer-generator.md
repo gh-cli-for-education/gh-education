@@ -218,49 +218,10 @@ Estúdielos antes de seguir adelante
 
 ## Sugerencias para la construcción de buildLexer
 
-El siguiente código ilustra el uso combinado de la opción sticky y los grupos con nombre para 
-encontrar la solución a esta práctica:
+Lea la sección 
+* [Como Escribir un Generador de Analizadores Léxicos](/temas/expresiones-regulares-y-analisis-lexico/generacion-de-analizadores-lexicos)
 
-```js
-const str = 'const varName = "value"';
-console.log(str);
 
-const SPACE = /(?<SPACE>\s+)/;
-const RESERVEDWORD = /(?<RESERVEDWORD>\b(const|let)\b)/;
-const ID = /(?<ID>([a-z_]\w+))/;
-const STRING = /(?<STRING>"([^\\"]|\\.")*")/;
-const OP = /(?<OP>[+*\/=-])/;
-
-const tokens = [
-  ['SPACE', SPACE], ['RESERVEDWORD', RESERVEDWORD], ['ID', ID], 
-  ['STRING', STRING], ['OP', OP] 
-];
-
-const tokenNames = tokens.map(t => t[0]);
-const tokenRegs  = tokens.map(t => t[1]);
-
-const buildOrRegexp = (regexps) => {
-  const sources = regexps.map(r => r.source);
-  const union = sources.join('|');
-  // console.log(union);
-  return new RegExp(union, 'y');
-};
-
-const regexp = buildOrRegexp(tokenRegs);
-
-const getToken = (m) => tokenNames.find(tn => typeof m[tn] !== 'undefined');
-
-let match;
-while (match = regexp.exec(str)) {
-  //console.log(match.groups);
-  let t = getToken(match.groups);
-  console.log(`Found token '${t}' with value '${match.groups[t]}'`);
-}
-```
-
-escribiendo una función `buildLexer` que recibe como argumentos un array `tokens`
-como en el ejemplo y retorna una función que hace el análisis léxico 
-correspondiente a esos tokens.
 
 ## La función nearleyLexer
 
