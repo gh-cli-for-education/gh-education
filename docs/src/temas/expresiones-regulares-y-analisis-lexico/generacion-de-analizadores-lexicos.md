@@ -1,5 +1,91 @@
 # Como Escribir un Generador de Analizadores Léxicos
 
+
+## lastIndex
+
+* [EJS: The lastIndex property](https://eloquentjavascript.net/09_regexp.html#h_duFTd2hqd0)
+
+Regular expression objects have properties. 
+
+One such property is `source`, which contains the string that expression was created from. 
+
+Another property is `lastIndex`, which controls, in some limited circumstances, where the next match will start.
+
+If your regular expression uses the `g` flag, you can use the `exec`
+method multiple times to find successive matches in the same string.
+When you do so, the search starts at the substring of str specified
+by the regular expression’s `lastIndex` property.
+  
+```js
+      > re = /d(b+)(d)/ig
+      /d(b+)(d)/gi
+      > z = "dBdxdbbdzdbd"
+      'dBdxdbbdzdbd'
+      > result = re.exec(z)
+      [ 'dBd', 'B', 'd', index: 0, input: 'dBdxdbbdzdbd' ]
+      > re.lastIndex
+      3
+      > result = re.exec(z)
+      [ 'dbbd', 'bb', 'd', index: 4, input: 'dBdxdbbdzdbd' ]
+      > re.lastIndex
+      8
+      > result = re.exec(z)
+      [ 'dbd', 'b', 'd', index: 9, input: 'dBdxdbbdzdbd' ]
+      > re.lastIndex
+      12
+      > z.length
+      12
+      > result = re.exec(z)
+      null
+```
+
+```js
+let input = "A string with 3 numbers in it... 42 and 88.";
+let number = /\b\d+\b/g;
+let match;
+while (match = number.exec(input)) {
+  console.log("Found", match[0], "at", match.index);
+}
+// → Found 3 at 14
+//   Found 42 at 33
+//   Found 88 at 40
+```
+
+
+## Sticky flag "y", searching at position
+
+Regular expressions can have options, which are written after the closing slash. 
+
+- The `g` option makes the expression _global_, which, among other things, causes the `replace` method to replace all instances instead of just the first. 
+- The `y` option makes it sticky, which means that it will not search ahead and skip part of the string when looking for a match. 
+  
+The difference between the global and the sticky options is that, when sticky is enabled, the match will succeed only if it starts directly at `lastIndex`, whereas with global, it will search ahead for a position where a match can start.
+
+```js
+let global = /abc/g;
+console.log(global.exec("xyz abc"));
+// → ["abc"]
+let sticky = /abc/y;
+console.log(sticky.exec("xyz abc"));
+// → null
+```
+
+```js
+let str = 'let varName = "value"';
+
+let regexp = /\w+/y;
+
+regexp.lastIndex = 3;
+console.log( regexp.exec(str) ); // null (there's a space at position 3, not a word)
+
+regexp.lastIndex = 4;
+console.log( regexp.exec(str) ); // varName (word at position 4)
+```
+
+Véase también:
+
+* [Sticky flag "y", searching at position](https://javascript.info/regexp-sticky)
+
 ## Sugerencias para la construcción de buildLexer
 
 El siguiente código ilustra el uso combinado de la opción sticky y los grupos con nombre para 
@@ -241,7 +327,6 @@ the chapter [New regular expression features in ECMAScript 6](https://2ality.com
     - [RepoULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk)
 * [jison-lex](https://github.com/zaach/jison-lex)
 * [lexer](https://github.com/aaditmshah/lexer)
-* [Expresiones Regulares en Flex](https://ull-esit-pl-1617.github.io/apuntesingenieriainformaticaPL/node19.html)
 
 <!--
 ### Práctica p9-t2-lexer
