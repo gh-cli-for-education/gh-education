@@ -283,6 +283,13 @@ const nearleyLexer = function(regexps) {
 }
 ```
 
+::: danger modified Line
+Inside the `reset` method there was a bug. Important line:
+```js
+      this.currentPos = 0;
+```
+::: 
+
 ### nearleyLexer retorna siempre EOF 
 
 Este nuevo lexer va a retornar siempre el token reservado `EOF` cuando se alcance el final de la entrada. Es por eso que lo añadimos al mapa de tokens válidos:
