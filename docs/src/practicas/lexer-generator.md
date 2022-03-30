@@ -307,13 +307,24 @@ y en `next()` lo retornamos cuando detectamos el final de la entrada:
       if (this.currentPos < this.tokens.length)
         return this.tokens[this.currentPos++];
       else if (this.currentPos == this.tokens.length) {
-        let token = this.tokens[this.currentPos-1];
+        let token = {}; 
+        Object.assign(token, this.tokens[this.currentPos-1]);
         token.type = "EOF"
         this.currentPos++; //So that next time will return undefined
         return token; 
       }
     },
 ```
+
+::: danger modified Line
+Inside the `next` method there was a bug. 
+Important lines that you must confirm is in your version:
+
+```js
+  let token = {}; 
+  Object.assign(token, this.tokens[this.currentPos-1]);
+```
+::: 
 
 ## Pruebas
 
