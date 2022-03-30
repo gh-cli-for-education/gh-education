@@ -226,7 +226,7 @@ Lea la sección
 A partir del analizador léxico generado por `buildLexer(regexps)` contruimos un segundo analizador 
 léxico con [la API que requiere nearley.JS](https://nearley.js.org/docs/tokenizers#custom-lexers). Este es el código completo de la versión actual:
 
-```js
+```js{17}
 
 const nearleyLexer = function(regexps) {
   const {validTokens, lexer} = buildLexer(regexps);
@@ -237,7 +237,7 @@ const nearleyLexer = function(regexps) {
     lexer: lexer,
     validTokens: validTokens,
     regexps: regexps,
-/**
+    /**
      * Sets the internal buffer to data, and restores line/col/state info taken from save().
      * Compatibility not tested
      */

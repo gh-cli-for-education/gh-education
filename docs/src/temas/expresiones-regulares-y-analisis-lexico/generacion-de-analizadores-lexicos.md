@@ -13,7 +13,7 @@ Another property is `lastIndex`, which controls, in some limited circumstances, 
 
 If your regular expression uses the `g` flag, you can use the `exec`
 method multiple times to find successive matches in the same string.
-When you do so, the search starts at the substring of str specified
+When you do so, the search starts at the substring specified
 by the regular expression’s `lastIndex` property.
   
 ```js
