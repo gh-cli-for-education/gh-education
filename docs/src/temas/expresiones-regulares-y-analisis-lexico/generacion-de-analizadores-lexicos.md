@@ -39,6 +39,8 @@ by the regular expression’s `lastIndex` property.
       null
 ```
 
+Thus, we can write a loop like this:
+
 ```js
 let input = "A string with 3 numbers in it... 42 and 88.";
 let number = /\b\d+\b/g;
