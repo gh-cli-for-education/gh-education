@@ -283,7 +283,7 @@ const nearleyLexer = function(regexps) {
 }
 ```
 
-::: danger modified Line
+::: danger Modified Line!
 Inside the `reset` method there was a bug. 
 Important line that you must confirm is in your version:
 
@@ -316,7 +316,7 @@ y en `next()` lo retornamos cuando detectamos el final de la entrada:
     },
 ```
 
-::: danger modified Line
+::: danger Modified Line!
 Inside the `next` method there was a bug. 
 Important lines that you must confirm is in your version:
 
