@@ -201,128 +201,12 @@ do(
 * See also section [Fixing Scope](https://eloquentjavascript.net/12_language.html#i_Y9ZDMshYCQ) in the EloquentJS book
 * Puede encontrar una solución al problema en la rama `inicial` de este repo [ULL-ESIT-PL-1617/egg/](https://github.com/ULL-ESIT-PL-1617/egg/tree/inicial). La rama `inicial` como su nombre indica contiene además del código  descrito en el capítulo de EloquentJS las soluciones a los ejercicios propuestos en el capítulo del libro.
 
-## Separe en Módulos el Programa
 
-Separe el código en dos módulos Node.js:
+### ejecutables
 
-```
-lib
-├── eggvm.js
-└── parse.js
-```
+El programa `egg`  deberá ejecutar el programa `.egg` que se le pasa por línea de comandos.
+El intérprete `evm` ejecuta los ficheros json 
 
-- `parse.js` debe contener las funciones del análisis léxico y sintáctico y exportarlas
-
-  ```
-  [~/.../crguezl-egg(master)]$ tail -n 9 lib/parse.js
-  ```
-  ```js
-  module.exports = {
-    ...
-    parse,
-    parseApply,
-    parseExpression,
-    parseFromFile,
-  };
-  ```
-
-- `eggvm.js`debe contener todo el código relativo al entorno de ejecución. Este módulo debería exportar funciones para la ejecución del árbol generado en la primera fase como `run`, `runFromFile`, `runFromEVM`:
-
-  ```
-  [~/.../crguezl-egg(master)]$ tail -n 1 lib/eggvm.js
-  ```
-  ```js
-  module.exports = {
-    run, 
-    runFromFile, 
-    runFromEVM, 
-    topEnv, 
-    specialForms, 
-    parser, 
-    evaluate
-  };
-  ```
-  
-Añada también tres ejecutables que usan los módulos anteriores:
-
-```
-[~/.../crguezl-egg(master)]$ tree bin
-bin
-├── egg.js
-├── eggc.js
-└── evm.js
-```
-
-### egg
-
-El programa `egg`  deberá ejecutar el programa `.egg` que se le pasa por línea de comandos:
-
-```lisp
-$ cat examples/one.egg
-do(
-  define(x, 4),
-  define(setx, fun(val, 
-      set(x, val)
-    )
-  ),
-  setx(50),
-  print(x)
-)
-$ bin/egg.js examples/one.egg
-50
-```
-
-### eggc
- 
-Compiles the input program to produce a JSON containing the tree: `eggc examples/two.egg` produces the JSON file `examples/two.egg.evm`
-
-Por ejemplo, si le damos como entrada este programa:
-
-```
-[~/.../crguezl-egg(master)]$ cat examples/two.egg
-```
-```lisp
-do(
-  define(sum,  # function
-    fun(nums, other,
-      do(
-         print(other),
-         define(i, 0),
-         define(sum, 0),
-         while(<(i, length(nums)),
-           do(define(sum, +(sum, element(nums, i))),
-              define(i, +(i, 1))
-           )
-         ),
-         sum
-      )
-   )
- ),
- print(sum(array(1, 2, 3), 4))
-)
-```
-
-Si ejecutamos `bin/eggc.js  examples/two.egg` produce como salida un fichero con el mismo nombre y extensión `.evm` (por Egg Virtual Machine) que no es otra cosa que el AST generado por el parser guardado como un objeto JSON.
-
-```
-[~/.../crguezl-egg(master)]$ bin/eggc.js examples/two.egg
-[~/.../crguezl-egg(master)]$ ls -ltr examples/two.egg.evm
--rw-r--r--  1 casiano  staff  7466  2 abr 11:03 examples/two.egg.evm
-```
-
-Puede ver los contenidos del JSON generado en la ejecución de ejemplo en este enlace:
-
-* [examples/two.egg.evm]({{site.baseurl}}/assets/practicas/egg-0/two.egg.evm)
-
-### evm 
-
-El intérprete `evm` ejecuta los ficheros en formato *Egg Virtual Machine*. 
-
-```
-[~/.../crguezl-egg(master)]$ bin/evm.js examples/two.egg.evm
-4
-6
-```
 
 ## Examples folder
 
@@ -472,7 +356,7 @@ Use GitHub Actions para añadir CI al proyecto
 
 ## GitHub Registry
 
-Publique el compilador como módulo en GH Registry en el ámbito `@ULL-ESIT-PL-2021`.
+Publique el compilador como módulo en GH Registry en el ámbito `@ull-esit-pl-2122`.
 
 Puesto que este paquete contiene ejecutables es conveniente que lea la sección
 [bin](https://docs.npmjs.com/files/package.json#bin) de la documentación de npm.js sobre package.json:
@@ -483,25 +367,15 @@ Puesto que este paquete contiene ejecutables es conveniente que lea la sección
 ```js
 {
   "egg": "./bin/egg.js",
-  "eggc": "./bin/eggc.js",
   "evm": "./bin/evm.js"
 }
 ```
 
-## Solución Parcial 
-
-Si logra resolver estos objetivos ¡Enhorabuena!.
-
-Puede encontrar una solución a algunos de los problemas planteados en esta práctica en la rama `master` de este repo [ULL-ESIT-PL-1617/egg](https://github.com/ULL-ESIT-PL-1617/egg). 
-
-Asegúrese que entiende como funciona.
-
-También puede encontrarlo como módulo en npm [@crguezl/eloquentjsegg](https://www.npmjs.com/package/@crguezl/eloquentjsegg) 
-
-
 
 ## Recursos
 
+* Puede encontrar una solución a algunos de los problemas planteados en esta práctica en la rama `master` de este repo [ULL-ESIT-PL-1617/egg](https://github.com/ULL-ESIT-PL-1617/egg). 
+* También puede encontrarlo como módulo en npm [@crguezl/eloquentjsegg](https://www.npmjs.com/package/@crguezl/eloquentjsegg) 
 * [Eloquent JS: Chapter 11. Project: A Programming Language](http://eloquentjavascript.net/11_language.html)
 * [El lenguaje egg: repo en GitHub](https://github.com/ULL-ESIT-PL-1617/egg). Contiene una solución a los  [problemas de separar el analizador léxico del sintáctico](#lexsep) así como al de [separar los códigos y los tres ejecutables](#separe). También tiene ejemplos de pruebas en Mocha y Chai
 * [NodeJS Readline gist](https://gist.github.com/crguezl/430642e29a2b9293317320d0d1759387): un sencillo gist que te enseña a usar `readline` para hacer un bucle interactivo. Quizá conviene que lo leas cuando llegues a la sección del [problema del REPL](#repl)
