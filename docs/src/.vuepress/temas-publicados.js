@@ -13,6 +13,8 @@ module.exports = [
     {text: "Ambiguity", link: "/temas/syntax-analysis/earley/ambiguity.html"},
     {text: "Abstract Syntax Trees", link: "/temas/syntax-analysis/ast.html"},
     {text: "The Strategy Pattern", link: "/temas/introduccion-a-javascript/design.html"},
+    {text: "Interpretation of the ASTs", link: "/temas/interpretation/index.html"},
+
 
 
 
