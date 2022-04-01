@@ -8,33 +8,19 @@ layout: Practica
 prev: 
 sidebar: auto
 template: "https://github.com/crguezl/egg-interpreter-template"
-permalink: /practicas/egg-interpreter
-rubrica:
-  - 
-    - Documentación
-    - Gramática documentada y se corresponde con el compilador
-    - ASTs documentados y se corresponden
-    - Documentación del módulo npm (API) y ejecutables como se usan
-    - "Opcional: Documentación de la API de los módulos (parser, eggvm), informe de cubrimiento, etc."
-  - set (asignación y manejo de ámbitos)
-  - 
-    - Ejecutables
-    - "Runner: `egg.js`. Funcionamiento, documentación de uso, ayuda, etc."
-    - "Compiler: `eggc.js`. Funcionamiento, documentación de uso, ayuda, etc."
-    - "Virtual Machine: `eggvm.js`.  Funcionamiento, documentación de uso, ayuda, etc."
-  -
-    - Pruebas
-    - Se provee una carpeta `examples`  con ejemplos de programas `egg``
-    - Se ha automatizado el proceso de pasar del "*ejemplo que funciona*" a "*test unitario que prueba que funciona*"
-    - Se hace integración contínua
-  - 
-    - Se ha publicado en GitHub Registry 
-    - La publicación cumple los estándares de publicación de un módulo (CI, versionado, documentación, etc.)
-  - 
-    - El bucle REPL 
-    - Evalúa correctamente y no se despista
-    - Detecta expresiones incompletas
-    - Colores 
+rubrica: 
+  - El REPL funciona correctamente
+  - Las clases de los ASTs disponen de los métodos adecuados
+  - Expresión de asignación 
+  - Comprende la interpretación de las funciones Egg ediante funciones JS
+  - Comprende el manejo de ámbitos
+  - Contiene suficientes tests
+  - Se provee un workflow sencillo para convertir rápidamente un ejemplo operativo en un test 
+  - "Estudio de covering"
+  - Se ha hecho CI con GitHub Actions
+  - Módulo bien documentado 
+  - Informe hecho con Vuepress desplegado
+  - Se ha publicado como módulo y se ha hecho un buen uso del versionado semántico en la evolución del módulo
 ---
 
 # {{$frontmatter.title }}
