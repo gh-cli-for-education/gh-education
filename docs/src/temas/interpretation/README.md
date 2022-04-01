@@ -1,7 +1,12 @@
 ---
-sidebar: false
+sidebar: falses
 ---
+
 # The Interpretation of ASTs 
+
+## Lab Egg Interpreter
+
+[The Lab Egg Interpreter](/practicas/egg-interpreter/)
 
 ## AST Classes and Interpretation
 
