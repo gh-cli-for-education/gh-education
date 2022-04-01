@@ -1,3 +1,6 @@
+---
+sidebar: false
+---
 # The Interpretation of ASTs 
 
 ## AST Classes and Interpretation
