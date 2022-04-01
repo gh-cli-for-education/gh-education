@@ -192,8 +192,49 @@ do(
 * See also section [Fixing Scope](https://eloquentjavascript.net/12_language.html#i_Y9ZDMshYCQ) in the EloquentJS book
 * Puede encontrar una solución al problema en la rama `inicial` de este repo [ULL-ESIT-PL-1617/egg/](https://github.com/ULL-ESIT-PL-1617/egg/tree/inicial). La rama `inicial` como su nombre indica contiene además del código  descrito en el capítulo de EloquentJS las soluciones a los ejercicios propuestos en el capítulo del libro.
 
+## Functions
 
-### ejecutables
+Functions in Egg get their own local scope. 
+
+The function produced by the fun form creates this local scope and adds the argument bindings to it. 
+
+It then evaluates the function body in this scope and returns the result.
+
+
+
+```js
+specialForms['->'] =specialForms['fun'] = function(args, env) {
+  if (!args.length) {
+    throw new SyntaxError('Functions need a body.')
+  }
+
+  function name(expr) {
+    if (expr.type != 'word') {
+      throw new SyntaxError('Arg names must be words');
+    }
+    return expr.name;
+  }
+
+  let argNames = args.slice(0, args.length - 1).map(name);
+  let body = args[args.length - 1];
+
+  return function(...args) {
+    // debugger;
+    if (args.length > argNames.length) {
+      throw new TypeError(`Wrong number of arguments. Called with ${args.length} arguments and declared ${argNames.length} parameters`);
+    }
+
+    let localEnv = Object.create(env);
+    for (let i = 0; i < args.length; i++) {
+      localEnv[argNames[i]] = args[i];
+    }
+
+    return body.evaluate(localEnv);
+  };
+};
+```
+
+### Ejecutables
 
 El programa `egg`  deberá ejecutar el programa `.egg` que se le pasa por línea de comandos.
 El intérprete `evm` ejecuta los ficheros json 
