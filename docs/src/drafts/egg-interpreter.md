@@ -91,9 +91,9 @@ module.exports = {
 * Véase también la sección [The Strategy Pattern](/temas/introduccion-a-javascript/design.html)
 
 
-## AST Classes
+## AST Classes and AST Interpretation
 
-Véase la sección [Interpretación de los Nodos del AST](/temas/interpretation/ast-interpretation)
+Véase la sección sobre la [Estructura de Clases para los ASTs y la Interpretación de los Nodos del AST](/temas/interpretation/ast-interpretation)
 
 ## Providing an Assignment 
 
