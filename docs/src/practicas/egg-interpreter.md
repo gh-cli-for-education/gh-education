@@ -261,7 +261,7 @@ Puesto que este paquete contiene ejecutables es conveniente que lea la sección
 
 ## Fundamentos
 
-Esta es la primera de una serie de prácticas sobre el intérprete del lenguaje **Egg**.
+Esta es la segunda de una serie de prácticas sobre el lenguaje **Egg**.
 Lea el capítulo 12 "*A Programming Language*" del libro EJS:
 
 * [Eloquent JS. Chapter 12. Project: A Programming Language](http://eloquentjavascript.net/12_language.html)
