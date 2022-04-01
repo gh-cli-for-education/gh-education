@@ -85,7 +85,7 @@ module.exports = {
 };
 ```
 
-## Bucle REPLpara egg (Repeat Evaluate Print Loop) and parBalance 
+## Egg Repeat Evaluate Print Loop 
 
 * Véase la sección [Construcción de un Repeat Evaluate Print Loop](/temas/interpretation/repl-interpretation.md)
 * Véase también la sección [The Strategy Pattern](/temas/introduccion-a-javascript/design.html)
