@@ -311,7 +311,7 @@ let op = this.operator.evaluate(env);
 
 Let me repeat again the **question**: 
 
-Is it true that `this.operator` is always a node of type `word`? 
+**Is it true that `this.operator` is always a node of type `word`?**
 
 Then we evaluate the AST forest  in `this.args`:
 
@@ -319,7 +319,7 @@ Then we evaluate the AST forest  in `this.args`:
 let argsProcessed = this.args.map((arg) => arg.evaluate(env));
 ```
 
-last, we check that `op` contains a JavaScript function and call it with the already processed arguments 
+last, we check that `op` contains a JavaScript function and if so we call it with the already processed arguments 
 
 ```js
 if ((typeof op === "function")) {
