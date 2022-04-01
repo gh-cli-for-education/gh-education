@@ -148,6 +148,12 @@ Fell free to add and export in file `parse.js`  any convenience parser-related f
 
 En el fichero `src/ast.js`  encontrará las clases `Value`, `Word` y  `Apply` para los distintos tipos de nodos del AST. todos los tipos de nodo  disponen de un método `evaluate(env)` que evalúa/interpreta el nodo en el contexto de la memoria asociativa local que se pasa en el parámetro `env`. 
 
+El fichero `ast.js` exporta las tres clases:
+
+```js
+module.exports = { Value, Word, Apply };
+```
+
 ### La Clase Value 
 
 Por ejemplo el código para los nodos `Value` puede ser algo así:
@@ -328,8 +334,11 @@ if ((typeof op === "function")) {
 ```
 
 We will use plain JavaScript function values to represent Egg’s function values.
+We will come back to this later, when we study the special interpreter/evaluator called `fun`.
 
-We will also use JavaScript function values to inject primitives in our interpreter to add functionality. for instance JS functions with names `print`, `+`, `*`, etc. are injected in the top level `topEnv` scope  
+### Interpreting +(2,3)
+
+We will use JavaScript function values to inject primitives in our interpreter to add functionality. for instance JS functions with names `print`, `+`, `*`, etc. are injected in the top level `topEnv` scope  
 
 ```js
 topEnv['+'] = (a, b) => a + b;
@@ -347,13 +356,7 @@ isn't  in `specialForms`.
 Since `this.args` contains the array ` value(value: 2), value(value:3)]` the map will leave in  `argsProcessed` the array `[2, 3]` and the final result is the 
 call `topEnv['+'](...[2,3])`
 
-We will come back to this later, when we study the special interpreter/evaluator called `fun`.
 
-Finalmente el fichero `ast.js` exporta las tres clases:
-
-```js
-module.exports = { Value, Word, Apply };
-```
 
 ## Fixing Scope
 
