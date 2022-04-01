@@ -39,18 +39,9 @@ rubrica:
 
 # {{$frontmatter.title }}
 
-## Introducción
-
-Esta es la primera de una serie de prácticas sobre el intérprete del lenguaje **Egg**.
-Deberá comenzar leyendo el capítulo 12 "*A Programming Language*" del libro EJS:
-
-* [Eloquent JS. Chapter 12. Project: A Programming Language](http://eloquentjavascript.net/12_language.html)
-
-Puede saltarse la sección **Parsing** del capítulo y pasar directamente a la sección **The Evaluator**.
-
 ## Modificaciones en el módulo de Análisis Sintáctico
 
-A estas alturas el módulo que escribió en la práctica [egg-parser]() debería de usar para el análisis léxico
+A estas alturas el módulo que escribió en la práctica [egg-parser]() debería de usar para su análisis léxico
 el generador de analizadores léxicos realizado en la práctica [lexer generator](). 
 
 El analizador léxico de su parser debería ser algo así:
@@ -371,6 +362,14 @@ Puesto que este paquete contiene ejecutables es conveniente que lea la sección
 }
 ```
 
+## Fundamentos
+
+Esta es la primera de una serie de prácticas sobre el intérprete del lenguaje **Egg**.
+Lea el capítulo 12 "*A Programming Language*" del libro EJS:
+
+* [Eloquent JS. Chapter 12. Project: A Programming Language](http://eloquentjavascript.net/12_language.html)
+
+Salte la sección **Parsing** de ese capítulo y pase directamente a la sección **The Evaluator**.
 
 ## Recursos
 
