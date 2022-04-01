@@ -104,18 +104,78 @@ module.exports = {
 
 Véase la sección [Interpretación de los Nodos del AST](/temas/interpretation/ast-interpretation)
 
-## Fixing Scope
+## Providing an Assignment 
 
-Resuelva ahora el ejercicio propuesto en el capítulo:
+The initial way to assign a binding a value in Egg is via `def`ine. 
+This construct acts as a way both to define new bindings and to give existing ones a new value.
 
-[Fixing Scope](https://eloquentjavascript.net/12_language.html#i_Y9ZDMshYCQ)
+As a consequence, when you try to give a nonlocal binding a new value, you will end up defining a local one with the same name instead. 
 
-Es un ejercicio difícil. 
+Add a special interpreter for `set(x, value)`, similar to `def(x, value)`, which
 
-Puede encontrar una solución al problema en la rama `inicial` de este repo [ULL-ESIT-PL-1617/egg/](https://github.com/ULL-ESIT-PL-1617/egg/tree/inicial). La rama `inicial` como su nombre indica contiene además del código  descrito en el capítulo de EloquentJS las soluciones a los ejercicios propuestos en el capítulo del libro.
+1. Does not create a new binding in the current scope
+2. Updates the entry in the nearest scope (local, parent, grand-parent, etc.) in which a binding with name `x` exist
+3. If no binding with name `x` exists, throws a `ReferenceError`.
 
-Si no se le ocurre una solución acuda a este enlace. 
-Y si se le ocurrió  también. Contraste las soluciones y quédese con la que le parezca mejor.
+This example illustrates the kind of behavior we want:
+
+```js
+➜  eloquentjsegg git:(private2122) cat examples/scope.egg 
+do( 
+  def(x,9), /* def crea una nueva variable local */
+  def(f, fun( /* fun creates a new scope */
+    do(
+      def(x, 4), 
+      print(x) # 4
+    )
+  )),
+  def(g, fun(set(x, 8))), /* set no crea una nueva variable local */
+  f(),
+  print(x), # 9
+  g(),
+  print(x) # 8
+)
+➜  eloquentjsegg git:(private2122) bin/egg.js examples/scope.egg 
+4
+9
+8
+```
+
+Some languages use the idea of **l-values** and **r-values**, deriving from the typical mode of evaluation on the left and right-hand side of an assignment statement. 
+
+* An **l-value** refers to an object that persists beyond a single expression. 
+* An **r-value** is a temporary value that does not persist beyond the expression that uses it.
+
+In many languages, notably the C family, l-values have storage addresses that are programmatically accessible to the running program (e.g., via some address-of operator like "`&`" in C/C++), meaning that they are variables or de-referenced references to a certain memory location. 
+
+Form the prespective of interpretation and translation, the same sub-expresion `x` has different meanings depending on the side of the assignment in which it is:
+
+```js
+x = x
+```
+On the left side `x` is a reference or a binding, on the right side is a value: the value stored on that reference.
+
+```js{10}
+specialForms['='] = specialForms['set'] = function(args, env) { 
+  if (args.length !== 2 || args[0].type === 'value') {
+    throw new SyntaxError('Bad use of set');
+  }
+
+  let valueTree = args[args.length-1];
+  let value = valueTree.evaluate(env);
+
+  let leftSide = args[0];
+  let [scope, name] = leftSide.leftEvaluate(env);
+  scope[name] = value;
+
+  return value;
+}
+```
+
+### See also
+
+* See also section [Fixing Scope](https://eloquentjavascript.net/12_language.html#i_Y9ZDMshYCQ) in the EloquentJS book
+* Puede encontrar una solución al problema en la rama `inicial` de este repo [ULL-ESIT-PL-1617/egg/](https://github.com/ULL-ESIT-PL-1617/egg/tree/inicial). La rama `inicial` como su nombre indica contiene además del código  descrito en el capítulo de EloquentJS las soluciones a los ejercicios propuestos en el capítulo del libro.
 
 ## Separe en Módulos el Programa
 
