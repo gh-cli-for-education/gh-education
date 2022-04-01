@@ -347,7 +347,7 @@ isn't  in `specialForms`.
 Since `this.args` contains the array ` value(value: 2), value(value:3)]` the map will leave in  `argsProcessed` the array `[2, 3]` and the final result is the 
 call `topEnv['+'](...[2,3])`
 
-We will come back to this later, when we study the special form called `fun`.
+We will come back to this later, when we study the special interpreter/evaluator called `fun`.
 
 Finalmente el fichero `ast.js` exporta las tres clases:
 
