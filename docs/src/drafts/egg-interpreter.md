@@ -200,8 +200,6 @@ The function produced by the fun form creates this local scope and adds the argu
 
 It then evaluates the function body in this scope and returns the result.
 
-
-
 ```js
 specialForms['->'] =specialForms['fun'] = function(args, env) {
   if (!args.length) {
@@ -237,7 +235,7 @@ specialForms['->'] =specialForms['fun'] = function(args, env) {
 ### Ejecutables
 
 El programa `egg`  deberá ejecutar el programa `.egg` que se le pasa por línea de comandos.
-El intérprete `evm` ejecuta los ficheros json 
+El intérprete `evm` ejecuta los ficheros json generados por `eggc`
 
 
 ## Examples folder
