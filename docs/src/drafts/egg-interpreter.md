@@ -88,12 +88,13 @@ module.exports = {
 ## Egg Repeat Evaluate Print Loop 
 
 * Véase la sección [Construcción de un Repeat Evaluate Print Loop](/temas/interpretation/repl-interpretation.md)
-* Véase también la sección [The Strategy Pattern](/temas/introduccion-a-javascript/design.html)
 
 
 ## AST Classes and AST Interpretation
 
 Véase la sección sobre la [Estructura de Clases para los ASTs y la Interpretación de los Nodos del AST](/temas/interpretation/ast-interpretation)
+
+* Have a look at this section if you want to know more about Smells, the Open-Closed Principle and the [The Strategy Pattern](/temas/introduccion-a-javascript/design.html)
 
 ## Providing an Assignment 
 
