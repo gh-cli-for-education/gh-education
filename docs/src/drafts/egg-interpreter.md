@@ -178,20 +178,20 @@ specialForms['='] = specialForms['set'] = function(args, env) {
 
 Try to write the `leftEvaluate` method(s).
 
-::: danger 
+::: danger Future Work
 
 Although by now we will restrict to allow only words on the left side of any assignment, we aim to increase expressiveness and to allow assignments that can contains expressions like the `m[-1]` in the following 
 example:
 
-```js
-➜  eloquentjsegg git:(private2122) cat examples/set-array-negative.egg       
+```js{4}
+➜  eloquentjsegg git: cat examples/set-array-negative.egg       
 do(
   def(m, array(1, 2, 3)),
   set(m[-1], "asd"),
   print(m)
 )
 
-➜  eloquentjsegg git:(private2122) bin/egg.js examples/set-array-negative.egg
+➜  eloquentjsegg git: bin/egg.js examples/set-array-negative.egg
 [1,2,"asd"]
 ```
 ::: 
