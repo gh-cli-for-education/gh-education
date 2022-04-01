@@ -153,7 +153,11 @@ Form the prespective of interpretation and translation, the same sub-expresion `
 ```js
 x = x
 ```
-On the left side `x` is a reference or a binding, on the right side is a value: the value stored on that reference.
+On the left side `x` is a reference or a binding, on the right side is a value: the value stored on that reference. 
+
+Our `evaluate` methods do not work here, since they interpret the expressions in a r-value context.
+
+Te proposal is to introduce `leftEvaluate` methods in the AST node classes that evaluate the expressions in a l-value context. Something like the following code for `specialForms['=']`:
 
 ```js{10}
 specialForms['='] = specialForms['set'] = function(args, env) { 
