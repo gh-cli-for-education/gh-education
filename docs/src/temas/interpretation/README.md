@@ -1,5 +1,5 @@
 ---
-sidebar: falses
+sidebar: false
 ---
 
 # The Interpretation of ASTs 
