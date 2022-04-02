@@ -70,9 +70,11 @@ Esto debería producir un directorio `docs/report` con los ficheros generados:
 
 Añada `docs/report` al control de versiones (`git add docs`, etc.).
 
-Visite su repo en GitHub. Active las GitHub pages de su report desde la rama principal con directorio `docs` como fuente y haga un `push`.
+Visite su repo en GitHub. Active las GitHub pages de su report desde la rama principal con directorio `docs` como fuente y haga un `commit` y un `push`.
 
-Debería poder ver el informe en el subdirectorio `report`de su despliegue.
+Debería poder ver el informe en el subdirectorio `report` de su despliegue.
+
+Todo lo que escriba en `docs/src` se verá reflejado en el informe.
 
 
 
