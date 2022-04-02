@@ -1,3 +1,6 @@
+---
+sidebar: false
+---
 # How to Deploy to GitHub Pages a VuePress Report
 
 ```
