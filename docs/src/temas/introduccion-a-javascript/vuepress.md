@@ -11,14 +11,14 @@ npx create-vuepress-site
 
 Respondemos a todas las preguntas con las respuestas por defecto
 
-Instalamos y comprobamos que funciona:
+Instalamos:
 
 ```
 cd docs
 npm install
 ```
 
-Editamos el `docs/src/.vuepress/config.js` y añadimos como valor de `base`:
+Editamos el fichero `docs/src/.vuepress/config.js` y añadimos como valor de `base`:
 
 ```js
 ➜  docs git:(master) ✗ head -n 5  src/.vuepress/config.js
