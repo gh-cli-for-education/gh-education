@@ -3,6 +3,8 @@ sidebar: false
 ---
 # How to Deploy to GitHub Pages a VuePress Report
 
+Estando en la raíz de nuestra práctica emitimos el comando:
+
 ```
 npx create-vuepress-site [optionalDirectoryName]
 ```
