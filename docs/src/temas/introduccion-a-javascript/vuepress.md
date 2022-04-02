@@ -55,7 +55,7 @@ La url de despliegue que estamos viendo en el browser debería ser algo con el p
 
 esto es, debe seguir el patrón  `/nombre-del-repo/report/`
 
-Construimos el site:
+A continuación construimos el site:
 
 ```
 npm run build
@@ -68,9 +68,9 @@ Esto debería producir un directorio `docs/report` con los ficheros generados:
 404.html   assets     config     guide      index.html
 ```
 
-Añada `docs/report` al control de versiones.
+Añada `docs/report` al control de versiones (`git add docs`, etc.).
 
-Active las GitHub pages de su report desde la rama principal con directorio `docs` como fuente y haga un `push`.
+Visite su repo en GitHub. Active las GitHub pages de su report desde la rama principal con directorio `docs` como fuente y haga un `push`.
 
 Debería poder ver el informe en el subdirectorio `report`de su despliegue.
 
