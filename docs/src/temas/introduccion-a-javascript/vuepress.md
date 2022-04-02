@@ -6,7 +6,7 @@ sidebar: false
 Estando en la raíz de nuestra práctica emitimos el comando:
 
 ```
-npx create-vuepress-site [optionalDirectoryName]
+npx create-vuepress-site
 ```
 
 Respondemos a todas las preguntas con las respuestas por defecto
