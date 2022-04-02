@@ -40,14 +40,17 @@ Nos vamos al `docs/package.json` que `create-vuepress-site` ha creado y modifica
 }
 ```
 
-Ahora comprobemos en localel despliegue. Estando en `docs/src`:
+Esto hará que los HTML generados por Vuepress queden en `docs/repotrt`. 
+
+Ahora comprobemos en local nuestro despliegue. Estando en `docs/src` escribimos:
 
 ```
 npm run dev
 ```
 
 
-La url de despliegue debería ser algo con el patrón 
+La url de despliegue que estamos viendo en el browser debería ser algo con el patrón 
+
 `http://localhost:8081/egg-parser-diego-perez-garcia-alu0101345918/report/`
 
 esto es, debe seguir el patrón  `/nombre-del-repo/report/`
