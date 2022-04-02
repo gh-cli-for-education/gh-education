@@ -1,3 +1,4 @@
+# How to Deploy to GitHub Pages a VuePress Report
 
 ```
 npx create-vuepress-site [optionalDirectoryName]
@@ -61,7 +62,7 @@ Esto debería producir un directorio `docs/report` con los ficheros generados:
 
 Añada `docs/report` al control de versiones.
 
-Active las GitHub pages de su report desde la rama principal con el directorio `docs` como fuente y haga un `push`.
+Active las GitHub pages de su report desde la rama principal con directorio `docs` como fuente y haga un `push`.
 
 Debería poder ver el informe en el subdirectorio `report`de su despliegue.
 
