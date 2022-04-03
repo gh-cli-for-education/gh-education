@@ -132,7 +132,8 @@ Para ampliar la compatibilidad y facilitar el uso de este servicio desde cualqui
 
 * [GitHub Support: My tickets](https://support.github.com/tickets/personal/0)
 * [GitHub Support Community](https://github.community/)
-* [GitHub Education Community](https://education.github.community/)
+* [As of April 4, the GitHub Education Community Forum will move to GitHub Discussions. All threads in the current forum (education.github.community) will become Read-Only.](https://github.com/github-community/Global-Campus-Teachers/discussions)
+  * [GitHub Education Community](https://education.github.community/)
 * [Create Icon avatar for the organization](https://graduaat-iconizr.herokuapp.com/)
 
 ### Authorizing Apps to access your GitHub Orgs and Repos
