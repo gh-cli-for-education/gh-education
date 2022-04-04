@@ -295,9 +295,9 @@ and the `/🍎{3}/` part is interpreted as *3 repetitions of the second code uni
 
 Similarly, the dot matches a single code unit, not the two that make up the rose emoji.
 
-### The notation "\u#codepoint" inside a string 
-
 You must add a `u` option (for Unicode) to your regular expression to make it treat such characters properly. The wrong behavior remains the default, unfortunately, because changing that might cause problems for existing code that depends on it.
+
+### The notation "\u#codepoint" inside a string 
 
 `\u` inside a string allow us to introduce unicode characters using 
 `\u#codepoint`:
