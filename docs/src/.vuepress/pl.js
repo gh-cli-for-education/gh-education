@@ -79,6 +79,7 @@ const navigationBar = [
         items: [
           {text: 'Calendario Académico', link: 'https://www.ull.es/estudios-docencia/calendario-academico/'},
           {text: 'Horarios de Tercero', link: 'https://www.ull.es/grados/ingenieria-informatica/informacion-academica/horarios-y-calendario-examenes/#tercero'},    
+          {text: 'Portafirmas', link: 'https://sede.ull.es/ecivilis-signature-inbox-application/inbox.html'},
         ]
       }
  

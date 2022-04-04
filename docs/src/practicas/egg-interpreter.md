@@ -27,8 +27,9 @@ rubrica:
 
 ## Modificaciones en el módulo de Análisis Sintáctico
 
-A estas alturas el módulo que escribió en la práctica [egg-parser]() debería de usar para su análisis léxico
-el generador de analizadores léxicos realizado en la práctica [lexer generator](). 
+Para facilitar la labor de hacer esta práctica es conveniente que volvamos al módulo 
+A estas alturas el módulo que escribió en la práctica [egg-parser](/practicas/egg-parser.html) debería de usar para su análisis léxico
+el generador de analizadores léxicos realizado en la práctica [lexer generator](/practicas/lexer-generator.html). 
 
 El analizador léxico de su parser debería ser algo así:
 
