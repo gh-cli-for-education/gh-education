@@ -40,9 +40,9 @@ let lexer = nearleyLexer(tokens);
 module.exports = lexer;
 ```
 
-Además del ejecutable `eggc` que ya proveía el paquete [egg-parser](/practicas/egg-parser.html), ahora le añadiremos un fichero `src/parse.js` que constituirá el `main` del módulo. Sigue un extracto de como podría ser el `package.json`:
+Además del ejecutable `eggc` que ya proveía el paquete [egg-parser](/practicas/egg-parser.html), ahora le añadiremos un fichero `src/parse.js` que constituirá el punto de entrada o `main` del módulo. Sigue un extracto de como podría ser el `package.json`:
 
-```js
+```js{5}
 {
   "name": "@ull-esit-pl-2122/egg-parser-solution",
   "version": "1.0.3",
@@ -59,7 +59,7 @@ Además del ejecutable `eggc` que ya proveía el paquete [egg-parser](/practicas
 }
 ```
 
-El fichero `parse.js` exportarà un conjunto de funciones y objetos que facilitarán las labores de parsing desde el módulo e esta práctica:
+El fichero `parse.js` exportarà un conjunto de funciones y objetos que facilitarán las labores de parsing desde el módulo de esta práctica:
 
 ```js
 module.exports = {
