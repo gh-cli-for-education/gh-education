@@ -6,6 +6,7 @@ delivery: "2022/04/07"
 order: 11
 layout: Practica
 prev: egg-parser.md
+next: egg-interpreter.md
 sidebar: auto
 template: "https://github.com/crguezl/egg-parser-template"
 rubrica:
@@ -18,7 +19,7 @@ rubrica:
   - Contiene tests comprobando la compatibilidad del lexer generado con Nearley.JS (egg-parser)
   - "Opcional: estudio de covering"
   - Se ha hecho CI con GitHub Actions
-  - Los informes están bien presentados
+  - Los informes están bien presentados (Vuepress)
   - "La documentación es completa" 
   - "Opcional: publicar la documentación de la API usando GitHub Pages en la carpeta <code>docs/</code>"
   - Se ha hecho un buen uso del versionado semántico en la evolución del módulo

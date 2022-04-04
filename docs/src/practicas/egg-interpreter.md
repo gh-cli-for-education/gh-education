@@ -5,7 +5,7 @@ date: 2022/04/01
 delivery: "2022/04/21"
 order: 12
 layout: Practica
-prev: 
+prev: lexer-generator.md
 sidebar: auto
 template: "https://github.com/crguezl/egg-interpreter-template"
 rubrica: 
