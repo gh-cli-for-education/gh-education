@@ -402,7 +402,58 @@ Usando el repo de la asignación de esta tarea publique el paquete como paquete 
 ## Semantic Versioning
 
 * Publique una mejora en la funcionalidad del módulo. Por ejemplo añada la opción `/u`
-a la expresión regular creada para que Unicode sea soportado. ¿Como debe cambiar el nº de versión?
+a la expresión regular creada para que Unicode sea soportado. De esta forma un analizador léxico como este debería funcionar:
+
+```js
+✗ cat hello-unicode.js 
+"use strict";
+
+const {buildLexer} = require("../src/main.js");
+
+const SPACE = /(?<SPACE>\p{White_Space}+)/; SPACE.skip = true;
+const COMMENT = /(?<COMMENT>\/\/.*)/; COMMENT.skip = true;
+const RESERVEDWORD = /(?<RESERVEDWORD>\b(const|let)\b)/;
+const NUMBER = /(?<NUMBER>\p{N}+)/; 
+const ID = /(?<ID>\p{L}(\p{L}|\p{N})*)/;
+const STRING = /(?<STRING>"([^\\"]|\\.")*")/;
+const PUNCTUATOR = /(?<PUNCTUATOR>[-+*\/=;])/;
+const myTokens = [SPACE, COMMENT, NUMBER, RESERVEDWORD, ID, STRING, PUNCTUATOR];
+
+const { validTokens, lexer } = buildLexer(myTokens);
+
+console.log(validTokens);
+
+const str = "const αβ६६७ \u205F = ६६७ + Ⅻ"; // ६६७ + Ⅻ"; // \u205F medium mathematical space
+const result = lexer(str);
+console.log(result);
+```
+
+Que daría como salida:
+
+```js
+✗ node hello-unicode.js
+Map(8) {
+  'SPACE' => /(?<SPACE>\p{White_Space}+)/ { skip: true },
+  'COMMENT' => /(?<COMMENT>\/\/.*)/ { skip: true },
+  'NUMBER' => /(?<NUMBER>\p{N}+)/,
+  'RESERVEDWORD' => /(?<RESERVEDWORD>\b(const|let)\b)/,
+  'ID' => /(?<ID>\p{L}(\p{L}|\p{N})*)/,
+  'STRING' => /(?<STRING>"([^\\"]|\\.")*")/,
+  'PUNCTUATOR' => /(?<PUNCTUATOR>[-+*\/=;])/,
+  'ERROR' => /(?<ERROR>(.|\n)+)/
+}
+[
+  { type: 'RESERVEDWORD', value: 'const', line: 1, col: 1, length: 5 },
+  { type: 'ID', value: 'αβ६६७', line: 1, col: 7, length: 5 },
+  { type: 'PUNCTUATOR', value: '=', line: 1, col: 15, length: 1 },
+  { type: 'NUMBER', value: '६६७', line: 1, col: 17, length: 3 },
+  { type: 'PUNCTUATOR', value: '+', line: 1, col: 21, length: 1 },
+  { type: 'NUMBER', value: 'Ⅻ', line: 1, col: 23, length: 1 }
+```
+
+
+
+¿Como debe cambiar el nº de versión?
 
 <!--
 ## Mejoras 2022
