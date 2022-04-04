@@ -27,11 +27,11 @@ rubrica:
 
 ## Modificaciones en el módulo de Análisis Sintáctico
 
-Para facilitar la labor de hacer esta práctica es conveniente que volvamos al módulo 
-A estas alturas el módulo que escribió en la práctica [egg-parser](/practicas/egg-parser.html) debería de usar para su análisis léxico
-el generador de analizadores léxicos realizado en la práctica [lexer generator](/practicas/lexer-generator.html). 
+Para facilitar la labor de hacer esta práctica es conveniente que volvamos al módulo [egg-parser](/practicas/egg-parser.html) y modifiquemos un poco su API para la fabricación del intérprete que vamos a construir.
 
-El analizador léxico de su parser debería ser algo así:
+A estas alturas del curso, el módulo que escribimos en la práctica [egg-parser](/practicas/egg-parser.html) hace uso del generador de analizadores léxicos realizado en la práctica [lexer generator](/practicas/lexer-generator.html). 
+
+El analizador léxico de nuestro parser debería ser algo así:
 
 ```js
 const { tokens } = require('./tokens.js');
