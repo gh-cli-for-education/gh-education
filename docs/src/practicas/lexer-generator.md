@@ -404,7 +404,7 @@ Usando el repo de la asignación de esta tarea publique el paquete como paquete 
 Publique una mejora en la funcionalidad del módulo. 
  
 Por ejemplo añada la opción `/u` a la expresión regular creada para que Unicode sea soportado. 
-De esta forma un analizador léxico como este debería funcionar:
+De esta forma un analizador léxico como este debería funcionar conidentificadores griegos o rusos, números romanos o números en devanagari, espacios en blanco como el *medium mathematical space*, etc.:
 
 ```js
 ✗ cat hello-unicode.js 
@@ -439,8 +439,6 @@ Que daría como salida:
   { type: 'PUNCTUATOR', value: '+', line: 1, col: 21, length: 1 },
   { type: 'NUMBER', value: 'Ⅻ', line: 1, col: 23, length: 1 }
 ```
-
-
 
 ¿Como debe cambiar el nº de versión?
 
