@@ -59,7 +59,7 @@ Además del ejecutable `eggc` que ya proveía el paquete [egg-parser](/practicas
 }
 ```
 
-El fichero `parse.js` exportarà un conjunto de funciones y objetos que facilitarán las labores de parsing desde el módulo de esta práctica:
+El fichero `parse.js` exportará un conjunto de funciones y objetos que facilitarán las labores de parsing desde el módulo de esta práctica. Entre ellas estas:
 
 ```js
 module.exports = {
