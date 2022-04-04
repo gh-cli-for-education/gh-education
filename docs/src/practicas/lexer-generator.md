@@ -422,7 +422,7 @@ const PUNCTUATOR = /(?<PUNCTUATOR>[-+*\/=;])/;
 const myTokens = [SPACE, COMMENT, NUMBER, RESERVEDWORD, ID, STRING, PUNCTUATOR];
 const { validTokens, lexer } = buildLexer(myTokens);
 
-const str = "const αβ६६७ \u205F = ६६७ + Ⅻ"; // ६६७ + Ⅻ"; // \u205F medium mathematical space
+const str = "const αβ६६७ \u205F = ६६७ + Ⅻ"; // \u205F medium mathematical space
 const result = lexer(str);
 console.log(result);
 ```
