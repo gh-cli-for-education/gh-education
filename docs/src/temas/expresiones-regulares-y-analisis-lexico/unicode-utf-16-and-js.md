@@ -273,7 +273,7 @@ and the Mongolian vowel separator:
 
 ### Option /u
 
-By default, regular expressions work on code units:
+By default, regular expressions work on **code units**:
 
 See this example in this [repo ULL-ESIT-PL/unicode-js](https://github.com/ULL-ESIT-PL/unicode-js)
 
@@ -294,6 +294,8 @@ is treated as two code units,
 and the `/🍎{3}/` part is interpreted as *3 repetitions of the second code unit*. 
 
 Similarly, the dot matches a single code unit, not the two that make up the rose emoji.
+
+### The notation "\u#codepoint" inside a string 
 
 You must add a `u` option (for Unicode) to your regular expression to make it treat such characters properly. The wrong behavior remains the default, unfortunately, because changing that might cause problems for existing code that depends on it.
 
