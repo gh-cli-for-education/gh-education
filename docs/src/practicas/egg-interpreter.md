@@ -29,7 +29,7 @@ rubrica:
 
 Para facilitar la labor de hacer esta práctica es conveniente que volvamos al módulo [egg-parser](/practicas/egg-parser.html) y modifiquemos un poco su API para la fabricación del intérprete que vamos a construir.
 
-A estas alturas del curso, el módulo que escribimos en la práctica [egg-parser](/practicas/egg-parser.html) hace uso del generador de analizadores léxicos realizado en la práctica [lexer generator](/practicas/lexer-generator.html). 
+A estas alturas del curso, el módulo que escribimos en la práctica [egg-parser](/practicas/egg-parser.html) debería hacer uso del generador de analizadores léxicos realizado en la práctica [lexer generator](/practicas/lexer-generator.html). 
 
 El analizador léxico de nuestro parser debería ser algo así:
 
@@ -40,7 +40,7 @@ let lexer = nearleyLexer(tokens);
 module.exports = lexer;
 ```
 
-Además del ejecutable `eggc` que ya exportaba le añadiremos un fichero `src/parse.js` que constituirá el `main` del módulo. Sigue un extracto de como podría ser el `package.json`:
+Además del ejecutable `eggc` que ya proveía el paquete [egg-parser](/practicas/egg-parser.html), ahora le añadiremos un fichero `src/parse.js` que constituirá el `main` del módulo. Sigue un extracto de como podría ser el `package.json`:
 
 ```js
 {
