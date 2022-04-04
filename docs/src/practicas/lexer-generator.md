@@ -404,7 +404,7 @@ Usando el repo de la asignación de esta tarea publique el paquete como paquete 
 Publique una mejora en la funcionalidad del módulo. 
  
 Por ejemplo añada la opción `/u` a la expresión regular creada para que Unicode sea soportado. 
-De esta forma un analizador léxico como este debería funcionar conidentificadores griegos o rusos, números romanos o números en devanagari, espacios en blanco como el *medium mathematical space*, etc.:
+De esta forma un analizador léxico como este debería funcionar conidentificadores griegos o rusos, números romanos o [números en devanagari](https://en.wikipedia.org/wiki/Devanagari_numerals), espacios en blanco como el *medium mathematical space*, etc.:
 
 ```js
 ✗ cat hello-unicode.js 
