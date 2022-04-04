@@ -271,7 +271,7 @@ and the Mongolian vowel separator:
 * [See: *What is the Mongolian vowel separator for?*](https://linguistics.stackexchange.com/questions/12712/what-is-the-mongolian-vowel-separator-for/12722)
 
 
-### Option \u
+### Option /u
 
 By default, regular expressions work on code units:
 
