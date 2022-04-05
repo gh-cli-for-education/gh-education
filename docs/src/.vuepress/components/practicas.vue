@@ -14,7 +14,7 @@
         <span><a :href="getLink(page)+'#rubrica'">Rubric</a></span>
         </li>
         <li v-if="page.frontmatter.key">
-        <span ><a :href="`https://github.com/orgs/${page.global.organization.name}/repositories?q=${page.frontmatter.key}`">Repos</a></span>
+        <span ><a :href="getSearchRepos(page)" target="_blank">Repos</a></span>
         </li>
         </ul>
         <!-- todo: reference related lessons? -->
@@ -49,6 +49,9 @@ export default {
     },
     getDate(page) {
       return page.date;
+    },
+    getSearchRepos(page) {
+      return `https://github.com/orgs/${page.global.organization.name}/repositories?q=${page.frontmatter.key}`
     },
   },
   computed: {
