@@ -1,5 +1,6 @@
 ---
 title: "egg-parser"
+key: egg-parser
 published: true
 date: 2022/03/18
 delivery: "2022/03/31"

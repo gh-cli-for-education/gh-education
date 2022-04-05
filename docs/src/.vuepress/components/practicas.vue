@@ -7,12 +7,16 @@
         <span v-else>Lab</span>
         <a :href="getLink(page)">{{ page.title }}</a> 
         <ul>
-        <li>
-        <span v-if="page.frontmatter.delivery">Date: {{ page.frontmatter.delivery }}</span>
+        <li v-if="page.frontmatter.delivery">
+        <span>Date: {{ page.frontmatter.delivery }}</span>
         </li>
-        <li>
-        <span v-if="page.frontmatter.rubrica"><a :href="getLink(page)+'#rubrica'">Rubric</a></span>
-        </li></ul>
+        <li v-if="page.frontmatter.rubrica">
+        <span><a :href="getLink(page)+'#rubrica'">Rubric</a></span>
+        </li>
+        <li v-if="page.frontmatter.key">
+        <span ><a :href="`https://github.com/orgs/ULL-ESIT-PL-2122/repositories?q=${page.frontmatter.key}`">Repos</a></span>
+        </li>
+        </ul>
         <!-- todo: reference related lessons? -->
       </li>
     </ol>

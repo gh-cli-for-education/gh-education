@@ -1,5 +1,6 @@
 ---
 title: "Constant Folding"
+key: constant-folding-super
 published: true
 date: 2022/02/24
 delivery: "2022/03/10"
