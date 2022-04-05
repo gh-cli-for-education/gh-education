@@ -1,5 +1,6 @@
 ---
 title: "Hello Compilers"
+key: hello-compilers
 published: true
 date: 2022/02/21
 delivery: "2022/03/03"

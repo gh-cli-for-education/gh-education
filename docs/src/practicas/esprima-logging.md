@@ -1,5 +1,6 @@
 ---
 title: "Espree Logging"
+key: espree-logging
 published: true
 date: 2022/02/15
 delivery: "2022/02/24"
