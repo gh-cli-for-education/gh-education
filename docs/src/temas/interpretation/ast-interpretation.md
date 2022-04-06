@@ -66,6 +66,7 @@ El operador `in` devuelve `true` si la propiedad especificada `this.name` está 
 
 * Los objetos `env` son objetos JS que son tratados como hashes y  funcionan como memoria asociativa en nuestro intérprete. 
 * El objeto `env` representa el  ámbito actual
+* Las funciones en Egg disponen de su propio ámbito para guardar en él los parámetros y las variables locales. Por tanto en un instante de la ejecución del programa pueden existir múltiples ámbitos `env`
 * En cada instante de la ejecución los objetos `env` se estructuran en una lista enlazada
 * Cada ámbito/memoria `env` está anidado  en un ámbito `parentEnv` que es su prototipo
 *  Podemos acceder al prototipo de un objeto mediante `parentEnv = Object.getPrototypeOf(env)` (Véase [getPrototypeOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf))
