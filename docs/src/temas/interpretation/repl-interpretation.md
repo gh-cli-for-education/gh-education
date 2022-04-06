@@ -1,3 +1,6 @@
+---
+next: ast-interpretation.md
+---
 # Construcción de un Repeat Evaluate Print Loop
 
 En la práctica [egg-interpreter](/practicas/egg-interpreter/) deberá hacer  que el ejecutable `egg` funcione como un bucle REPL cuando no se le proporciona un fichero de entrada. 

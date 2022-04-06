@@ -1,3 +1,7 @@
+---
+prev: /temas/interpretation/ast-interpretation.md
+next: /temas/interpretation/function-interpretation.md
+---
 # Interpretation of Assignment Expressions
 
 The initial way to assign a binding a value in Egg is via `def`ine. 

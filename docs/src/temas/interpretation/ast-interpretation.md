@@ -1,4 +1,7 @@
-
+---
+prev: /temas/interpretation/repl-interpretation.md
+next: /temas/interpretation/assignment-interpretation.md
+---
 # Interpretación de los Nodos del AST
 
 ## Introducción 
@@ -60,7 +63,7 @@ class Word {
   }
 }
 ```
-Evaluar un nodo `Word` es también sencillo. 
+Evaluar un nodo `Word` es también (aparentemente) sencillo. 
 
 El operador `in` devuelve `true` si la propiedad especificada `this.name` está en el objeto `env`  especificado o su **prototipo**. Si hay una entrada `this.name` en la memoria actual, devolvemos el valor almacenado: `env[this.name]`
 
@@ -72,7 +75,6 @@ El operador `in` devuelve `true` si la propiedad especificada `this.name` está 
 * En JS, los objetos pueden tener un objeto prototipo, del cual heredan métodos y propiedades. Un objeto prototipo del objeto puede tener a su vez otro objeto prototipo y así sucesivamente: Esta es la **cadena de prototipos**.
 *  Podemos acceder al prototipo de un objeto mediante `parentEnv = Object.getPrototypeOf(env)` (Véase [getPrototypeOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf))
 
-
 También podemos acceder al prototipo de un objeto mediante la propiedad `__proto__` del mismo:
 
   ```js
@@ -82,6 +84,16 @@ También podemos acceder al prototipo de un objeto mediante la propiedad `__prot
 En JS los objetos heredan las propiedades de su prototipo y los prototipos se estructuran en una jerarquía que eventualmente acaba en la clase Object:
 
 ![](/images/prototype-chain.jpeg)
+
+Así pues este código tan simple
+
+```js
+    if (this.name in env) {
+      return env[this.name];
+    }
+```
+
+supone un recorrido de la lista enlazada de prototipos de los ámbitos `env` en búsqueda de la propiedad almacenada en `this.name`.
 
 ## La Clase Apply
 
