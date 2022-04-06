@@ -180,7 +180,7 @@ do(
 
 ### "Normal" Calls 
 
-If it is a normal call, we evaluate the operator, 
+If it is a *normal call*, we evaluate the operator, 
 
 ```js
 let op = this.operator.evaluate(env);
@@ -196,10 +196,10 @@ Then we evaluate the AST forest  in `this.args`:
 let argsProcessed = this.args.map((arg) => arg.evaluate(env));
 ```
 
-last, we check that `op` contains a JavaScript function and if so we call it with the already processed arguments 
+last, we check that `op` contains a JavaScript function and if so, we call it with the already processed arguments 
 
 ```js
-if ((typeof op === "function")) {
+if (typeof op === "function") {
   return op(...argsProcessed);
 }
 ```
