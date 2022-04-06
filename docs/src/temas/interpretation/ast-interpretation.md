@@ -130,7 +130,7 @@ class Apply {
 ```
 
 The interpretation of `Apply` nodes is more involved. 
-We divided into two types of itnerpretation.
+We divided into two types of interpretation.
 
 ### Specials nodes 
 
