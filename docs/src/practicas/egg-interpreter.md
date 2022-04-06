@@ -1,5 +1,6 @@
 ---
 title: The Egg Interpreter
+key: egg-interpreter
 published: true
 date: 2022/04/01
 delivery: "2022/04/21"
