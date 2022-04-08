@@ -152,6 +152,10 @@ const nearleyLexer = function(regexps, options) {
 }
 ```
 
+## Syntax Diagram /Railroad Diagram
+
+Véase el [diagrama sintáctico](/assets/practicas/egg-oop-railroad-diagram.html) de una gramática Nearley.JS que da una solución a esta práctica
+
 
 ## Resources
 
