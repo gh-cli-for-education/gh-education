@@ -75,7 +75,7 @@ Observe las funcionalidades introducidas:
 - "Correctly solves lexical ambiguity for numbers <code>4.+(5).+(3.2)</code>"
 - "Currying works <code>4[\"+\", 5](3)</code>"
 
-## The ambiguity with Dot Selector and Numbers
+## The Dot Ambiguity: Property dot or Mantissa dot?
 
 Al introducir el *dot* para seleccionar la propiedad del objeto se produce una ambiguedad con el punto en los flotantes:
 
