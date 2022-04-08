@@ -14,12 +14,12 @@ rubrica:
   - Added Array literal notation 
   - Added Object literal notation
   - The lexer generator module has being extended to support lexical transformations
-  - "Added token transformation replace/WORD COLON/STRING COMMA/g"
-  - "Correctly solves lexical ambiguity for numbers <code>4.+(5).+(3.2)</code>"
-  - "Currying works with methods <code>4&#91;\"+\", 5&#93;(3)</code>"
+  - Added token transformation replace/WORD COLON/STRING COMMA/g
+  - Correctly solves lexical ambiguity for numbers <code>4.+(5).+(3.2)</code>
+  - Currying works with methods <code>4&#91;\"+\", 5&#93;(3)</code>
   - Contiene suficientes tests
   - Se provee un workflow sencillo para convertir rápidamente un ejemplo operativo en un test 
-  - "Estudio de covering"
+  - Estudio de covering
   - Se ha hecho CI con GitHub Actions
   - Módulo bien documentado 
   - Informe hecho con Vuepress desplegado
