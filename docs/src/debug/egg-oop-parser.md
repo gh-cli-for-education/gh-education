@@ -39,7 +39,7 @@ El siguiente ejemplo muestra algunas de las extensiones que introducimos en esta
 ```js
 ➜  egg-oop-parser-solution git:(master) cat examples/object-colon-selector.egg 
 do (
-  def(x, {
+  def(x, { # object literals!
     c: [1, 2, 3], # array literals!
     gc:  fun(
            element(self, "c") # old way works
