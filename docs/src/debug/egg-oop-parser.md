@@ -84,12 +84,27 @@ Al introducir el *dot* para seleccionar la propiedad del objeto se produce una a
 print(4.3.toFixed(2))
 ```
 
-La ambiguedad se resuelve dando prioridad a la interpretación como *punto de número* si el punto va seguido de un dígito, en otro caso estamos accediendo a la propiedad del número:
+Se propone que la ambiguedad se resuelva dando prioridad a la interpretación como *punto de número* si el punto va seguido de un dígito, en otro caso estamos accediendo a la propiedad del número:
 
 ```
 ➜  egg-oop-parser-solution git:(master) bin/eggc.js test/examples/dot-num.egg 
 ➜  egg-oop-parser-solution git:(master) ✗ npx evm test/examples/dot-num.json  
 4.30
+```
+
+Esto es diferente de lo que hace JS:
+
+```js
+➜  pl2122apuntes git:(main) node
+Welcome to Node.js v16.0.0.
+Type ".help" for more information.
+> 4.toFixed(2)
+4.toFixed(2)
+^^
+
+Uncaught SyntaxError: Invalid or unexpected token
+> (4).toFixed(2)
+'4.00'
 ```
 
 ## Adding Lexical Transformations to our Lexer Generator Module
