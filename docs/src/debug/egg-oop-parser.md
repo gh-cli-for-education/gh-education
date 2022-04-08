@@ -4,10 +4,8 @@ key: egg-oop-parser
 published: true
 date: 2022/04/12
 delivery: "2022/04/28"
-permalink: /practicas/egg-oop-parser/
 order: 13
 layout: Practica
-prev: lexer-interpreter.md
 sidebar: auto
 template: "https://github.com/ULL-ESIT-PL-2122/egg-oop-parser-template"
 rubrica: 
@@ -31,25 +29,45 @@ rubrica:
 # {{$frontmatter.title }}
 
 <!-- Only the + implemented as method of numbers. Need to implemetn the rest ... -->
-## Modificaciones en el módulo de Generación de Analizadores Léxicos
+## Adding Lexical TRansformations to our Lexer Generator Module
 
-Para facilitar la labor de hacer esta práctica es conveniente que volvamos al módulo [egg-parser](/practicas/egg-parser.html) y modifiquemos un poco su API para la fabricación del intérprete que vamos a construir.
+Para facilitar la labor de hacer esta práctica es conveniente que volvamos al módulo [lexer-generator](/practicas/lexer-generator) y modifiquemos un poco su API dotandolo de la capacidad de añadir transformaciones léxicas.
 
+Para ello la función `nearleyLexer` recibirá ahora un parámetro adicional de un objeto con opciones.
+La única opción que vamos a incluir es `transform`. Este es un ejemplo de uso de la nueva funcionalidad:
+
+```js
+const { tokens } = require('./tokens.js');
+const { nearleyLexer } = require("@ull-esit-pl-2122/lexer-generator-solution");
+
+function colonTransformer(tokens) {
+  // ... s/WORD COLON/STRING COMMA/g
+ return tokens;
+}
+
+let lexer = nearleyLexer(tokens, { transform: colonTransformer});
+```
+
+To achieve the goal we have to modify the `reset` method of our nearley compatible object:
+
+```js
+const nearleyLexer = function(regexps, options) {
+  const {validTokens, lexer} = buildLexer(regexps);
+  validTokens.set("EOF");
+  return {
+    // ...
+    reset: function(data, info) { 
+      // ... Work here!
+    },
+ // ...
+}
+```
 
 
 
 ## AST Classes and AST Interpretation
 
 
-
-## Fundamentos
-
-Esta es la segunda de una serie de prácticas sobre el lenguaje **Egg**.
-Lea el capítulo 12 "*A Programming Language*" del libro EJS:
-
-* [Eloquent JS. Chapter 12. Project: A Programming Language](http://eloquentjavascript.net/12_language.html)
-
-Salte la sección **Parsing** de ese capítulo y pase directamente a la sección **The Evaluator**.
 
 ## Recursos
 
