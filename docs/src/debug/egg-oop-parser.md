@@ -92,7 +92,7 @@ Consider the following Egg program:
 print(4.3.toFixed(2))
 ```
 
-We wanto to generate an AST like this one:
+We want to generate an AST like this one:
 
 ```js
 ➜  egg-oop-parser-solution git:(master) ✗ cat examples/dot-num.json 
