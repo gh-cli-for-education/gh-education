@@ -29,24 +29,58 @@ rubrica:
 # {{$frontmatter.title }}
 
 <!-- Only the + implemented as method of numbers. Need to implemetn the rest ... -->
-## Adding Lexical TRansformations to our Lexer Generator Module
+
+## Introducción
+
+En esta práctica, queremos aumentar la expresividad de nuestro lenguaje para hacer posible programas como este:
+
+```js
+➜  egg-oop-parser-solution git:(master) cat examples/object-colon-selector.egg 
+do (
+  def(x, {
+    c: [1, 2, 3], # array literals!
+    gc:  fun(
+           element(self, "c") # old way works
+         ), 
+    sc:  fun(value, # look at the left side of the assignment!
+           =(self.c[0], value)
+         ),
+    inc: fun( 
+           =(self.c[0], +(self.c[0], 1)) 
+         ) 
+  }),
+  print(x),
+  print(x.gc()),    # [1, 2, 3]
+  x.sc(4),
+  print(x.gc()),    # [4,2,3]
+  x.inc(),
+  print(x.gc()),    # [5,2,3]
+  print(x.c.pop()), # 3
+  print(x.c)        # [5,2]
+)
+```
+
+## Adding Lexical Transformations to our Lexer Generator Module
 
 Para facilitar la labor de hacer esta práctica es conveniente que volvamos al módulo [lexer-generator](/practicas/lexer-generator) y modifiquemos un poco su API dotandolo de la capacidad de añadir transformaciones léxicas.
 
 Para ello la función `nearleyLexer` recibirá ahora un parámetro adicional de un objeto con opciones.
-La única opción que vamos a incluir es `transform`. Este es un ejemplo de uso de la nueva funcionalidad:
 
 ```js
-const { tokens } = require('./tokens.js');
-const { nearleyLexer } = require("@ull-esit-pl-2122/lexer-generator-solution");
+let lexer = nearleyLexer(tokens, { transform: transformerFun});
+```
 
+La única opción que vamos a implementar es `transform`. Que aplica la función `transformerFun` a cada uno de los `tokens` del objeto lexer generado por `nearleyLexer`. En nuestro caso queremos transformar las secuencias `WORD COLON` en  secuencias `STRING COMMA` de manera que `x: 4` sea equivalente a escribir `"x", 4"`
+
+```js
 function colonTransformer(tokens) {
   // ... s/WORD COLON/STRING COMMA/g
  return tokens;
 }
-
-let lexer = nearleyLexer(tokens, { transform: colonTransformer});
 ```
+
+ Este es un ejemplo de uso de la nueva funcionalidad:
+
 
 To achieve the goal we have to modify the `reset` method of our nearley compatible object:
 
@@ -62,11 +96,6 @@ const nearleyLexer = function(regexps, options) {
  // ...
 }
 ```
-
-
-
-## AST Classes and AST Interpretation
-
 
 
 ## Recursos
