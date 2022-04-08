@@ -32,7 +32,9 @@ rubrica:
 
 ## Introducción
 
-En esta práctica, queremos aumentar la expresividad de nuestro lenguaje para hacer posible programas como este:
+En esta práctica, queremos aumentar la expresividad de nuestro lenguaje. 
+
+El siguiente ejemplo muestra algunas de las extensiones que introducimos en esta práctica:
 
 ```js
 ➜  egg-oop-parser-solution git:(master) cat examples/object-colon-selector.egg 
@@ -58,6 +60,36 @@ do (
   print(x.c.pop()), # 3
   print(x.c)        # [5,2]
 )
+```
+
+Observe las funcionalidades introducidas:
+
+* Se han añadido las llaves `{}` para referirse a objetos literales: `def(x, { ... })`
+* Se han añadido los corchetes `[]` para referirse a *array literals* `[1, 2, 3]`
+* Es posible acceder a las propiedades de un objeto usando el punto como en `x.c`
+* Es posible acceder a las propiedades de un objeto usando corchetes como en `self.c[0]`
+
+- Added Object literal notation
+- The lexer generator module has being extended to support lexical transformations
+- "Added token transformation replace/WORD COLON/STRING COMMA/g"
+- "Correctly solves lexical ambiguity for numbers <code>4.+(5).+(3.2)</code>"
+- "Currying works <code>4[\"+\", 5](3)</code>"
+
+## The ambiguity with Dot Selector and Numbers
+
+Al introducir el *dot* para seleccionar la propiedad del objeto se produce una ambiguedad con el punto en los flotantes:
+
+```js
+➜  egg-oop-parser-solution git:(master) ✗ cat test/examples/dot-num.egg 
+print(4.3.toFixed(2))
+```
+
+La ambiguedad se resuelve dando prioridad a la interpretación como *punto de número* si el punto va seguido de un dígito, en otro caso estamos accediendo a la propiedad del número:
+
+```
+➜  egg-oop-parser-solution git:(master) bin/eggc.js test/examples/dot-num.egg 
+➜  egg-oop-parser-solution git:(master) ✗ npx evm test/examples/dot-num.json  
+4.30
 ```
 
 ## Adding Lexical Transformations to our Lexer Generator Module
