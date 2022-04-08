@@ -16,7 +16,7 @@ rubrica:
   - The lexer generator module has being extended to support lexical transformations
   - "Added token transformation replace/WORD COLON/STRING COMMA/g"
   - "Correctly solves lexical ambiguity for numbers <code>4.+(5).+(3.2)</code>"
-  - "Currying works <code>4[\"+\", 5](3)</code>"
+  - "Currying works with methods <code>4[\"+\", 5](3)</code>"
   - Contiene suficientes tests
   - Se provee un workflow sencillo para convertir rápidamente un ejemplo operativo en un test 
   - "Estudio de covering"
