@@ -100,9 +100,7 @@ do(
     def(a, { p : { q : { r : 1 } } }),
     def(b, a["p", "q", "r"]),
     print(b) # 1
-)                                                                                                             ```
-
-```         
+)                                                                                                             
 ➜  egg-oop-parser-solution git:(master) ✗ bin/eggc.js examples/multiple-properties-object-dot.egg
 ➜  egg-oop-parser-solution git:(master) ✗ npx evm examples/multiple-properties-object-dot.json   
 1
