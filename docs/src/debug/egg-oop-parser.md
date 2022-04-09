@@ -256,7 +256,8 @@ const nearleyLexer = function(regexps, options) {
 
 ## Grammar 
 
-Here is a NearleyJS non ambiguous grammar that allows the requested extensions:
+
+The following grammar is a NearleyJS non ambiguous grammar that allows the requested features and extends the previous Egg grammar we intoduced in lab [egg-parser](/practicas/egg-parser.html):
 
 ```js
 program -> expression %EOF 
