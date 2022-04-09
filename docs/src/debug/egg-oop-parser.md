@@ -94,6 +94,7 @@ and try with some example:
 [4,2,3]
 [5,2,3]
 3
+[5,2]
 ```
 
 ## Multiple Attribute Indexation
