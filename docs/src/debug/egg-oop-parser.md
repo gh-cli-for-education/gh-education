@@ -254,9 +254,40 @@ const nearleyLexer = function(regexps, options) {
 }
 ```
 
-## Syntax Diagram /Railroad Diagram
+## Grammar 
 
-Véase el [diagrama sintáctico](/assets/practicas/egg-oop-railroad-diagram.html) de una gramática Nearley.JS que da una solución a esta práctica
+Here is a NearleyJS non ambiguous grammar that allows the requested extensions:
+
+```js
+program -> expression %EOF 
+expression -> 
+      %STRING  optProperties
+    | %NUMBER  optProperties
+    | %WORD applies
+    | bracketExp
+    | curlyExp
+
+applies -> calls
+    | properties
+    | null
+calls ->  parenExp applies
+properties ->  bracketExp  applies
+    | selector applies            
+
+parenExp   -> "("  commaExp ")"
+bracketExp -> "["  commaExp "]"
+curlyExp   -> "{"  commaExp "}"
+
+selector   ->  "." %WORD
+
+commaExp -> null
+   | expression ("," expression
+
+optProperties -> null
+   | properties
+```
+
+## Syntax Diagram /Railroad Diagram
 
 <egg-oop-syntax-diagram></egg-oop-syntax-diagram>
 
