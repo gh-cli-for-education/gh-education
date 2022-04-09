@@ -16,6 +16,7 @@ rubrica:
   - The lexer generator module has being extended to support lexical transformations
   - Added token transformation replace/WORD COLON/STRING COMMA/g
   - Correctly solves lexical ambiguity for numbers <code>4.+(5).+(3.2)</code>
+  - Multiple Object indexation supported 
   - Currying works with methods <code>4&#91;\"+\", 5&#93;(3)</code>
   - Contiene suficientes tests
   - Se provee un workflow sencillo para convertir rápidamente un ejemplo operativo en un test 
@@ -36,7 +37,7 @@ En esta práctica, queremos aumentar la expresividad de nuestro lenguaje.
 
 El siguiente ejemplo muestra algunas de las extensiones que introducimos en esta práctica:
 
-```js
+```ruby
 ➜  egg-oop-parser-solution git:(master) cat examples/object-colon-selector.egg 
 do (
   def(x, { # object literals!
@@ -62,18 +63,14 @@ do (
 )
 ```
 
-Observe las funcionalidades introducidas:
+Observe algunas de las funcionalidades introducidas:
 
 * Se han añadido las llaves `{}` para referirse a objetos literales: `def(x, { ... })`
+* Observe la aparición del token *colon* `:` para separar en un objeto el nombre del atributo del valor
 * Se han añadido los corchetes `[]` para referirse a *array literals* `[1, 2, 3]`
 * Es posible acceder a las propiedades de un objeto usando el punto como en `x.c`
+* `self` denota al objeto. Como `this` en JS
 * Es posible acceder a las propiedades de un objeto usando corchetes como en `self.c[0]`
-
-- Added Object literal notation
-- The lexer generator module has being extended to support lexical transformations
-- "Added token transformation replace/WORD COLON/STRING COMMA/g"
-- "Correctly solves lexical ambiguity for numbers <code>4.+(5).+(3.2)</code>"
-- "Currying works <code>4[\"+\", 5](3)</code>"
 
 ## Multiple Attribute Indexation
 
@@ -100,7 +97,7 @@ do(
     def(a, { p : { q : { r : 1 } } }),
     def(b, a["p", "q", "r"]),
     print(b) # 1
-)                                                                                                             
+)
 ➜  egg-oop-parser-solution git:(master) ✗ bin/eggc.js examples/multiple-properties-object-dot.egg
 ➜  egg-oop-parser-solution git:(master) ✗ npx evm examples/multiple-properties-object-dot.json   
 1
