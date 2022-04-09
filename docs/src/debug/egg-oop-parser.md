@@ -77,6 +77,9 @@ Observe las funcionalidades introducidas:
 
 ## Multiple Attribute Indexation
 
+You can make multiple indexation of an object other than a function so that 
+`a[0,2]` means `a[0][2]`:
+
 ```js
 ➜  egg-oop-parser-solution git:(master) ✗ cat examples/multiple-properties.egg 
 do(
@@ -89,16 +92,20 @@ do(
 6
 ```
 
+Same for objects (other than a function) `a["p", "q", "r"]` means `a.p.q.r` or `a["p"]["q"]["r"]`:
+
 ```js
-➜  egg-oop-parser-solution git:(master) cat examples/multiple-properties-object.egg 
+➜  egg-oop-parser-solution git:(master) ✗ cat  examples/multiple-properties-object-dot.egg
 do(
-    def(a, { p : [4,5,6]}),
-    def(b, a["p", 2]),
-    print(b) # 6
-)%                                                                                                                   
-➜  egg-oop-parser-solution git:(master) bin/eggc.js examples/multiple-properties-object.egg
-➜  egg-oop-parser-solution git:(master) npx evm examples/multiple-properties-object.json
-6
+    def(a, { p : { q : { r : 1 } } }),
+    def(b, a["p", "q", "r"]),
+    print(b) # 1
+)                                                                                                             ```
+
+```         
+➜  egg-oop-parser-solution git:(master) ✗ bin/eggc.js examples/multiple-properties-object-dot.egg
+➜  egg-oop-parser-solution git:(master) ✗ npx evm examples/multiple-properties-object-dot.json   
+1
 ```
 
 ## Currying in Egg
