@@ -399,6 +399,10 @@ a.0.0
 Uncaught SyntaxError: Unexpected number
 ```
 
+You can not use the notation `a.0.0`to select the `a[0][0]` element since allowing this notation
+confuses the interpreter. Even with our former decision taken in section  [The Dot Ambiguity: Property dot or Mantissa dot?](#the-dot-ambiguity-property-dot-or-mantissa-dot) is not enough. The lexer will interpret the `0.0` in `a.0.0` as a floating point.
+
+
 This goal is the reason for the `"." %NUMBER` production in the grammar:
 
 ```js
