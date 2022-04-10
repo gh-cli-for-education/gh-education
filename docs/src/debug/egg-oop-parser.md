@@ -402,7 +402,7 @@ Uncaught SyntaxError: Unexpected number
 You can not use the notation `a.0.0` to select the `a[0][0]` element since allowing this notation
 confuses the interpreter. 
 
-Even if the JS designers would take a decision as the one we took in section  [The Dot Ambiguity: Property dot or Mantissa dot?](#the-dot-ambiguity-property-dot-or-mantissa-dot) it will not suffice: The lexer will interpret the `0.0` in `a.0.0` as a floating point!.
+Even if the JS designers would take a decision as the one we took in section  [The Dot Ambiguity: Property dot or Mantissa dot?](#the-dot-ambiguity-property-dot-or-mantissa-dot) it will not suffice: The lexer will interpret the `0.0` in `a.0.0` as a word `a` followed by floating point `0.0`!.
 
 This goal is the reason to introduce  the `"." %NUMBER` production in the grammar:
 
