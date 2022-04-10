@@ -399,11 +399,12 @@ a.0.0
 Uncaught SyntaxError: Unexpected number
 ```
 
-You can not use the notation `a.0.0`to select the `a[0][0]` element since allowing this notation
-confuses the interpreter. Even with our former decision taken in section  [The Dot Ambiguity: Property dot or Mantissa dot?](#the-dot-ambiguity-property-dot-or-mantissa-dot) is not enough. The lexer will interpret the `0.0` in `a.0.0` as a floating point.
+You can not use the notation `a.0.0` to select the `a[0][0]` element since allowing this notation
+confuses the interpreter. 
 
+Even if the JS designers would take a decision as the one we took in section  [The Dot Ambiguity: Property dot or Mantissa dot?](#the-dot-ambiguity-property-dot-or-mantissa-dot) it will not suffice: The lexer will interpret the `0.0` in `a.0.0` as a floating point!.
 
-This goal is the reason for the `"." %NUMBER` production in the grammar:
+This goal is the reason to introduce  the `"." %NUMBER` production in the grammar:
 
 ```js
 selector   ->  
@@ -411,7 +412,7 @@ selector   ->
    | "." %NUMBER
 ```
 
-this allow us to write programs like this one:
+this, if correctly implemented, will  allow us to write programs like this one:
 
 ```js
 ➜  egg-oop-parser-solution git:(master) ✗ cat examples/array-dot.egg 
@@ -421,7 +422,7 @@ do(
 )
 ```
 
-that, if correctly implemented will produce this output:
+that will produce this output:
 
 ```
 ➜  egg-oop-parser-solution git:(master) ✗ bin/eggc.js examples/array-dot.egg
