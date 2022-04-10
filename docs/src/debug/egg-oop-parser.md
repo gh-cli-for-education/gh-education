@@ -382,8 +382,8 @@ optProperties -> null
 
 ## A new Number Dot Number Ambiguity
 
-**Just for fun and to go beyond what any other language allows** we want the dot to work
-with numbers as property selector. This is something no language allows. For instance, in JS:
+**Just for fun and to go beyond what any other programming language allows** we want the dot to work
+with numbers as property selector. This is something, to my knowledge, no language allows. For instance, in JS:
 
 ```js
 ➜  src git:(main) ✗ node
