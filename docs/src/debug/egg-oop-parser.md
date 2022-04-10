@@ -380,6 +380,34 @@ optProperties -> null
 
 <egg-oop-syntax-diagram></egg-oop-syntax-diagram>
 
+## A new Dot Number Ambiguity
+
+**Just for fun and to go beyond what any other language allows** we want our language to the dot to work
+with numbers as property selector. This is the reason for the `"." %NUMBER` production in the grammar:
+
+```js
+selector   ->  
+     "." %WORD
+   | "." %NUMBER
+```
+
+this allow us to write programs like this one:
+
+```js
+➜  egg-oop-parser-solution git:(master) ✗ cat examples/array-dot.egg 
+do(
+    def(a, [[1,2],3]),
+    print(a.0.1)
+```
+
+that, if correctly implemented will produce this output:
+
+```
+➜  egg-oop-parser-solution git:(master) ✗ bin/eggc.js examples/array-dot.egg
+➜  egg-oop-parser-solution git:(master) ✗ npx evm examples/array-dot.json
+2
+``` 
+
 ## Array Literals 
 
 ## Object Literals 
