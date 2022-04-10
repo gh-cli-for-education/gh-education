@@ -240,12 +240,12 @@ Se propone que la ambiguedad se resuelva dando prioridad a la interpretación co
 
 So, inside the lexical analyzer, we have to force that for a *dot* to be interpreted as *numeric* the **dot** has to be followed by a digit:
 
-```js
+```js{1}
 const NUMBER = /(?<NUMBER>[-+]?\d+(\.\d+)?(?:[eE][-+]?\d+)?)/; // \d+ to resolve ambiguity
 const tokens = [ SPACE, NUMBER, ...  DOT,  ... ];
 ```
 
-Esto es diferente de lo que hace JS:
+Esto es diferente de lo que hace JS que no permite usar el punto como selector de atributo:
 
 ```js
 ➜  pl2122apuntes git:(main) node
@@ -254,8 +254,12 @@ Type ".help" for more information.
 > 4.toFixed(2)
 4.toFixed(2)
 ^^
-
 Uncaught SyntaxError: Invalid or unexpected token
+```
+
+En JS la ambiguedad se resuelve parentizando el número:
+
+```js
 > (4).toFixed(2)
 '4.00'
 ```
