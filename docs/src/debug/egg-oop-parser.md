@@ -376,16 +376,14 @@ optProperties -> null
    | properties
 ```
 
-## Syntax Diagram /Railroad Diagram
-
-<egg-oop-syntax-diagram></egg-oop-syntax-diagram>
+See also the [Syntax Diagram/Railroad Diagram](/temas/interpretation/egg-oop-syntax-diagram)
 
 ## A new Number Dot Number Ambiguity
 
 **Just for fun and to go beyond what any other programming language allows** we want the dot to work
 with numbers as property selector. This is something, to my knowledge, no language allows. For instance, in JS:
 
-```js
+```js{8-11}
 ➜  src git:(main) ✗ node
 Welcome to Node.js v16.0.0.
 Type ".help" for more information.
@@ -404,9 +402,9 @@ confuses the interpreter.
 
 Even if the JS designers would take a decision as the one we took in section  [The Dot Ambiguity: Property dot or Mantissa dot?](#the-dot-ambiguity-property-dot-or-mantissa-dot) it will not suffice: The lexer will interpret the `0.0` in `a.0.0` as a word `a` followed by floating point `0.0`!.
 
-This goal is the reason to introduce  the `"." %NUMBER` production in the grammar:
+This goal is the reason I introduced  the `"." %NUMBER` production in the `selector´ rule:
 
-```js
+```js{3}
 selector   ->  
      "." %WORD
    | "." %NUMBER
@@ -414,7 +412,7 @@ selector   ->
 
 this, if correctly implemented, will  allow us to write programs like this one:
 
-```js
+```js{3}
 ➜  egg-oop-parser-solution git:(master) ✗ cat examples/array-dot.egg 
 do(
     def(a, [[1,2],3]),
@@ -424,7 +422,7 @@ do(
 
 that will produce this output:
 
-```
+```{3}
 ➜  egg-oop-parser-solution git:(master) ✗ bin/eggc.js examples/array-dot.egg
 ➜  egg-oop-parser-solution git:(master) ✗ npx evm examples/array-dot.json
 2
@@ -434,7 +432,7 @@ the key observation here is that **in an Egg program a number token correspondin
 
 Notice that before the token not necessarily comes a word, but it can be a complex expression like in this other example:
 
-```ruby
+```ruby{4}
 ✗ cat examples/function-returning-array-dot-number.egg 
 do(
     def(f, fun([[0,Math.PI],2])), # A function that returns an array
@@ -444,7 +442,7 @@ do(
 
 When executed we obtain:
 
-```
+```{3}
 ➜  egg-oop-parser-solution git:(master) ✗ bin/eggc.js examples/function-returning-array-dot-number.egg
 ➜  egg-oop-parser-solution git:(master) ✗ npx evm examples/function-returning-array-dot-number.json   
 3.141592653589793
@@ -452,7 +450,7 @@ When executed we obtain:
 
 The proposed solution is to write another lexical transformation:
 
-```js
+```js{1}
 // Substitute DOT{.} NUMBER{4.3} by DOT NUMBER{4} DOT{.} NUMBER{3}
 function NumberToDotsTransformer(tokens) {
     /* ... fill the code ... */

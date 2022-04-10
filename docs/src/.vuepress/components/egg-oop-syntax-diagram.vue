@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3><code>program</code></h3>
+    <h1><code>program</code></h1>
     <div>
       <svg
         class="railroad-diagram"
@@ -47,7 +47,7 @@
         </g>
       </svg>
     </div>
-    <h3><code>expression</code></h3>
+    <h1><code>expression</code></h1>
     <div>
       <svg
         class="railroad-diagram"
@@ -182,7 +182,7 @@
         </g>
       </svg>
     </div>
-    <h3><code>applies</code></h3>
+    <h1><code>applies</code></h1>
     <div>
       <svg
         class="railroad-diagram"
@@ -242,7 +242,7 @@
         </g>
       </svg>
     </div>
-    <h3><code>calls</code></h3>
+    <h1><code>calls</code></h1>
     <div>
       <svg
         class="railroad-diagram"
@@ -282,7 +282,7 @@
         </g>
       </svg>
     </div>
-    <h3><code>properties</code></h3>
+    <h1><code>properties</code></h1>
     <div>
       <svg
         class="railroad-diagram"
@@ -344,7 +344,7 @@
         </g>
       </svg>
     </div>
-    <h3><code>parenExp</code></h3>
+    <h1><code>parenExp</code></h1>
     <div>
       <svg
         class="railroad-diagram"
@@ -406,7 +406,7 @@
         </g>
       </svg>
     </div>
-    <h3><code>bracketExp</code></h3>
+    <h1><code>bracketExp</code></h1>
     <div>
       <svg
         class="railroad-diagram"
@@ -468,7 +468,7 @@
         </g>
       </svg>
     </div>
-    <h3><code>curlyExp</code></h3>
+    <h1><code>curlyExp</code></h1>
     <div>
       <svg
         class="railroad-diagram"
@@ -530,61 +530,97 @@
         </g>
       </svg>
     </div>
-    <h3><code>selector</code></h3>
+    <h1><code>selector</code></h1>
     <div>
       <svg
         class="railroad-diagram"
-        width="257"
-        height="62"
-        viewBox="0 0 257 62"
+        width="273"
+        height="92"
+        viewBox="0 0 273 92"
       >
         <g transform="translate(.5 .5)">
           <path d="M 20 21 v 20 m 10 -20 v 20 m -10 -10 h 20.5"></path>
           <g>
             <path d="M40 31h0"></path>
-            <path d="M216 31h0"></path>
+            <path d="M232 31h0"></path>
             <path d="M40 31h20"></path>
             <g>
-              <path d="M60 31h0"></path>
-              <path d="M196 31h0"></path>
-              <path d="M60 31h10"></path>
+              <path d="M60 31h8"></path>
+              <path d="M204 31h8"></path>
+              <path d="M68 31h10"></path>
               <g>
-                <path d="M70 31h0"></path>
-                <path d="M114 31h0"></path>
+                <path d="M78 31h0"></path>
+                <path d="M122 31h0"></path>
                 <rect
-                  x="70"
+                  x="78"
                   y="20"
                   width="44"
                   height="22"
                   rx="10"
                   ry="10"
                 ></rect>
-                <text x="92" y="35">"."</text>
+                <text x="100" y="35">"."</text>
               </g>
-              <path d="M114 31h10"></path>
-              <path d="M124 31h10"></path>
+              <path d="M122 31h10"></path>
+              <path d="M132 31h10"></path>
               <g>
-                <path d="M134 31h0"></path>
-                <path d="M186 31h0"></path>
+                <path d="M142 31h0"></path>
+                <path d="M194 31h0"></path>
                 <rect
-                  x="134"
+                  x="142"
                   y="20"
                   width="52"
                   height="22"
                   rx="10"
                   ry="10"
                 ></rect>
-                <text x="160" y="35">WORD</text>
+                <text x="168" y="35">WORD</text>
               </g>
-              <path d="M186 31h10"></path>
+              <path d="M194 31h10"></path>
             </g>
-            <path d="M196 31h20"></path>
+            <path d="M212 31h20"></path>
+            <path d="M40 31a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"></path>
+            <g>
+              <path d="M60 61h0"></path>
+              <path d="M212 61h0"></path>
+              <path d="M60 61h10"></path>
+              <g>
+                <path d="M70 61h0"></path>
+                <path d="M114 61h0"></path>
+                <rect
+                  x="70"
+                  y="50"
+                  width="44"
+                  height="22"
+                  rx="10"
+                  ry="10"
+                ></rect>
+                <text x="92" y="65">"."</text>
+              </g>
+              <path d="M114 61h10"></path>
+              <path d="M124 61h10"></path>
+              <g>
+                <path d="M134 61h0"></path>
+                <path d="M202 61h0"></path>
+                <rect
+                  x="134"
+                  y="50"
+                  width="68"
+                  height="22"
+                  rx="10"
+                  ry="10"
+                ></rect>
+                <text x="168" y="65">NUMBER</text>
+              </g>
+              <path d="M202 61h10"></path>
+            </g>
+            <path d="M212 61a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"></path>
           </g>
-          <path d="M 216 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+          <path d="M 232 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
         </g>
       </svg>
     </div>
-    <h3><code>commaExp</code></h3>
+    <h1><code>commaExp</code></h1>
     <div>
       <svg
         class="railroad-diagram"
@@ -691,7 +727,7 @@
         </g>
       </svg>
     </div>
-    <h3><code>optProperties</code></h3>
+    <h1><code>optProperties</code></h1>
     <div>
       <svg
         class="railroad-diagram"
