@@ -472,7 +472,38 @@ function NumberToDotsTransformer(tokens) {
 
 ## Array Literals 
 
+Let us study now the support for Array Literals. The involved rules are:
+
+```js{2,3}
+expression ->  ...
+    | bracketExp
+bracketExp -> "["  commaExp "]"
+```
+
+The idea is that the transformer associated to the `bracketExp` rule builds  an apply node like 
+
+```ruby
+APPLY(operator:(WORD{name:array}, args: commaexp)
+```
+
+where `commaexp` is the forest associated with the `commaExp` node.
+
+
 ## Object Literals 
+
+The production rules for object literals are:
+
+```js
+expression -> ...
+    | curlyExp
+curlyExp   -> "{"  commaExp "}"
+```
+
+As for array literals, the idea is that the transformer associated to the `curlyExp` rule builds  an apply node like 
+
+```ruby
+APPLY(operator:(WORD{name:object}, args: commaexp)
+```
 
 ## Resources
 
