@@ -127,6 +127,23 @@ do(
 1
 ```
 
+This is the section of the grammar that allows the use of property indexation:
+
+```js
+expression -> ...
+    | %WORD applies
+
+applies -> calls
+    | properties
+    | null
+properties ->  bracketExp  applies
+
+bracketExp -> "["  commaExp "]"
+
+commaExp -> null
+   | expression ("," expression):*
+```
+
 ## Currying in Egg
 
 When multiple arguments are used to index a function is interpreted as [currying the function](https://en.wikipedia.org/wiki/Currying). In this version of the `evm` numbers are augmented with methods for adding, multiplying etc. For instance:
@@ -380,7 +397,7 @@ selector   ->
      "." %WORD
    | "." %NUMBER
 commaExp -> null
-   | expression ("," expression
+   | expression ("," expression):*
 
 optProperties -> null
    | properties
