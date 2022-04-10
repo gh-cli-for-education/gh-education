@@ -229,21 +229,25 @@ Al introducir el *dot* para seleccionar la propiedad del objeto se produce una a
 ➜  egg-oop-parser-solution git:(master) ✗ cat test/examples/dot-num.egg 
 print(4.3.toFixed(2))
 ```
+::: tip Propuesta
+Se propone que la ambiguedad se resuelva dando prioridad a la interpretación como *punto de número* si el punto va seguido de un dígito, en otro caso estamos accediendo a la propiedad del número
+:::
 
-Se propone que la ambiguedad se resuelva dando prioridad a la interpretación como *punto de número* si el punto va seguido de un dígito, en otro caso estamos accediendo a la propiedad del número:
+Ejemplo:
 
 ```
 ➜  egg-oop-parser-solution git:(master) bin/eggc.js test/examples/dot-num.egg 
 ➜  egg-oop-parser-solution git:(master) ✗ npx evm test/examples/dot-num.json  
 4.30
 ```
-
+::: tip Solution
 So, inside the lexical analyzer, we have to force that for a *dot* to be interpreted as *numeric* the **dot** has to be followed by a digit:
 
 ```js{1}
 const NUMBER = /(?<NUMBER>[-+]?\d+(\.\d+)?(?:[eE][-+]?\d+)?)/; // \d+ to resolve ambiguity
 const tokens = [ SPACE, NUMBER, ...  DOT,  ... ];
 ```
+::: 
 
 Esto es diferente de lo que hace JS que no permite usar el punto como selector de atributo:
 
@@ -282,9 +286,10 @@ We can have more than one lexical transformations to apply. Thus, we allow the `
 let lexer = nearleyLexer(tokens, { transform: [colonTransformer, NumberToDotsTransformer] });
 ```
 
+::: tip Solution
 To achieve the goal we have to modify the `reset` method of our nearley compatible object:
 
-```js
+```js{6-13}
 reset: function(data, info) { 
   this.buffer = data || '';
   this.currentPos = 0;
@@ -301,6 +306,7 @@ reset: function(data, info) {
   return this;
 }
 ```
+:::
 
 ## The Lexical Word Colon Transformation
 
@@ -406,7 +412,7 @@ confuses the interpreter.
 
 Even if the JS designers would take a decision as the one we took in section  [The Dot Ambiguity: Property dot or Mantissa dot?](#the-dot-ambiguity-property-dot-or-mantissa-dot) it will not suffice: The lexer will interpret the `0.0` in `a.0.0` as a word `a` followed by floating point `0.0`!.
 
-This goal is the reason I introduced  the `"." %NUMBER` production in the `selector´ rule:
+This goal (the dot to work with numbers as property selector) is the reason I introduced  the `"." %NUMBER` production in the `selector´ rule:
 
 ```js{3}
 selector   ->  
@@ -434,7 +440,7 @@ that will produce this output:
 
 the key observation here is that **in an Egg program a number token corresponding to a floating point as `0.1` or `0.0` can not be preceded by a dot token**. 
 
-Notice that before the token not necessarily comes a word, but it can be a complex expression like in this other example:
+Notice that before a dot token not necessarily comes a word, but it can be a complex expression like in this other example (Observe the first dot at line 4):
 
 ```ruby{4}
 ✗ cat examples/function-returning-array-dot-number.egg 
@@ -452,6 +458,7 @@ When executed we obtain:
 3.141592653589793
 ```
 
+::: tip Proposal
 The proposed solution is to write another lexical transformation:
 
 ```js{1}
@@ -461,6 +468,7 @@ function NumberToDotsTransformer(tokens) {
     return tokens;
 }
 ```
+:::
 
 ## Array Literals 
 
