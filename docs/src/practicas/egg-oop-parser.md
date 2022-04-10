@@ -350,7 +350,7 @@ so that when compiled and executed produces:
 ✗ npx evm examples/colon.json   
 ["a",4]
 ```
-
+::: tip Proposal
 The idea is that inside our lexer we write a lexical transformation function:
 
 ```js
@@ -359,6 +359,7 @@ function colonTransformer(tokens) {
  return tokens;
 }
 ```
+:::
 
 This transformation is what allow us the elegant syntax to describe the object in the example `examples/object-colon-selector.egg` in section [introduction](#introduction) 
 
