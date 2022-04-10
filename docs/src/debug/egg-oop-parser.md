@@ -430,6 +430,36 @@ that will produce this output:
 2
 ``` 
 
+the key observation here is that **in an Egg program a number token corresponding to a floating point as `0.1` or `0.0` can not be preceded by a dot token**. 
+
+Notice that before the token not necessarily comes a word, but it can be a complex expression like in this other example:
+
+```ruby
+✗ cat examples/function-returning-array-dot-number.egg 
+do(
+    def(f, fun([[0,Math.PI],2])), # A function that returns an array
+    print(f().0.1)
+)
+``` 
+
+When executed we obtain:
+
+```
+➜  egg-oop-parser-solution git:(master) ✗ bin/eggc.js examples/function-returning-array-dot-number.egg
+➜  egg-oop-parser-solution git:(master) ✗ npx evm examples/function-returning-array-dot-number.json   
+3.141592653589793
+```
+
+The proposed solution is to write another lexical transformation:
+
+```js
+// Substitute DOT{.} NUMBER{4.3} by DOT NUMBER{4} DOT{.} NUMBER{3}
+function NumberToDotsTransformer(tokens) {
+    /* ... fill the code ... */
+    return tokens;
+}
+```
+
 ## Array Literals 
 
 ## Object Literals 
