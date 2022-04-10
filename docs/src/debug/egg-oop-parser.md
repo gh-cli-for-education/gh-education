@@ -205,7 +205,7 @@ The AST generated has a new type of node called `property` to represent object p
 2. The `operator` in line 10 refers to the object. 
 3. The `args` in line 11 refers to the property.
 
-Nuestro parser deberà por tanto producir un AST conforme a esta gramática árbol:
+Nuestro parser deberá por tanto producir un AST conforme a esta gramática árbol:
 
 ```ruby
 ast: VALUE
