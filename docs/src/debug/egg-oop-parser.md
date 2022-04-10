@@ -14,10 +14,12 @@ rubrica:
   - Added Array literal notation 
   - Added Object literal notation
   - The lexer generator module has being extended to support lexical transformations
-  - Added token transformation replace/WORD COLON/STRING COMMA/g
-  - Correctly solves lexical ambiguity for numbers <code>4.+(5).+(3.2)</code>
+  - Added token transformation <code>replace/WORD COLON/STRING COMMA/</code>
+  - Correctly solves dot lexical ambiguity for numbers and properties
+  - Lexical transformation <code>replace/DOT NUMBER{4.3}/DOT NUMBER{4} DOT NUMBER{3}/</code>
   - Multiple Object indexation supported 
   - Currying works with methods <code>4&#91;\"+\", 5&#93;(3)</code>
+  - The dot can be used to select indexed properties <code>[[0],1].0.0</code>
   - Contiene suficientes tests
   - Se provee un workflow sencillo para convertir rápidamente un ejemplo operativo en un test 
   - Estudio de covering
@@ -168,8 +170,9 @@ Execution:
 1
 ```
 
-this is a *design decision* that is somewhat inconsistent with the decision taken for other types of objects 
-🤨?
+::: danger 
+Is this *interpret indexation as currying for functions* a **Language design decision** that is somewhat inconsistent with the decision taken for the other types of objects 🤨?
+:::
 
 ## Extending the ASTs
 
