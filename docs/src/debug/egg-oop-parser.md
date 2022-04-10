@@ -380,10 +380,26 @@ optProperties -> null
 
 <egg-oop-syntax-diagram></egg-oop-syntax-diagram>
 
-## A new Dot Number Ambiguity
+## A new Number Dot Number Ambiguity
 
-**Just for fun and to go beyond what any other language allows** we want our language to the dot to work
-with numbers as property selector. This is the reason for the `"." %NUMBER` production in the grammar:
+**Just for fun and to go beyond what any other language allows** we want the dot to work
+with numbers as property selector. This is something no language allows. For instance, in JS:
+
+```js
+➜  src git:(main) ✗ node
+Welcome to Node.js v16.0.0.
+Type ".help" for more information.
+> a = [[1,2],3,4]
+[ [ 1, 2 ], 3, 4 ]
+> a[0][0]
+1
+> a.0.0
+a.0.0
+ ^^
+Uncaught SyntaxError: Unexpected number
+```
+
+This goal is the reason for the `"." %NUMBER` production in the grammar:
 
 ```js
 selector   ->  
@@ -398,6 +414,7 @@ this allow us to write programs like this one:
 do(
     def(a, [[1,2],3]),
     print(a.0.1)
+)
 ```
 
 that, if correctly implemented will produce this output:
