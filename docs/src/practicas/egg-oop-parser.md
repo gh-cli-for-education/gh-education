@@ -154,7 +154,7 @@ For instance:
 
 ```ruby
 ✗ cat examples/curry-no-method.egg        
-print(+[4](2))%                                                                                                      
+print(+[4](2))
 ```
 
 Execution:
@@ -164,10 +164,6 @@ Execution:
 ✗ npx evm examples/curry-no-method.json   
 6
 ```
-
-::: danger 
-Is this *interpret indexation as currying for functions* a **Language design decision** that is somewhat inconsistent with the decision taken for the other types of objects 🤨?
-:::
 
 ## Extending the ASTs
 
