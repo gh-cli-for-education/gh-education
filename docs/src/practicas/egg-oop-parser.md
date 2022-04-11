@@ -40,7 +40,7 @@ In this lab, we want to increase the expressiveness of our language.
 The following example shows some of the extensions that we want to introduce:
 
 ```ruby
-➜  egg-oop-parser-solution git:(master) cat examples/object-colon-selector.egg 
+cat examples/object-colon-selector.egg 
 do (
   def(x, { # object literals!
     c: [1, 2, 3], # array literals!
@@ -104,28 +104,30 @@ You can make multiple indexation of an object so that
 `a[0,2]` means `a[0][2]`:
 
 ```js
-➜  egg-oop-parser-solution git:(master) ✗ cat examples/multiple-properties.egg 
+✗ cat examples/multiple-properties.egg 
 do(
     def(a, [[4,5,6], 1,2,3]),
     def(b, a[0,2]),
     print(b) # 6
 )%                                                                                                                   
-➜  egg-oop-parser-solution git:(master) ✗ bin/eggc.js examples/multiple-properties.egg
-➜  egg-oop-parser-solution git:(master) ✗ npx evm examples/multiple-properties.json   
+✗ bin/eggc.js examples/multiple-properties.egg
+✗ npx evm examples/multiple-properties.json   
 6
 ```
 
 Same for objects `a["p", "q", "r"]` means `a.p.q.r` or `a["p"]["q"]["r"]`:
 
 ```js
-➜  egg-oop-parser-solution git:(master) ✗ cat  examples/multiple-properties-object-dot.egg
+✗ cat examples/multiple-properties-object-dot.egg        
 do(
     def(a, { p : { q : { r : 1 } } }),
     def(b, a["p", "q", "r"]),
-    print(b) # 1
-)
-➜  egg-oop-parser-solution git:(master) ✗ bin/eggc.js examples/multiple-properties-object-dot.egg
-➜  egg-oop-parser-solution git:(master) ✗ npx evm examples/multiple-properties-object-dot.json   
+    print(b),      # 1
+    print(a.p.q.r) # Same
+)     
+✗ bin/eggc.js examples/multiple-properties-object-dot.egg
+✗ npx evm examples/multiple-properties-object-dot.json   
+1
 1
 ```
 
@@ -148,8 +150,14 @@ commaExp -> null
 
 ## Currying in Egg
 
-When the argument used to index a function object is not an attribute of the function `someFun[arg]` 
-the expression is interpreted as [currying the function](https://en.wikipedia.org/wiki/Currying). 
+When the argument used to index a function object is not an attribute of the function 
+
+```ruby 
+someFun[arg1, ... ] # and "arg1" is not a property of "someFun"
+```
+
+then `arg1, ...` are interpreted as arguments for `someFun` and the expression returns the [currying of the function](https://en.wikipedia.org/wiki/Currying) on `arg1, ...`. 
+
 For instance:
 
 ```ruby
@@ -170,14 +178,14 @@ Execution:
 Consider the following Egg program:
 
 ```
-➜  egg-oop-parser-solution git:(master) ✗ cat examples/dot-num.egg                         
+✗ cat examples/dot-num.egg                         
 print(4.3.toFixed(2))
 ```
 
 The AST generated has a new type of node called `property` to represent object property access:
 
 ```js{9-11}
-➜  egg-oop-parser-solution git:(master) ✗ cat examples/dot-num.json 
+✗ cat examples/dot-num.json 
 {
   "type": "apply",
   "operator": { "type": "word", "name": "print" },
@@ -237,7 +245,7 @@ Si tiene dificultades repase la sección [Anatomía de los AST para Egg](/temas/
 Al introducir el *dot* para seleccionar la propiedad del objeto se produce una ambiguedad con el punto en los flotantes:
 
 ```js
-➜  egg-oop-parser-solution git:(master) ✗ cat test/examples/dot-num.egg 
+✗ cat test/examples/dot-num.egg 
 print(4.3.toFixed(2))
 ```
 ::: tip Propuesta
@@ -247,8 +255,8 @@ Se propone que la ambiguedad se resuelva dando prioridad a la interpretación co
 Ejemplo:
 
 ```
-➜  egg-oop-parser-solution git:(master) bin/eggc.js test/examples/dot-num.egg 
-➜  egg-oop-parser-solution git:(master) ✗ npx evm test/examples/dot-num.json  
+bin/eggc.js test/examples/dot-num.egg 
+✗ npx evm test/examples/dot-num.json  
 4.30
 ```
 ::: tip Solution
@@ -327,7 +335,7 @@ We want to transform all the pair subsequences `WORD, COLON`  into `STRING, COMM
 In this way we can write a program like this:
 
 ```ruby
-➜  egg-oop-parser-solution git:(master) ✗ cat examples/colon.egg 
+✗ cat examples/colon.egg 
 do(
   def(b, [a:4]), # The : is a "lexical" operator
   print(b)
@@ -435,7 +443,7 @@ selector   ->
 this, if correctly implemented, will  allow us to write programs like this one:
 
 ```js{3}
-➜  egg-oop-parser-solution git:(master) ✗ cat examples/array-dot.egg 
+✗ cat examples/array-dot.egg 
 do(
     def(a, [[1,2],3]),
     print(a.0.1)
@@ -445,8 +453,8 @@ do(
 that will produce this output:
 
 ```{3}
-➜  egg-oop-parser-solution git:(master) ✗ bin/eggc.js examples/array-dot.egg
-➜  egg-oop-parser-solution git:(master) ✗ npx evm examples/array-dot.json
+✗ bin/eggc.js examples/array-dot.egg
+✗ npx evm examples/array-dot.json
 2
 ``` 
 
@@ -465,8 +473,8 @@ do(
 When executed we obtain:
 
 ```{3}
-➜  egg-oop-parser-solution git:(master) ✗ bin/eggc.js examples/function-returning-array-dot-number.egg
-➜  egg-oop-parser-solution git:(master) ✗ npx evm examples/function-returning-array-dot-number.json   
+✗ bin/eggc.js examples/function-returning-array-dot-number.egg
+✗ npx evm examples/function-returning-array-dot-number.json   
 3.141592653589793
 ```
 
@@ -519,6 +527,7 @@ APPLY(operator:(WORD{name:object}, args: commaexp)
 
 ## Resources
 
+* [latest-version-cli](https://github.com/sindresorhus/latest-version-cli) Get the latest version of an npm package
 * [Egg Virtual Machine with OOP extensions for Windows/Linux/Mac OS](https://github.com/crguezl/oop-evm-releases/releases/tag/v1.0.0)
 * [Eloquent JS: Chapter 11. Project: A Programming Language](http://eloquentjavascript.net/11_language.html)
 * [Vídeo *Programando un bucle REPL para el lenguaje Egg*](https://youtu.be/5gIlt6r29lw)
