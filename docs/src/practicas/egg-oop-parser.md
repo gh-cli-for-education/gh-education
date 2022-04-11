@@ -100,7 +100,7 @@ and try with some example:
 
 ## Multiple Attribute Indexation
 
-You can make multiple indexation of an object other than a function so that 
+You can make multiple indexation of an object so that 
 `a[0,2]` means `a[0][2]`:
 
 ```js
@@ -115,7 +115,7 @@ do(
 6
 ```
 
-Same for objects (other than a function) `a["p", "q", "r"]` means `a.p.q.r` or `a["p"]["q"]["r"]`:
+Same for objects `a["p", "q", "r"]` means `a.p.q.r` or `a["p"]["q"]["r"]`:
 
 ```js
 ➜  egg-oop-parser-solution git:(master) ✗ cat  examples/multiple-properties-object-dot.egg
@@ -148,26 +148,21 @@ commaExp -> null
 
 ## Currying in Egg
 
-When multiple arguments are used to index a function is interpreted as [currying the function](https://en.wikipedia.org/wiki/Currying). In this version of the `evm` numbers are augmented with methods for adding, multiplying etc. For instance:
+When the argument used to index a function object is not an attribute of the function `someFun[arg]` 
+the expression is interpreted as [currying the function](https://en.wikipedia.org/wiki/Currying). 
+For instance:
 
 ```ruby
-➜  egg-oop-parser-solution git:(master) ✗ cat examples/curry-method.egg 
-do (
-  print(4["+", 5](3)), # Same as 4["+"](5, 3) # 12
-  print(4["*", 5](3)), # 4["*"](5, 3) # 60
-  print(6["/", 2](3)), # 6["/"](2, 3) # 1
-  print(6["-", 2](3))  # 6["/"](2, 3) # 1
-)
+✗ cat examples/curry-no-method.egg        
+print(+[4](2))%                                                                                                      
 ```
 
 Execution:
 
 ```
-➜  egg-oop-parser-solution git:(master) ✗ npx evm examples/curry-method.json      
-12
-60
-1
-1
+✗ bin/eggc.js examples/curry-no-method.egg
+✗ npx evm examples/curry-no-method.json   
+6
 ```
 
 ::: danger 
