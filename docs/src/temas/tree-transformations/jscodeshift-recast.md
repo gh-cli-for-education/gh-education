@@ -1,4 +1,6 @@
-# Recast
+# Recast and JSCodeShift 
+
+## Recast
 
 Recast is a library for parsing and modifying JavaScript code written on top of esprima and ast-types. 
 Recast provides methods for pretty printing ASTs as well as API to construct new ASTs without parsing any source code.
@@ -64,14 +66,20 @@ const output = recast.print(ast).code;
 console.log(output);
 ```
 
-# JSCodeshift 
+## JSCodeshift 
 
 <a href="https://github.com/facebook/jscodeshift" target="_blank">JSCodeshift</a> is a toolkit for running codemods over multiple JavaScript or
 TypeScript files. The interface that jscodeshift provides is a wrapper around [recast](#recast) and ast-types packages. 
 
 ![jscodeshift and recast relation image](/images/jscodeshift-recast-phases.png)
 
-The jscodeshift toolkit allows you to pump a bunch of source files through a transform and replace them with what comes out the other end. Inside the transform, you parse the source into an abstract syntax tree (AST), poke around to make your changes, then regenerate the source from the altered AST.
+The jscodeshift toolkit allows you to pump a bunch of source files through a transform and replace them with what comes out the other end. 
+
+Inside the transform, you 
+
+1. parse the source into an abstract syntax tree (AST), 
+2. poke around to make your changes, 
+3. then regenerate the source from the altered AST.
 
 The interface that jscodeshift provides is a wrapper around [recast](https://github.com/benjamn/recast) and ast-types packages. [recast](https://github.com/benjamn/recast) handles the conversion from source to AST and back while ast-types handles the low-level interaction with the AST nodes.
 
@@ -80,7 +88,8 @@ The interface that jscodeshift provides is a wrapper around [recast](https://git
 jscodeshift -t some-transform.js input-file.js -d -p
 ```
 
-This will run input-file.js through the transform some-transform.js and print the results without altering the file.
+This will run `input-file.js` through the transform `some-transform.js` and 
+print the results without altering the file.
 
 We can install it globally:
 
