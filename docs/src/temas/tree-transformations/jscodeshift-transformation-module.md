@@ -1,4 +1,7 @@
-
+---
+prev: jscodeshift.md
+next: jscodeshift-api.md
+---
 # How to write the transformation module
 
 The transform is simply a module that exports a function of the form:
@@ -11,11 +14,13 @@ module.exports = function(fileInfo, api, options) {
   return source;
 };
 ```
-
-In the example above we have used this transformation module:
+Here is an example of transformation module:
 
 ```js
 ✗ cat hello-jscodeshift.js 
+/**
+ * This replaces every occurrence of variable "foo".
+ */
 module.exports = function (fileInfo, api, options) {
   return api
     .jscodeshift(fileInfo.source)
@@ -50,23 +55,7 @@ Property     | Description
 `report`     | Prints the passed string to stdout
 
 `jscodeshift` is a reference to the wrapper around recast and provides a
-jQuery-like API to navigate and transform the AST. Here is a quick example,
-a more detailed description can be found below.
-
-```js
-/**
- * This replaces every occurrence of variable "foo".
- */
-module.exports = function(fileInfo, api) {
-  return api.jscodeshift(fileInfo.source)
-    .findVariableDeclarators('foo')
-    .renameTo('bar')
-    .toSource();
-}
-```
-
-**Note:** This API is exposed for convenience, but you don't have to use it.
-You can use any tool to modify the source.
+jQuery-like API to navigate and transform the AST. 
 
 `stats` is a function that only works when the `--dry` options is set. It accepts
 a string, and will simply count how often it was called with that value.
@@ -75,12 +64,12 @@ At the end, the CLI will report those values. This can be useful while
 developing the transform, e.g. to find out how often a certain construct
 appears in the source(s).
 
-**`report`** allows you do print arbitrary strings to stdout. This can be
+`report` allows you do print arbitrary strings to stdout. This can be
 useful when other tools consume the output of jscodeshift. The reason to not
 directly use `process.stdout` in transform code is to avoid mangled output when
 many files are processed.
 
-### `options`
+### Argument `options`
 
 Contains all options that have been passed to runner. This allows you to pass
 additional options to the transform. For example, if the CLI is called with
@@ -96,9 +85,9 @@ $ jscodeshift -t myTransforms fileA fileB --foo=bar
 The return value of the function determines the status of the transformation:
 
 - If a string is returned and it is different from passed source, the
-  transform is considered to be successful.
+  transform is considered to be **successful**.
 - If a string is returned but it's the same as the source, the transform
-  is considered to be unsuccessful.
+  is considered to be **unsuccessful**.
 - If nothing is returned, the file is not supposed to be transformed (which is
   ok).
 

@@ -1,4 +1,6 @@
-
+---
+prev: jscodeshift-transformation-module.md
+---
 # The jscodeshift API
 
 As already mentioned, jscodeshift also provides a wrapper around [recast][].
