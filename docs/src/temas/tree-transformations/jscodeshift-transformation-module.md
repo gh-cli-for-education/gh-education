@@ -137,3 +137,11 @@ Spawning 2 workers with 5 files each...
 All workers done.
 Results: 0 errors 2 unmodified 3 skipped 5 ok
 ```
+
+
+[npm]: https://www.npmjs.com/
+[Mozilla Parser API]: https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API
+[recast]: https://github.com/benjamn/recast
+[ast-types]: https://github.com/benjamn/ast-types
+[ast-explorer]: http://astexplorer.net/
+
