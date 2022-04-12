@@ -19,5 +19,5 @@ prev: "../introduccion-a-pl/guia-docente.html"
 ## What is a Compiler: Looking Inside Some JS Compilers
 
 * [Examples with Esprima](esprima)
-* [More Advanced examples from the talk *Master the Art of the AST*](master-the-art-of-the-ast)
+* [More Advanced examples from the talk *Master the Art of the AST*](/temas/tree-transformations/master-the-ast-lectures)
 

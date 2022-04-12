@@ -212,7 +212,7 @@ Observe how the appearances of `hack` inside the comment or the string aren't sh
 
 ## Master the Art of the AST
 
-* [More Advanced examples from the talk *Master the Art of the AST*](master-the-art-of-the-ast)
+* [More Advanced examples from the talk *Master the Art of the AST*](/temas/tree-transformations/master-the-ast-lectures.html)
 
 
 ## Syntax Analysis: PEG.js Example

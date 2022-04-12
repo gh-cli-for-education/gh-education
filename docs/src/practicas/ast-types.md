@@ -35,7 +35,7 @@ El módulo además de exportar la función `spread` provee un ejecutable `spread
 spread input.js output.js
 ```
 
-el cual realiza [una traducción del operador es6 `...` a versiones anteriores de JS](/temas/introduccion-a-pl/master-the-art-of-the-ast.html#translating-the-es6-spread-operator-to-es5) sobre `input.js` dejando la salida en `output.js`. Tiene una solución en la sección [Translating the ES6 spread operator ... to ES5](/temas/introduccion-a-pl/master-the-art-of-the-ast.html#translating-the-es6-spread-operator-to-es5) de estos apuntes.
+el cual realiza [una traducción del operador es6 `...` a versiones anteriores de JS](/temas/tree-transformations/index.html#translating-the-es6-spread-operator-to-es5) sobre `input.js` dejando la salida en `output.js`. Tiene una solución en la sección [Translating the ES6 spread operator ... to ES5](/temas/tree-transformations/index.html#translating-the-es6-spread-operator-to-es5) de estos apuntes.
 
 Una parte de los conceptos y habilidades a adquirir con esta práctica se explican en la sección [Creating and publishing a node.js module en GitHub y en NPM](/temas/introduccion-a-javascript/creating-and-publishing-npm-module). Léala con detenimiento antes de hacer esta práctica. 
 
@@ -103,7 +103,7 @@ rules.
 
 ### ast-types
 
-* [ast-types in this notes](/temas/introduccion-a-pl/master-the-art-of-the-ast.html#ast-types)
+* [ast-types in this notes](/temas/tree-transformations/index.html#ast-types)
 * [ast-types examples in crguezl/hello-ast-types](https://github.com/crguezl/hello-ast-types)
 
 ### ASTs Anatomy

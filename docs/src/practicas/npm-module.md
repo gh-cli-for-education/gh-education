@@ -42,7 +42,7 @@ El módulo además de exportar la función `constantFolding` provee un ejecutabl
 cf input.js output.js
 ```
 
-el cual realiza [la transformación de plegado de constantes](/temas/introduccion-a-pl/master-the-art-of-the-ast.html#constant-folding) sobre `input.js` dejando la salida en `output.js`.
+el cual realiza [la transformación de plegado de constantes](/temas/tree-transformations/index.html#constant-folding) sobre `input.js` dejando la salida en `output.js`.
 
 Una parte de los conceptos y habilidades a adquirir con esta práctica se explican en la sección [Creating and publishing a node.js module en GitHub y en NPM](/temas/introduccion-a-javascript/creating-and-publishing-npm-module). Léala con detenimiento antes de hacer esta práctica. 
 
@@ -138,7 +138,7 @@ Other possible **optional** extensions are:
 
 ### Constant Folding
 
-* [Transformación de plegado de constantes](/temas/introduccion-a-pl/master-the-art-of-the-ast.html#constant-folding) en estos apuntes
+* [Transformación de plegado de constantes](/temas/tree-transformations/index.html#constant-folding) en estos apuntes
 * Babel plugin [minify-constant-folding](https://github.com/babel/minify/tree/master/packages/babel-plugin-minify-constant-folding)
 
 ### Packages
