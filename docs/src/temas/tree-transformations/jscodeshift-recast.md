@@ -128,4 +128,8 @@ Time elapsed: 0.947seconds
 var bar = 4;
 ```
 
-More on JSCodeshift in the article [Write Code to Rewrite Your Code: jscodeshift](https://www.toptal.com/javascript/write-code-to-rewrite-your-code) by eremy Greer
+More on JSCodeshift in the article [Write Code to Rewrite Your Code: jscodeshift](https://www.toptal.com/javascript/write-code-to-rewrite-your-code) by Jeremy Greer
+
+## References
+
+See [Tree  Transformations References](/temas/tree-transformations/tree-transformations-references)
