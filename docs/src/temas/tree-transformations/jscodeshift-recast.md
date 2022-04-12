@@ -1,3 +1,6 @@
+---
+next: jscodeshift.md
+---
 # Recast and JSCodeShift 
 
 ## Recast
@@ -128,8 +131,10 @@ Time elapsed: 0.947seconds
 var bar = 4;
 ```
 
-More on JSCodeshift in the article [Write Code to Rewrite Your Code: jscodeshift](https://www.toptal.com/javascript/write-code-to-rewrite-your-code) by Jeremy Greer
+Continue now reading the section [Facebook jscodeshift](jscodeshift)
 
 ## References
+
+More on JSCodeshift in the article [Write Code to Rewrite Your Code: jscodeshift](https://www.toptal.com/javascript/write-code-to-rewrite-your-code) by Jeremy Greer
 
 See [Tree  Transformations References](/temas/tree-transformations/tree-transformations-references)
