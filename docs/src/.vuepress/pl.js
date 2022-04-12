@@ -48,8 +48,9 @@ const navigationBar = [
         { text: 'Source', link: 'https://github.com/ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io-source'}
         ]
       },
-      {text: 'PL Discussions', link: 'https://github.com/ULL-ESIT-PL-2122/PL-2122-discussions/discussions'},
-      {text: 'Global Campus Teachers', link: 'https://github.com/GitHub-Global-Campus/Global-Campus-Teachers/discussions'}
+      {text: 'ULL-MFP-TFM-Y-PCE-2122', link: 'https://github.com/ULL-MFP-TFM-Y-PCE-2122/private'},
+      //{text: 'PL Discussions', link: 'https://github.com/ULL-ESIT-PL-2122/PL-2122-discussions/discussions'},
+      {text: 'Global Campus Teachers', link: 'https://github.com/GitHub-Global-Campus/Global-Campus-Teachers/discussions'},
     ]
   },
   {
@@ -81,7 +82,9 @@ const navigationBar = [
           {text: 'Horarios de Tercero', link: 'https://www.ull.es/grados/ingenieria-informatica/informacion-academica/horarios-y-calendario-examenes/#tercero'},    
           {text: 'Portafirmas', link: 'https://sede.ull.es/ecivilis-signature-inbox-application/inbox.html'},
         ]
-      }
+      },
+      { text: 'TFG', link: "https://campusingenieriaytecnologia2122.ull.es/grade/report/user/index.php?id=2122090070&userid=254"},
+      { text: 'Campus de Masters', link: "https://campusdoctoradoyposgrado2122.ull.es/my/"},
  
 /*
       <li><a :href="$var.foros" target="_blank">Foros</a></li>
@@ -94,6 +97,7 @@ const navigationBar = [
       {text: 'Meet', link: 'https://meet.google.com/eha-yfij-zmo'},
       {text: 'Chat', link: 'https://mail.google.com/chat/u/1/#chat/welcome'},
       {text: 'Spreadsheets', link: 'https://docs.google.com/spreadsheets/u/1/?tgif=d'},
+      {text: 'Community', link: 'https://currents.google.com/u/0/communities/101901734024125937720'},
       {
         text: 'Vídeos', 
         items: [
