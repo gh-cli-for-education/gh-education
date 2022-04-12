@@ -62,13 +62,13 @@ var a = 17 + b;
 
 * Vea los contenidos del árbol [salida.json](./cf-salida)
 
-!!!include(temas/introduccion-a-javascript/master-the-ast-lectures.md)!!!
+!!!include(temas/tree-transformations/master-the-ast-lectures.md)!!!
 
-!!!include(temas/introduccion-a-javascript/codemod.md)!!!
+!!!include(temas/tree-transformations/codemod.md)!!!
 
-!!!include(temas/introduccion-a-javascript/ast-types.md)!!!
+!!!include(temas/tree-transformations/ast-types.md)!!!
 
-!!!include(temas/introduccion-a-javascript/jscodeshift-recast.md)!!!
+!!!include(temas/tree-transformations/jscodeshift-recast.md)!!!
 
 ## References
 

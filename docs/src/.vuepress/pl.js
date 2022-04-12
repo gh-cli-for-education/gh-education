@@ -22,11 +22,17 @@ const navigationBar = [
       },      
       {
         text: 'Recursos',
-        link: '/recursos/index.html'
+        items: [
+            { text: "ULL", link: '/recursos/index.html/#recursos-ull'},
+            { text: "GitHub", link: '/recursos/index.html/#recursos-github'},
+          ]
       },      
       {
         text: 'Horarios',
-        link: '/horarios/index.html'
+        items: [  
+          { text: 'Google Cal, Cal Acad y Exámenes', link: '/horarios/index.html'},
+          { text: 'Horarios de Tercero', link: 'https://www.ull.es/grados/ingenieria-informatica/informacion-academica/horarios-y-calendario-examenes/#tercero'},
+        ],
       },
       {
         text: 'Referencias',
@@ -37,10 +43,15 @@ const navigationBar = [
   {
     text: 'GitHub',
     items: [
-      {text: 'Organization', link: 'https://github.com/ULL-ESIT-PL-2122'},
-      {text: 'Teams', link: 'https://github.com/orgs/ULL-ESIT-PL-2122/teams'},
-      {text: 'Projects', link: 'https://github.com/orgs/ULL-ESIT-PL-2122/projects'},
-      {text: 'Classroom', link: 'https://classroom.github.com/classrooms/90842648-ull-esit-pl-2122'},
+      {
+        text: "ULL-ESIT-PL-2122",
+        items: [
+          {text: 'Organization', link: 'https://github.com/ULL-ESIT-PL-2122'},
+          {text: 'Teams', link: 'https://github.com/orgs/ULL-ESIT-PL-2122/teams'},
+          {text: 'Projects', link: 'https://github.com/orgs/ULL-ESIT-PL-2122/projects'},
+          {text: 'Classroom', link: 'https://classroom.github.com/classrooms/90842648-ull-esit-pl-2122'},
+        ]    
+      },
       {text: 'Apuntes Repo', 
         items: [
         { text: 'Deploy at GH', link: 'https://github.com/ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io'},
@@ -48,9 +59,13 @@ const navigationBar = [
         { text: 'Source', link: 'https://github.com/ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io-source'}
         ]
       },
-      {text: 'ULL-MFP-TFM-Y-PCE-2122', link: 'https://github.com/ULL-MFP-TFM-Y-PCE-2122/private'},
-      //{text: 'PL Discussions', link: 'https://github.com/ULL-ESIT-PL-2122/PL-2122-discussions/discussions'},
-      {text: 'Global Campus Teachers', link: 'https://github.com/GitHub-Global-Campus/Global-Campus-Teachers/discussions'},
+      {text: 'Teacher',
+        items: [
+          {text: 'ULL-MFP-TFM-Y-PCE-2122', link: 'https://github.com/ULL-MFP-TFM-Y-PCE-2122/private'},
+          //{text: 'PL Discussions', link: 'https://github.com/ULL-ESIT-PL-2122/PL-2122-discussions/discussions'},
+          {text: 'Global Campus Teachers', link: 'https://github.com/GitHub-Global-Campus/Global-Campus-Teachers/discussions'},
+        ]
+      }
     ]
   },
   {
@@ -79,7 +94,6 @@ const navigationBar = [
         text: 'ULL',
         items: [
           {text: 'Calendario Académico', link: 'https://www.ull.es/estudios-docencia/calendario-academico/'},
-          {text: 'Horarios de Tercero', link: 'https://www.ull.es/grados/ingenieria-informatica/informacion-academica/horarios-y-calendario-examenes/#tercero'},    
           {text: 'Portafirmas', link: 'https://sede.ull.es/ecivilis-signature-inbox-application/inbox.html'},
         ]
       },
