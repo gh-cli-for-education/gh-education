@@ -1,14 +1,14 @@
 
-## ast-types
+# ast-types
 
-### Introduction 
+## Introduction 
 
 The [ast-types](https://github.com/benjamn/ast-types) module provides an 
 [Esprima](https://github.com/ariya/esprima)-compatible implementation of
 the [abstract syntax tree type hierarchy](https://en.wikipedia.org/wiki/Abstract_syntax_tree)
 that was leaded by a project called Mozilla Parser API [JavaScript:SpiderMonkey:Parser API](https://web.archive.org/web/20210314002546/https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API). 
 
-### SpiderMonkey Parser API and estree/estree
+## SpiderMonkey Parser API and estree/estree
 
 ::: warning
 NOTE: The page [JavaScript:SpiderMonkey:Parser API](https://web.archive.org/web/20210314002546/https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API) describes SpiderMonkey-specific behavior and is incomplete. Visit [ESTree spec](https://github.com/estree/estree) for a community AST standard that includes latest ECMAScript features and is backward-compatible with SpiderMonkey format.
@@ -22,7 +22,7 @@ See  the [estree org](https://github.com/estree) and the [estree repo](https://g
 
 See also the video lecture [SpiderMonkey Parser API: A Standard For Structured JS Representations](https://www.infoq.com/presentations/spidermonkey-parser-api/) by Michael Ficarra 2014 at InfoQ. 
 
-### Simple Example
+## Simple Example
 
 The repo [crguezl/hello-ast-types](https://github.com/crguezl/hello-ast-types) contains  examples to learn  `ast-types`.
 
@@ -115,7 +115,7 @@ assert.ok(n.Identifier.check(ifFoo.test));
 assert.ok(!n.Statement.check(ifFoo.test));
 ```
 
-### Path objects
+## Path objects
 
 ast-types defines methods to 
 
@@ -150,7 +150,7 @@ path.node === path.parent.node.elements[3]
 ```
 :::
 
-### Example hello-ast-types.js
+## Example hello-ast-types.js
 
 See file [/crguezl/hello-ast-types/hello-ast-types.js](https://github.com/crguezl/hello-ast-types/blob/master/hello-ast-types.js):
 
@@ -189,7 +189,7 @@ console.log(deb(yAssignmentExpression.node));
 2. Output of [console.log(deb(programPath.node));](/temas/introduccion-a-pl/code-examples/xeq1yeq2-json)
 3. Outputs of [console.log(deb(xAssignmentExpression.node));](/temas/introduccion-a-pl/code-examples/xAssignmentExpresson-node)
 
-### path.parentPath
+## path.parentPath
 
 You should know that `path.parentPath` provides
 finer-grained access to the complete path of objects (not just the `Node`
@@ -264,7 +264,7 @@ path.get("elements").get(3).value === path.value.elements[3]
 path.get("elements", 0).value === path.value.elements[0]
 ```
 
-### nodePath.replace
+## nodePath.replace
 
 `NodePath` objects support a number of useful methods:
 
@@ -319,7 +319,7 @@ console.log(ast.body.body[0]); // { argument: null, loc: null, type: 'ReturnStat
 console.log(recast.print(ast).code) // function fn() { return; }
 ```
 
-### nodePath.prune
+## nodePath.prune
 
 Remove a node and its parent if it would leave a redundant AST node. Example:
 
@@ -365,7 +365,7 @@ import { NodePath } from "ast-types";
 */
 ```
 
-### Other NodePath methods
+## Other NodePath methods
 
 Remove a node from a list of nodes:
 
@@ -410,7 +410,7 @@ Insert a new element at index 5 in a list of nodes:
 ```js
 path.get("elements").insertAt(5, newNode);
 ```
-### Scope
+## Scope
 
 File [crguezl/hello-ast-types/scope-catch.js](https://github.com/crguezl/hello-ast-types/blob/master/scope-catch.js)
 
@@ -470,7 +470,7 @@ assert.strictEqual(closureScope.lookup("e"), catchScope);
 assert.strictEqual(closureScope.lookup("f"), fooScope);
 ```
 
-### Warning the use of Old JS arguments.callee
+## Warning the use of Old JS arguments.callee
 
 Early versions of JavaScript did not allow named function expressions, 
 and for this reason you could not make a recursive function expression. 
@@ -490,7 +490,7 @@ The goal of this code example: you want to detect uses of this old trick to upda
 See [crguezl/hello-ast-types#visitmemberexpressionjs](https://github.com/crguezl/hello-ast-types#visitmemberexpressionjs) for  the usage example 
 and [crguezl/hello-ast-types/visitmemberexpression.js](https://github.com/crguezl/hello-ast-types/blob/master/visitmemberexpression.js) for a solution
 
-### Translating the ES6 spread operator ... to ES5
+## Translating the ES6 spread operator ... to ES5
 
 On one side, the spread syntax (`...`) allows an iterable such as an array expression or string to be expanded in places where 
 * zero or more arguments (for function calls) or 
@@ -663,7 +663,7 @@ indicate that the traversal need not continue any further down this subtree. An 
 
 * Because you can call `this.traverse` at any point in the visitor method, it's up to the programmer whether the traversal is pre-order, post-order, or both
 
-### Checking if a function refers to `this`
+## Checking if a function refers to `this`
 
 These two rules may help to understand the semantics of `this` when used in JS functions: 
 

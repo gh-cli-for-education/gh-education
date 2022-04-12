@@ -1,5 +1,4 @@
-
-## Recast
+# Recast
 
 Recast is a library for parsing and modifying JavaScript code written on top of esprima and ast-types. 
 Recast provides methods for pretty printing ASTs as well as API to construct new ASTs without parsing any source code.
@@ -65,7 +64,7 @@ const output = recast.print(ast).code;
 console.log(output);
 ```
 
-## JSCodeshift 
+# JSCodeshift 
 
 <a href="https://github.com/facebook/jscodeshift" target="_blank">JSCodeshift</a> is a toolkit for running codemods over multiple JavaScript or
 TypeScript files. The interface that jscodeshift provides is a wrapper around [recast](#recast) and ast-types packages. 
