@@ -8,6 +8,7 @@
 * <a href="https://github.com/cpojer/js-codemod/blob/master/transforms/no-vars.js" target="_blank">jscodeshift cpojer/js-codemod no-vars.js</a> Conservatively converts `var` to `const` or `let`. `jscodeshift -t js-codemod/transforms/no-vars.js <file>`
 
 * [Effective Refactoring with Codemods - JS Monthly London - November 2018](https://youtu.be/H9qtLutnT_g) Presented by Edd Yerburgh. Study case: substituting lodash `flatten` by `arr.flat()`. YouTube
+* [Writing codemods to change all your code at once](https://youtu.be/P-J9Eg7hJwE) by Sid. Case: Changing import a library whose name has changed. YouTube. 2018
 
 ## Rajasegar works
 
