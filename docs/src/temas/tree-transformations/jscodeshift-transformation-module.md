@@ -134,3 +134,7 @@ Results: 0 errors 2 unmodified 3 skipped 5 ok
 [ast-types]: https://github.com/benjamn/ast-types
 [ast-explorer]: http://astexplorer.net/
 
+
+## References
+
+See the section [references about AST transformations](tree-transformations-references) 

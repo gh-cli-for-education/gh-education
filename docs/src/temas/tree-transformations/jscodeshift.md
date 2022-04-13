@@ -147,3 +147,7 @@ See section [The jscodeshift API](jscodeshift-api)
 [ast-types]: https://github.com/benjamn/ast-types
 [ast-explorer]: http://astexplorer.net/
 
+
+## References
+
+See the section [references about AST transformations](tree-transformations-references) 

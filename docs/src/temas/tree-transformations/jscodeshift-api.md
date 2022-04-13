@@ -237,3 +237,6 @@ Véase la sección [Unit Testing](jscodeshift-testing)
 [ast-types]: https://github.com/benjamn/ast-types
 [ast-explorer]: http://astexplorer.net/
 
+## References
+
+See the [references about AST transformations](tree-transformations-references) section
