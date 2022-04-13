@@ -10,6 +10,7 @@
 
 * [Effective Refactoring with Codemods - JS Monthly London - November 2018](https://youtu.be/H9qtLutnT_g) Presented by Edd Yerburgh. Study case: substituting lodash `flatten` by `arr.flat()`. YouTube
 * [Writing codemods to change all your code at once](https://youtu.be/P-J9Eg7hJwE) by Sid. Case: Changing import a library whose name has changed. YouTube. 2018
+* [Blog "Automating Code Transformation With jscodeshift"](https://engineering.widen.com/blog/Automating-Code-Transformation-With-jscodeshift/) Jan 21, 2021, by Mark Skelton. Study case: removing imported variable `queryCache` `from "react-query"` and importing it from a file in your project `"common/queryClient"`
 
 ## Rajasegar works
 
