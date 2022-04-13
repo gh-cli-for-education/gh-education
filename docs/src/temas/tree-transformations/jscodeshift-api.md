@@ -139,7 +139,7 @@ export default (fileInfo, api) => {
 
 The call `root.find(j.CallExpression` returns a collection of node-paths containing just the nodes that are `CallExpressions`. Without the second `filter` option, The  `find`  would not just find the console `CallExpressions`, it would find every `CallExpression` in the source. To force greater specificity, we provide a second argument to `.find`: An object of additional parameters, specifying that we want the `callee`  to be a `MemberExpression`  and the object to be an `Identifier` with `name` equal to `console`. 
 
-See the full example in the folder `remove-calls-to-console`of the repo [crguezl/hello-jscodeshift](https://github.com/crguezl/hello-jscodeshift/tree/master/remove-calls-to-console)
+See the full example in the folder `remove-calls-to-console` of the repo [crguezl/hello-jscodeshift](https://github.com/crguezl/hello-jscodeshift/tree/master/remove-calls-to-console)
 
 See the code of the class `Collection` in file [Collection.js](https://github.com/facebook/jscodeshift/blob/main/src/Collection.js) and the API docs in [Class: Collection](https://crguezl.github.io/jscodeshift-api-docs/Collection.html) docs. 
 
@@ -162,7 +162,7 @@ the nodes in the collection.
 **Type-specific** extensions work only on specific
 node types and are not callable on differently typed collections.
 
-### Examples
+### jscodeshift.registerMethods Examples
 
 Adding a method to all `Identifiers`
 
