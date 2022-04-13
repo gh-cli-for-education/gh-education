@@ -229,7 +229,7 @@ Véase la sección [Unit Testing](jscodeshift-testing)
 
 ## Recipes
 
-- [Retain leading comment(s) in file when replacing/removing first statement](recipes/retain-first-comment.md)
+- [Retain leading comment(s) in file when replacing/removing first statement](recipes/retain-first-comment)
 
 [npm]: https://www.npmjs.com/
 [Mozilla Parser API]: https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API
@@ -239,4 +239,4 @@ Véase la sección [Unit Testing](jscodeshift-testing)
 
 ## References
 
-See the [references about AST transformations](tree-transformations-references) section
+See the section [references about AST transformations](tree-transformations-references) 
