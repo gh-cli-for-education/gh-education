@@ -1,5 +1,6 @@
 ---
 prev: jscodeshift-transformation-module.md
+next: jscodeshift.md
 ---
 # The jscodeshift API
 
@@ -218,6 +219,11 @@ Véase la sección [Unit Testing](jscodeshift-testing)
 
 ## Example Codemods
 
+- <a href="https://www.toptal.com/javascript/write-code-to-rewrite-your-code" target="_blank">Write Code to Rewrite Your Code: jscodeshift</a> Examples: removing console.log, replacing imported method calls, from positional parameters to parameter object 
+  - [remove calls to console](https://github.com/crguezl/hello-jscodeshift/tree/master/remove-calls-to-console) 
+  - [Replacing imported method calls](https://github.com/crguezl/hello-jscodeshift/tree/master/replacing-imported-method-calls)
+  - [From positional parameters to parameter object](https://github.com/crguezl/hello-jscodeshift/tree/master/signature-change)
+- [FunctionExpression to an ArrowFunctionExpression when safe to do so](https://github.com/crguezl/hello-jscodeshift/tree/master/function-expression-to-arrow-expression)
 - [react-codemod](https://github.com/reactjs/react-codemod) - React codemod scripts to update React APIs.
 - [js-codemod](https://github.com/cpojer/js-codemod/) - Codemod scripts to transform code to next generation JS.
 - [js-transforms](https://github.com/jhgg/js-transforms) - Some documented codemod experiments to help you learn.

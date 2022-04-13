@@ -1,5 +1,5 @@
 ---
-prev: jscodeshift-api.md
+prev: /temas/tree-transformations/jscodeshift-api.md
 next: /temas/tree-transformations/jscodeshift.md
 ---
 # Retain comment on first line

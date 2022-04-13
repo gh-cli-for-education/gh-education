@@ -1,12 +1,13 @@
 ## JSCodeshift
 
 * <a href="https://github.com/facebook/jscodeshift" target="_blank">Codeshift at GitHub</a>
+* [JSCodeshift API Doc](https://crguezl.github.io/jscodeshift-api-docs/) crguezl
 * [JSCodeshift API Doc](https://npmdoc.github.io/node-npmdoc-jscodeshift/build/apidoc.html)
 * <a href="https://www.toptal.com/javascript/write-code-to-rewrite-your-code" target="_blank">Write Code to Rewrite Your Code: jscodeshift</a> Examples: removing console.log, replacing imported method calls, from positional parameters to parameter object
 * <a href="https://glebbahmutov.com/blog/jscodeshift-example/" target="_blank">jscodeshift "hello world" example</a>
 * <a href="https://github.com/cpojer/js-codemod/blob/master/transforms/no-vars.js" target="_blank">jscodeshift cpojer/js-codemod no-vars.js</a> Conservatively converts `var` to `const` or `let`. `jscodeshift -t js-codemod/transforms/no-vars.js <file>`
 
-
+* [Effective Refactoring with Codemods - JS Monthly London - November 2018](https://youtu.be/H9qtLutnT_g) Presented by Edd Yerburgh. Study case: substituting lodash `flatten` by `arr.flat()`. YouTube
 
 ## Rajasegar works
 
