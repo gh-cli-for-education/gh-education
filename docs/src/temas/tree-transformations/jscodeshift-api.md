@@ -73,11 +73,19 @@ The signature of each builder function is best learned by having a look at the
 
 In order to transform the AST, you have to traverse it and find the nodes that
 need to be changed. jscodeshift is built around the idea of **collections** of
-paths and thus provides a different way of processing an AST than recast or
+**paths** and thus provides a different way of processing an AST than recast or
 ast-types.
 
-A collection has methods to process the nodes inside a collection, often
-resulting in a new collection. This results in a fluent interface, which can
+1. Collections contain node-paths, 
+2. node-paths contain nodes, and 
+3. nodes are what the AST is made of.
+
+![](/images/nodes-nodepaths-collections.png)
+
+*A collection has methods to process the nodes inside a collection, often
+resulting in a new collection*  . 
+
+This results in a fluent interface, which can
 make the transform more readable.
 
 Collections are "typed" which means that the type of a collection is the
@@ -86,18 +94,9 @@ cannot call a method for a `FunctionExpression` collection on an `Identifier`
 collection.
 
 Here is an example of how one would find/traverse all `Identifier` nodes with
-jscodeshift and with recast:
+jscodeshift:
 
 ```js
-// recast
-var ast = recast.parse(src);
-recast.visit(ast, {
-  visitIdentifier: function(path) {
-    // do something with path
-    return false;
-  }
-});
-
 // jscodeshift
 jscodeshift(src)
   .find(jscodeshift.Identifier)
@@ -106,8 +105,41 @@ jscodeshift(src)
   });
 ```
 
-To learn about the provided methods, have a look at the
-[Collection.js](https://github.com/facebook/jscodeshift/blob/main/src/Collection.js) and its [extensions](https://github.com/facebook/jscodeshift/blob/main/src/collections).
+The [`jscodeshift(src).find` method](https://crguezl.github.io/jscodeshift-api-docs/collections_Node.js.html#line32) has two parameters `type` and `filter`. 
+
+The `type` parameter is a `predicateType` object:
+
+```js
+{
+    "name": "Name of the node",
+    "kind": "PredicateType",
+    "predicate": function(value, deep) { ... }
+}
+```
+
+The `filter` parameter is optional and is a function or a Node. Not used in the former example.
+Here is a transformation using a filter:
+
+```js
+export default (fileInfo, api) => {
+    const j = api.jscodeshift;
+    const root = j(fileInfo.source);
+    const callExpressions = root.find(j.CallExpression, 
+        { // filter 
+            callee: {
+                type: 'MemberExpression',
+                object: { type: 'Identifier', name: 'console' },
+            },
+        }
+    );
+    ...
+}
+```
+
+The call `root.find(j.CallExpression` returns a collection of node-paths containing just the nodes that are `CallExpressions`. Without the second option, The  `find`  would not just find the console `CallExpressions`, it would find every `CallExpression` in the source. To force greater specificity, we provide a second argument to `.find`: An object of additional parameters, each node needs to be included in the results. 
+
+* the [Collection.js](https://github.com/facebook/jscodeshift/blob/main/src/Collection.js) file or better the [Class: Collection](https://crguezl.github.io/jscodeshift-api-docs/Collection.html) docs
+* and its [extensions](https://github.com/facebook/jscodeshift/blob/main/src/collections).
 
 ## Extensibility
 
@@ -128,8 +160,9 @@ node types and are not callable on differently typed collections.
 
 ### Examples
 
-```js
-// Adding a method to all Identifiers
+Adding a method to all `Identifiers`
+
+```js{7}
 jscodeshift.registerMethods({
   logNames: function() {
     return this.forEach(function(path) {
@@ -137,14 +170,21 @@ jscodeshift.registerMethods({
     });
   }
 }, jscodeshift.Identifier);
+```
 
-// Adding a method to all collections
+Adding a method to all `collections`
+
+```js
 jscodeshift.registerMethods({
   findIdentifiers: function() {
     return this.find(jscodeshift.Identifier);
   }
 });
+``` 
 
+Then we can use them this way:
+
+```js
 jscodeshift(ast).findIdentifiers().logNames();
 jscodeshift(ast).logNames(); // error, unless `ast` only consists of Identifier nodes
 ```
@@ -178,7 +218,7 @@ Véase la sección [Unit Testing](jscodeshift-testing)
 - [js-codemod](https://github.com/cpojer/js-codemod/) - Codemod scripts to transform code to next generation JS.
 - [js-transforms](https://github.com/jhgg/js-transforms) - Some documented codemod experiments to help you learn.
 
-## Local Documentation Server
+## JsCodeShift Documentation 
 
  See [crguezl/jscodeshift-api-docs](https://crguezl.github.io/jscodeshift-api-docs/index.html) deployment
 
