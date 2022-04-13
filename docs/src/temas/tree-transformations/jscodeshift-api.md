@@ -118,7 +118,7 @@ The `type` parameter is a `predicateType` object:
 ```
 
 The `filter` parameter is optional and is a function or a Node. Not used in the former example.
-Here is a transformation using a filter:
+Here is an example of transformation using a filter:
 
 ```js
 export default (fileInfo, api) => {
@@ -132,11 +132,12 @@ export default (fileInfo, api) => {
             },
         }
     );
-    ...
+    callExpressions.remove();
+    return root.toSource();
 }
 ```
 
-The call `root.find(j.CallExpression` returns a collection of node-paths containing just the nodes that are `CallExpressions`. Without the second option, The  `find`  would not just find the console `CallExpressions`, it would find every `CallExpression` in the source. To force greater specificity, we provide a second argument to `.find`: An object of additional parameters, each node needs to be included in the results. 
+The call `root.find(j.CallExpression` returns a collection of node-paths containing just the nodes that are `CallExpressions`. Without the second `filter` option, The  `find`  would not just find the console `CallExpressions`, it would find every `CallExpression` in the source. To force greater specificity, we provide a second argument to `.find`: An object of additional parameters, specifying that we want the `callee`  to be a `MemberExpression`  and the object to be an `Identifier` with `name` equal to `console`. 
 
 * the [Collection.js](https://github.com/facebook/jscodeshift/blob/main/src/Collection.js) file or better the [Class: Collection](https://crguezl.github.io/jscodeshift-api-docs/Collection.html) docs
 * and its [extensions](https://github.com/facebook/jscodeshift/blob/main/src/collections).
