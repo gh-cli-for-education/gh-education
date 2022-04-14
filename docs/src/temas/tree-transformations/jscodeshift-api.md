@@ -148,7 +148,7 @@ See its [extensions](https://github.com/facebook/jscodeshift/blob/main/src/colle
 
 ## Extensibility
 
-jscodeshift provides an API to extend collections. By moving common operators
+jscodeshift provides [an API to extend collections](https://crguezl.github.io/jscodeshift-api-docs/global.html#registerMethods). By moving common operators
 into helper functions (which can be stored separately in other modules), a
 transform can be made more readable.
 
@@ -177,7 +177,9 @@ jscodeshift.registerMethods({
 }, jscodeshift.Identifier);
 ```
 
-Adding a method to all `collections`
+Inside the `logNames` function `this` refers to the current Collection.
+
+Here is another example adding a method to all `collections`
 
 ```js
 jscodeshift.registerMethods({
