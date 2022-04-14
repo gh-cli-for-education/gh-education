@@ -18,7 +18,7 @@ async function describeAndPause(obj) {
 
 Here is the code of the transformation function:
 
-```
+```js
 async function main(fileInfo, api, options) {
 
   console.log("hello jscodeshift!");
