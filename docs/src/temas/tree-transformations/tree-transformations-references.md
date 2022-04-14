@@ -5,6 +5,7 @@
 * [JSCodeshift API Doc](https://crguezl.github.io/jscodeshift-api-docs/) (by crguezl, done with jscodeshift --version
 jscodeshift: 0.13.1 babel: 7.17.5 babylon: 7.17.3 flow: 0.172.0 recast: 0.20.5)
   * [JSCodeshift API Doc](https://npmdoc.github.io/node-npmdoc-jscodeshift/build/apidoc.html) v0.3 obsolete
+* [AST-Builder](https://rajasegar.github.io/ast-builder/) by Rasegar
 
 
 * <a href="https://www.toptal.com/javascript/write-code-to-rewrite-your-code" target="_blank">Write Code to Rewrite Your Code: jscodeshift</a> Examples: removing console.log, replacing imported method calls, from positional parameters to parameter object 
@@ -18,6 +19,7 @@ jscodeshift: 0.13.1 babel: 7.17.5 babylon: 7.17.3 flow: 0.172.0 recast: 0.20.5)
 
 ## Rajasegar works
 
+* [AST-Builder](https://rajasegar.github.io/ast-builder/)
 * [Migrating large codebase with Codemods](https://youtu.be/akKMopknEwc) YouTube video. Talk at JSFoo Pune 2020. On component architecture, performance, security for front-end, and emerging trends. Rajasegar Chandran.
   * [Slides](https://drive.google.com/file/d/1fHmdLBZktBE_yvhP4Oj75zoFOMYGuob5/view)
   * [Awesome codemods](https://github.com/rajasegar/awesome-codemods) at rajasegar/awesome-codemods
