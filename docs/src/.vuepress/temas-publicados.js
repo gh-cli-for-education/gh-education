@@ -9,7 +9,7 @@ module.exports = [
     {text: "GitHub Actions", link: "/temas/introduccion-a-javascript/github-actions.html"},
     {text: "Publishing a npm module", link: "/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html"},
     {text: "Regular expressions and Lexical Analysis", link: "/temas/expresiones-regulares-y-analisis-lexico/"},
-    {text: "Gramáticas y Lenguajes", link: "/temas/syntax-analysis/teoria.html"},
+    {text: "Grammars and Languages", link: "/temas/syntax-analysis/teoria.html"},
     {text: "Earley Parsers", link: "/temas/syntax-analysis/earley/nearley.html"},
     {text: "Ambiguity", link: "/temas/syntax-analysis/earley/ambiguity.html"},
     {text: "Abstract Syntax Trees", link: "/temas/syntax-analysis/ast.html"},
