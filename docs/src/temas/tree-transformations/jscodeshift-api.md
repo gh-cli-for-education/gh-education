@@ -247,10 +247,15 @@ Code for the example [From positional parameters to parameter object](https://gi
 
 - [FunctionExpression to an ArrowFunctionExpression when safe to do so](https://github.com/crguezl/hello-jscodeshift/tree/master/function-expression-to-arrow-expression)
 
+## Trailing Commas
+
+- [crguezl/learning-jscodeshift/transforms/trailing-commas.js](https://github.com/crguezl/learning-jscodeshift/blob/master/transforms/trailing-commas.js),
+forked from [js-codemod](https://github.com/cpojer/js-codemod/) - Codemod scripts to transform code to next generation JS.
+
+
 ## Other Examples
 
 - [react-codemod](https://github.com/reactjs/react-codemod) - React codemod scripts to update React APIs.
-- [js-codemod](https://github.com/cpojer/js-codemod/) - Codemod scripts to transform code to next generation JS.
 - [js-transforms](https://github.com/jhgg/js-transforms) - Some documented codemod experiments to help you learn.
 
 ## JsCodeShift Documentation 
