@@ -69,3 +69,5 @@ See chapter [JSCodeshift and Recast](/temas/tree-transformations/jscodeshift-rec
 This is a talk similar to Yonatan Mevorach by Leonardo Crespo given in 2019:
 
 * [AST: Awesome Super Tool - JS Roundabout - April 2019](https://youtu.be/N5v8Ul6ph90) by Leonardo Crespo
+
+!!!include(includes/jscodeshift-links.md)!!!

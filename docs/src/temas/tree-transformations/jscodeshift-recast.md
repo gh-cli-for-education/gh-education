@@ -5,7 +5,7 @@ next: jscodeshift.md
 
 ## Recast
 
-Recast is a library for parsing and modifying JavaScript code written on top of esprima and ast-types. 
+Recast is a library for parsing and modifying JavaScript code written on top of esprima and [ast-types][]. 
 Recast provides methods for pretty printing ASTs as well as API to construct new ASTs without parsing any source code.
 
 See the examples in [/crguezl/hello-jscodeshift/hello-recast.js](https://github.com/crguezl/hello-jscodeshift/blob/master/hello-recast.js)
@@ -72,7 +72,7 @@ console.log(output);
 ## JSCodeshift 
 
 <a href="https://github.com/facebook/jscodeshift" target="_blank">JSCodeshift</a> is a toolkit for running codemods over multiple JavaScript or
-TypeScript files. The interface that jscodeshift provides is a wrapper around [recast](#recast) and ast-types packages. 
+TypeScript files. The interface that jscodeshift provides is a wrapper around [recast](#recast) and [ast-types][] packages. 
 
 ![jscodeshift and recast relation image](/images/jscodeshift-recast-phases.png)
 
@@ -84,7 +84,7 @@ Inside the transform, you
 2. poke around to make your changes, 
 3. then regenerate the source from the altered AST.
 
-The interface that jscodeshift provides is a wrapper around [recast](https://github.com/benjamn/recast) and ast-types packages. [recast](https://github.com/benjamn/recast) handles the conversion from source to AST and back while ast-types handles the low-level interaction with the AST nodes.
+The interface that jscodeshift provides is a wrapper around [recast](https://github.com/benjamn/recast) and [ast-types][] packages. [recast](https://github.com/benjamn/recast) handles the conversion from source to AST and back while [ast-types][] handles the low-level interaction with the AST nodes.
 
 
 ```
@@ -138,3 +138,5 @@ Continue now reading the section [Facebook jscodeshift](jscodeshift)
 More on JSCodeshift in the article [Write Code to Rewrite Your Code: jscodeshift](https://www.toptal.com/javascript/write-code-to-rewrite-your-code) by Jeremy Greer
 
 See [Tree  Transformations References](/temas/tree-transformations/tree-transformations-references)
+
+!!!include(includes/jscodeshift-links.md)!!!

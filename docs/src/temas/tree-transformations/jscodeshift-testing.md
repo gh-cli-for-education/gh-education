@@ -116,3 +116,5 @@ defineInlineTest(transform, /* ... */)
 ## References
 
 See the section [references about AST transformations](tree-transformations-references) 
+
+!!!include(includes/jscodeshift-links.md)!!!

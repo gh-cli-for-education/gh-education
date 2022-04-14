@@ -73,23 +73,23 @@ The signature of each builder function is best learned by having a look at the
 ## Collections and Traversal
 
 In order to transform the AST, you have to traverse it and find the nodes that
-need to be changed. jscodeshift is built around the idea of **collections** of
+need to be changed. jscodeshift is built around the idea of **[collections][]** of
 **paths** and thus provides a different way of processing an AST than recast or
 ast-types.
 
-1. Collections contain node-paths, 
-2. node-paths contain nodes, and 
+1. [Collections][] contain [nodepaths][], 
+2. [nodepaths][] contain nodes, and 
 3. nodes are what the AST is made of.
 
-![](/images/nodes-nodepaths-collections.png)
+[![](/images/nodes-nodepaths-collections.png)](https://github.com/facebook/jscodeshift/wiki/jscodeshift-Documentation#intro)
 
 *A collection has methods to process the nodes inside a collection, often
-resulting in a new collection*  . 
+resulting in a new collection* 
 
 This results in a fluent interface, which can
 make the transform more readable.
 
-Collections are "typed" which means that the type of a collection is the
+[Collections][] are "typed" which means that the type of a collection is the
 "lowest" type all AST nodes in the collection have in common. That means you
 cannot call a method for a `FunctionExpression` collection on an `Identifier`
 collection.
@@ -138,7 +138,7 @@ export default (fileInfo, api) => {
 }
 ```
 
-The call `root.find(j.CallExpression` returns a collection of node-paths containing just the nodes that are `CallExpressions`. Without the second `filter` option, The  `find`  would not just find the console `CallExpressions`, it would find every `CallExpression` in the source. To force greater specificity, we provide a second argument to `.find`: An object of additional parameters, specifying that we want the `callee`  to be a `MemberExpression`  and the object to be an `Identifier` with `name` equal to `console`. 
+The call `root.find(j.CallExpression` returns a collection of [nodepaths][] containing just the nodes that are `CallExpressions`. Without the second `filter` option, The  `find`  would not just find the console `CallExpressions`, it would find every `CallExpression` in the source. To force greater specificity, we provide a second argument to `.find`: An object of additional parameters, specifying that we want the `callee`  to be a `MemberExpression`  and the object to be an `Identifier` with `name` equal to `console`. 
 
 See the full example in the folder `remove-calls-to-console` of the repo [crguezl/hello-jscodeshift](https://github.com/crguezl/hello-jscodeshift/tree/master/remove-calls-to-console)
 
@@ -156,12 +156,12 @@ There are two types of extensions:
 1. generic extensions and 
 2. type-specific extensions. 
  
-**Generic extensions** are applicable to all collections. As such,
+**Generic extensions** are applicable to all [collections][]. As such,
 they typically don't access specific node data, but rather traverse the AST from
 the nodes in the collection. 
 
 **Type-specific** extensions work only on specific
-node types and are not callable on differently typed collections.
+node types and are not callable on differently typed [collections][].
 
 ### jscodeshift.registerMethods Examples
 
@@ -179,7 +179,7 @@ jscodeshift.registerMethods({
 
 Inside the `logNames` function `this` refers to the current Collection.
 
-Here is another example adding a method to all `collections`
+Here is another example adding a method to all `[collections][]`
 
 ```js
 jscodeshift.registerMethods({
@@ -195,6 +195,9 @@ Then we can use them this way:
 jscodeshift(ast).findIdentifiers().logNames();
 jscodeshift(ast).logNames(); // error, unless `ast` only consists of Identifier nodes
 ```
+
+See an [example](register-method-examples)
+
 
 ## Passing options to [recast]
 
@@ -239,11 +242,7 @@ Véase la sección [Unit Testing](jscodeshift-testing)
 
 - [Retain leading comment(s) in file when replacing/removing first statement](recipes/retain-first-comment)
 
-[npm]: https://www.npmjs.com/
-[Mozilla Parser API]: https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API
-[recast]: https://github.com/benjamn/recast
-[ast-types]: https://github.com/benjamn/ast-types
-[ast-explorer]: http://astexplorer.net/
+!!!include(includes/jscodeshift-links.md)!!!
 
 ## References
 
