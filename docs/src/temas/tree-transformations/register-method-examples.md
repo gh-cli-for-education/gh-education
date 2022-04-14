@@ -9,7 +9,7 @@ const keypress = require('./util/keypress');
 
 The auxiliary module  [/crguezl/hello-jscodeshift/util/keypress.js](https://github.com/crguezl/hello-jscodeshift/blob/master/util/keypress.js) shows a way to pause the output and make the program wait for a keypress.
 
-```js
+```js{19-23}
 async function describeAndPause(obj) {
   describe(obj);
   await keypress()

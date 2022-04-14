@@ -222,20 +222,41 @@ More on config options [here](https://github.com/benjamn/recast/blob/52a7ec3eaaa
 
 Véase la sección [Unit Testing](jscodeshift-testing)
 
-## Example Codemods
+## Examples from  *Write Code to Rewrite Your Code: jscodeshift* tutorial
 
-- <a href="https://www.toptal.com/javascript/write-code-to-rewrite-your-code" target="_blank">Write Code to Rewrite Your Code: jscodeshift</a> Examples: removing console.log, replacing imported method calls, from positional parameters to parameter object 
-  - [remove calls to console](https://github.com/crguezl/hello-jscodeshift/tree/master/remove-calls-to-console) 
-  - [Replacing imported method calls](https://github.com/crguezl/hello-jscodeshift/tree/master/replacing-imported-method-calls)
-  - [From positional parameters to parameter object](https://github.com/crguezl/hello-jscodeshift/tree/master/signature-change)
+
+Read the tutorial at <a href="https://www.toptal.com/javascript/write-code-to-rewrite-your-code" target="_blank">Write Code to Rewrite Your Code: jscodeshift</a> Examples: removing console.log, replacing imported method calls, from positional parameters to parameter object 
+
+### Remove calls to console
+
+Here you have the code of the example [remove calls to console](https://github.com/crguezl/hello-jscodeshift/tree/master/remove-calls-to-console).
+
+**Exercise** 
+
+Write a transformation `remove-console-logs.js` that only removes `console.logs` but not `console.warn` and others
+
+### Replacing imported method calls
+
+Here is the code of the example [Replacing imported method calls](https://github.com/crguezl/hello-jscodeshift/tree/master/replacing-imported-method-calls)
+
+### From positional parameters to parameter object
+
+Code for the example [From positional parameters to parameter object](https://github.com/crguezl/hello-jscodeshift/tree/master/signature-change)
+
+## Example FunctionExpression to an ArrowFunctionExpression
+
 - [FunctionExpression to an ArrowFunctionExpression when safe to do so](https://github.com/crguezl/hello-jscodeshift/tree/master/function-expression-to-arrow-expression)
+
+## Other Examples
+
 - [react-codemod](https://github.com/reactjs/react-codemod) - React codemod scripts to update React APIs.
 - [js-codemod](https://github.com/cpojer/js-codemod/) - Codemod scripts to transform code to next generation JS.
 - [js-transforms](https://github.com/jhgg/js-transforms) - Some documented codemod experiments to help you learn.
 
 ## JsCodeShift Documentation 
 
- See [crguezl/jscodeshift-api-docs](https://crguezl.github.io/jscodeshift-api-docs/index.html) deployment
+See [jscodeshift wiki: documentation](https://github.com/facebook/jscodeshift/wiki/jscodeshift-Documentation)
+and [crguezl/jscodeshift-api-docs](https://crguezl.github.io/jscodeshift-api-docs/index.html) deployment
 
 
 ## Recipes
