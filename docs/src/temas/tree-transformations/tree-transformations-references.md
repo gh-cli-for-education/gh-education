@@ -1,9 +1,12 @@
 ## JSCodeshift
 
-* <a href="https://github.com/facebook/jscodeshift" target="_blank">Codeshift at GitHub</a>
+* <a href="https://github.com/facebook/jscodeshift" target="_blank">Codeshift repo at GitHub facebook/jscodeshift</a>
+* [jscodeshift wiki: documentation](https://github.com/facebook/jscodeshift/wiki/jscodeshift-Documentation)
 * [JSCodeshift API Doc](https://crguezl.github.io/jscodeshift-api-docs/) (by crguezl, done with jscodeshift --version
 jscodeshift: 0.13.1 babel: 7.17.5 babylon: 7.17.3 flow: 0.172.0 recast: 0.20.5)
   * [JSCodeshift API Doc](https://npmdoc.github.io/node-npmdoc-jscodeshift/build/apidoc.html) v0.3 obsolete
+
+
 * <a href="https://www.toptal.com/javascript/write-code-to-rewrite-your-code" target="_blank">Write Code to Rewrite Your Code: jscodeshift</a> Examples: removing console.log, replacing imported method calls, from positional parameters to parameter object 
   * [Video en Español comentando el blog "Write Code ..."](https://youtu.be/EH2hHK83UXI)
 * <a href="https://glebbahmutov.com/blog/jscodeshift-example/" target="_blank">jscodeshift "hello world" example</a>
