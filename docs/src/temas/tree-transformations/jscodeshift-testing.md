@@ -17,9 +17,9 @@ This results in a directory structure like this:
 /__testfixtures__/MyTransform.output.js
 ```
 
-A simple example of unit tests is bundled in the [sample directory](sample).
+A simple example of unit tests is bundled in the [sample directory][sample].
 
-The `testUtils` module exposes a number of useful helpers for unit testing.
+The [testUtils module][testutil] exposes a number of useful helpers for unit testing.
 
 ## `defineTest`
 
@@ -42,6 +42,9 @@ defineTest(__dirname, 'MyTransform', null, 'SecondFixture');
 This will run two tests:
 - `__testfixtures__/FirstFixture.input.js`
 - `__testfixtures__/SecondFixture.input.js`
+
+See the example in folder [crguezl/hello-jscodeshift/prefix-functions](https://github.com/crguezl/hello-jscodeshift/tree/master/prefix-functions) in the `master` branch
+
 
 ## `defineInlineTest`
 
@@ -121,5 +124,7 @@ The tutorial [Writing Javascript Codemods and Understanding AST Easily](https://
 in Arminas Katilius Personal Blog, makes special emphasis in testing with jscodeshift.
 
 
+[sample]: https://github.com/facebook/jscodeshift/tree/main/sample
+[testutil]: https://github.com/facebook/jscodeshift/blob/main/src/testUtils.js
 
 !!!include(includes/jscodeshift-links.md)!!!
