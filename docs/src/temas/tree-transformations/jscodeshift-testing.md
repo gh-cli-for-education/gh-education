@@ -117,4 +117,9 @@ defineInlineTest(transform, /* ... */)
 
 See the section [references about AST transformations](tree-transformations-references) 
 
+The tutorial [Writing Javascript Codemods and Understanding AST Easily](https://katilius.dev/writing-js-codemods/)
+in Arminas Katilius Personal Blog, makes special emphasis in testing with jscodeshift.
+
+
+
 !!!include(includes/jscodeshift-links.md)!!!

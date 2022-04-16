@@ -1,6 +1,4 @@
----
-next: /temas/tree-transformations/README.md
----
+
 ## JSCodeshift
 
 * <a href="https://github.com/facebook/jscodeshift" target="_blank">Codeshift repo at GitHub facebook/jscodeshift</a>
@@ -55,3 +53,4 @@ jscodeshift: 0.13.1 babel: 7.17.5 babylon: 7.17.3 flow: 0.172.0 recast: 0.20.5)
 This is a talk similar to Yonatan Mevorach by Leonardo Crespo given in 2019:
 
 * [AST: Awesome Super Tool - JS Roundabout - April 2019](https://youtu.be/N5v8Ul6ph90) by Leonardo Crespo
+
