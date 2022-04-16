@@ -1,7 +1,7 @@
 ---
 next: jscodeshift.md
 ---
-# Unit Testing
+# Unit Testing jscodeshift Transformations
 
 jscodeshift comes with a simple utility to allow easy unit testing with [Jest](https://facebook.github.io/jest/), without having to write a lot of boilerplate code. This utility makes some assumptions in order to reduce the amount of configuration required:
 
