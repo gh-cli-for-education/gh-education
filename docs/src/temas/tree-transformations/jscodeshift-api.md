@@ -67,6 +67,13 @@ var ast = j.callExpression(
 );
 ```
 
+::: danger jscodeshift Lowercase vs Uppercase fields
+
+If you access a `jscodeshift` field starting with lowercase like `j.callExpression, it will return a **build** instance.
+
+If you access a `jscodeshift` field starting with uppercase, it will return a **predicate** which  is used to filter and check nodes.
+:::
+
 The signature of each builder function is best learned by having a look at the
 [definition files](https://github.com/benjamn/ast-types/blob/master/def/).
 
@@ -137,6 +144,13 @@ export default (fileInfo, api) => {
     return root.toSource();
 }
 ```
+
+::: danger jscodeshift Lowercase vs Uppercase fields
+
+If you access a `jscodeshift` field starting with lowercase like `j.callExpression, it will return a **build** instance.
+
+If you access a `jscodeshift` field starting with uppercase, it will return a **predicate** which  is used to filter and check nodes.
+:::
 
 The call `root.find(j.CallExpression` returns a collection of [nodepaths][] containing just the nodes that are `CallExpressions`. Without the second `filter` option, The  `find`  would not just find the console `CallExpressions`, it would find every `CallExpression` in the source. To force greater specificity, we provide a second argument to `.find`: An object of additional parameters, specifying that we want the `callee`  to be a `MemberExpression`  and the object to be an `Identifier` with `name` equal to `console`. 
 
@@ -243,15 +257,19 @@ Here is the code of the example [Replacing imported method calls](https://github
 
 Code for the example [From positional parameters to parameter object](https://github.com/crguezl/hello-jscodeshift/tree/master/signature-change)
 
-## Example FunctionExpression to an ArrowFunctionExpression
+## Example inserting console.log at the beginning of a function
 
-- [FunctionExpression to an ArrowFunctionExpression when safe to do so](https://github.com/crguezl/hello-jscodeshift/tree/master/function-expression-to-arrow-expression)
+See the code at the folder [crguezl/hello-jscodeshift/prefix-functions](https://github.com/crguezl/hello-jscodeshift/tree/master/prefix-functions) in the `master` branch
+
 
 ## Trailing Commas
 
 - [crguezl/learning-jscodeshift/transforms/trailing-commas.js](https://github.com/crguezl/learning-jscodeshift/blob/master/transforms/trailing-commas.js),
 forked from [js-codemod](https://github.com/cpojer/js-codemod/) - Codemod scripts to transform code to next generation JS.
 
+## Example FunctionExpression to an ArrowFunctionExpression
+
+- [FunctionExpression to an ArrowFunctionExpression when safe to do so](https://github.com/crguezl/hello-jscodeshift/tree/master/function-expression-to-arrow-expression)
 
 ## Other Examples
 
