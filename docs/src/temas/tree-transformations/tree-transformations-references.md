@@ -58,5 +58,7 @@ This is a talk similar to Yonatan Mevorach by Leonardo Crespo given in 2019:
 
 by Kim Joar Bekkelund. September 14, 2017 
 
+Study case: Substitute `Object.assign({}, a, b)` by `{...a, ...b}`
+
 <iframe src="https://player.vimeo.com/video/233792603?h=c6b0e4c7d7&color=ff9933&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 <p><a href="https://vimeo.com/233792603">Wielding the powers of the JavaScript AST: Kim Joar Bekkelund</a> from <a href="https://vimeo.com/javazone">JavaZone</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
