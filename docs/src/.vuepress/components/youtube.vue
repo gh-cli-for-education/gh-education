@@ -20,9 +20,13 @@
         },
         computed: {
           src() {
+            let id = this.id; // from the property
             //console.log(this.$page.frontmatter.video);
-            let id = (this.$page && this.$page.frontmatter && this.$page.frontmatter.video);
-            if (this.id) id = this.id;
+            if (!id) {
+              id = (this.$page && this.$page.frontmatter && this.$page.frontmatter.video);
+              let m = /https:.*\.be\/(\w+)$/.exec(id);
+              if (m && m[1]) id = m[1];
+            }
             //console.log(id);
             return "https://www.youtube-nocookie.com/embed/"+id
           }
