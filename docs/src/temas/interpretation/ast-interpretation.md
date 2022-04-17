@@ -224,7 +224,7 @@ apply(operator: word{name: '+'}, args: [ value{value: 2}, value{value:3}])
 that when the `apply` is interpreted `this.operator.type` is `'word'` but `this.operator.name` is `+` which isn't  in `specialForms` skipping lines 2-4. 
 
 ```js{7-13}
-  evaluate(env) {
+  evaluate(env) { // ... inside the Apply class
     if (this.operator.type == 'word' && this.operator.name in specialForms) {
       return specialForms[this.operator.name](this.args, env);
     }
@@ -254,7 +254,7 @@ which was accordingly initialized:
 });
 ```
 
-Since `this.args` contains the array ` value(value: 2), value(value:3)]` the map will leave in  `argsProcessed` the array `[2, 3]` and the final result is the 
+Since `this.args` contains the array `[ value{value: 2}, value{value:3}]` the map will leave in  `argsProcessed` the array `[2, 3]` and the final result is the 
 call `topEnv['+'](...[2,3])`
 
 
