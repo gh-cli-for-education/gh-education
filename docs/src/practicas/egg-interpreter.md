@@ -13,6 +13,7 @@ rubrica:
   - El REPL funciona correctamente
   - Las clases de los ASTs disponen de los métodos adecuados
   - Las asignaciones han sido implementadas correctamente
+  - El analizador léxico de Egg usa un analizador léxico generado por el generador de analizadores léxicos del alumno
   - Comprende la interpretación de las funciones Egg mediante funciones JS
   - Comprende el manejo de ámbitos
   - Contiene suficientes tests
@@ -78,6 +79,8 @@ module.exports = {
 * Véase la sección [Construcción de un Repeat Evaluate Print Loop](/temas/interpretation/repl-interpretation.md)
 
 
+* [readline.createInterface(options)](https://nodejs.org/api/readline.html#readlinecreateinterfaceoptions)
+ 
 ## AST Classes and AST Interpretation
 
 Véase la sección sobre la [Estructura de Clases para los ASTs y la Interpretación de los Nodos del AST](/temas/interpretation/ast-interpretation)
