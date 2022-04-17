@@ -82,6 +82,8 @@ specialForms['='] = specialForms['set'] = function(args, env) {
 
 Try to write the `leftEvaluate` method(s) for Egg. Allow only words on the left side of any assignment
 
+## Future Work on Assignments
+
 ::: danger Future Work
 
 Although by now we will restrict to allow only words on the left side of any assignment, we aim to increase expressiveness and to allow assignments that can contains expressions like the `=(y["y"][1], 9)` or `=(self.c, a)` in the following example:
