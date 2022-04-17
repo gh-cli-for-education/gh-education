@@ -59,7 +59,7 @@ On the left side `x` is a reference or a binding, on the right side is a value: 
 
 Our `evaluate` methods do not work here, since they interpret the expressions in a r-value context.
 
-Te proposal is to introduce `leftEvaluate` methods in the AST node classes that evaluate the expressions in a l-value context. Something like the following code for `specialForms['=']`:
+The proposal is to introduce `leftEvaluate` methods in the AST node classes that evaluate the expressions in a l-value context. Something like the following code for `specialForms['=']`:
 
 ```js{10}
 specialForms['='] = specialForms['set'] = function(args, env) { 
