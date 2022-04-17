@@ -84,19 +84,37 @@ Try to write the `leftEvaluate` method(s) for Egg. Allow only words on the left 
 
 ::: danger Future Work
 
-Although by now we will restrict to allow only words on the left side of any assignment, we aim to increase expressiveness and to allow assignments that can contains expressions like the `m[-1]` in the following 
-example:
+Although by now we will restrict to allow only words on the left side of any assignment, we aim to increase expressiveness and to allow assignments that can contains expressions like the `=(y["y"][1], 9)` or `=(self.c, a)` in the following example:
 
 ```js{4}
-➜  eloquentjsegg git: cat examples/set-array-negative.egg       
-do(
-  def(m, array(1, 2, 3)),
-  set(m[-1], "asd"),
-  print(m)
-)
+do (
+  def (x, [[1,2], [3,4]]),
+  =(x[0], 9), # [9, [3,4]]
+  print(x), # [ 9, [ 3, 4 ] ]
+  
+  def(y, map(x:4, y: array(0,7))),
+  =(y["y"][1], 9), # map(x:4, y: [0,9])
+  print(y["y", 1]), # 9
+  print(y), # { x: 4, y: [ 0, 9 ] }
 
-➜  eloquentjsegg git: bin/egg.js examples/set-array-negative.egg
-[1,2,"asd"]
+  def(z, { c:4, g: fun(a, =(self.c, a))}),
+  print(z.c),    # 4
+  print(z.g(8)), # 8
+  print(z.c)     # 8
+)
+```
+
+That we will compile and execute like here:
+
+```
+➜  egg-oop-parser-solution git:(master) ✗ bin/eggc.js examples/set-lefteval.egg
+➜  egg-oop-parser-solution git:(master) ✗ bin/evm examples/set-lefteval.json   
+[9,[3,4]]
+[0,9]
+{"x":4,"y":[0,9]}
+4
+8
+8
 ```
 ::: 
 
