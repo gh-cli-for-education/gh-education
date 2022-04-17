@@ -50,3 +50,8 @@ function parBalance(line) {
 ```
 
 Fell free to add and export in file `parse.js`  any convenience parser-related functions you feel you neeed in the `egg-interpreter` module.
+
+
+See also the docs for `readline.createInterface`:
+
+* [readline.createInterface(options)](https://nodejs.org/api/readline.html#readlinecreateinterfaceoptions)
