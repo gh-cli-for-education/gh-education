@@ -12,7 +12,7 @@ template: "https://github.com/crguezl/egg-interpreter-template"
 rubrica: 
   - El REPL funciona correctamente
   - Las clases de los ASTs disponen de los métodos adecuados
-  - Expresión de asignación 
+  - Las asignaciones han sido implementadas correctamente
   - Comprende la interpretación de las funciones Egg mediante funciones JS
   - Comprende el manejo de ámbitos
   - Contiene suficientes tests
