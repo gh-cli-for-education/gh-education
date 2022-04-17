@@ -254,6 +254,6 @@ which was accordingly initialized:
 });
 ```
 
-Since `this.args` contains the array `[ value{value: 2}, value{value:3}]` the map will leave in  `argsProcessed` the array `[2, 3]` and so line 11 `return op(...argsProcessed);` is interpreted as  the call `topEnv['+'](...[2,3])`
+Since `this.args` contains the array `[value{value: 2}, value{value:3}]` the map will leave in  `argsProcessed` the array `[2, 3]` and so line 11 `return op(...argsProcessed);` is interpreted as  the call `topEnv['+'](...[2,3])`
 
 
