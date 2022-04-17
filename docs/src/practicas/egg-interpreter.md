@@ -13,7 +13,7 @@ rubrica:
   - El REPL funciona correctamente
   - Las clases de los ASTs disponen de los métodos adecuados
   - Expresión de asignación 
-  - Comprende la interpretación de las funciones Egg ediante funciones JS
+  - Comprende la interpretación de las funciones Egg mediante funciones JS
   - Comprende el manejo de ámbitos
   - Contiene suficientes tests
   - Se provee un workflow sencillo para convertir rápidamente un ejemplo operativo en un test 
