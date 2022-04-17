@@ -252,7 +252,7 @@ which was accordingly initialized:
 [ '+',  '-', '*', '/', '**', ].forEach(op => {
   topEnv[op] = new Function('...s', `return s.reduce((a,b) => a ${op} b);`);
 });
-
+```
 
 Since `this.args` contains the array ` value(value: 2), value(value:3)]` the map will leave in  `argsProcessed` the array `[2, 3]` and the final result is the 
 call `topEnv['+'](...[2,3])`
