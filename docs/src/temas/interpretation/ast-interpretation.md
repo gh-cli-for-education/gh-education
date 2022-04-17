@@ -218,11 +218,41 @@ topEnv['+'] = (a, b) => a + b;
 For example a program like `+(2,3)` will be translated by your parser onto an AST like 
 
 ```js
-apply(operator: word(name: '+'), args: [ value(value: 2), value(value:3)])
+apply(operator: word{name: '+'}, args: [ value{value: 2}, value{value:3}])
 ``` 
 
-that when the `apply` is interpreted `this.operator.type` is `'word'` but `this.operator.name` is `+` which
-isn't  in `specialForms`. 
+that when the `apply` is interpreted `this.operator.type` is `'word'` but `this.operator.name` is `+` which isn't  in `specialForms` skipping lines 2-4. 
+
+```js{7-13}
+  evaluate(env) {
+    if (this.operator.type == 'word' && this.operator.name in specialForms) {
+      return specialForms[this.operator.name](this.args, env);
+    }
+
+    try { 
+      let op = this.operator.evaluate(env);
+      let argsProcessed = this.args.map((arg) => arg.evaluate(env));
+
+      if ((typeof op === "function")) {
+        return op(...argsProcessed);
+      }
+
+    }
+    catch (err) {
+      throw new TypeError('Applying not a function or method ' + err);
+    }
+  }
+```
+
+Line 7 `op = this.operator.evaluate(env)` will leave in `op` the entry  of `topEnv["+"]` 
+which was accordingly initialized:
+
+```js
+// Code from the file src/eggvm.js ULL-ESIT-PL-2122/private-egg branch private2122
+[ '+',  '-', '*', '/', '**', ].forEach(op => {
+  topEnv[op] = new Function('...s', `return s.reduce((a,b) => a ${op} b);`);
+});
+
 
 Since `this.args` contains the array ` value(value: 2), value(value:3)]` the map will leave in  `argsProcessed` the array `[2, 3]` and the final result is the 
 call `topEnv['+'](...[2,3])`
