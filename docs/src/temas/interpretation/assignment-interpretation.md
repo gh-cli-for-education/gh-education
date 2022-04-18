@@ -48,7 +48,7 @@ Some languages use the idea of **l-values** and **r-values**, deriving from the 
 
 In many languages, notably the C family, l-values have storage addresses that are programmatically accessible to the running program (e.g., via some address-of operator like "`&`" in C/C++), meaning that they are variables or de-referenced references to a certain memory location. 
 
-Form the prespective of interpretation and translation, the same sub-expresion `x` has different meanings depending on the side of the assignment in which it is:
+Form the perspective of interpretation and translation, the same sub-expresion `x` has different meanings depending on the side of the assignment in which it is:
 
 ```js
 x = x
@@ -86,7 +86,7 @@ Try to write the `leftEvaluate` method(s) for Egg. Allow only words on the left 
 
 ::: danger Future Work
 
-Although by now we will restrict to allow only words on the left side of any assignment, we aim to increase expressiveness and to allow assignments that can contains expressions like the `=(y["y"][1], 9)` or `=(self.c, a)` in the following example:
+Although by now we will restrict to allow only words on the left side of any assignment, we aim to increase expressiveness and to allow assignments that can contains expressions like the `=(y["y"][1], 9)` or `=(self.c, a)` in the following example (`examples/set-lefteval.egg`):
 
 ```js{4}
 do (
