@@ -622,8 +622,6 @@ Paste this code in that file. Observe line 11:
   ```
 
 Your action is now able to install private npm packages from your read only token 
- 
-
 
 ### Documentation and README.md
 
