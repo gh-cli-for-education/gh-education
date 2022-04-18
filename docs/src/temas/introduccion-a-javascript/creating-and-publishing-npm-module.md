@@ -600,7 +600,7 @@ Observe that by clicking on the dots on the right side you can view the raw logs
 
 
 1. Generate a read only token for your private npm repository
-2. Add this token to your github secrets ( Repo settings > Secrets > Add a new secret name `NPM_AUTH_TOKEN`
+2. Add this token to your github secrets ( Repo settings > Secrets > Add a new secret name `NPM_AUTH_TOKEN`) or use `gh secret set NPM_AUTH_TOKEN` and paste the token in the interactive prompt
 3. Add a new folder in your repo named `.github` with a sub folder named `workflows`
 4. Create a new file in the `.github/workflows` folder . The name of the file will be the name of the action, the file extension must be `.yml`
 
