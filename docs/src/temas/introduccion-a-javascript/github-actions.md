@@ -672,6 +672,70 @@ FLAGS
   -R, --repo [HOST/]OWNER/REPO   Select another repository using the [HOST/]OWNER/REPO format
 ``` 
 
+```
+➜  egg-interpreter-daniel-hernandez-de_leon-alu0101331720 git:(master) ✗ gh secret set --help
+Set a value for a secret on one of the following levels:
+- repository (default): available to Actions runs or Dependabot in a repository
+- environment: available to Actions runs for a deployment environment in a repository
+- organization: available to Actions runs or Dependabot within an organization
+- user: available to Codespaces for your user
+
+Organization and user secrets can optionally be restricted to only be available to
+specific repositories.
+
+Secret values are locally encrypted before being sent to GitHub.
+
+
+USAGE
+  gh secret set <secret-name> [flags]
+
+FLAGS
+  -a, --app string           Set the application for a secret: {actions|codespaces|dependabot}
+  -b, --body string          The value for the secret (reads from standard input if not specified)
+  -e, --env environment      Set deployment environment secret
+  -f, --env-file file        Load secret names and values from a dotenv-formatted file
+      --no-store             Print the encrypted, base64-encoded value instead of storing it on Github
+  -o, --org organization     Set organization secret
+  -r, --repos repositories   List of repositories that can access an organization or user secret
+  -u, --user                 Set a secret for your user
+  -v, --visibility string    Set visibility for an organization secret: {all|private|selected} (default "private")
+
+INHERITED FLAGS
+      --help                     Show help for command
+  -R, --repo [HOST/]OWNER/REPO   Select another repository using the [HOST/]OWNER/REPO format
+```
+
+##### EXAMPLES
+
+```
+  # Paste secret value for the current repository in an interactive prompt
+  $ gh secret set MYSECRET
+
+  # Read secret value from an environment variable
+  $ gh secret set MYSECRET --body "$ENV_VALUE"
+
+  # Read secret value from a file
+  $ gh secret set MYSECRET < myfile.txt
+
+  # Set secret for a deployment environment in the current repository
+  $ gh secret set MYSECRET --env myenvironment
+
+  # Set organization-level secret visible to both public and private repositories
+  $ gh secret set MYSECRET --org myOrg --visibility all
+
+  # Set organization-level secret visible to specific repositories
+  $ gh secret set MYSECRET --org myOrg --repos repo1,repo2,repo3
+
+  # Set user-level secret for Codespaces
+  $ gh secret set MYSECRET --user
+
+  # Set repository-level secret for Dependabot
+  $ gh secret set MYSECRET --app dependabot
+
+  # Set multiple secrets imported from the ".env" file
+  $ gh secret set -f .env
+```
+
 #### Example: A GitHub Action to Publish a npm Package
 
 For example, to write a github action to publish a npm package in the npm registry

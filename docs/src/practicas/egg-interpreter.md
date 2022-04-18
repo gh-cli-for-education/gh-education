@@ -78,8 +78,6 @@ module.exports = {
 
 * Véase la sección [Construcción de un Repeat Evaluate Print Loop](/temas/interpretation/repl-interpretation.md)
 
-
-* [readline.createInterface(options)](https://nodejs.org/api/readline.html#readlinecreateinterfaceoptions)
  
 ## AST Classes and AST Interpretation
 
@@ -246,6 +244,11 @@ No olvides ejecutar **todas** las pruebas `npm test` cada vez que resuelves un n
 ## Continuous Integration
 
 Use GitHub Actions para añadir CI al proyecto
+
+To install Private Packages inside a GitHub Action review these sections:
+
+* [GitHub Actions. The Secrets context](/temas/introduccion-a-javascript/github-actions.html#the-secrets-context)
+* [Installing Private Packages in a GitHub Action](/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html#installing-private-packages-in-a-github-action)
 
 ## GitHub Registry
 

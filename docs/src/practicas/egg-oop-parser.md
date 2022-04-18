@@ -527,6 +527,8 @@ APPLY(operator:(WORD{name:object}, args: commaexp)
 
 ## Resources
 
+* [GitHub Actions. The Secrets context](/temas/introduccion-a-javascript/github-actions.html#the-secrets-context)
+* [Installing Private Packages in a GitHub Action](/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html#installing-private-packages-in-a-github-action)
 * [latest-version-cli](https://github.com/sindresorhus/latest-version-cli) Get the latest version of an npm package
 * [Egg Virtual Machine with OOP extensions for Windows/Linux/Mac OS](https://github.com/crguezl/oop-evm-releases/releases/tag/v1.0.0)
 * [Eloquent JS: Chapter 11. Project: A Programming Language](http://eloquentjavascript.net/11_language.html)
