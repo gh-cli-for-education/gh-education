@@ -596,6 +596,35 @@ The action is triggered. Let us go and click on the **actions tab** in our repo:
 
 Observe that by clicking on the dots on the right side you can view the raw logs
 
+### Installing Private Packages on a GitHub Action 
+
+
+1. Generate a read only token for your private npm repository
+2. Add this token to your github secrets ( Repo settings > Secrets > Add a new secret name `NPM_AUTH_TOKEN`
+3. Add a new folder in your repo named `.github` with a sub folder named `workflows`
+4. Create a new file in the `.github/workflows` folder . The name of the file will be the name of the action, the file extension must be `.yml`
+
+Paste this code in that file. Observe line 11:
+   
+  ```yml{11}
+  name: CI
+    on: # when this action should be triggered?
+      push:
+        branches: [ master ]
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v2
+          - name: Setup npmrc
+            run: echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" > .npmrc
+        - name: Install Dependencies
+          run: npm ci
+  ```
+
+Your action is now able to install private npm packages from your read only token 
+ 
+
 
 ### Documentation and README.md
 

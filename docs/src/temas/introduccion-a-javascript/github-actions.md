@@ -650,6 +650,28 @@ steps:
       super_secret: {{ "${{ secrets.SuperSecret" }} }}
 ```
 
+#### Creating a secret with gh 
+
+```
+➜ git:(master) gh help secret
+Secrets can be set at the repository, or organization level for use in
+GitHub Actions or Dependabot. User secrets can be set for use in GitHub Codespaces.
+Environment secrets can be set for use in GitHub Actions.
+Run "gh help secret set" to learn how to get started.
+
+
+USAGE
+  gh secret <command> [flags]
+
+CORE COMMANDS
+  list:        List secrets
+  remove:      Remove secrets
+  set:         Create or update secrets
+
+FLAGS
+  -R, --repo [HOST/]OWNER/REPO   Select another repository using the [HOST/]OWNER/REPO format
+``` 
+
 #### Example: A GitHub Action to Publish a npm Package
 
 For example, to write a github action to publish a npm package in the npm registry
