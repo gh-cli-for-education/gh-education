@@ -596,8 +596,7 @@ The action is triggered. Let us go and click on the **actions tab** in our repo:
 
 Observe that by clicking on the dots on the right side you can view the raw logs
 
-### Installing Private Packages on a GitHub Action 
-
+### Installing Private Packages in a GitHub Action 
 
 1. Generate a read only token for your private npm repository
 2. Add this token to your github secrets ( Repo settings > Secrets > Add a new secret name `NPM_AUTH_TOKEN`) or use `gh secret set NPM_AUTH_TOKEN` and paste the token in the interactive prompt
