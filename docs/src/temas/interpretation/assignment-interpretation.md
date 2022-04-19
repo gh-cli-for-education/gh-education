@@ -78,7 +78,7 @@ specialForms['='] = specialForms['set'] = function(args, env) {
 }
 ```
 
-## Exercise
+## Exercise: leftEvaluate for WORD Nodes
 
 Try to write the `leftEvaluate` method(s) for Egg. Allow only words on the left side of any assignment
 
