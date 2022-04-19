@@ -139,6 +139,23 @@ do (
 ```
 ::: 
 
+## Set and Negative indices
+
+If you decide to give support to negative indices in your arrays, you not only must take care of the `element` function 
+but also inside the `set` for programs like this one:
+
+
+```js
+➜  eloquentjsegg git:(private2122) ✗ cat examples/leftvalue-array-negative-indices.egg       
+do (
+  def (x, array(array(1,2),array(3,4))),
+  =(array(x, -1, -1),9),
+  print(x) # [[1,2],[3,9]]
+)                                                                                                                                     
+➜  eloquentjsegg git:(private2122) ✗ bin/egg.js examples/leftvalue-array-negative-indices.egg
+[[1,2],[3,9]]
+```
+
 ## Future Work on Assignments
 
 ::: danger Future Work
