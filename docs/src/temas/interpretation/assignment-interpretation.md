@@ -87,7 +87,7 @@ Try to write the `leftEvaluate` method(s) for Egg. Allow only words on the left 
 
 **If you only provide a `leftEvaluate` for `WORD ` nodes, then you can't  modify en element of an array or a property of an object or an entry of a dictionary/map**. 😟 👎
 
-But may be adding an appropriate `leftEvaluate` to `APPLY` nodes you can alleviate the problem (not the final solution, but it helps).
+But may be adding an appropriate `leftEvaluate` to `APPLY` nodes you can alleviate the problem (not the final solution, we will solve this problem in incoming labs, but the idea behind this exercise helps).
 
 The goal is to achieve that a program like this may work:
 
