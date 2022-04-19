@@ -82,10 +82,10 @@ specialForms['='] = specialForms['set'] = function(args, env) {
 
 Try to write the `leftEvaluate` method(s) for Egg. Allow only words on the left side of any assignment
 
+::: warning More difficult!
 ## Exercise: Accesing elements on arrays and objects 
 
-
-If you only provide a `leftEvaluate` for `WORD ` nodes, then you can't  modify en element of an array or a property of an object or an entry of a dictionary/map.
+**If you only provide a `leftEvaluate` for `WORD ` nodes, then you can't  modify en element of an array or a property of an object or an entry of a dictionary/map**. 😟 👎
 
 But may be adding an appropriate `leftEvaluate` to `APPLY` nodes you can alleviate the problem (not the final solution, but it helps).
 
@@ -114,6 +114,9 @@ do {
 ➜  eloquentjsegg git:(private2122) ✗ bin/egg.js examples/leftvalue-object.egg 
 {"a":9,"b":3}
 ```
+:::
+
+::: danger Much more difficult!
 
 ## Challenge: Multiple indices
 
@@ -132,6 +135,7 @@ do (
 ➜  eloquentjsegg git:(private2122) ✗ bin/egg.js examples/leftvalue-array-multiple-indices-2.egg 
 [[9,2],[3,4]]
 ```
+::: 
 
 ## Future Work on Assignments
 
