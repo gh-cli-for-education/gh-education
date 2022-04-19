@@ -82,6 +82,57 @@ specialForms['='] = specialForms['set'] = function(args, env) {
 
 Try to write the `leftEvaluate` method(s) for Egg. Allow only words on the left side of any assignment
 
+## Exercise: Accesing elements on arrays and objects 
+
+
+If you only provide a `leftEvaluate` for `WORD ` nodes, then you can't  modify en element of an array or a property of an object or an entry of a dictionary/map.
+
+But may be adding an appropriate `leftEvaluate` to `APPLY` nodes you can alleviate the problem (not the final solution, but it helps).
+
+The goal is to achieve that a program like this may work:
+
+```ruby
+➜  eloquentjsegg git:(private2122) ✗ cat examples/leftvalue-pair.egg        
+do(
+  def (x, array(array(1,2),array(3,4))),
+  =(array(x, 0),9),
+  print(x) # [9,[3,4]]
+)
+```
+and also this:
+
+```ruby
+➜  eloquentjsegg git:(private2122) ✗ cat examples/leftvalue-object.egg                                          
+do {
+  def (x, object(a: 1, b:3)),
+  =(array(x, "a"),9),
+  print(x) # { "a":9, "b":3}
+}
+```
+
+```                                                                                                  
+➜  eloquentjsegg git:(private2122) ✗ bin/egg.js examples/leftvalue-object.egg 
+{"a":9,"b":3}
+```
+
+## Challenge: Multiple indices
+
+How to make something like this work?
+
+```ruby
+➜  eloquentjsegg git:(private2122) ✗ cat examples/leftvalue-array-multiple-indices-2.egg
+do (
+  def (x, array(array(1,2),array(3,4))),
+  =(array(x, 0, 0),9),
+  print(x) # [[9,2], [3,4]]
+)
+```                                                                                                                        
+
+```
+➜  eloquentjsegg git:(private2122) ✗ bin/egg.js examples/leftvalue-array-multiple-indices-2.egg 
+[[9,2],[3,4]]
+```
+
 ## Future Work on Assignments
 
 ::: danger Future Work
