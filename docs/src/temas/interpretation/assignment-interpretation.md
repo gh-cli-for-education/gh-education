@@ -164,7 +164,8 @@ do {
   def (x, object(a: array(1, 2), b:3)),
   =(array(x, "a", -1), 9),
   print(x) # {"a":[1,9],"b":3}
-}%                                                                                                                                     
+}
+                                          
 ➜  eloquentjsegg git:(private2122) ✗ bin/egg.js examples/leftvalue-object-multiple.egg
 {"a":[1,9],"b":3}
 ```
