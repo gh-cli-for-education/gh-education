@@ -119,7 +119,7 @@ do {
 
 ## Challenge: Multiple indices
 
-::: danger Much more difficult!
+::: danger  More difficult!
 If you solved the previous exercise you can consider supporting multiple indices.
 
 How to make something like this work?
@@ -154,6 +154,19 @@ do (
 )                                                                                                                                     
 ➜  eloquentjsegg git:(private2122) ✗ bin/egg.js examples/leftvalue-array-negative-indices.egg
 [[1,2],[3,9]]
+```
+
+Here is another example:
+
+```ruby
+➜  eloquentjsegg git:(private2122) ✗ cat examples/leftvalue-object-multiple.egg       
+do {
+  def (x, object(a: array(1, 2), b:3)),
+  =(array(x, "a", -1), 9),
+  print(x) # {"a":[1,9],"b":3}
+}%                                                                                                                                     
+➜  eloquentjsegg git:(private2122) ✗ bin/egg.js examples/leftvalue-object-multiple.egg
+{"a":[1,9],"b":3}
 ```
 
 ## Future Work on Assignments

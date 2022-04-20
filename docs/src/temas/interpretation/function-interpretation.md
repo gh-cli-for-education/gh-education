@@ -1,4 +1,8 @@
-
+---
+sidebar: false
+next: /temas/interpretation/ast-interpretation.md
+prev: /temas/interpretation/assignment-interpretation.md
+---
 # Function Interpretation
 
 Functions in Egg get their own local scope. 
