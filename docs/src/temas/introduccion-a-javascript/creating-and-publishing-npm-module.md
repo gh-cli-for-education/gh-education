@@ -598,8 +598,10 @@ Observe that by clicking on the dots on the right side you can view the raw logs
 
 ### Installing Private Packages in a GitHub Action 
 
-1. Generate a read only [token ](#setting-a-token) for your private npm repository
-2. Add this token to your github secrets ( Repo settings > Secrets > Add a new secret name `NPM_AUTH_TOKEN`) or use `gh secret set NPM_AUTH_TOKEN` and paste the token in the interactive prompt
+1. Generate a read only [token ](#setting-a-token) for your private GitHub repositories
+2. Add this token to your github secrets 
+   1.  Repo settings > Secrets > Add a new secret name `NPM_AUTH_TOKEN` and paste the token in the value field) or 
+   2.  Use `gh secret set NPM_AUTH_TOKEN` and paste the token in the interactive prompt
 3. Add a new folder in your repo named `.github` with a sub folder named `workflows`
 4. Create a new file in the `.github/workflows` folder . The name of the file will be the name of the action, the file extension must be `.yml`
 
@@ -616,10 +618,19 @@ Paste this code in that file. Observe line 11:
         steps:
           - uses: actions/checkout@v2
           - name: Setup npmrc
-            run: echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" > .npmrc
+            run: echo "//npm.pkg.github.com/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" > .npmrc
         - name: Install Dependencies
           run: npm ci
   ```
+
+Alternatively you can add a `.npmrc` file with the token line to your project:
+
+```
+@ull-esit-pl-2122:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=paste-your-token-here
+```
+
+In such case, **be sure the visibility of your repo keeps private**.
 
 Your action is now able to install private npm packages from your read only token 
 
