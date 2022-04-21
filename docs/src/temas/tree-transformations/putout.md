@@ -14,6 +14,32 @@ The main target is **JavaScript**, but it also understand these other languages:
 - JSON;
 - Ignore;
 
+## putout Help
+
+```
+➜  putout-hello git:(master) npx putout -h 
+Usage: putout [options] [path]
+Options: 
+   -h, --help                  display this help and exit
+   -v, --version               output version information and exit
+   -f, --format [formatter]    use a specific output format, the default is: 'progress-bar' localy and 'dump' on CI
+   -s, --staged                add staged files when in git repository
+   --fix                       apply fixes of errors to code
+   --fix-count [count = 10]    count of fixes rounds
+   --rulesdir                  use additional rules from directory
+   --transform [replacer]      apply Replacer, for example 'var __a = __b -> const __a = __b', read about Replacer https://git.io/JqcMn
+   --plugins [plugins]         a comma-separated list of plugins to use
+   --enable [rule]             enable the rule and save it to '.putout.json' walking up parent directories
+   --disable [rule]            disable the rule and save it to '.putout.json' walking up parent directories
+   --enable-all                enable all found rules and save them to '.putout.json' walking up parent directories
+   --disable-all               disable all found rules (set baseline) and save them to '.putout.json' walking up parent directories
+   --match [pattern]           read .putout.json and convert 'rules' to 'match' according to 'pattern'
+   --flow                      enable flow
+   --fresh                     generate a fresh cache
+   --no-config                 avoid reading '.putout.json'
+   --no-ci                     disable the CI detection
+   --no-cache                  disable the cache
+```
 
 ## Installation
 
@@ -221,7 +247,7 @@ This command will
 1. **disable all rules** that **Putout** can find right now and 
 2. **enable** a single rule. 
 
-## Using putout from a program: The API
+## Fixing a program with putout from a program: The API
 
 Putout supports dynamic loading of plugins from `node_modules`. 
 
@@ -256,9 +282,121 @@ console.log(result);
 
 As you see, `places` is empty, but the code is changed: there is no `hi` variable.
 
+## Not Fixing the program: The API
+
+From the beginning, Putout developed with ability to split the main process into two concepts: 
+
+* `find` (find places that could be fixed) and 
+* `fix` (apply the fixes to the files)
+  
+It is therefore easy to find sections that could be fixed.
+
+In the following example unused variables are found but 
+without making changes to the source file:
+
+
+```js
+➜  putout-hello git:(master) cat use-putout-no-fix.js 
+#!/usr/bin/env node
+import putout from 'putout';
+const source = `
+    const hello = 'world';
+    const hi = 'there';
+    
+    console.log(hello);
+`;
+
+let result = putout(source, {
+    fix: false,
+    plugins: [
+        'remove-unused-variables',
+    ],
+});
+
+console.log(JSON.stringify(result, null, 2));
+```
+
+```js
+➜  putout-hello git:(master) ./use-putout-no-fix.js
+{
+  "code": "\n    const hello = 'world';\n    const hi = 'there';\n    \n    console.log(hello);\n",
+  "places": [
+    {
+      "rule": "remove-unused-variables",
+      "message": "'hi' is defined but never used",
+      "position": {
+        "line": 3,
+        "column": 10
+      }
+    }
+  ]
+}
+```
+
+## Built-in Transformations
+
+```js
+➜  putout-hello git:(master) ✗ cat debugger-example.js
+let a = 4;
+debugger;
+console.log(a);
+➜  putout-hello git:(master) ✗ npx putout --disable remove-console                                               
+➜  putout-hello git:(master) ✗ npx putout --transform 'debugger' --fix debugger-example.js 
+➜  putout-hello git:(master) ✗ cat debugger-example.js                                    
+let a = 4;
+console.log(a);% 
+```
+
+## User Transformations
+
+Let us write this transformation:
+
+```js
+➜  putout-hello git:(master) ✗ cat my-transform.js 
+module.exports.report = () => `Identifiers should be swapped`;
+
+module.exports.replace = () => ({
+    'let __a = __b': 'const __b = __a'
+});
+```
+
+`putout` supports `codemodes` in the similar to plugins way, just create a directory `~/.putout` and put your plugins there:
+
+```
+➜  putout-hello git:(master) ✗ mkdir ~/.putout
+➜  putout-hello git:(master) ✗ cp my-transform.js ~/.putout
+``` 
+
+Now we run the transformation:
+
+```
+➜  putout-hello git:(master) ✗ npx putout --fix input-for-my-transform.js
+```
+
+Where the initial contents of the file are:
+
+```js
+➜  putout-hello git:(master) ✗ cat input-for-my-transform.js 
+let hello = world;
+```
+
+transforming the file `input-for-my-transform.js` onto:
+
+```js
+➜  putout-hello git:(master) ✗ cat input-for-my-transform.js 
+const world = hello;
+```
+
 ## PutoutScript: a Language
 
-See [PutoutScript](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript)
+[PutoutScript](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript) is a JavaScript compatible language which adds additional meaning to `Identifiers` in AST-template. 
+
+It is supported by all types of [Putout plugins](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#supported-plugin-types).
+
+Take a look at [rule syntax](https://github.com/coderaiser/putout/tree/master/packages/compare#supported-template-variables) for more information.
+
+In the command line, patterns are specified with a flag `--transform`.
+
 
 ## References
 
