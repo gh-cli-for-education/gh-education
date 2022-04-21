@@ -14,7 +14,6 @@ The main target is **JavaScript**, but it also understand these other languages:
 - JSON;
 - Ignore;
 
-are also supported
 
 ## Installation
 
@@ -43,6 +42,24 @@ module.exports = function() {
 
 async function promise(a) {
     return Promise.reject(Error('x'));
+```
+
+## Fixing a program with --fix
+
+Assuming all rules are active:
+
+``` 
+➜  putout-hello git:(master) ✗ npx putout --fix index.js                
+➜  putout-hello git:(master) cat index.js
+```
+```js
+'use strict';
+
+module.exports = async () => await promise();
+
+function promise() {
+    return Promise.reject(Error('x'));
+}
 ```
 
 ## Diagnostics
@@ -94,7 +111,7 @@ Here is an example:
 
 ## The configuration file .putout.json
 
-The configuration file has been modified:
+The configuration file has been modified by the previous command:
 
 ```json
 ➜  putout-hello git:(master) ✗ cat .putout.json 
@@ -134,20 +151,3 @@ index c8b3105..27d6b38 100644
 \ No newline at end of file
 ```
 
-## Fixing a program with --fix
-
-Assuming all rules are active:
-
-``` 
-➜  putout-hello git:(master) ✗ npx putout --fix index.js                
-➜  putout-hello git:(master) cat index.js
-```
-```js
-'use strict';
-
-module.exports = async () => await promise();
-
-function promise() {
-    return Promise.reject(Error('x'));
-}
-```
