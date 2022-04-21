@@ -110,7 +110,33 @@ The configuration file has been modified:
 }
 ```
 
-## Fixing it
+## Modifying the configuration file 
+
+```
+npx putout index.js --enable convert-commonjs-to-esm
+```
+
+```diff
+➜  putout-hello git:(master) ✗ git -P diff .putout.json
+diff --git a/.putout.json b/.putout.json
+index c8b3105..27d6b38 100644
+--- a/.putout.json
++++ b/.putout.json
+@@ -5,6 +5,7 @@
+         "strict-mode/add": "off",
+         "promises/convert-reject-to-throw": "off",
+         "promises/add-missing-await": "off",
+-        "promises/remove-useless-async": "off"
++        "promises/remove-useless-async": "off",
++        "convert-commonjs-to-esm": "on"
+     }
+ }
+\ No newline at end of file
+```
+
+## Fixing a program with --fix
+
+Assuming all rules are active:
 
 ``` 
 ➜  putout-hello git:(master) ✗ npx putout --fix index.js                

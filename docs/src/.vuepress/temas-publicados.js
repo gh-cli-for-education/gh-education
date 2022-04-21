@@ -16,6 +16,8 @@ module.exports = [
     {text: "The Strategy Pattern", link: "/temas/introduccion-a-javascript/design.html"},
     {text: "Interpretation of the ASTs", link: "/temas/interpretation/index.html"},
     {text: "jscodeshift", link: "/temas/tree-transformations/jscodeshift"},
+    {text: "putout", link: "/temas/tree-transformations/putout"},
+
     
 
 
