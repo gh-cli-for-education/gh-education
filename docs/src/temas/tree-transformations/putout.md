@@ -378,7 +378,7 @@ Now we run the transformation:
 ➜  putout-hello git:(master) ✗ npx putout --fix input-for-my-transform.js
 ```
 
-Where the initial contents of the file are:
+Where the initial contents of the file `input-for-my-transform.j` are:
 
 ```js
 ➜  putout-hello git:(master) ✗ cat input-for-my-transform.js 
