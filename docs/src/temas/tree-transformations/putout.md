@@ -353,10 +353,11 @@ Let us write this transformation:
 
 ```js
 ➜  putout-hello git:(master) ✗ cat my-transform.js 
-module.exports.report = () => `Identifiers should be swapped`;
+// Copy this file to ~/.putout
+module.exports.report = () => `Repeated expressions in sums are transformed onto multiplication.`;
 
 module.exports.replace = () => ({
-    'let __a = __b': 'const __b = __a'
+    '__b + __b': '2 * __b'
 });
 ```
 
@@ -382,14 +383,25 @@ Where the initial contents of the file `input-for-my-transform.j` are:
 
 ```js
 ➜  putout-hello git:(master) ✗ cat input-for-my-transform.js 
-let hello = world;
+let a = 4;
+function f(x) {
+  let y = x + x;
+  let z = y + y * 3; // Will it work?
+  return y + z;
+}
 ```
 
 transforming the file `input-for-my-transform.js` onto:
 
 ```js
 ➜  putout-hello git:(master) ✗ cat input-for-my-transform.js 
-const world = hello;
+let a = 4;
+function f(x) {
+  let y = 2 * x;
+  let z = y + y * 3; // Will it work?
+  return y + z;
+}
+2 * f(a);
 ```
 
 ## PutoutScript: a Language
@@ -402,10 +414,11 @@ module.exports.replace = () => ({
 });
 ``` 
 
-is an example of the *PutoutScript* language.
+is an example of the *PutoutScript* language. [PutoutScript](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript) is a JavaScript compatible language which adds additional meaning to `Identifiers` in AST-template. 
 
 Variables look like `__a`, `__b` are an example of [Template Variables](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#template-variables). 
-They begin with a `__` and **can only contain one character**.
+
+**They begin with a `__` and can only contain one character**.
 
 Template variables are an abstraction to match code when you don’t know the value or contents ahead of time, *similar to capture groups in regular expressions*.
 
@@ -423,10 +436,7 @@ This includes
 and more.
 
 
-
-[PutoutScript](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript) is a JavaScript compatible language which adds additional meaning to `Identifiers` in AST-template. 
-
-It is supported by all types of [Putout plugins](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#supported-plugin-types).
+[PutoutScript](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript) is supported by all types of [Putout plugins](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#supported-plugin-types).
 
 Take a look at [rule syntax](https://github.com/coderaiser/putout/tree/master/packages/compare#supported-template-variables) for more information.
 
