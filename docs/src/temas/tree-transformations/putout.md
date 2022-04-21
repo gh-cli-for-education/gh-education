@@ -406,7 +406,7 @@ function f(x) {
 
 ## PutoutScript: a Language
 
-The expression in the former transformer example:
+The expressions used in the transformers like:
 
 ```js
 module.exports.replace = () => ({
@@ -414,7 +414,7 @@ module.exports.replace = () => ({
 });
 ``` 
 
-is an example of the *PutoutScript* language. [PutoutScript](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript) is a JavaScript compatible language which adds additional meaning to `Identifiers` in AST-template. 
+are examples of the *PutoutScript* language. [PutoutScript](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript) is a JavaScript compatible language which adds additional meaning to `Identifiers` in AST-template. 
 
 Variables look like `__a`, `__b` are an example of [Template Variables](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#template-variables). 
 
