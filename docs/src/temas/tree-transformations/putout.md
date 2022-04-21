@@ -218,6 +218,12 @@ putout src --disable-all && putout src --enable convert-commonjs-to-esm && putou
 
 This command will
 
-1. **disable all rules** that 🐊**Putout** can find right now and 
+1. **disable all rules** that **Putout** can find right now and 
 2. **enable** a single rule. 
+
+## References
+
+* [Revealing the magic of AST by writing babel plugins](https://dev.to/viveknayyar/revealing-the-magic-of-ast-by-writing-babel-plugins-1h01). Vivek Nayyar. Posted on Mar 5, 2021. Updated on Mar 6, 2021
+* Read [Babel Plugin Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md)
+* To understand how things works from the inside take a look at [Super Tiny Compiler](https://github.com/jamiebuilds/the-super-tiny-compiler).
 
