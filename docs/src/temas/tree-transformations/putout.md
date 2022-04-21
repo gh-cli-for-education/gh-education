@@ -133,7 +133,7 @@ The configuration file has been modified by the previous command:
 npx putout index.js --enable convert-commonjs-to-esm
 ```
 
-```diff
+```{12}
 ➜  putout-hello git:(master) ✗ git -P diff .putout.json
 diff --git a/.putout.json b/.putout.json
 index c8b3105..27d6b38 100644
@@ -150,4 +150,74 @@ index c8b3105..27d6b38 100644
  }
 \ No newline at end of file
 ```
+
+## Converting CommonJS module to ESM module
+
+Assuming the previous `.putout.son` file where `"convert-commonjs-to-esm": "on"`, if I run `putout --fixed`, it doesn't fix the program:
+
+```
+➜  putout-hello git:(master) ✗ npx putout --fix index.js
+/Users/casianorodriguezleon/campus-virtual/2122/learning/compiler-learning/putout-learning/putout-hello/index.js
+ 3:0  error   CommonJS should be used insted of ESM  convert-esm-to-commonjs         
+ 0:0  error   ESM should be used insted of Commonjs  convert-commonjs-to-esm/exports 
+ 0:0  error   ESM should be used insted of Commonjs  convert-commonjs-to-esm/exports 
+
+✖ 3 errors in 1 files
+  fixable with the `--fix` option
+```
+
+I have to edit the `package.json` and modify the `type`:
+
+```{11}
+➜  putout-hello git:(master) ✗ code package.json 
+➜  putout-hello git:(master) ✗ git -P diff package.json
+diff --git a/package.json b/package.json
+index 743967d..91cba11 100644
+--- a/package.json
++++ b/package.json
+@@ -3,6 +3,7 @@
+   "version": "1.0.0",
+   "description": "",
+   "main": "index.js",
++  "type": "module",
+   "scripts": {
+     "test": "echo \"Error: no test specified\" && exit 1"
+   },
+```
+
+If I run `putout` again, it fixes the program:
+
+```
+➜  putout-hello git:(master) ✗ npx putout --fix index.js
+```
+
+Here is the result:
+
+```js
+➜  putout-hello git:(master) ✗ cat index.js
+const unused = 5;
+
+export default function() {
+    return promise();
+};
+
+async function promise(a) {
+    return Promise.reject(Error('x'));
+}
+```
+
+If you  have `.cjs` or `.mjs` files, they will be converted automatically to `CommonJS` and `ESM` accordingly.
+
+### Converting a whole folder 
+
+In case of `src` directory, it will look like:
+
+```sh
+putout src --disable-all && putout src --enable convert-commonjs-to-esm && putout src --fix
+```
+
+This command will
+
+1. **disable all rules** that 🐊**Putout** can find right now and 
+2. **enable** a single rule. 
 
