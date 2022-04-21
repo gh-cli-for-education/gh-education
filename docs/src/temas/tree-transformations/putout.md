@@ -221,6 +221,42 @@ This command will
 1. **disable all rules** that **Putout** can find right now and 
 2. **enable** a single rule. 
 
+## Using putout from a program: The API
+
+Putout supports dynamic loading of plugins from `node_modules`. 
+
+Let's consider the example of using the [remove-unused-variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-variables/README.md#readme) plugin:
+
+
+```js
+➜  putout-hello git:(master) ✗ cat use-putout.js 
+import putout from 'putout';
+const source = `
+    const hello = 'world';
+    const hi = 'there';
+    
+    console.log(hello);
+`;
+
+let result = putout(source, {
+    plugins: [
+        'remove-unused-variables',
+    ],
+});
+console.log(result);
+```
+
+```js                                                                                           
+➜  putout-hello git:(master) ✗ node use-putout.js   
+{
+  code: "\n    const hello = 'world';\n\n    console.log(hello);\n",
+  places: []
+}
+```
+
+As you see, `places` is empty, but the code is changed: there is no `hi` variable.
+
+
 ## References
 
 * [Revealing the magic of AST by writing babel plugins](https://dev.to/viveknayyar/revealing-the-magic-of-ast-by-writing-babel-plugins-1h01). Vivek Nayyar. Posted on Mar 5, 2021. Updated on Mar 6, 2021
