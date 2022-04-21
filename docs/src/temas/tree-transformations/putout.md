@@ -360,11 +360,16 @@ module.exports.replace = () => ({
 });
 ```
 
-`putout` supports `codemodes` in the similar to plugins way, just create a directory `~/.putout` and put your plugins there:
+`putout` supports `codemodes` in a way similar to plugins. 
+
+Just create a directory `~/.putout` and put your plugins there:
 
 ```
 ➜  putout-hello git:(master) ✗ mkdir ~/.putout
 ➜  putout-hello git:(master) ✗ cp my-transform.js ~/.putout
+➜  putout-hello git:(master) ✗ ls -ltr ~/.putout 
+total 8
+-rw-r--r--  1 casianorodriguezleon  staff  142 21 abr 13:40 my-transform.js
 ``` 
 
 Now we run the transformation:
@@ -388,6 +393,36 @@ const world = hello;
 ```
 
 ## PutoutScript: a Language
+
+The expression in the former transformer example:
+
+```js
+module.exports.replace = () => ({
+    'let __a = __b': 'const __b = __a'
+});
+``` 
+
+is an example of the *PutoutScript* language.
+
+Variables look like `__a`, `__b` are an example of [Template Variables](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#template-variables). 
+They begin with a `__` and **can only contain one character**.
+
+Template variables are an abstraction to match code when you don’t know the value or contents ahead of time, *similar to capture groups in regular expressions*.
+
+Template variables can be used to track values across a specific code scope. 
+
+This includes 
+
+- variables, 
+- functions, 
+- arguments, 
+- classes, 
+- object methods, 
+- imports 
+
+and more.
+
+
 
 [PutoutScript](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript) is a JavaScript compatible language which adds additional meaning to `Identifiers` in AST-template. 
 
