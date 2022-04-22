@@ -347,7 +347,45 @@ let a = 4;
 console.log(a);% 
 ```
 
-## User Transformations
+## User Transformations --rulesdir
+
+When you have rules related to your project and you don't want to publish them (because it cannot be reused right now). Use [`rulesdir`](https://github.com/coderaiser/putout/tree/master/rules):
+
+```sh
+putout --rulesdir ./rules
+```
+
+This way you can keep rules specific for your project and run them on each lint.
+
+If you want to exclude file from loading, add prefix `not-rule-` and Putout will ignore it (in the same way as he does for `node_modules`).
+
+Here is an example:
+
+```
+➜  putout-hello git:(master) ✗ npx putout --rulesdir ./transforms  --fix input-for-remove-debugger.js 
+```
+
+where the file `transforms/remove-debugger.js` has:
+
+```js
+// this is a message to show in putout cli
+module.exports.report = () => 'Unexpected "debugger" statement';
+
+// let's find all "debugger" statements and replace them with ""
+module.exports.replace = () => ({
+    debugger: '',
+});
+``` 
+
+And the contents of `input-for-remove-debugger.js`are:
+
+```js
+console.log("hello");
+debugger;
+console.error("hello");
+```
+
+## User Transformations `~/.putout`
 
 Let us write this transformation:
 
