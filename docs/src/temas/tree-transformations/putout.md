@@ -518,6 +518,7 @@ Given the input:
 ```                                                                                                       
 ➜  putout-hello git:(master) cat input-for-replace-check-property.js 
 ```
+
 ```js
 let a = {x : 1}
 
@@ -527,15 +528,19 @@ if (a && a.x) {
 ```
 
 when executed:
+
 ```                                                                                                        
 ➜  putout-hello git:(master) npx putout --rulesdir ./transforms  --fix input-for-replace-check-property.js
 ```
+
 produces:
+
 ```
 ➜  putout-hello git:(master) ✗ cat input-for-replace-check-property.js
 ```
+
 ```js
-let a = {x : 1}
+    let a = {x : 1}
 
 if (a?.x) {
     console.log(a.x);
