@@ -492,19 +492,12 @@ In the command line, patterns are specified with a flag `--transform`.
 
 ## Plugin Types: Replacer
 
-The simplest **Putout** plugin type, consists of 2 functions:
+The simplest **Putout** plugin type, consists of a module that exports two functions:
 
-- `report` - report error message to `putout` cli;
+- `report` - reports an error message to `putout` cli;
 - `replace` - replace `key` template into `value` template;
 
-```js
-module.exports.report = () => 'use optional chaining';
-module.exports.replace = () => ({
-    '__a && __a.__b': '__a?.__b',
-});
-```
 
-This plugin will find and suggest to replace all occurrences of code: `object && object.property` into `object?.property`.
 
 Here is an example:
 
@@ -518,6 +511,10 @@ module.exports.replace = () => ({
 });
 ```
 
+This plugin will find and suggest to replace all occurrences of code: `object && object.property` into `object?.property`.
+
+Given the input:
+
 ```                                                                                                       
 ➜  putout-hello git:(master) cat input-for-replace-check-property.js 
 ```
@@ -529,8 +526,12 @@ if (a && a.x) {
 }
 ```
 
+when executed:
 ```                                                                                                        
 ➜  putout-hello git:(master) npx putout --rulesdir ./transforms  --fix input-for-replace-check-property.js
+```
+produces:
+```
 ➜  putout-hello git:(master) ✗ cat input-for-replace-check-property.js
 ```
 ```js
