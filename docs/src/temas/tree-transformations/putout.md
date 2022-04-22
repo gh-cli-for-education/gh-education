@@ -446,6 +446,7 @@ In the command line, patterns are specified with a flag `--transform`.
 ## References
 
 * [Repo crguezl/learning-putout](https://github.com/crguezl/learning-putout) with the examples of this lesson
+* [Practical application of transformation of AST-trees on the example of Putout](https://sudonull.com/post/786-Practical-application-of-transformation-of-AST-trees-on-the-example-of-Putout) SUDONULL tutorial
 * [🦎 PutoutScript](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript)
 * [Revealing the magic of AST by writing babel plugins](https://dev.to/viveknayyar/revealing-the-magic-of-ast-by-writing-babel-plugins-1h01). Vivek Nayyar. Posted on Mar 5, 2021. Updated on Mar 6, 2021
 * Read [Babel Plugin Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md)
