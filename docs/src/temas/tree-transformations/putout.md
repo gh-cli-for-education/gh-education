@@ -547,7 +547,7 @@ if (a?.x) {
 }
 ```
 
-### Plugin Types: Includer
+## Plugin Types: Includer
 
 More powerful plugin type, when you need more control over traversing.
 It should be a module exporting two functions:
