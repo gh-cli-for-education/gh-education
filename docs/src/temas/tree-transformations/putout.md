@@ -375,15 +375,25 @@ module.exports.report = () => 'Unexpected "debugger" statement';
 module.exports.replace = () => ({
     debugger: '',
 });
-``` 
+```
 
-And the contents of `input-for-remove-debugger.js`are:
+Of course the `package.json` has to have `type` to `commonjs`.
+
+And the initial contents of `input-for-remove-debugger.js` are:
 
 ```js
 console.log("hello");
 debugger;
 console.error("hello");
 ```
+
+and the final contents are:
+
+```js
+➜  putout-hello git:(master) ✗ cat input-for-remove-debugger.js                                      
+console.log("hello");
+console.error("hello");
+``` 
 
 ## User Transformations `~/.putout`
 
