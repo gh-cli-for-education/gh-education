@@ -547,6 +547,32 @@ if (a?.x) {
 }
 ```
 
+### Plugin Types: Includer
+
+More powerful plugin type, when you need more control over traversing.
+It should be a module exporting two functions:
+
+- `report` - report error message to `putout` cli;
+- `fix` - fixes paths using `places` array received using `find` function;
+
+and one or more of this:
+
+- `filter` - filter path, should return `true`, or `false` (don't use with `traverse`);
+- `include` - returns array of templates, or node names to include;
+- `exclude` - returns array of templates, or node names to exclude;
+
+```js
+module.exports.report = () => 'use optional chaining';
+module.exports.include = () => [
+    'debugger',
+];
+
+module.exports.fix = (path) => {
+    path.remove(path);
+};
+```
+
+
 ## References
 
 * [Repo crguezl/learning-putout](https://github.com/crguezl/learning-putout) with the examples of this lesson
