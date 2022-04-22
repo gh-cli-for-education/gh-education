@@ -406,7 +406,7 @@ function f(x) {
 
 ## PutoutScript: a Language
 
-The expressions used in the transformers like:
+The expressions used in transformers like:
 
 ```js
 module.exports.replace = () => ({
