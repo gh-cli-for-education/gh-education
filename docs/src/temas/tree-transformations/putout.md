@@ -490,6 +490,56 @@ Take a look at [rule syntax](https://github.com/coderaiser/putout/tree/master/pa
 
 In the command line, patterns are specified with a flag `--transform`.
 
+## Plugin Types: Replacer
+
+The simplest **Putout** plugin type, consists of 2 functions:
+
+- `report` - report error message to `putout` cli;
+- `replace` - replace `key` template into `value` template;
+
+```js
+module.exports.report = () => 'use optional chaining';
+module.exports.replace = () => ({
+    '__a && __a.__b': '__a?.__b',
+});
+```
+
+This plugin will find and suggest to replace all occurrences of code: `object && object.property` into `object?.property`.
+
+Here is an example:
+
+```
+➜  putout-hello git:(master) cat transforms/replace-check-property.js 
+```
+```js
+module.exports.report = () => 'use optional chaining';
+module.exports.replace = () => ({
+    '__a && __a.__b': '__a?.__b',
+});
+```
+
+```                                                                                                       
+➜  putout-hello git:(master) cat input-for-replace-check-property.js 
+```
+```js
+let a = {x : 1}
+
+if (a && a.x) {
+    console.log(a.x);
+}
+```
+
+```                                                                                                        
+➜  putout-hello git:(master) npx putout --rulesdir ./transforms  --fix input-for-replace-check-property.js
+➜  putout-hello git:(master) ✗ cat input-for-replace-check-property.js
+```
+```js
+let a = {x : 1}
+
+if (a?.x) {
+    console.log(a.x);
+}
+```
 
 ## References
 
