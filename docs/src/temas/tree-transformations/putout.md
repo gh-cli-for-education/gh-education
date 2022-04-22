@@ -540,7 +540,7 @@ produces:
 ```
 
 ```js
-    let a = {x : 1}
+let a = {x : 1}
 
 if (a?.x) {
     console.log(a.x);
