@@ -157,7 +157,9 @@ The configuration file has been modified by the previous command:
 
 Disabling a rule seems to works like that: 
 
-Wherever the folder `putout`  is visiting, if there is a file there matching the key in `"rules"`, it will be ignored.  For example, even if I have in one of the folders `putout`  is searching for transformations, a file with name `"xxxx-remove-unused-variables-yyy.js"` it will be ignored since it matches the first entry.
+Wherever the folder `putout`  is visiting, if there is a file there, matching one of the deactivated keys inside the  `"rules"` section, that transformation file will be ignored.  
+
+For example, even if I have in one of the folders `putout`  is searching for transformations a file with name `"xxxx-remove-unused-variables-yyy.js"` it will be ignored since it matches the first entry.
 
 
 ## Modifying the configuration file 
