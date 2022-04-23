@@ -673,6 +673,9 @@ module.exports.traverse = ({push}) => ({
 });
 ```
 
+See [Get Sibling Paths](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md#get-sibling-paths) at [Babel Plugin Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md#babel-plugin-handbook)
+
+
 ```js
 ➜  putout-hello git:(master) ✗ cat input-remove-unreachable-code.js 
 function tutu() {
@@ -689,6 +692,11 @@ function tutu() {
     const b = 5;
     return a + b;
 }
+```
+
+```
+➜  putout-hello git:(master) ✗ grep unreach .putout.json 
+        "remove-unreachable-code": "off"
 ```
 
 ## References
