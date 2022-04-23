@@ -575,10 +575,67 @@ and one or more of this:
 
 Here is an example:
 
+```
+➜  putout-hello git:(master) ✗ cat plugin-type-includer/remove-chazam.js 
+```
+
 ```js
 module.exports.report = () => 'remove debugger statements';
 module.exports.include = () => [ 'debugger', ];
 module.exports.fix = (path) => { path.remove(path); };
+```
+Observe that the file has name `remove-chazam.js` 
+
+and that:
+
+```js
+➜  putout-hello git:(master) ✗ grep remove-d .putout.json
+        "remove-debugger": "off",
+```
+
+Here is an execution. We see it is applied:
+
+```js
+➜  putout-hello git:(master) ✗ cat input-for-remove-debugger.js 
+console.log("hello");
+debugger;
+console.error("hello");                                                                                  
+➜  putout-hello git:(master) ✗ npx putout --rulesdir plugin-type-includer  --fix input-for-remove-debugger.js
+➜  putout-hello git:(master) ✗ cat input-for-remove-debugger.js
+console.log("hello");
+console.error("hello");
+```
+
+Here is a similar example using `fix`:
+
+```js 
+➜  putout-hello git:(master) ✗ cat fix-example/remove-chazam.js 
+module.exports.report = () =>'Unexpected "debugger" statement';
+
+module.exports.find = (ast, {traverse}) => {
+    const places = [];
+    traverse(ast, {
+        DebuggerStatement(path) {
+            places.push(path);
+        }
+    });
+    return places;
+};
+
+module.exports.fix = (path) => {
+    path.remove();
+};
+```
+
+```js
+➜  putout-hello git:(master) ✗ cat input-for-remove-debugger.js                                     
+console.log("hello");
+debugger;
+console.error("hello");                                                                                   
+➜  putout-hello git:(master) ✗ npx putout --rulesdir fix-example  --fix input-for-remove-debugger.js
+➜  putout-hello git:(master) ✗ cat input-for-remove-debugger.js                                     
+console.log("hello");
+console.error("hello");
 ```
 
 
