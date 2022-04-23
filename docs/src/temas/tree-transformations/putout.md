@@ -41,7 +41,7 @@ Options:
    --no-cache                  disable the cache
 ```
 
-## Installation
+## Installation and Versions
 
 Be sure to have one of the last versions of node before installing it:
 
@@ -49,6 +49,8 @@ Be sure to have one of the last versions of node before installing it:
 ➜  putout-hello node --version
 v18.0.0
 ➜  putout-hello git:(master) npm i putout -D
+➜  putout-hello git:(master) npx putout --version
+v25.14.3
 ```
 
 ## Transforming a program 
