@@ -549,10 +549,13 @@ if (a?.x) {
 
 ## Plugin Types: Includer
 
-More powerful plugin type, when you need more control over traversing.
+The Putout plugin system is quite simple, and very similar to the eslint plugins , as well as the babel plugins.
+
+True, instead of one function, the Putout plugin should export 3. 
+
 It should be a module exporting two functions:
 
-- `report` - report error message to `putout` cli;
+- `report` - returns error message to `putout` cli;
 - `fix` - fixes paths using `places` array received using `find` function;
 
 and one or more of this:
@@ -561,15 +564,12 @@ and one or more of this:
 - `include` - returns array of templates, or node names to include;
 - `exclude` - returns array of templates, or node names to exclude;
 
-```js
-module.exports.report = () => 'use optional chaining';
-module.exports.include = () => [
-    'debugger',
-];
+Here is an example:
 
-module.exports.fix = (path) => {
-    path.remove(path);
-};
+```js
+module.exports.report = () => 'remove debugger statements';
+module.exports.include = () => [ 'debugger', ];
+module.exports.fix = (path) => { path.remove(path); };
 ```
 
 
