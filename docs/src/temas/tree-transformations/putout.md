@@ -551,9 +551,9 @@ if (a?.x) {
 
 ## Plugin Types: Includer
 
-The Putout plugin system is quite simple, and very similar to the eslint plugins , as well as the babel plugins.
+The Putout plugin system is simple, and very similar to the eslint plugins , as well as the babel plugins.
 
-True, instead of one function, the Putout plugin should export 3. 
+Instead of one function, the Putout plugin should export 3. 
 
 It should be a module exporting two functions:
 
