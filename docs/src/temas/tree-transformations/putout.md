@@ -638,6 +638,58 @@ console.log("hello");
 console.error("hello");
 ```
 
+## A Plugin to remove unreachable code
+
+```js 
+➜  putout-hello git:(master) ✗ cat rem-unr/rem-unrech-vod.js 
+'use strict';
+
+const {types} = require('putout');
+const {isFunctionDeclaration} = types;
+
+module.exports.report = () => `Unreachable code`;
+
+module.exports.fix = ({siblings}) => {
+    for (const sibling of siblings) {
+        sibling.remove();
+    }
+};
+
+module.exports.traverse = ({push}) => ({
+    'ReturnStatement|ThrowStatement'(path) {
+        const siblings = path.getAllNextSiblings();
+        
+        if (!siblings.length)
+            return;
+        
+        if (siblings.find(isFunctionDeclaration))
+            return;
+        
+        push({
+            path: siblings[0],
+            siblings,
+        });
+    },
+});
+```
+
+```js
+➜  putout-hello git:(master) ✗ cat input-remove-unreachable-code.js 
+function tutu() {
+    const a = 4;
+    const b = 5;
+    return a + b;
+    const c = 6;
+    const d = 7;
+}
+➜  putout-hello git:(master) ✗ npx putout --rulesdir rem-unr  --fix input-remove-unreachable-code.js
+➜  putout-hello git:(master) ✗ cat input-remove-unreachable-code.js                                 
+function tutu() {
+    const a = 4;
+    const b = 5;
+    return a + b;
+}
+```
 
 ## References
 
