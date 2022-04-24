@@ -508,7 +508,7 @@ function f(x) {
 2 * f(a);
 ```
 
-## PutoutScript: a Language
+## PutoutScript: a Language to Describe AST transformations
 
 The expressions used in transformers like:
 
@@ -518,7 +518,7 @@ module.exports.replace = () => ({
 });
 ``` 
 
-are examples of the *PutoutScript* language. [PutoutScript](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript) is a JavaScript compatible language which adds additional meaning to `Identifiers` in AST-template. 
+are examples of the *PutoutScript* language. [PutoutScript](putout-script) is a JavaScript compatible language which adds additional meaning to `Identifiers` in AST-template. 
 
 Variables look like `__a`, `__b` are an example of [Template Variables](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#template-variables). 
 
@@ -540,7 +540,7 @@ This includes
 and more.
 
 
-[PutoutScript](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript) is supported by all types of [Putout plugins](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#supported-plugin-types).
+[PutoutScript](putout-script) is supported by all types of [Putout plugins](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#supported-plugin-types).
 
 Take a look at [rule syntax](https://github.com/coderaiser/putout/tree/master/packages/compare#supported-template-variables) for more information.
 
