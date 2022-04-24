@@ -25,7 +25,7 @@ and so the idea is "to put out everything from `putout` until there is no longer
 
 or as Blaise Pascal would say if he were alive today:
 
-> **I’m sorry I wrote you such a long program. I didn’t have time to write a short one** 
+> **I’m sorry I wrote you such a long program. I didn’t have time to write a shorter one** 
  
 But why a cocodrile ![putout](https://raw.githubusercontent.com/coderaiser/putout/50a3316178815535349308d0d5bd3188e6f07f2a/images/putout-logo.svg)
 as logo?
@@ -61,7 +61,7 @@ Options:
 
 ## Installation and Versions
 
-Be sure to have one of the last versions of node before installing it:
+Be sure to have one of the latest versions of node before installing it:
 
 ```
 ➜  putout-hello node --version
