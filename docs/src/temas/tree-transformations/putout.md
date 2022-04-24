@@ -14,6 +14,24 @@ The main target is **JavaScript**, but it also understand these other languages:
 - JSON;
 - Ignore;
 
+The name `putout` strikes me, but it is well explained in the `putout` README file:
+
+> **Perfection is finally attained not when there is no longer anything to add,
+> but when there is no longer anything to take away.**
+>
+> **(c) Antoine de Saint Exupéry**
+
+and so the idea is to "*put out everything until there is no longer anything to take away*".
+
+or as Blaise Pascal would say if he were alive today:
+
+> **I’m sorry I wrote you such a long program. I didn’t have time to write a short one** 
+ 
+But why a cocodrile as logo?
+
+![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
+
+
 ## putout Help
 
 ```
