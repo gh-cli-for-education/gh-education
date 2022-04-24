@@ -149,6 +149,8 @@ Let us restore the original version:
 
 ## Disable/enable rules
 
+When you need to change [configuration](#-configuration) file use **Ruler** instead of editing the file manually.
+
 There are three command line options related with disabling and enabling rules:
 
 *  `--disable [rule]`
@@ -745,6 +747,10 @@ function tutu() {
 ➜  putout-hello git:(master) ✗ grep unreach .putout.json 
         "remove-unreachable-code": "off"
 ```
+
+## Plugins
+
+See section [Plugins](putout-plugins)
 
 ## Architecture
 
