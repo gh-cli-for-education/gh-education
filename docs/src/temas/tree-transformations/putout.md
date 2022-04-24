@@ -95,7 +95,12 @@ async function promise(a) {
 Assuming all rules are active:
 
 ``` 
-➜  putout-hello git:(master) ✗ npx putout --fix index.js                
+➜  putout-hello git:(master) ✗ npx putout --fix index.js 
+```
+
+And the program is transformed onto:
+
+```               
 ➜  putout-hello git:(master) cat index.js
 ```
 ```js
