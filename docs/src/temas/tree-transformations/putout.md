@@ -90,20 +90,47 @@ async function promise(a) {
     return Promise.reject(Error('x'));
 ```
 
+
 ## Fixing a program with --fix
 
-Assuming all rules are active:
+Let us activate all the rules:
+
+```
+➜  putout-hello git:(master) ✗ npx putout --enable-all .
+``` 
+
+Then `npx putout inputs/index.js` will produce something similar to the following diagnostics:
 
 ``` 
-➜  putout-hello git:(master) ✗ npx putout --fix index.js 
+➜  putout-hello git:(master) ✗ npx putout inputs/index.js 
+/Users/casianorodriguezleon/campus-virtual/2122/learning/compiler-learning/putout-learning/putout-hello/inputs/index.js
+ 1:6   error   'unused' is defined but never used                       remove-unused-variables          
+ 7:23  error   'a' is defined but never used                            remove-unused-variables          
+ 3:0   error   ESM should be used insted of Commonjs                    convert-commonjs-to-esm/exports  
+ 3:0   error   Arrow functions should be used                           convert-to-arrow-function        
+ 1:0   error   'use strict' directive should be on top of CommonJS      strict-mode/add                  
+ 8:4   error   Reject is useless in async functions, use throw instead  promises/convert-reject-to-throw 
+ 4:11  error   Call async functions using 'await'                       promises/add-missing-await       
+ 7:0   error   Avoid useless async                                      promises/remove-useless-async    
+
+✖ 8 errors in 1 files
+  fixable with the `--fix` option
 ```
 
-And the program is transformed onto:
+If we add the `--fix` option, the program is transformed onto:
 
-```               
-➜  putout-hello git:(master) cat index.js
-```
+``` 
+➜  putout-hello git:(master) ✗ npx putout --fix inputs/index.js
+/Users/casianorodriguezleon/campus-virtual/2122/learning/compiler-learning/putout-learning/putout-hello/inputs/index.js
+ 3:0  error   CommonJS should be used insted of ESM  convert-esm-to-commonjs         
+ 0:0  error   ESM should be used insted of Commonjs  convert-commonjs-to-esm/exports 
+ 0:0  error   ESM should be used insted of Commonjs  convert-commonjs-to-esm/exports 
+✖ 3 errors in 1 files
+  fixable with the `--fix` option
+``` 
+
 ```js
+➜  putout-hello git:(master) ✗ cat inputs/index.js 
 'use strict';
 
 module.exports = async () => await promise();
@@ -113,28 +140,16 @@ function promise() {
 }
 ```
 
-## Diagnostics
-
-The command `npx putout index.js` will show the list of issues to fix in the former program:
+Let us restore the original version:
 
 ```
-➜  putout-hello git:(master) npx putout index.js            
-/Users/casianorodriguezleon/campus-virtual/2122/learning/compiler-learning/putout-learning/putout-hello/index.js
- 1:6   error   'unused' is defined but never used                       remove-unused-variables          
- 7:23  error   'a' is defined but never used                            remove-unused-variables          
- 3:0   error   Arrow functions should be used                           convert-to-arrow-function        
- 1:0   error   'use strict' directive should be on top of CommonJS      strict-mode/add                  
- 8:4   error   Reject is useless in async functions, use throw instead  promises/convert-reject-to-throw 
- 4:11  error   Call async functions using 'await'                       promises/add-missing-await       
- 7:0   error   Avoid useless async                                      promises/remove-useless-async    
-
-✖ 7 errors in 1 files
-  fixable with the `--fix` option
+➜  putout-hello git:(master) ✗ git restore inputs/index.js 
 ```
+
 
 ## Disable/enable rules
 
-This is almost the same than using the option `--disable-all`. There are three command line options related with disabling and enabling rules:
+There are three command line options related with disabling and enabling rules:
 
 *  `--disable [rule]`
    *  disable the rule and save it to `.putout.json` walking up parent directories
@@ -146,19 +161,25 @@ This is almost the same than using the option `--disable-all`. There are three c
 Here is an example:
 
 ```
-➜  putout-hello git:(master) ✗ npx putout index.js --disable-all
-/Users/casianorodriguezleon/campus-virtual/2122/learning/compiler-learning/putout-learning/putout-hello/index.js
+➜  putout-hello git:(master) ✗ npx putout --disable-all inputs/index.js 
+/Users/casianorodriguezleon/campus-virtual/2122/learning/compiler-learning/putout-learning/putout-hello/inputs/index.js
  1:6   error   'unused' is defined but never used                       remove-unused-variables          
  7:23  error   'a' is defined but never used                            remove-unused-variables          
- 3:0   error   Arrow functions should be used                           convert-to-arrow-function        
- 1:0   error   'use strict' directive should be on top of CommonJS      strict-mode/add                  
+ 3:0   error   CommonJS should be used insted of ESM                    convert-esm-to-commonjs          
  8:4   error   Reject is useless in async functions, use throw instead  promises/convert-reject-to-throw 
  4:11  error   Call async functions using 'await'                       promises/add-missing-await       
  7:0   error   Avoid useless async                                      promises/remove-useless-async    
 
-✖ 7 errors in 1 files
-  fixable with the "--fix" option
+✖ 6 errors in 1 files
+  fixable with the `--fix` option
 ``` 
+
+You have to provide always a file or a folder when using a ruler toggler option:
+
+```
+➜  putout-hello git:(master) ✗ npx putout --disable-all     
+🐊 `path` is missing for ruler toggler (`--enable-all`, `--disable-all`)
+```
 
 ## The configuration file .putout.json
 
@@ -180,9 +201,12 @@ The configuration file has been modified by the previous command:
 
 Disabling a rule seems to works like that: 
 
-Wherever the folder `putout`  is visiting, if there is a file there, matching one of the deactivated keys inside the  `"rules"` section, that transformation file will be ignored.  
+Wherever the folder `putout`  is visiting, if there is a file there, whose name matches one of the deactivated keys inside the  `"rules"` section, that transformation file will be ignored.  
 
 For example, even if I have in one of the folders `putout`  is searching for transformations a file with name `"xxxx-remove-unused-variables-yyy.js"` it will be ignored since it matches the first entry.
+
+
+Using this `.putout.json` file  you can overwrite any of the [default options](https://github.com/coderaiser/putout/blob/master/packages/putout/putout.json)
 
 
 ## Modifying the configuration file 
@@ -721,6 +745,14 @@ function tutu() {
 ➜  putout-hello git:(master) ✗ grep unreach .putout.json 
         "remove-unreachable-code": "off"
 ```
+
+## Architecture
+
+See section [Architecture](architecture)
+
+## Built-in Transformations
+
+See section [Built-in Transformations](/temas/tree-transformations/putout-builtin-transformations)
 
 ## References
 
