@@ -1,6 +1,6 @@
 # putout 
 
-🐊**Putout** is a pluggable and configurable code transformer based on **Babel** with built-in **ESLint**. 
+🐊**Putout** is a pluggable and configurable code transformer based on **Babel** with built-in **ESLint**. It is an alternative to [JSCodeShift](jscodeshift)
 
 It has [a lot of transformations](https://github.com/coderaiser/putout#-built-in-transformations) that will keep your codebase in a clean state, removing any code smell and making code readable according to best practices.
 
@@ -21,15 +21,15 @@ The name `putout` strikes me, but it is well explained in the `putout` README fi
 >
 > **(c) Antoine de Saint Exupéry**
 
-and so the idea is to "*put out everything until there is no longer anything to take away*".
+and so the idea is "to put out everything from `putout` until there is no longer anything to put out*".
 
 or as Blaise Pascal would say if he were alive today:
 
 > **I’m sorry I wrote you such a long program. I didn’t have time to write a short one** 
  
-But why a cocodrile as logo?
+But why a cocodrile ![putout](https://raw.githubusercontent.com/coderaiser/putout/50a3316178815535349308d0d5bd3188e6f07f2a/images/putout-logo.svg)
+as logo?
 
-![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
 
 ## putout Help
