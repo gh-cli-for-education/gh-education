@@ -148,6 +148,21 @@ commaExp -> null
    | expression ("," expression):*
 ```
 
+Notice that `commaExp` is nullable and thus it fits witn an empty indexation expression like `a[]`. 
+We can change the grammar or control the presence of at least one index inside the appropriate semantic expression:
+
+```ruby
+➜  egg-oop-parser-solution git:(master) cat examples/empty-bracket.egg 
+do(
+    def(a, [1,2,3]),
+    print(a[])
+)                                                                                                        
+➜  egg-oop-parser-solution git:(master) bin/eggc.js examples/empty-bracket.egg
+There was an error: Syntax error accesing property at line 3 col 12.
+Specify at least one property.
+```
+
+
 ## Currying in Egg
 
 When the argument used to index a function object is not an attribute of the function 
