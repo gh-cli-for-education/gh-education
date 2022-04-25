@@ -636,8 +636,11 @@ Let us study now the support for Array Literals. The involved rules are:
 
 ```js{2,3}
 expression ->  ...
-    | bracketExp
+    | bracketExp optProperties
 bracketExp -> "["  commaExp "]"
+
+optProperties -> null
+   | properties
 ```
 
 The idea is that the transformer associated to the `bracketExp` rule builds  an apply node like 
@@ -655,8 +658,11 @@ The production rules for object literals are:
 
 ```js
 expression -> ...
-    | curlyExp
+    | curlyExp   optProperties
 curlyExp   -> "{"  commaExp "}"
+
+optProperties -> null
+   | properties
 ```
 
 As for array literals, the idea is that the transformer associated to the `curlyExp` rule builds  an apply node like 
