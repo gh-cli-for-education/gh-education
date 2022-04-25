@@ -151,6 +151,12 @@ commaExp -> null
 Notice that `commaExp` is nullable and thus it fits witn an empty indexation expression like `a[]`. 
 We can change the grammar or control the presence of at least one index inside the appropriate semantic expression:
 
+```js
+bracketExp -> "["  commaExp "]"  {% ([lb, commaExp, rb]) => checkNonEmpty(lb, commaExp) %}
+```
+
+so that we can protest if the index list is empty:
+
 ```ruby
 ➜  egg-oop-parser-solution git:(master) cat examples/empty-bracket.egg 
 do(
