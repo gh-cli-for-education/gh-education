@@ -220,25 +220,47 @@ do(
 2
 ```
 
+Later in this lab we will introduce the *dot operator* `a.b`  for objects. Basically `a.b` and `a["b"]` are the same thing. This is why the former program can be rewritten this way:
+
+```
+➜  egg-oop-parser-solution git:(master) ✗ cat  examples/curry-no-method-dot.egg
+```
+```ruby 
+print(+.4(2))
+```
+```                                                                       
+➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/curry-no-method-dot 
+6
+```
+
 This is another example of currying in Egg:
 
 ```ruby
-➜  egg-oop-parser-solution git:(master) cat examples/curry-method.egg 
+➜  egg-oop-parser-solution git:(master) cat examples/curry-method.egg
 do (
-  print(4["+"][5](3)), # 4["+"](5, 3) # 12
+  print(4["+"][5](3)), 
+  print(4.+[5](3)),    # Same thing 12
   print(4["*"][5](3)), # 4["*"](5, 3) # 60
   print(6["/"][2](3)), # 6["/"](2, 3) # 1
   print(6["-"][2](3))  # 6["/"](2, 3) # 1
 )
 ```
 
+The ambiguities that arise in the expression `4.+` will be discussed in the incoming sections. 
+
 ```
-➜  egg-oop-parser-solution git:(master) bin/egg examples/curry-method 
+➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/curry-method        
+12
 12
 60
 1
 1
 ```
+
+::: tip Design Consideration
+
+The decision of overloading the meaning of the 
+::: 
 
 ## Extending the ASTs
 
