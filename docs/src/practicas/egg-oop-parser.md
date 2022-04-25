@@ -161,7 +161,10 @@ so that we can protest if the index list is empty:
 do(
     def(a, [1,2,3]),
     print(a[])
-)                                                                                                        
+)
+```
+
+```
 ➜  egg-oop-parser-solution git:(master) bin/eggc.js examples/empty-bracket.egg
 There was an error: Syntax error accesing property at line 3 col 12.
 Specify at least one property.
