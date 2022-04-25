@@ -6,6 +6,10 @@
 
 When a phrase is syntactically correct there is a chance to consider for a while if it is some meaning in it
 
+## Related Classes
+
+* [2022-04-25](/clases/2022-04-25-leccion)
+* [2022-04-26](/clases/2022-04-26-leccion)
 
 ## Related labs
 
