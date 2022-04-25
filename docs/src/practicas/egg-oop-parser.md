@@ -208,6 +208,26 @@ Execution:
 6
 ```
 
+This is another example of currying in Egg:
+
+```ruby
+➜  egg-oop-parser-solution git:(master) cat examples/curry-method.egg 
+do (
+  print(4["+"][5](3)), # 4["+"](5, 3) # 12
+  print(4["*"][5](3)), # 4["*"](5, 3) # 60
+  print(6["/"][2](3)), # 6["/"](2, 3) # 1
+  print(6["-"][2](3))  # 6["/"](2, 3) # 1
+)
+```
+
+```
+➜  egg-oop-parser-solution git:(master) bin/egg examples/curry-method 
+12
+60
+1
+1
+```
+
 ## Extending the ASTs
 
 Consider the following Egg program:
