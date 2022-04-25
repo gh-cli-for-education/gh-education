@@ -191,7 +191,7 @@ When the argument used to index a function object is not an attribute of the fun
 someFun[arg1, ... ] # and "arg1" is not a property of "someFun"
 ```
 
-then `arg1, ...` are interpreted as arguments for `someFun` and the expression returns the [currying of the function](https://en.wikipedia.org/wiki/Currying) on `arg1, ...`. 
+then we want `arg1, ...` to be interpreted as arguments for `someFun` and the expression returns the [currying of the function](https://en.wikipedia.org/wiki/Currying) on `arg1, ...`. 
 
 For instance:
 
@@ -206,6 +206,18 @@ Execution:
 ✗ bin/eggc.js examples/curry-no-method.egg
 ✗ npx evm examples/curry-no-method.json   
 6
+```
+
+However, if the attribute exists we want an ordinary property evaluation, as in this example:
+
+```ruby
+➜  egg-oop-parser-solution git:(master) cat examples/function-length-property.egg
+do(
+    def(f, fun(x, y, +(x,y))),
+    print(f.numParams) # JS length property is not supported
+)
+➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/function-length-property
+2
 ```
 
 This is another example of currying in Egg:
