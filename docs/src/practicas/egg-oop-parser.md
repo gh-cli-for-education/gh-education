@@ -148,8 +148,7 @@ commaExp -> null
    | expression ("," expression):*
 ```
 
-Notice that `commaExp` is nullable and thus it fits witn an empty indexation expression like `a[]`. 
-We can change the grammar or control the presence of at least one index inside the appropriate semantic expression:
+Notice that `commaExp` is nullable, and thus it fits with an empty indexation expression like `a[]` which makes nonsense. To fix the problem, we can change the grammar or, alternatively, force the presence of at least one index inside the semantic expression associate to `bracketExp`:
 
 ```js
 bracketExp -> "["  commaExp "]"  {% ([lb, commaExp, rb]) => checkNonEmpty(lb, commaExp) %}
