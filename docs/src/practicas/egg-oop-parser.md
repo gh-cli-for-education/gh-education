@@ -273,7 +273,7 @@ which makes the design proposal consistent with the idea of **property**
 
 ## Selectors: the Dot Operator
 
-Most OOP languages allow the use of the notation `x.y` as a synonim of `x["y"]`. 
+Most OOP languages allow the use of the notation `x.y` as a synonym of `x["y"]`. 
 To add it to Egg we add the production `properties -> selector applies` to the grammar.
 
 Lines 8-10 show the rules for the new syntactic variable `selector`:
