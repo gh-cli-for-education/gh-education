@@ -259,7 +259,7 @@ The ambiguities that arise in the expression `4.+` will be discussed in the inco
 
 ::: tip Design Consideration
 
-The decision of overloading the meaning of the property access for functions is a risky one but has few consequences over the grammar design.
+The decision of overloading the meaning of the property access for functions is a risky one ⚠️ but has few consequences over the grammar design and it will have consequences during the interpretation phase.
 
 In this case the idea is that 
 
