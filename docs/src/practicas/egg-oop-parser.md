@@ -214,7 +214,7 @@ However, if the attribute exists we want an ordinary property evaluation, as in 
 ➜  egg-oop-parser-solution git:(master) cat examples/function-length-property.egg
 do(
     def(f, fun(x, y, +(x,y))),
-    print(f.numParams) # JS length property is not supported
+    print(f["numParams"]) # JS length property is not supported
 )
 ➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/function-length-property
 2
