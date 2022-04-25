@@ -259,7 +259,13 @@ The ambiguities that arise in the expression `4.+` will be discussed in the inco
 
 ::: tip Design Consideration
 
-The decision of overloading the meaning of the 
+The decision of overloading the meaning of the property access for functions is a risky one but has few consequences over the grammar design.
+
+In this case the idea is that 
+
+> Any potential argument of a function is a property of such function whose value is the function curryfied for that argument
+
+which makes the design proposal consistent with the idea of **property**
 ::: 
 
 ## Extending the ASTs
