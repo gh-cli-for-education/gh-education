@@ -525,7 +525,6 @@ expression ->
     | curlyExp   optProperties
     | %WORD applies           
 
-
 applies -> calls
     | properties
     | null
