@@ -264,12 +264,41 @@ but has few consequences over the grammar design other than the ambiguity that a
 
 **The decision of overloading the meaning of the property access for functions will have consequences during the interpretation phase**.
 
-In this case the idea is that 
+In this case the idea to justify it is that 
 
-**Any potential argument of a function is a property of such function whose value is the function curried for that argument**
+**Any potential argument of a function can be viewed as a property of such function whose value is the function curried for that argument**
 
 which makes the design proposal consistent with the idea of **property**
 ::: 
+
+## Selectors: the Dot Operator
+
+Most OOP languages allow the use of the notation `x.y` as a synonim of `x["y"]`. 
+To add it to Egg we add the production `properties -> selector applies` to the grammar.
+
+Lines 8-10 show the rules for the new syntactic variable `selector`:
+
+```js{6,8-10}
+applies -> calls
+    | properties
+    | null
+
+properties ->  bracketExp  applies
+    | selector applies            
+
+selector   ->  
+     "." %WORD
+   | "." %NUMBER
+```
+
+We want to allow programs  like the following:
+
+```js
+➜  egg-oop-parser-solution git:(master) ✗ cat examples/dot-num.egg 
+print(4.3.toFixed(2))
+➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/dot-num 
+4.30
+```
 
 ## Extending the ASTs
 
