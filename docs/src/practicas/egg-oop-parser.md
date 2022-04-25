@@ -148,6 +148,8 @@ commaExp -> null
    | expression ("," expression):*
 ```
 
+## Property indexation and commaExp is nullable
+
 Notice that `commaExp` is nullable, and thus it fits with an empty indexation expression like `a[]` which makes nonsense. To fix the problem, we can change the grammar or, alternatively, force the presence of at least one index inside the semantic expression associate to `bracketExp`:
 
 ```js
@@ -170,6 +172,16 @@ There was an error: Syntax error accesing property at line 3 col 12.
 Specify at least one property.
 ```
 
+::: tip Design Consideration
+
+Whenever a phrase is syntactically correct and it seems semantically absurd like is the case of `x[]`, 
+I usually stop for a moment and consider 🤔 if there is some not obvious meaning we can give to it.
+
+[![Colorless green ideas sleep furiously](/images/colorless-green-ideas-sleep-furiously.png)](https://en.wikipedia.org/wiki/Colorless_green_ideas_sleep_furiously)  Noam Chomsky. 1957 *Syntactic Structures*
+
+
+For instance all arrays, objects and maps have in common the `length` property. May be we can give to `x[]`the meaning `x.length`?
+:::
 
 ## Currying in Egg
 
