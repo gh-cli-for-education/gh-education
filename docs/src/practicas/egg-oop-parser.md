@@ -300,6 +300,15 @@ print([1,4,5].join("-").length) # 5 Same as array(1,4,5)["join"]("-")["length"]%
 5
 ```
 
+same thing with object literals:
+
+```ruby
+➜  egg-oop-parser-solution git:(master) ✗ cat examples/dot-obj-literal.egg 
+print({x : 3}.x) # 3
+➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/dot-obj-literal
+3
+```
+
 and also:
 
 ```js
