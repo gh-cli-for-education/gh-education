@@ -257,3 +257,7 @@ See the code in the repo [crguezl/js-lexical-ambiguity](https://github.com/crgue
 
 * Github Organization [Ecma TC39: Ecma International, Technical Committee 39 - ECMAScript](https://github.com/tc39/)
 * [This Github repository contains the source for the current draft of ECMA-262](https://github.com/tc39/ecma262)
+
+## The Design of Programming Languages
+
+See section [The Design of Programming Languages](/temas/syntax-analysis/the-design-of-programming-languages)
