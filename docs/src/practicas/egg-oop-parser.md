@@ -300,6 +300,19 @@ print(4.3.toFixed(2))
 4.30
 ```
 
+and even program like this one:
+
+```js
+➜  egg-oop-parser-solution git:(master) ✗ cat examples/array-dot.egg 
+do(
+    def(a, [[1,2],3]),
+    print(a.0.1)
+)
+
+➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/array-dot 
+2
+```
+
 ## Extending the ASTs
 
 Consider the following Egg program:
@@ -508,9 +521,10 @@ program -> expression %EOF
 expression -> 
       %STRING  optProperties
     | %NUMBER  optProperties
-    | %WORD applies
-    | bracketExp
-    | curlyExp
+    | bracketExp optProperties 
+    | curlyExp   optProperties
+    | %WORD applies           
+
 
 applies -> calls
     | properties
