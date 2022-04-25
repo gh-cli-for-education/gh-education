@@ -294,6 +294,15 @@ selector   ->
 We want to allow programs  like the following:
 
 ```js
+➜  egg-oop-parser-solution git:(master) ✗ cat examples/dot.egg 
+print(array(1,4,5).join("-").length) # 5 Same as array(1,4,5)["join"]("-")["length"]
+➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/dot 
+5
+```
+
+and also:
+
+```js
 ➜  egg-oop-parser-solution git:(master) ✗ cat examples/dot-num.egg 
 print(4.3.toFixed(2))
 ➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/dot-num 
