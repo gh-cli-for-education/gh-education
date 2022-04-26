@@ -321,7 +321,7 @@ and also:
 
 ```js
 ➜  egg-oop-parser-solution git:(master) ✗ cat examples/dot-num.egg 
-print(4.3.toFixed(2))
+print(c)
 ➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/dot-num 
 4.30
 ```
@@ -338,6 +338,8 @@ do(
 ➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/array-dot 
 2
 ```
+
+Think on the sub-expression `a.0.1` from the lexical analysis point of view. A naif approach will lead to the  token's flow `[WORD, DOT, NUMBER]` 
 
 ## Extending the ASTs
 
