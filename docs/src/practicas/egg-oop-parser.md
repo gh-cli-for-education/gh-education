@@ -200,6 +200,12 @@ For instance:
 print(+[4](2))
 ```
 
+In Egg `+` is a function that takes an arbritrary number of numbers:
+
+$$+: \cup_{i=1}^{\infty}\mathbb{R}^i \longrightarrow \mathbb{R}$$
+
+and returns its sum. The curried $+[4]: \cup_{i=1}^{\infty}\mathbb{R}^i \longrightarrow \mathbb{R}$ is the function defined by $+[4](x_2, \cdots, x_n) = +(4, x_2, \cdots, x_n)$.
+
 Execution:
 
 ```
@@ -219,6 +225,8 @@ do(
 ➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/function-length-property
 2
 ```
+
+We have added an attribute `numParams` to the Egg Function objects that reutrns the number of parameters in its declaration.
 
 Later in this lab we will introduce the *dot operator* `a.b`  for objects. Basically `a.b` and `a["b"]` are the same thing. This is why the former program can be rewritten this way:
 
@@ -264,7 +272,7 @@ but has few consequences over the grammar design other than the ambiguity that a
 
 **The decision of overloading the meaning of the property access for functions will have consequences during the interpretation phase**.
 
-In this case the idea to justify it is that 
+In this case the idea behind the proposal is that 
 
 **Any potential argument of a function can be viewed as a property of such function whose value is the function curried for that argument**
 
