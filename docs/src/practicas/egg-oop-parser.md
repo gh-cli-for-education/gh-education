@@ -686,7 +686,7 @@ The idea is that the transformer associated to the `bracketExp` rule builds  an 
 APPLY(operator:(WORD{name:array}, args: commaexp)
 ```
 
-where `commaexp` is the forest associated with the `commaExp` node.
+where `commaexp` is the AST forest associated with the `commaExp` node of the parsing (concrete) tree.
 
 
 ## Object Literals 
