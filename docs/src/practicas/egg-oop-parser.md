@@ -680,6 +680,7 @@ optProperties -> null
    | properties
 ```
 
+::: tip 
 The idea is that the transformer associated to the `bracketExp` rule builds  an apply node like 
 
 ```ruby
@@ -687,7 +688,7 @@ APPLY(operator:(WORD{name:array}, args: commaexp)
 ```
 
 where `commaexp` is the AST forest associated with the appearance  of `commaExp` in the production `bracketExp -> "["  commaExp "]"`.
-
+:::
 
 ## Object Literals 
 
@@ -702,11 +703,30 @@ optProperties -> null
    | properties
 ```
 
+::: tip
 As for array literals, the idea is that the transformer associated to the `curlyExp` rule builds  an apply node like 
 
 ```ruby
 APPLY(operator:(WORD{name:object}, args: commaexp)
 ```
+:::
+
+## Challenge: The Begin Something End Something Pattern
+
+The solution we have used to solve the two previous sections [Array Literals](#array-literals) and [Object Literals](#object-literals) follows a pattern I will call the **Begin-Something-End-Something Pattern**:
+
+1. Add a couple of tokens to the language to signal the beginning and the end of the **new category of expression**: `[` begins arrays, `]` ends arrays.
+   * Introduce the tokens in the lexer (be carefull with conflicts, specially with "expansive" tokens like `WORD`)
+   * Modify the grammar adding the new rule for the new kind of expression
+2. Build an AST for the the new category by adding a function `buildCategory` to your `build-ast.js`.
+   * `buildCategory` returns in fact a specialized case of an existent AST
+   * Remember to export the new function and import the new function in the grammar `egg.ne`
+
+Following these instructions it is trivial to extend Egg with a family of constructs as 
+
+* `do` ... `end do`, 
+* `while` ... `end while`
+*  etc.
 
 ## Resources
 
