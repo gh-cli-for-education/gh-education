@@ -345,7 +345,7 @@ Think on the sub-expression above `a.0.1` from the lexical analysis point of vie
 
 Consider the following Egg program:
 
-```
+```ruby
 ✗ cat examples/dot-num.egg                         
 print(4.3.toFixed(2))
 ```
