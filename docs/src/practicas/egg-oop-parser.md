@@ -456,6 +456,10 @@ Uncaught SyntaxError: Invalid or unexpected token
 En JS la ambiguedad se resuelve parentizando el número:
 
 ```js
+> 4.toFixed(2)
+4.toFixed(2)
+^^
+Uncaught SyntaxError: Invalid or unexpected token
 > (4).toFixed(2)
 '4.00'
 ```
