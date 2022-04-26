@@ -726,7 +726,7 @@ Following these instructions it is trivial to extend Egg with a family of constr
 
 * `do` ... `end do`, See an example in the branch `doendo` of the solution repo
 
-  ```js
+  ```ruby
   ➜  egg-oop-parser-solution git:(doendo) cat examples/do-endo.egg 
   do
     def(a,4),
