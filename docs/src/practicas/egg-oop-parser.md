@@ -172,7 +172,7 @@ There was an error: Syntax error accesing property at line 3 col 12.
 Specify at least one property.
 ```
 
-## The Syntactically Correct Semantically Absurd Pattern
+## The *Syntactically Correct, Semantically Absurd* Language Design Pattern
 
 ::: tip Design Consideration
 
@@ -716,9 +716,9 @@ APPLY(operator:(WORD{name:object}, args: commaexp)
 ```
 :::
 
-## Challenge: The Begin Something End Something Pattern
+## The *Begin End Something* Language Design Pattern
 
-The solution we have used to solve the two previous sections [Array Literals](#array-literals) and [Object Literals](#object-literals) follows a pattern I will call the **Begin-Something-End-Something Pattern**:
+The solution we have used to solve the two previous sections [Array Literals](#array-literals) and [Object Literals](#object-literals) follows a pattern I will call the **Begin-End-Something Pattern**:
 
 1. Add a couple of tokens to the language to signal the beginning and the end of the **new category of expression**: `[` begins arrays, `]` ends arrays.
    * Introduce the tokens in the lexer (be carefull with conflicts, specially with "expansive" tokens like `WORD`)
