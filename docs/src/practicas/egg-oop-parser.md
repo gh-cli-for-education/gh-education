@@ -184,8 +184,8 @@ I usually stop for a moment and consider 🤔 if there is some not obvious meani
 
 For instance all arrays, objects and maps have in common the `length` property. 
 
-* May be we can give to `x[]`the meaning of a deep copy of `x`?
-* May be we can give to `x[]`the meaning `x.length`?
+* May be we can give to `x[]`the meaning of a deep copy of `x`? :+1:
+* May be we can give to `x[]`the meaning `x.length`? :-1:
 :::
 
 ## Currying in Egg
