@@ -339,7 +339,7 @@ do(
 2
 ```
 
-Think on the sub-expression `a.0.1` from the lexical analysis point of view. A naif approach will lead to the  token's flow `[WORD, DOT, NUMBER]` 
+Think on the sub-expression above `a.0.1` from the lexical analysis point of view. A naif approach will lead to the  token's flow `[WORD{a}, DOT, NUMBER{0.1}]` 
 
 ## Extending the ASTs
 
