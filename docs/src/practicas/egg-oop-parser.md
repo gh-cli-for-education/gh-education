@@ -686,7 +686,7 @@ The idea is that the transformer associated to the `bracketExp` rule builds  an 
 APPLY(operator:(WORD{name:array}, args: commaexp)
 ```
 
-where `commaexp` is the AST forest associated attribute of the `commaExp` in the production `bracketExp -> "["  commaExp "]"`.
+where `commaexp` is the AST forest associated with the appearance  of `commaExp` in the production `bracketExp -> "["  commaExp "]"`.
 
 
 ## Object Literals 
