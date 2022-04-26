@@ -174,7 +174,7 @@ Specify at least one property.
 
 ## The *Syntactically Correct, Semantically Absurd* Language Design Pattern
 
-::: tip Design Consideration
+::: tip The "Syntactically Correct, Semantically Absurd" Language Design Pattern
 
 Whenever a phrase is syntactically correct and it seems semantically absurd like is the case of `x[]`, 
 I usually stop for a moment and consider 🤔 if there is some not obvious meaning we can give to it.
@@ -183,10 +183,12 @@ I usually stop for a moment and consider 🤔 if there is some not obvious meani
 
 
 For instance all arrays, objects and maps have in common the `length` property. 
-
-* May be we can give to `x[]`the meaning of a deep copy of `x`? :+1:
-* May be we can give to `x[]`the meaning `x.length`? :-1:
+2
+* May be we can give to `x[]`the meaning "to return a deep copy of `x`"? :+1:
+* May be we can give to `x[]`the meaning "to return `x.length`"? :-1:
 :::
+
+See also [Syntactically correct, semantically incorrect sentence](https://english.stackexchange.com/questions/29504/syntactically-correct-semantically-incorrect-sentence?newreg=67fbf1282e674c20bef3ff65f864a7a9)
 
 ## Currying in Egg
 
@@ -725,7 +727,7 @@ The solution we have used to solve the two previous sections [Array Literals](#a
    * Introduce the new tokens in the lexer (be carefull with conflicts, specially with "expansive" tokens)
    * Modify the grammar adding the new rule(s) for the new kind of expression
 2. Build an AST for the the new category by adding a function `buildCategory` to your `build-ast.js` library.
-   * The function `buildCategory` returns in fact a specialized case of an alreaady existent kind of AST
+   * The function `buildCategory` returns in fact a specialized case of an already existent kind of AST
    * Remember to export the new function and import the new function in your grammar file
 ::: 
 
