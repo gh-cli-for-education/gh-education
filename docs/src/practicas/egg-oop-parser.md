@@ -724,14 +724,14 @@ The solution we have used to solve the two previous sections [Array Literals](#a
 
 Following these instructions it is trivial to extend Egg with a family of constructs as 
 
-* `do` ... `end do`, 
+* `do` ... `end do`, See an example in the branch `doendo` of the solution repo
 
   ```js
   ➜  egg-oop-parser-solution git:(doendo) cat examples/do-endo.egg 
   do
     def(a,4),
     print(a)
-  end do%                                                                                                    
+  end do
   ➜  egg-oop-parser-solution git:(doendo) bin/egg examples/do-endo
   4
   ```
