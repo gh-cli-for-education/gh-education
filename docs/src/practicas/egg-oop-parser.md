@@ -720,12 +720,14 @@ APPLY(operator:(WORD{name:object}, args: commaexp)
 
 The solution we have used to solve the two previous sections [Array Literals](#array-literals) and [Object Literals](#object-literals) follows a pattern I will call the **Begin-End-Something Pattern**:
 
-1. Add a couple of tokens to the language to signal the beginning and the end of the **new category of expression**: `[` begins arrays, `]` ends arrays.
-   * Introduce the tokens in the lexer (be carefull with conflicts, specially with "expansive" tokens like `WORD`)
-   * Modify the grammar adding the new rule for the new kind of expression
-2. Build an AST for the the new category by adding a function `buildCategory` to your `build-ast.js`.
-   * `buildCategory` returns in fact a specialized case of an existent AST
-   * Remember to export the new function and import the new function in the grammar `egg.ne`
+::: tip The "Begin End Something" Language Design Pattern
+1. Add a couple of tokens to the language to signal the beginning and the end of the **new specialized category of expressions**:  for instance add `[` to begin array literals and `]` to end array literals
+   * Introduce the new tokens in the lexer (be carefull with conflicts, specially with "expansive" tokens)
+   * Modify the grammar adding the new rule(s) for the new kind of expression
+2. Build an AST for the the new category by adding a function `buildCategory` to your `build-ast.js` library.
+   * The function `buildCategory` returns in fact a specialized case of an alreaady existent kind of AST
+   * Remember to export the new function and import the new function in your grammar file
+::: 
 
 Following these instructions it is trivial to extend Egg with a family of constructs as 
 
