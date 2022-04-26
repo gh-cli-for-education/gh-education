@@ -303,7 +303,7 @@ We want to allow programs  like the following:
 
 ```ruby
 ➜  egg-oop-parser-solution git:(master) ✗ cat examples/dot-chain.egg 
-print([1,4,5].join("-").length) # 5 Same as array(1,4,5)["join"]("-")["length"]%                           
+print([1,4,5].join("-").length) # Same as array(1,4,5)["join"]("-")["length"]                          
 ➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/dot-chain
 5
 ```
