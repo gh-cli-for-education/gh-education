@@ -372,10 +372,15 @@ The AST generated has a new type of node called `property` to represent object p
 ```
 
 1. The `type` in line 9 tell us that this AST node correspond to the operation of accesing the attributes of an object.
-2. The `operator` in line 10 refers to the object. 
-3. The `args` in line 11 refers to the property.
+2. The `operator` in line 10 refers to the AST of the Egg object being described $obj$. 
+3. The `args` in line 11 refers to the ASTs of the properties. 
+     - The first element of `args` $t_0$ is the AST of a direct property $p_0$ of the object $obj$ in the operand.  
+     - The second $t_1$ is a property $p_1$ of the object $p_0$
+     - The third $t_2$ is a property $p_2$ of the object $p_1$
+     - ... and so on
 
-Nuestro parser deberá por tanto producir un AST conforme a esta gramática árbol:
+
+Our parser should therefore produce an AST conforming to this tree grammar:
 
 ```ruby
 ast: VALUE
