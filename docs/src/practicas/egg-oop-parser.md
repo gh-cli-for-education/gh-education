@@ -609,7 +609,7 @@ confuses the interpreter.
 
 Even if the JS designers would take a decision as the one we took in section  [The Dot Ambiguity: Property dot or Mantissa dot?](#the-dot-ambiguity-property-dot-or-mantissa-dot) it will not suffice: The lexer will interpret the `0.0` in `a.0.0` as a word `a` followed by floating point `0.0`!.
 
-This goal (the dot to work with numbers as property selector) is the reason I introduced  the `"." %NUMBER` production in the `selector´ rule:
+This goal (the dot to work with numbers as property selector) is the reason I introduced  the `"." %NUMBER` production in the `selector` rule:
 
 ```js{3}
 selector   ->  
@@ -659,7 +659,7 @@ When executed we obtain:
 The proposed solution is to write another lexical transformation:
 
 ```js{1}
-// Substitute DOT{.} NUMBER{4.3} by DOT NUMBER{4} DOT{.} NUMBER{3}
+// Substitute DOT NUMBER{4.3} by DOT NUMBER{4} DOT NUMBER{3}
 function NumberToDotsTransformer(tokens) {
     /* ... fill the code ... */
     return tokens;
