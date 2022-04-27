@@ -744,7 +744,7 @@ Following these instructions it is trivial to extend Egg with a family of constr
   ➜  egg-oop-parser-solution git:(doendo) ✗ bin/egg examples/do-endo
   4
   ```
-* `loop` ... `end loop` as a synonym of `while(...)`. Do not use `while` ... `end while` for the delimiter tokens or you will trample with the already existing word `while`
+* `loop` ... `end loop` or `While` ... `end While` as a synonym of `while(...)`. Do not use `while` ... `end while` for the delimiter tokens or you will trample with the already existing word `while`
 *  etc.
 
 ## Resources
