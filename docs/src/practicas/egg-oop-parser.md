@@ -646,7 +646,11 @@ that will produce this output:
 2
 ``` 
 
-the key observation here is that **in an Egg program a number token corresponding to a floating point as `0.1` or `0.0` can not be preceded by a dot token**. 
+the key observation here is that 
+
+::: tip Disambiguation Rule
+**In an Egg program a number token corresponding to a floating point as `0.1` or `0.0` can not be preceded by a dot token**. 
+::: 
 
 Notice that before a dot token not necessarily comes a word, but it can be a complex expression like in this other example (Observe the first dot at line 4):
 
