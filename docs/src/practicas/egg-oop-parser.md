@@ -396,11 +396,14 @@ ast: VALUE
    | PROPERTY(operator:WORD args:[ ast * ]))
 ```
 
-* Los nodos `APPLY` y los nodos `PROPERTY` tienen dos atributos `operator` y `args`
+* Los nodos `APPLY` tienen dos atributos `operator` y `args`
 * El atributo `operator`de un nodo `APPLY` contiene información sobre la función que lo interpreta (`if`, `while`, `print`, `+`, etc.)
 * El atributo `args` de un nodo `APPLY` es un `ARRAY` conteniendo los ASTs que  se corresponden con los argumentos para la función asociada con `operator`. 
-* El atributo `operator` de un nodo `PROPERTY` contiene información sobre el objeto (por ejemplo `[1,2,3]`, `{a: 1, b:2}`, etc.)
+
+* Los nodos `PROPERTY` tienen dos atributos `operator` y `args`
+* El atributo `operator` de un nodo `PROPERTY` contiene información sobre el objeto (por ejemplo en `[1,2,3][0]` el operator sería el AST de `[1, 2, 3]`, En `{a: 1, b:2}.a` sería el AST de `{a: 1, b:2}`, etc.)
 * El atributo `args` de un nodo `PROPERTY` es un `ARRAY` conteniendo los ASTs que  se corresponden con los atributos/propiedades del `objeto` que está en `operator` (Para el objeto `[[1,2],3]` podrían ser `[0, 1]` o `["length"]`; para el objeto `{a: [1, 2], b:2}` podrían ser `["a", 0]` o `["b"]`). 
+
 * Los nodos `WORD` son nodos hoja y tienen al menos el atributo `name`. 
 * Los nodos `VALUE` tienen al menos el atributo `value`.
 
