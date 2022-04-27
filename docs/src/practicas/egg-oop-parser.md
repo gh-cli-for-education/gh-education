@@ -378,7 +378,7 @@ The AST generated has a new type of node called `property` to represent object p
 }
 ```
 
-1. The `type` in line 9 tell us that this AST node correspond to the operation of accesing the attributes of an object.
+1. The `type`  in line 9 is `property`, which tell us that this AST node correspond to the operation of accesing the attributes of the object in its `operator` child.
 2. The `operator` in line 10 refers to the AST of the Egg object being described $obj$. 
 3. The `args` in line 11 refers to the ASTs of the properties. 
      - The first element of `args` $t_0$ is the AST of a direct property $p_0$ of the object $obj$ in the operand.  
