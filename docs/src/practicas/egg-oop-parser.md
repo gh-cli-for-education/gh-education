@@ -757,7 +757,44 @@ Following these instructions it is trivial to extend Egg with a family of constr
 
 ## Error Management
 
-The errors produced by Nearley.JS are quite verbose.
+The errors produced by Nearley.JS are quite verbose:
+
+```ruby
+➜  egg-oop-parser-solution git:(b2bc2de) cat test/errors/unexpected-token-comma.egg
++{2,3}
+```
+```                                   
+➜  egg-oop-parser-solution git:(b2bc2de) bin/eggc.js test/errors/unexpected-token-comma.egg
+There was an error: Error near "{" in line 1
+Unexpected LCB token: "{". Instead, I was expecting to see one of the following:
+
+A "(" based on:
+    parenExp →  ● "(" commaExp ")"
+    calls →  ● parenExp applies
+    applies →  ● calls
+    expression → %WORD ● applies
+    program →  ● expression %EOF
+A "[" based on:
+    bracketExp →  ● "[" commaExp "]"
+    properties →  ● bracketExp applies
+    applies →  ● properties
+    expression → %WORD ● applies
+    program →  ● expression %EOF
+A "." based on:
+    selector →  ● "." %WORD
+    properties →  ● selector applies
+    applies →  ● properties
+    expression → %WORD ● applies
+    program →  ● expression %EOF
+A "." based on:
+    selector →  ● "." %NUMBER
+    properties →  ● selector applies
+    applies →  ● properties
+    expression → %WORD ● applies
+    program →  ● expression %EOF
+A EOF token based on:
+    program → expression ● %EOF
+```
 
 In version `2.20.1` of Nearley, the Error object has an attribute `token` than can be used to simplify the error  message.
 
