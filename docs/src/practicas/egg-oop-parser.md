@@ -402,7 +402,7 @@ ast: VALUE
 
 * Los nodos `PROPERTY` tienen dos atributos `operator` y `args`
 * El atributo `operator` de un nodo `PROPERTY` contiene información sobre el objeto (por ejemplo en `[1,2,3][0]` el operator sería el AST de `[1, 2, 3]`, En `{a: 1, b:2}.a` sería el AST de `{a: 1, b:2}`)
-* El atributo `args` de un nodo `PROPERTY` es un `ARRAY` conteniendo los ASTs que  se corresponden con los atributos/propiedades del `objeto` que está en `operator` (Para el objeto `[[1,2],3][0,1]`  serían los ASTs de `[0, 1]` o  para 
+* El atributo `args` de un nodo `PROPERTY` es un `ARRAY` conteniendo los ASTs que  se corresponden con los atributos/propiedades del `objeto` que está en `operator` (Para la expresión `[[1,2],3][0,1]`  serían los ASTs de `[0, 1]` o  para 
 `[[1,2],3]["length"]`  sería el AST de `["length"]`; para el objeto `{a: [1, 2], b:2}["a", 0]`  serían los ASTs de `["a", 0]`). 
 
 * Los nodos `WORD` son nodos hoja y tienen al menos el atributo `name`. 
