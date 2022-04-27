@@ -747,6 +747,56 @@ Following these instructions it is trivial to extend Egg with a family of constr
 * `loop` ... `end loop` or `While` ... `end While` as a synonym of `while(...)`. Do not use `while` ... `end while` for the delimiter tokens or you will trample with the already existing word `while`
 *  etc.
 
+## Error Management
+
+The errors produced by Nearley.JS are quite verbose.
+
+In version `2.20.1` of Nearley, the Error object has an attribute `token` than can be used to simplify the error  message.
+
+In the example below we make use of a RegExp to traverse the `message` attribute of the error and add to the message the expected tokens:
+
+```js
+function parseFromFile(origin) {
+  try {
+    const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
+    const source = fs.readFileSync(origin, 'utf8');
+    parser.feed(source);
+    const ast = parser.results[0];
+    return ast;
+  }
+  catch(e) {
+    let token = e.token;
+    let message = e.message;
+    let expected = message.match(/(?<=A )".*"(?= based on:)/g);
+    let newMessage = `Unexpected ${token.type} token "${token.value}" `+
+    `at line ${token.line} col ${token.col}\nTokens expected: ${expected}`;  
+    throw new Error(newMessage)
+  }
+}
+```
+
+When executed with an erroneous input the message is simplified to:
+
+```
+✗ bin/eggc.js test/errors/unexpected-token-comma.egg
+Unexpected LCB token "{" at line 1 col 2
+Tokens expected: "(","[",".","."
+```
+
+Another related idea with error management is to introduce production rules for specific error situations. For instance, the rule at line 8 `expression -> %EOF` is added to control when in the middle of the parsing an unexpected end of file occurs:
+
+```js{8}
+expression -> 
+      %STRING  optProperties   {% buildStringValue %}
+    | %NUMBER  optProperties   {% buildNumberValue %}
+    | bracketExp optProperties {% buildArray %}
+    | curlyExp   optProperties {% buildObject %}
+    | "(" commaExp ")"         {% buildDo %}
+    | %WORD applies            {% buildWordApplies %}
+    | %EOF                     {% dealWithError %}
+```
+
+
 ## Resources
 
 * [GitHub Actions. The Secrets context](/temas/introduccion-a-javascript/github-actions.html#the-secrets-context)
