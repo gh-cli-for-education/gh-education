@@ -1,14 +1,14 @@
 ---
 title: Extending Egg
-key: egg-oop-interpreter
+key: extended-egg
 published: true
 date: 2022/05/02
 delivery: "2022/05/12"
-order: 13
+order: 14
 layout: Practica
 prev: /practicas/egg-oop-parser.md
 sidebar: auto
-template: "https://github.com/crguezl/egg-oop-interpreter-template"
+template: "https://github.com/LL-ESIT-PL-2122/extended-egg-template"
 rubrica: 
   - El REPL funciona correctamente
   - Las clases de los ASTs disponen de los métodos adecuados
@@ -32,139 +32,34 @@ rubrica:
 The first thing to do is to fill the class `Property` inside the file `src/ast.js` providing not only the constructor but the `evaluate` and `leftEvaluate` methods:
 
 ```js
-class Property {
-  constructor(tree) {
-   ...
-  }
-
-  evaluate(env) {
-     ...
-    try { 
-      let object = this.operator.evaluate(env);
-      let nodeMethod = this.args[0];
-      
-      // convert to string if it is a "word" node
-      let methodName = (nodeMethod.type === 'word')? nodeMethod.getIndex(): this.args[0].evaluate(env);
-      let argsProcessed = this.args.slice(1).map((arg) => arg.evaluate(env));
-
-      methodName = checkNegativeIndex(op, methodName);
-
-      if (op[methodName] || methodName in op) { // op has a property with name "methodName"
-        let obj = op[methodName];
-        if (typeof obj === "function") { // binding the function to the object op
-          obj = (...x) => op[methodName](...x);
-        }
-        argsProcessed.forEach(element => {
-          element = checkNegativeIndex(obj, element);
-          obj = obj[element];
-        });
-
-        return obj; // it is a property
-
-      } else if (typeof op === "function") { // op is a function
-        return (...args) => op(methodName, ...argsProcessed, ...args); // currying first args
-      }
-      //console.log("'"+methodName+"'");
-      //return (...args) => op[methodName](...argsProcessed, ...args); // currying first args
-    }
-    catch (err) {
-      throw new TypeError('Applying not a function or method ' + err);
-    }
-  }
-
-
-  leftEvaluate(env) {
-    //debugger;
-    
-    let left = this.operator.evaluate(env);
-    if (typeof left !== "object") throw new  TypeError("Left side of an assignment must be a reference! and is "+typeof left+" "+left);
-    //console.log(leftSide.args.length)
-    if (this.args.length > 1) throw("Strange indexation in assignment?");
-    let leftIndex = this.args[0].evaluate(env);
-
-    return [left, leftIndex]
-
-  }
-
-}
-``` 
-
-
-
-```js
 
 class Property {
-  constructor(tree) {
-    this.type = tree.type;
-    this.operator = tree.operator;
-    this.args = tree.args;
-  }
-
-  getIndex() {
-    return false;
-  }
+  constructor(tree) { ... }
 
   evaluate(env) {
-    //debugger;
-    if (this.operator.type == 'word' && this.operator.name in specialForms) {
-      return specialForms[this.operator.name](this.args, env);
+    if (this.operator.type == "word" && this.operator.name in specialForms) { 
+      // Is there any meaning for s.t. like while[<(x,4), ... ]?
     }
 
-    try { // OOP
-      let op = this.operator.evaluate(env);
+    let theObject = this.operator.evaluate(env);
+    let propsProcessed = this.args.map((arg) => arg.evaluate(env));
+    let propName = checkNegativeIndex(theObject, propsProcessed[0]);
 
-      // FUTURE WORK: evaluate the methodName separatedly?
-      // Convert methodName to string after evaluation
-      // or use fs.toString() to obtain the source if it is a function
-     debugger;
-
-      let nodeMethod = this.args[0];
-      // convert to string if it is a "word" node
-      let methodName = (nodeMethod.type === 'word')? nodeMethod.getIndex(): this.args[0].evaluate(env);
-      let argsProcessed = this.args.slice(1).map((arg) => arg.evaluate(env));
-
-      methodName = checkNegativeIndex(op, methodName);
-
-      if (op[methodName] || methodName in op) { // op has a property with name "methodName"
-        let obj = op[methodName];
-        if (typeof obj === "function") { // binding the function to the object op
-          obj = (...x) => op[methodName](...x);
-        }
-        argsProcessed.forEach(element => {
-          element = checkNegativeIndex(obj, element);
-          obj = obj[element];
-        });
-
-        return obj; // it is a property
-
-      } else if (typeof op === "function") { // op is a function
-        return (...args) => op(methodName, ...argsProcessed, ...args); // currying first args
-      }
-      //console.log("'"+methodName+"'");
-      //return (...args) => op[methodName](...argsProcessed, ...args); // currying first args
-    }
-    catch (err) {
-      throw new TypeError('Applying not a function or method ' + err);
+    if (theObject[propName] || propName in theObject) {
+      // theObject has a property with name "propName"
+      // Write here the code to get the specified property
+    } else if (typeof theObject === "function") {
+      // theObject is a function, curry the function
+    } else {
+      throw new TypeError(`Evaluating properties for Object "${JSON.stringify(theObject)}" properties: "${JSON.stringify(propsProcessed)}"`);
     }
   }
-
 
   leftEvaluate(env) {
-    //debugger;
-    
-    let left = this.operator.evaluate(env);
-    if (typeof left !== "object") throw new  TypeError("Left side of an assignment must be a reference! and is "+typeof left+" "+left);
-    //console.log(leftSide.args.length)
-    if (this.args.length > 1) throw("Strange indexation in assignment?");
-    let leftIndex = this.args[0].evaluate(env);
-
-    return [left, leftIndex]
-
+    // Interpret s.t. as a[2,3].b in the expression =(a[2,3].b, 4) 
   }
-
 }
-``` 
-
+```
 
 ## Negative Indices in arrays
 
