@@ -277,6 +277,63 @@ Hashes are easy to implement. Here you have an example of use:
 
 ## Objects
 
+```ruby
+➜  egg-oop-parser-solution git:(master) ✗ cat examples/object-colon-selector.egg 
+do (
+  def(x, {
+    c: [1, 2, 3], # array literals!
+    gc:  fun(
+           element(self, "c") # old way works
+         ), 
+    sc:  fun(value, # look at the left side of the assignment!
+           =(self.c[0], value)
+         ),
+    inc: fun( 
+           =(self.c[0], +(self.c[0], 1)) 
+         ) 
+  }),
+  print(x),
+  print(x.gc()),    # [1, 2, 3]
+  x.sc(4),
+  print(x.gc()),    # [4,2,3]
+  x.inc(),
+  print(x.gc()),    # [5,2,3]
+  print(x.c.pop()), # 3
+  print(x.c)        # [5,2]
+)
+➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/object-colon-selector 
+{"c":[1,2,3]}
+[1,2,3]
+[4,2,3]
+[5,2,3]
+3
+[5,2]
+```
+
+```js
+
+specialForms["object"] = (args, env) => {
+    if (args.length % 2) {
+        throw new Error("Invalid number of arguments for object");
+    }
+
+    //debugger;
+    const objEnv = Object.create(env);
+    const obj = {}; // So that has all the properties of JS Objects
+    objEnv["self"] = obj;
+
+    let name;
+    let value;
+    for (let i = 0; i < args.length; i += 2) {
+        name = args[i].getIndex() || args[i].evaluate(objEnv); // So that "self" is defined
+        value = args[i+1].evaluate(objEnv);
+        obj[name] = objEnv[name] = value; // When self is not used for an attribute sitll works see objects-context.egg
+    }
+
+    return obj; // objEnv will be destroyed when returning
+};
+```
+
 ## Require
 
 Expand the language with a `require`  expression to allow the use of libraries.
@@ -332,12 +389,61 @@ inside module
 Notice how `inside module` appears only once even though the module is *required* twice
 
 
-## Use 
+## Bucles for
 
-## Regexps
+Extienda el lenguaje con uno o varios tipos de  bucle `for`
 
-## For Loops, For Each
- 
+### Bucle for convencional
+
+```
+[.../TFA-04-16-2020-03-22-00/davafons(casiano)]$ cat examples/for.egg
+```
+```ruby
+do(
+  for(define(x, 0), <(x, 5), ++(x),
+    print(x)
+  )
+)
+```
+
+```
+[.../TFA-04-16-2020-03-22-00/davafons(casiano)]$ bin/egg.js examples/for.egg
+0
+1
+2
+3
+4
+```
+
+### Bucle foreach
+
+Aunque al disponer de acceso a los métodos ya tenemos un bucle para recorrer los objetos iterables:
+
+```
+➜  eloquentjsegg git:(private2021) ✗ cat examples/for-js.egg 
+```
+
+```js
+(
+  def(a, [4,3,2,1]),
+  a.forEach(
+    fun(x,i,ra, 
+      print("Element",i,"of ",ra,"is",x)
+    )
+  )
+)
+```                                                                                  
+
+Que cuando se ejecuta:
+
+```     
+➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/for-js    
+Element 0 of  [4,3,2,1] is 4
+Element 1 of  [4,3,2,1] is 3
+Element 2 of  [4,3,2,1] is 2
+Element 3 of  [4,3,2,1] is 1
+```
+
 
 ## Test Folder
 
