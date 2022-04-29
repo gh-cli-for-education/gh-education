@@ -153,9 +153,11 @@ do(
 
 Remember that **we defined references in Egg** as an array where the first element is the JS reference to an Egg scope, an object, an array, a map, etc. and the following elements describe the position inside the object.
 
-For instance, for the expression `set(a[0, -1].x, 3)` the call `leftSide.leftEvaluate(env)` has to return an array with the entry for `a` in its scope `env["a"]` and then the computed indices `0`, something like `a.length-1` and  `"x"`. Notice that when the `leftEvaluate` o a property node is called, necessarily the `leftSide` has to be a reference.  
+For instance, for the expression `set(a[0, -1].x, 3)`, if `leftSide` denotes the AST for `a[0, -1].x`,  the call `leftSide.leftEvaluate(env)` has to return an array with the entry for `a` in its scope `env["a"]` and then the computed indices `0`, something like `a.length-1` and  `"x"`. Notice that when the `leftEvaluate` of a property node is called, necessarily the `leftSide` has to be a reference.  
 
-To help you with this task, here is an implementation of `set`:
+
+Recall that `leftEvaluate` is called from `set`. 
+To help you with this task, here I leave to you an implementation of `set`:
 
 ```js
 specialForms['='] = specialForms['set'] = function(args, env) {
@@ -181,15 +183,84 @@ specialForms['='] = specialForms['set'] = function(args, env) {
 }
 ``` 
 
-## Maps, Hashes or Dictionaries
-
 ## Currying
+
+!!!include(includes/currying.md)!!!
+
+You have to add the code in lines 12-14 to return the curryfied function:
+
+```js{12-14}
+  evaluate(env) {
+    if (this.operator.type == "word" && this.operator.name in specialForms) { 
+      // ... ?
+    }
+
+    let theObject = this.operator.evaluate(env);
+    let propsProcessed = this.args.map((arg) => arg.evaluate(env));
+    let propName = checkNegativeIndex(theObject, propsProcessed[0]);
+
+    if (theObject[propName] || propName in theObject) {
+      // ... theObject has a property with name "propName" 
+    } else if (typeof theObject === "function") {
+      // theObject is a function, curry the function 
+      // using propsProcessed as fixed arguments
+    } else 
+      throw new TypeError(`...`);
+  }
+```
+
+
+## Eval and Parsing
+
+Coming back to the `evaluate` method of the `Property` nodes, it may be worth considering this lines of code that were in the code of the `evaluate` method of the `Apply` nodes:
+
+```js{1-3}
+evaluate(env) {
+  if (this.operator.type == "word" && this.operator.name in specialForms) { 
+    // Is there any meaning for s.t. like while[<(x,4), ... ]?
+  }
+  ...
+}
+```
+
+Not much comes to my mind that may mean *The attribute of a language construct*. 
+
+One that may be useful is to return an object with two properties:
+- The AST of the corresponding `Apply` node 
+- The current scope/env
+
+With that in mind and adding an `eval` function, we can write Egg programs like the following:
+
+```ruby
+➜  egg-oop-parser-solution git:(master) ✗ cat examples/specialform-property-4.egg
+(
+    def(b,4),
+    def(state, do[
+        print(+(b,1))
+    ]),
+    =(state.scope.b, 9),
+    print(Object.keys(state)), # ["ast","scope"]
+    print(state.ast), # the AST of do(print(+(b,1))))
+    eval(state)       # 10 evals the AST in the current scope
+)
+```
+
+That when executed produces:
+
+```json
+➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/specialform-property-4
+["ast","scope"]
+{"type":"apply","operator":{"type":"word","name":"do"},"args":[{"type":"apply","operator":{"type":"word","name":"print"},"args":[{"type":"apply","operator":{"type":"word","name":"+"},"args":[{"type":"word","name":"b"},{"type":"value","value":1}]}]}]}
+10
+```
+
+## Maps, Hashes or Dictionaries
 
 ## Objects
 
 ## Require
 
-## Eval and Parsing
+## Use 
 
 ## Regexps
 
