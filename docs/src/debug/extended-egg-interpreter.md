@@ -256,9 +256,81 @@ That when executed produces:
 
 ## Maps, Hashes or Dictionaries
 
+Hashes are easy to implement. Here you have an example of use:
+
+```ruby
+➜  egg-oop-parser-solution git:(master) ✗ cat examples/map-colon-leftside.egg
+(
+  def(x, map(x: 4, y: map(z: 3))),
+  print(x),                     # {"x":4,"y":{"z":3}}
+  print(x[y:"z"]),              # 3
+  =(x.y.z, 50),
+  print(x.y)                    # {"z":50}
+)
+```
+```json
+➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/map-colon-leftside
+{"x":4,"y":{"z":3}}
+3
+{"z":50}
+``` 
+
 ## Objects
 
 ## Require
+
+Expand the language with a `require`  expression to allow the use of libraries.
+
+Review the video *How to implement the "require" functionality*
+
+<youtube id="qffmnSCRR3c"></youtube>
+
+Here is a link to the [Repo corresponding to the video](https://github.com/ULL-ESIT-MII-CA-1718/ejs-chapter10-modules/tree/master/require).
+
+In this exercise:
+
+* Memoize libraries so they don't load twice
+* Try to add this functionality without touching the main code using the strategy pattern + registry pattern
+
+### Example
+
+Module code:
+
+```ruby
+➜  egg-oop-parser-solution git:(master) ✗ cat examples/require/module.egg 
+# module. Exports z
+do(
+  print("inside module"),
+  def(z, map(inc: ->(x, 
+                     +(x,1)
+                   ) # end fun
+           ) # end map
+  ), # end of def
+  z  # el último valor será exportado
+)
+```
+
+Client program:
+
+```ruby
+➜  egg-oop-parser-solution git:(master) ✗ cat examples/require/client.egg
+do(
+  def(z, require("examples/require/module.egg")),
+  print(z.inc(4)),
+  def(w, require("examples/require/module.egg"))
+)
+```
+
+Ejecución:
+
+```
+➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/require/client
+inside module
+5
+```
+
+Notice how `inside module` appears only once even though the module is *required* twice
+
 
 ## Use 
 
