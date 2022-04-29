@@ -29,10 +29,11 @@ rubrica:
 
 ## Interpreting Property Nodes
 
-The first thing to do is to fill the class `Property` inside the file `src/ast.js` providing not only the constructor but the `evaluate` and `leftEvaluate` methods:
+The first thing to do is to fill the class `Property` inside the file `src/ast.js` providing not only the constructor but the `evaluate` and `leftEvaluate` methods.
 
-```js
+Here is a proposal template:
 
+```js{5-20}
 class Property {
   constructor(tree) { ... }
 
@@ -61,11 +62,124 @@ class Property {
 }
 ```
 
+For the method `evaluate`  we can follow the same structure of the `evaluate` of `Apply` nodes.
+The object is in the `operator` child and the properties in the `args` array.
+
+We check in line 13 that the object really has that property. If so, we have to iteratively traverse the properties indexing in the property the previous object to obtain the new object.  Take care of negative indices like in `x[-1, -2]` and cases in which the index returns a function object, like in `=(x, 4["toFixed"])`, since in that cases the function is itended to be a method and has to be **bind**ed  to the object.
+
 ## Negative Indices in arrays
+
+The interpreter has to understand indexation on negative indices. The consequence is that when accessing properties, we must check if that is the case.  A solution is to write a helper and use it wherever is needed:
+
+```js
+function checkNegativeIndex(obj, element) {
+  if (Array.isArray(obj) &&  element < 0 ) {
+    element += obj.length;
+  }
+  return element;
+}
+```
+
+Another is to do Monkey Patching in the object class.
 
 ## Monkey Patching 
 
+We can add to the object class a method `at` that is called `object.at(property)` and returns `object[property]`  but when `property` is a negative number and `object` is an array, it  returns `object[length+property]`. Then we can use `at` wherever is needed.
+
+You can also use Monkey Patching  to extend any of the basic classes. For instance, 
+the following code augments the `Number` class with methods for the numeric operations:
+
+```js
+const binOp = {
+  "+": (a, b) => a + b,
+  "-": (a, b) => a - b,
+  "*": (a, b) => a * b,
+  "/": (a, b) => a / b,
+};
+
+[ "+", "-", "*", "/",].forEach(op => {
+  Number.prototype[op] = function(...args) {
+  try {
+    let sum = this;
+    for(let i=0; i<args.length; i++) {
+      sum = binOp[op](sum, args[i]);
+    }
+    return sum;
+  } catch (e) {
+     throw new Error(`Error in Number method '${op}'\n`,e)
+  }
+}; 
+}) // end of forEach
+```
+
+that combined with currying allows to achieve examples like this one:
+
+```ruby
+➜  egg-oop-parser-solution git:(master) cat examples/curry-method.egg 
+do (
+  print(4["+"][5](3)), 
+  print(4.+[5](3)),    # Same thing 12
+  print(4["*"][5](3)), # 4["*"](5, 3) # 60
+  print(6["/"][2](3)), # 6["/"](2, 3) # 1
+  print(6["-"][2](3))  # 6["/"](2, 3) # 1
+)
+``` 
+
+```
+➜  egg-oop-parser-solution git:(master) bin/egg examples/curry-method 
+12
+12
+60
+1
+1
+```
+
 ## Leftvalues and Extended Assignments
+
+We have to define the `leftEvaluate` method to support expressions like `set(a[0, -1].x, 3)` in this program:
+
+```ruby
+➜  egg-oop-parser-solution git:(master) ✗ cat examples/set-simple.egg 
+do(
+    def(a, [[1,{x:2}],3]),
+    set(a[0, -1].x, 3),
+    print(a)
+)
+```
+```
+➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/set-simple
+[[1,{"x":3}],3]
+```
+
+Remember that **we defined references in Egg** as an array where the first element is the JS reference to an Egg scope, an object, an array, a map, etc. and the following elements describe the position inside the object.
+
+For instance, for the expression `set(a[0, -1].x, 3)` the call `leftSide.leftEvaluate(env)` has to return an array with the entry for `a` in its scope `env["a"]` and then the computed indices `0`, something like `a.length-1` and  `"x"`. Notice that if `a` is in the left side of an assignment, it has to refer to a reference.  
+
+To help you with this task, here is an implementation of `set`:
+
+```js
+specialForms['='] = specialForms['set'] = function(args, env) {
+  if (args.length !== 2) {
+    throw new SyntaxError(`Bad use of set '${JSON.stringify(args, null, 0)}.substring(0,20)}'`);
+  }
+
+  let valueTree = args[args.length-1];
+  let value = valueTree.evaluate(env);
+
+  let leftSide = args[0];
+  let [s, ...index] = leftSide.leftEvaluate(env);
+
+  let last = index.length-1
+  for (let j = 0; j < last; j++) {
+    index[j] = checkNegativeIndex(s, index[j]);
+    s = s[index[j]];
+  }
+  index[last] = checkNegativeIndex(s, index[last]);
+  s[index[last]] = value;
+
+  return value;
+}
+``` 
 
 ## Maps, Hashes or Dictionaries
 
