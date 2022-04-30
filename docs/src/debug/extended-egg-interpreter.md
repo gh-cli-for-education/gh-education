@@ -402,9 +402,9 @@ do(
 4
 ```
 
-### Bucle foreach
+### For Each Loop
 
-Aunque al disponer de acceso a los métodos ya tenemos un bucle para recorrer los objetos iterables:
+We already have a loop to go through the iterable objects, since the generated JS objects have easy acces to their methods:
 
 ```
 ➜  eloquentjsegg git:(private2021) ✗ cat examples/for-js.egg 
@@ -431,80 +431,11 @@ Element 2 of  [4,3,2,1] is 2
 Element 3 of  [4,3,2,1] is 1
 ```
 
+## Tests
 
-## Test Folder
+Add a `test` folder and in it the
+test programs `test/test.js` (Mocha or Jest, use whichever you prefer. The examples below are in Mocha).
 
-Añadimos una carpeta `test` y en ella los 
-programas de prueba `test/test.js` (Mocha o Jest, use lo que prefiera. Los ejemplos que siguen están en Mocha). 
-
-Creamos también un subdirectorio `test/examples` en el que copiamos nuestro ejemplo de prueba:
-  
-```
-cp examples/scope.egg test/examples/
-``` 
-
-y junto a el escribimos un fichero con la salida esperada `test/examples/scope.egg.expected`.
-
-Una estructura como esta:
-
-```
-test/
-├── examples
-│   ├── scope.egg
-│   └── scope.egg.expected
-└── test.js
-```
-  
-Cada vez que logramos implementar una nueva funcionalidad o un nuevo objetivo añadimos en el directorio `examples` uno o varios  programas `examples/objetivo.egg` cuya ejecución muestra el buen funcionamiento de nuestro código. También lo añadimos a `test/examples/objetivo.egg` así como la salida esperada `test/examples/objetivo.egg.expected`. 
-
-De esta forma la prueba se reduce a comprobar que la salida (stdout/stderr) de la ejecución del programa `test/examples/objetivo.egg` es igual a los contenidos de `test/examples/objetivo.egg.expected`.
-
-**Procura evitar que la salida sea dependiente de la versión de node.js o del Sistema Operativo**.
-
-Puede usar el módulo [@ull-esit-pl/example2test](https://www.npmjs.com/package/@ull-esit-pl/example2test) para simplificar esta metodología
-
-```
-[~/.../test(private2019)]$ cat scopes.js
-```
-```js
-let fs = require('fs');
-let should = require("should");
-let e2t = require('@ull-esit-pl/example2test');
-let eggvm = require('../lib/eggvm.js');
-
-describe("Testing scopes", function() {
-  let runTest = (programName, done) => {
-    e2t({
-      exampleInput: programName + '.egg',
-      executable: 'node bin/egg.js',
-      assertion: (result, expected) => result.replace(/\s+/g,'').should.eql(expected.replace(/\s+/g,'')),
-      done: done,
-    });
-  };
-
-  it("should  not allow the use of non declared variables", function() {
-    let program = fs.readFileSync('examples/scope-err.egg', 'utf8');
-    (() => { eggvm.run(program); }).should.throw(/setting.+undefined.+variable/i);
-  });
-
-  it("testing scope.egg", function(done) {
-    runTest('scope', done);
-  });
-});
-```
-
-Como se puede apreciar, el objeto `eggvm` exportado por el módulo `lib/eggvm.js`
-dispone de un método `run` que ejecuta la cadena que se le pasa como entrada.
-
-No olvides ejecutar **todas** las pruebas `npm test` cada vez que resuelves un nuevo objetivo
-
-```
-[~/.../crguezl-egg(private2019)]$ npx mocha test/scopes.js
-  Testing scopes
-    ✓ should  not allow the use of non declared variables
-    ✓ testing scope.egg (138ms)
-  2 passing (151ms)
-```
 
 ## Continuous Integration
 
