@@ -310,29 +310,16 @@ do (
 [5,2]
 ```
 
-```js
+To do it, 
 
-specialForms["object"] = (args, env) => {
-    if (args.length % 2) {
-        throw new Error("Invalid number of arguments for object");
-    }
+1. Add the corresponding function entry to `specialForms["object"]`  
+2. Create a new environment for the object having as parent the current environment 
+3. Create the object as a JS object so that it has all the properties of JS objects
+4. Add `self` to the object environment. Has to reference the just created object
+5. Traverse the `args` ASTs (has to be a forest with an even number of trees) taking the key value pair on each step
+6. Evaluate the pairs key, value in the context of the object environment
+7. Return the just created object
 
-    //debugger;
-    const objEnv = Object.create(env);
-    const obj = {}; // So that has all the properties of JS Objects
-    objEnv["self"] = obj;
-
-    let name;
-    let value;
-    for (let i = 0; i < args.length; i += 2) {
-        name = args[i].getIndex() || args[i].evaluate(objEnv); // So that "self" is defined
-        value = args[i+1].evaluate(objEnv);
-        obj[name] = objEnv[name] = value; // When self is not used for an attribute sitll works see objects-context.egg
-    }
-
-    return obj; // objEnv will be destroyed when returning
-};
-```
 
 ## Require
 
@@ -389,11 +376,11 @@ inside module
 Notice how `inside module` appears only once even though the module is *required* twice
 
 
-## Bucles for
+## For Loops
 
-Extienda el lenguaje con uno o varios tipos de  bucle `for`
+Extend the language with one or more types of `for` loops
 
-### Bucle for convencional
+### Conventional For Loop
 
 ```
 [.../TFA-04-16-2020-03-22-00/davafons(casiano)]$ cat examples/for.egg
