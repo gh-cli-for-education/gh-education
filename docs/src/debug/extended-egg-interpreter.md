@@ -434,7 +434,7 @@ Element 3 of  [4,3,2,1] is 1
 ## Tests
 
 Add a `test` folder and in it the
-test programs `test/test.js` (Mocha or Jest, use whichever you prefer. The examples below are in Mocha).
+test programs `test/test.js` (Mocha or Jest, use whichever you prefer).
 
 
 ## Continuous Integration
@@ -448,7 +448,7 @@ To install Private Packages inside a GitHub Action review these sections:
 
 ## GitHub Registry
 
-Publique el compilador como módulo en GH Registry en el ámbito `@ull-esit-pl-2122`.
+Publique el intérprete extendido como módulo en GH Registry en el ámbito `@ull-esit-pl-2122`.
 
 Puesto que este paquete contiene ejecutables es conveniente que lea la sección
 [bin](https://docs.npmjs.com/files/package.json#bin) de la documentación de npm.js sobre package.json:
