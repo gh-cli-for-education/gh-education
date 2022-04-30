@@ -7,6 +7,7 @@ delivery: "2022/04/21"
 order: 12
 layout: Practica
 prev: lexer-generator.md
+next: egg-oop-parser.md
 sidebar: auto
 template: "https://github.com/crguezl/egg-interpreter-template"
 rubrica: 

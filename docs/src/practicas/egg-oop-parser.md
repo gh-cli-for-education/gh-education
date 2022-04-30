@@ -5,6 +5,8 @@ published: true
 date: 2022/04/12
 delivery: "2022/05/05"
 order: 13
+next: /practicas/extended-egg-interpreter.md
+prev: /practicas/egg-interpreter.md
 layout: Practica
 sidebar: auto
 template: "https://github.com/ULL-ESIT-PL-2122/egg-oop-parser-template"
