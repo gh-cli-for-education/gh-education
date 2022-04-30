@@ -84,7 +84,7 @@ Another is to do Monkey Patching in the object class.
 
 ## Monkey Patching 
 
-We can add to the object class a method `at` that is called `object.at(property)` and returns `object[property]`  but when `property` is a negative number and `object` is an array, it  returns `object[length+property]`. Then we can use `at` wherever is needed.
+Instead of using `checkNegativeIndex`, we can alternatively add to the object class a method `at` that is called `object.at(property)` and returns `object[property]`  but when `property` is a negative number and `object` is an array, it  returns `object[length+property]`. Then we can use `at` wherever is needed. Choose the option that suits you.
 
 You can also use Monkey Patching  to extend any of the basic classes. For instance, 
 the following code augments the `Number` class with methods for the numeric operations:
