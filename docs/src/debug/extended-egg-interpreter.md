@@ -10,19 +10,24 @@ prev: /practicas/egg-oop-parser.md
 sidebar: auto
 template: "https://github.com/LL-ESIT-PL-2122/extended-egg-template"
 rubrica: 
-  - El REPL funciona correctamente
-  - Las clases de los ASTs disponen de los métodos adecuados
-  - Las asignaciones han sido implementadas correctamente
-  - El analizador léxico de Egg usa un analizador léxico generado por el generador de analizadores léxicos del alumno
-  - Comprende la interpretación de las funciones Egg mediante funciones JS
-  - Comprende el manejo de ámbitos
-  - Contiene suficientes tests
-  - Se provee un workflow sencillo para convertir rápidamente un ejemplo operativo en un test 
-  - "Estudio de covering"
-  - Se ha hecho CI con GitHub Actions
-  - Módulo bien documentado 
-  - Informe hecho con Vuepress desplegado
-  - Se ha publicado como módulo y se ha hecho un buen uso del versionado semántico en la evolución del módulo
+  - The REPL works correctly with properties
+  - The classes of the ASTs have been correctly expanded
+  - Negative Indices in Arrays
+  - Indexing on arrays, maps and objects
+  - set works with arrays, maps and objects
+  - Maps/Hashes
+  - Objects
+  - require
+  - For loops
+  - Currying 
+  - Monkey Patching has been used
+  - Contains enough tests
+  - A simple workflow is provided to quickly turn a working example into a test
+  - Study of covering
+  - CI has been done with GitHub Actions
+  - Well documented module
+  - Report made with Vuepress deployed
+  - It has been published as a module and good use has been made of semantic versioning in the evolution of the module
 ---
 
 # {{$frontmatter.title }}

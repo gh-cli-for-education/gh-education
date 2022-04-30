@@ -20,13 +20,13 @@ rubrica:
   - Multiple Object indexation supported 
   - Currying works with methods <code>4&#91;\"+\", 5&#93;(3)</code>
   - The dot can be used to select indexed properties <code>[[0],1].0.0</code>
-  - Contiene suficientes tests
-  - Se provee un workflow sencillo para convertir rápidamente un ejemplo operativo en un test 
-  - Estudio de covering
-  - Se ha hecho CI con GitHub Actions
-  - Módulo bien documentado 
-  - Informe hecho con Vuepress desplegado
-  - Se ha publicado como módulo y se ha hecho un buen uso del versionado semántico en la evolución del módulo
+  - Contains enough tests
+  - A simple workflow is provided to quickly turn a working example into a test
+  - Study of covering
+  - CI has been done with GitHub Actions
+  - Well documented module
+  - Report made with Vuepress deployed
+  - It has been published as a module and good use has been made of semantic versioning in the evolution of the module
 ---
 
 # {{$frontmatter.title }}
