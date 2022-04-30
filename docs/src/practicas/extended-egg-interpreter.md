@@ -1,5 +1,5 @@
 ---
-title: Extending Egg
+title: Extending the Egg Interpreter
 key: extended-egg
 published: true
 date: 2022/05/02
@@ -12,6 +12,7 @@ template: "https://github.com/LL-ESIT-PL-2122/extended-egg-template"
 rubrica: 
   - The REPL works correctly with properties
   - The classes of the ASTs have been correctly expanded
+  - Currying 
   - Negative Indices in Arrays
   - Indexing on arrays, maps and objects
   - set works with arrays, maps and objects
@@ -20,7 +21,6 @@ rubrica:
   - Objects
   - require
   - For loops
-  - Currying 
   - Monkey Patching has been used
   - Contains enough tests
   - A simple workflow is provided to quickly turn a working example into a test
