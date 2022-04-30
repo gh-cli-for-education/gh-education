@@ -2,7 +2,7 @@
 title: Extending the Egg Interpreter
 key: extended-egg
 published: true
-date: 2022/05/02
+date: 2022/05/01
 delivery: "2022/05/12"
 order: 14
 layout: Practica
