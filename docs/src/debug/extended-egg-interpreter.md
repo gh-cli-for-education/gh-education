@@ -475,8 +475,8 @@ Puesto que este paquete contiene ejecutables es conveniente que lea la sección
 
 * Módulo en npm [@crguezl/eloquentjsegg](https://www.npmjs.com/package/@crguezl/eloquentjsegg) 
 
-* [El lenguaje egg: repo en GitHub](https://github.com/ULL-ESIT-PL-1617/egg). Contiene un analizador sintáctico PDR y una solución a los  problemas de separar el analizador léxico del sintáctico PDR así como al de separar los códigos y los tres ejecutables. También tiene ejemplos de pruebas en Mocha y Chai
-* [NodeJS Readline gist](https://gist.github.com/crguezl/430642e29a2b9293317320d0d1759387): un sencillo gist que te enseña a usar `readline` para hacer un bucle interactivo. Quizá conviene que lo leas cuando llegues a la sección del [problema del REPL](#repl)
+* [El lenguaje egg: repo en GitHub](https://github.com/ULL-ESIT-PL-1617/egg). It contains a PDR parser and a solution to the problems of separating the lexical analyzer from the PDR parser as well as the problem of separating the codes and the three executables. It also has sample tests on Mocha and Chai
+* [NodeJS Readline gist](https://gist.github.com/crguezl/430642e29a2b9293317320d0d1759387): a simple gist that teaches you how to use `readline` to do an interactive loop. You might want to read it when you get to the [REPL problem](#repl) section.
 * Video *How to implement the "require" functionality*
 
   <youtube id="qffmnSCRR3c"></youtube>
