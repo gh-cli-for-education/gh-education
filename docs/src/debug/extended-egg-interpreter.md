@@ -464,7 +464,7 @@ Puesto que este paquete contiene ejecutables es conveniente que lea la sección
 ```
 
 
-## Recursos
+## Resources
 
 * [GitHub Actions. The Secrets context](/temas/introduccion-a-javascript/github-actions.html#the-secrets-context)
 * [Installing Private Packages in a GitHub Action](/temas/introduccion-a-javascript/creating-and-publishing-npm-module.html#installing-private-packages-in-a-github-action)
@@ -477,6 +477,10 @@ Puesto que este paquete contiene ejecutables es conveniente que lea la sección
 
 * [El lenguaje egg: repo en GitHub](https://github.com/ULL-ESIT-PL-1617/egg). Contiene un analizador sintáctico PDR y una solución a los  problemas de separar el analizador léxico del sintáctico PDR así como al de separar los códigos y los tres ejecutables. También tiene ejemplos de pruebas en Mocha y Chai
 * [NodeJS Readline gist](https://gist.github.com/crguezl/430642e29a2b9293317320d0d1759387): un sencillo gist que te enseña a usar `readline` para hacer un bucle interactivo. Quizá conviene que lo leas cuando llegues a la sección del [problema del REPL](#repl)
+* Video *How to implement the "require" functionality*
+
+  <youtube id="qffmnSCRR3c"></youtube>
+
 * En el repo [ULL-ESIT-PL-1617/interpreter-egg](https://github.com/ULL-ESIT-PL-1617/interpreter-egg) se muestra como hacer un bucle REPL
 * [Vídeo *Programando un bucle REPL para el lenguaje Egg*](https://youtu.be/5gIlt6r29lw)
 
