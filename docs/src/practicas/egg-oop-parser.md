@@ -749,6 +749,10 @@ expression ->
     | %EOF                     {% dealWithError %}
 ```
 
+```
+➜  egg-oop-parser-solution git:(master) ✗ bin/eggc.js test/errors/unexpected-eof.egg 
+Unexpected EOF token near line 1, col 4. Found EOF
+```
 
 ## Resources
 
