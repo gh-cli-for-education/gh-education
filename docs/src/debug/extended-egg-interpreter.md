@@ -15,6 +15,7 @@ rubrica:
   - Negative Indices in Arrays
   - Indexing on arrays, maps and objects
   - set works with arrays, maps and objects
+  - eval and AST using the bracket notation
   - Maps/Hashes
   - Objects
   - require
