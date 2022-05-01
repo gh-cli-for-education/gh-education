@@ -367,6 +367,8 @@ Inside the `src/tokens.js` of your parser you  have to add a regexp for the rege
 const REGEXP = /(?<REGEXP>r\/((?:[^\/\\]|\\.)*)\/(\w*?\b)?)/;
 ```
 
+That will match expressions like `r/ characters that aren't slashes or escaped slashes /`.
+
 It is better to take advantage of the `value` transformer to return as value  an object 
 describing the regexp:
 
