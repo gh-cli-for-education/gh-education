@@ -19,6 +19,7 @@ rubrica:
   - AST access and eval
   - Maps/Hashes
   - Objects
+  - RegExps
   - require
   - For loops
   - Monkey Patching has been used
