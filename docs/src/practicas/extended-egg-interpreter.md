@@ -326,6 +326,125 @@ To do it,
 6. Evaluate the pairs key, value in the context of the object environment
 7. Return the just created object
 
+## RegExps
+
+It will be nice to have RegExps in Egg:
+
+```ruby
+➜  egg-oop-parser-solution git:(master) cat examples/regexp-simple.egg 
+(
+  def(r, r/(\w+) # word
+         \s+     # spaces
+         (\d+)   # number 
+        /x),
+  def(s, r.test("a 4")),
+  def(m, r.exec("a word <a 42> followed by a number")),
+  print(s),
+  print(m),
+  =(m, r.exec("no word followed by a number")),
+  print(m)
+)
+```
+
+The `x` option is an extension introduced by [XRegExp](https://xregexp.com/) (but doesn't exists in regular JS) and allow us to use spaces and comments inside the Regexp.
+
+When we execute the former program we get:
+
+
+```
+➜  egg-oop-parser-solution git:(master) bin/eggc.js examples/regexp-simple.egg                      
+➜  egg-oop-parser-solution git:(master) npx evm examples/regexp-simple.json 
+true
+["a 42","a","42"]
+null
+```
+
+To add RegExps to Egg we have to modify not only the interpreter, but the lexer and grammar from the lab [Adding OOP to the Egg Parser](/practicas/egg-oop-parser.html).
+
+Inside the `src/tokens.js` of your parser you  have to add a regexp for teh regexps:
+
+```js
+const REGEXP = /(?<REGEXP>r\/((?:[^\/\\]|\\.)*)\/(\w*?\b)?)/;
+```
+
+It is better to take advantage of the `value` transformer to return as value  an object 
+describing the regexp:
+
+```js
+REGEXP.value = (value) => {
+  let [source, flags] = value.split('/').slice(1);
+  return {
+      type: 'RegExp',
+      info: [ source, flags]
+  };
+};
+```
+
+and inside the grammar we add a new production for the regexps:
+
+```js
+expression -> 
+      %STRING  optProperties   {% buildStringValue %}
+    | %NUMBER  optProperties   {% buildNumberValue %}
+    | %REGEXP  optProperties   {% buildRegexpValue %}
+    | ...
+```
+
+Now the section of the AST for the a regexp like:
+
+```ruby
+def(r, r/(\w+) # word
+         \s+     # spaces
+         (\d+)   # number 
+        /x)
+```
+
+Has to look something  similar to this:
+
+```json
+    {
+      "type": "apply",
+      "operator": { "type": "word", "name": "def"  },
+      "args": [
+        { "type": "word", "name": "r" },
+        {
+          "type": "value",
+          "value": {
+            "type": "RegExp",
+            "info": [
+              "(\\w+) # word\n         \\s+     # spaces\n         (\\d+)   # number \n        ",
+              "x"
+            ]
+          },
+        }
+      ]
+    },
+```
+
+To make it work from the interpreter side, we need to modify the `j2a` entry for `value` since it has to build a [XRegExp](https://xregexp.com/)  object from the info inside the AST:
+
+```js
+j2a['value'] = (j) => { 
+  let obj = new Value(j);
+  if (typeof obj.value === "object") {
+    obj.value = new topEnv[obj.value.type](...obj.value.info);
+  }
+  return obj;
+};
+```
+
+Of course, we have added an entry to the associative memory `topEnv` when the Egg Virtual Machine starts:
+
+```js
+topEnv['null'] = null;
+topEnv['true'] = true;
+topEnv['false'] = false;
+topEnv['undefined'] = undefined;
+topEnv['RegExp'] = require('xregexp');
+topEnv['fetch'] = require('node-fetch');
+topEnv['fs'] = require('fs');
+...
+```
 
 ## Require
 
