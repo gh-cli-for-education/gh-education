@@ -504,7 +504,7 @@ do(
 )
 ```
 
-Ejecución:
+Here is an execution:
 
 ```
 ➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/require/client
@@ -560,7 +560,7 @@ We already have a loop to go through the iterable objects, since the generated J
 )
 ```                                                                                  
 
-Que cuando se ejecuta:
+When executed gives:
 
 ```     
 ➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/for-js    
