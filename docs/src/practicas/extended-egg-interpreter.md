@@ -328,7 +328,7 @@ To do it,
 
 ## RegExps
 
-It will be nice to have RegExps in Egg:
+It will be nice to have support for RegExps in Egg:
 
 ```ruby
 ➜  egg-oop-parser-solution git:(master) cat examples/regexp-simple.egg 
@@ -361,7 +361,7 @@ null
 
 To add RegExps to Egg we have to modify not only the interpreter, but the lexer and grammar from the lab [Adding OOP to the Egg Parser](/practicas/egg-oop-parser.html).
 
-Inside the `src/tokens.js` of your parser you  have to add a regexp for teh regexps:
+Inside the `src/tokens.js` of your parser you  have to add a regexp for the regexps:
 
 ```js
 const REGEXP = /(?<REGEXP>r\/((?:[^\/\\]|\\.)*)\/(\w*?\b)?)/;
