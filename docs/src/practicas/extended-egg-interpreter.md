@@ -448,6 +448,8 @@ topEnv['fs'] = require('fs');
 ...
 ```
 
+So that `topEnv[obj.value.type]` is `topEnv[RegExp]` and that contains the `xregexp` object.
+
 ## Require
 
 Expand the language with a `require`  expression to allow the use of libraries.
