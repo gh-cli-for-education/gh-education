@@ -285,6 +285,8 @@ Hashes are easy to implement. Here you have an example of use:
 
 ## Objects
 
+Let us introduce Objects in Egg. They will be pretty similar to JS objects, but the word `self` will be the equivalent of JS `this`  and will refer to the object. Here is an example:
+
 ```ruby
 ➜  egg-oop-parser-solution git:(master) ✗ cat examples/object-colon-selector.egg 
 do (
