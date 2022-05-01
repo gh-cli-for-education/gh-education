@@ -311,6 +311,11 @@ do (
   print(x.c.pop()), # 3
   print(x.c)        # [5,2]
 )
+```  
+
+and here is an execution:
+
+``` 
 ➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/object-colon-selector 
 {"c":[1,2,3]}
 [1,2,3]
@@ -320,7 +325,7 @@ do (
 [5,2]
 ```
 
-To do it, 
+To add objects to Egg, you can follow these instructions: 
 
 1. Add the corresponding function entry to `specialForms["object"]`  
 2. Create a new environment for the object having as parent the current environment 
