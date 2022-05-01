@@ -229,9 +229,11 @@ evaluate(env) {
 }
 ```
 
+This is clearly a case of what we have called [The Syntactically Correct, Semantically Absurd Language Design Pattern](/practicas/egg-oop-parser.html#the-syntactically-correct-semantically-absurd-language-design-pattern).
+
 Not much comes to my mind that may mean *The attribute of a language construct*. 
 
-One that may be useful is to return an object with two properties:
+But, one that may be useful is to return an object with two properties:
 - The AST of the corresponding `Apply` node 
 - The current scope/env
 
