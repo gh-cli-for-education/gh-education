@@ -587,10 +587,12 @@ To install Private Packages inside a GitHub Action review these sections:
 
 ## GitHub Registry
 
-Publique el intérprete extendido como módulo en GH Registry en el ámbito `@ull-esit-pl-2122`.
+Publish the extended interpreter as a module in the GH Registry in scope `@ull-esit-pl-2122`.
 
-Puesto que este paquete contiene ejecutables es conveniente que lea la sección
-[bin](https://docs.npmjs.com/files/package.json#bin) de la documentación de npm.js sobre package.json:
+Since this package contains executables, you should read the section
+[bin](https://docs.npmjs.com/files/package.json#bin) from the npm.js documentation on package.json
+
+You have to add an entry like this one:
 
 ```
 [~/.../crguezl-egg(master)]$ jq .bin package.json
