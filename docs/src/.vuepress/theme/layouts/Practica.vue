@@ -28,7 +28,7 @@
         <slot name="page-bottom" />
 
         <div class="theme-default-content" style="padding: 0 rem 0 rem;">
-          <h2>Rubrica<a href="#rubrica" class="header-anchor">#</a></h2>
+          <h2>Grading Rubric<a href="#rubrica" class="header-anchor">#</a></h2>
           <Rubrica></Rubrica>
 
           <h2><a href="#labs" class="header-anchor">#</a>Labs</h2>

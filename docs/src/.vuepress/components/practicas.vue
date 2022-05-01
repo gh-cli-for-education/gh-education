@@ -11,7 +11,7 @@
         <span>Date: {{ page.frontmatter.delivery }}</span>
         </li>
         <li v-if="page.frontmatter.rubrica">
-        <span><a :href="getLink(page)+'#rubrica'">Rubric</a></span>
+        <span><a :href="getLink(page)+'#rubrica'">Grading Rubric</a></span>
         </li>
         <li v-if="page.frontmatter.key">
         <span ><a :href="getSearchRepos(page)" target="_blank">Repos</a></span>
