@@ -180,7 +180,7 @@ I usually stop for a moment and consider 🤔 if there is some not obvious meani
 
 For instance all arrays, objects and maps have in common the `length` property. 
 2
-* May be we can give to `x[]`the meaning "to return a deep copy of `x`"? :+1: (See [structuredClone](https://developer.mozilla.org/en-US/docs/Web/API/structuredClone))
+* May be we can give to `x[]`the meaning "to return a deep copy of `x`"? :+1: (See [structuredClone](https://developer.mozilla.org/en-US/docs/Web/API/structuredClone) node v17+ or npm package [realistic-structured-clone](https://www.npmjs.com/package/realistic-structured-clone))
 * May be we can give to `x[]`the meaning "to return `x.length`"? :-1:
 :::
 
