@@ -425,6 +425,9 @@ reset: function(data, info) {
 ```
 :::
 
+See the code for the nearley lexer at section [La función nearleyLexer](/practicas/lexer-generator.html#la-funcion-nearleylexer) of the lab [Lexer Generator](/practicas/lexer-generator.html#la-funcion-nearleylexer)
+
+
 ## The Lexical Word Colon Transformation
 
 We want to add the colon as syntactic sugar to our language. 

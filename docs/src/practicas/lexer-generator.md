@@ -228,9 +228,9 @@ Lea la sección
 A partir del analizador léxico generado por `buildLexer(regexps)` contruimos un segundo analizador 
 léxico con [la API que requiere nearley.JS](https://nearley.js.org/docs/tokenizers#custom-lexers). Este es el código completo de la versión actual:
 
-```js{17,29,30}
-const nearleyLexer = function(regexps) {
-  debugger;
+```js
+const nearleyLexer = function(regexps, options) {
+  //debugger;
   const {validTokens, lexer} = buildLexer(regexps);
   validTokens.set("EOF");
   return {
@@ -248,6 +248,23 @@ const nearleyLexer = function(regexps) {
       this.currentPos = 0;
       let line = info ? info.line : 1;
       this.tokens = lexer(data, line);
+      
+      let lastToken = {}; 
+        // Replicate the last token if it exists
+      Object.assign(lastToken, this.tokens[this.tokens.length-1]);
+      lastToken.type = "EOF"
+      lastToken.value = "EOF"
+
+      this.tokens.push(lastToken);
+
+      if (options && options.transform) {
+        if (typeof options.transform === 'function') {
+          debugger;
+          this.tokens = options.transform(this.tokens);
+        } else if (Array.isArray(options.transform)) {
+          options.transform.forEach(trans => this.tokens = trans(this.tokens))
+        }
+      } 
       return this;
     },
     /**
@@ -256,13 +273,7 @@ const nearleyLexer = function(regexps) {
     next: function() { // next(): Token | undefined;
       if (this.currentPos < this.tokens.length)
         return this.tokens[this.currentPos++];
-      else if (this.currentPos == this.tokens.length) {
-        let token = {}; 
-        Object.assign(token, this.tokens[this.currentPos-1]);
-        token.type = "EOF"
-        this.currentPos++; //So that next time will return undefined
-        return token; 
-      }
+      return undefined;
     },
     has: function(tokenType) {
       return validTokens.has(tokenType);
@@ -286,15 +297,6 @@ const nearleyLexer = function(regexps) {
 }
 ```
 
-::: danger Modified Line!
-Inside the `reset` method there was a bug. 
-Important line that you must confirm is in your version:
-
-```js
-      this.currentPos = 0;
-```
-::: 
-
 ### nearleyLexer retorna siempre EOF 
 
 Este nuevo lexer va a retornar siempre el token reservado `EOF` cuando se alcance el final de la entrada. Es por eso que lo añadimos al mapa de tokens válidos:
@@ -303,31 +305,20 @@ Este nuevo lexer va a retornar siempre el token reservado `EOF` cuando se alcanc
   validTokens.set("EOF");
 ``` 
 
-y en `next()` lo retornamos cuando detectamos el final de la entrada:
+y en `reset()` lo añadimos al final:
 
 ```js
-    next: function() { // next(): Token | undefined;
-      if (this.currentPos < this.tokens.length)
-        return this.tokens[this.currentPos++];
-      else if (this.currentPos == this.tokens.length) {
-        let token = {}; 
-        Object.assign(token, this.tokens[this.currentPos-1]);
-        token.type = "EOF"
-        this.currentPos++; //So that next time will return undefined
-        return token; 
-      }
-    },
+this.tokens = lexer(data, line);
+
+let lastToken = {}; 
+  // Replicate the last token if it exists
+Object.assign(lastToken, this.tokens[this.tokens.length-1]);
+lastToken.type = "EOF"
+lastToken.value = "EOF"
+
+this.tokens.push(lastToken);
 ```
 
-::: danger Modified Line!
-Inside the `next` method there was a bug. 
-Important lines that you must confirm is in your version:
-
-```js
-  let token = {}; 
-  Object.assign(token, this.tokens[this.currentPos-1]);
-```
-::: 
 
 ## Pruebas
 
