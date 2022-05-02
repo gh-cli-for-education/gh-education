@@ -152,7 +152,7 @@ commaExp -> null
 
 ## Property indexation and commaExp is nullable
 
-Notice that `commaExp` is nullable, and thus it fits with an empty indexation expression like `a[]` which (initially) makes nonsense. To fix the problem, we can change the grammar introducing a new category `nonEmptyBracketExp` so that we can protest if the index list is empty:
+Notice that `commaExp` is nullable, and thus it fits with an empty indexation expression like `a[]` [which initially makes nonsense](#the-syntactically-correct-semantically-absurd-language-design-pattern). To fix the problem, we can change the grammar introducing a new category `nonEmptyBracketExp` so that we can protest if the index list is empty:
 
 ```ruby
 ➜  egg-oop-parser-solution git:(master) cat examples/empty-bracket.egg 
