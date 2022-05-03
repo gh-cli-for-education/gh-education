@@ -713,7 +713,14 @@ function parseFromFile(origin) {
     const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
     const source = fs.readFileSync(origin, 'utf8');
     parser.feed(source);
-    const ast = parser.results[0];
+    let results = parser.results;
+    
+    if (results.length > 1) throw new Error(`Language Design Error: Ambiguous Grammar! Generated ${results.length}) ASTs`);
+    if (results.length ==  0) {
+      console.error("Unexpected end of Input error. Incomplete Egg program. Expected more input");
+      process.exit(1);
+    }
+    const ast = results[0];
     return ast;
   }
   catch(e) {
@@ -724,7 +731,7 @@ function parseFromFile(origin) {
     `at line ${token.line} col ${token.col}\nTokens expected: ${expected}`;  
     throw new Error(newMessage)
   }
-}
+};
 ```
 
 When executed with an erroneous input the message is simplified to:
