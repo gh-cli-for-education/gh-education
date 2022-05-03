@@ -141,6 +141,33 @@ do (
 1
 ```
 
+## Currying
+
+!!!include(includes/currying.md)!!!
+
+You have to add the code in lines 12-14 to return the curryfied function:
+
+```js{12-14}
+  evaluate(env) {
+    if (this.operator.type == "word" && this.operator.name in specialForms) { 
+      // ... ?
+    }
+
+    let theObject = this.operator.evaluate(env);
+    let propsProcessed = this.args.map((arg) => arg.evaluate(env));
+    let propName = checkNegativeIndex(theObject, propsProcessed[0]);
+
+    if (theObject[propName] || propName in theObject) {
+      // ... theObject has a property with name "propName" 
+    } else if (typeof theObject === "function") {
+      // theObject is a function, curry the function 
+      // using propsProcessed as fixed arguments
+    } else 
+      throw new TypeError(`...`);
+  }
+```
+
+
 ## Leftvalues and Extended Assignments
 
 We have to define the `leftEvaluate` method to support expressions like `set(a[0, -1].x, 3)` in this program:
@@ -190,34 +217,8 @@ specialForms['='] = specialForms['set'] = function(args, env) {
 }
 ``` 
 
-## Currying
 
-!!!include(includes/currying.md)!!!
-
-You have to add the code in lines 12-14 to return the curryfied function:
-
-```js{12-14}
-  evaluate(env) {
-    if (this.operator.type == "word" && this.operator.name in specialForms) { 
-      // ... ?
-    }
-
-    let theObject = this.operator.evaluate(env);
-    let propsProcessed = this.args.map((arg) => arg.evaluate(env));
-    let propName = checkNegativeIndex(theObject, propsProcessed[0]);
-
-    if (theObject[propName] || propName in theObject) {
-      // ... theObject has a property with name "propName" 
-    } else if (typeof theObject === "function") {
-      // theObject is a function, curry the function 
-      // using propsProcessed as fixed arguments
-    } else 
-      throw new TypeError(`...`);
-  }
-```
-
-
-## Eval and Parsing
+## Accesing Egg ASTs and Evaluating them from Egg Programs
 
 Coming back to the `evaluate` method of the `Property` nodes, it may be worth considering this lines of code that were in the code of the `evaluate` method of the `Apply` nodes:
 
@@ -230,13 +231,15 @@ evaluate(env) {
 }
 ```
 
-This is clearly a case of what we have called [The Syntactically Correct, Semantically Absurd Language Design Pattern](/practicas/egg-oop-parser.html#the-syntactically-correct-semantically-absurd-language-design-pattern).
-
 Not much comes to my mind that may mean *The attribute of a language construct*. 
+
+::: The Syntactically Correct, Semantically Absurd Language Design Pattern Again!
+This is clearly a case of what we have called [The Syntactically Correct, Semantically Absurd Language Design Pattern](/practicas/egg-oop-parser.html#the-syntactically-correct-semantically-absurd-language-design-pattern).
 
 But, one that may be useful is to return an object with two properties:
 - The AST of the corresponding `Apply` node 
 - The current scope/env
+:::
 
 With that in mind and adding an `eval` function, we can write Egg programs like the following:
 
