@@ -160,7 +160,7 @@ do(
 
 Remember that **we defined references in Egg** as an array where the first element is the JS reference to an Egg scope, an object, an array, a map, etc. and the following elements describe the position inside the object.
 
-For instance, for the expression `set(a[0, -1].x, 3)`, if `leftSide` denotes the AST for `a[0, -1].x`,  the call `leftSide.leftEvaluate(env)` has to return an array with the entry for `a` in its scope `env["a"]` and then the computed indices `0`, something like `a.length-1` and  `"x"`. Notice that when the `leftEvaluate` of a property node is called, necessarily the `leftSide` has to be a reference.  
+For instance, for the expression `set(a[0, -1].x, 3)`, if `leftSide` denotes the AST for `a[0, -1].x`,  the call `leftSide.leftEvaluate(env)` has to return an array with the entry for `a` in its scope `env["a"]` and then the computed indices `0`, something like `a.length-1` and  `"x"`. Notice that when the `leftEvaluate` of a property node is called, necessarily the operator of the `leftSide` AST has to be a reference.  
 
 
 Recall that `leftEvaluate` is called from `set`. 
