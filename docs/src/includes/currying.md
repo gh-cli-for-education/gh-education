@@ -39,9 +39,9 @@ do(
 2
 ```
 
-We have added an attribute `numParams` to the Egg Function objects that reutrns the number of parameters in its declaration.
+We have added an attribute `numParams` to the Egg Function objects that returns the number of parameters in its declaration.
 
-Later in this lab we will introduce the *dot operator* `a.b`  for objects. Basically `a.b` and `a["b"]` are the same thing. This is why the former program can be rewritten this way:
+The *dot operator*  for objects `a.b`  is defined in such a way that `a.b` and `a["b"]` are the same thing. This is why the former program can be rewritten this way:
 
 ```
 ➜  egg-oop-parser-solution git:(master) ✗ cat  examples/curry-no-method-dot.egg
@@ -67,7 +67,7 @@ do (
 )
 ```
 
-The ambiguities that arise in the expression `4.+` will be discussed in the [incoming sections](#the-dot-ambiguity-property-dot-or-mantissa-dot). 
+The ambiguities that arise in the expression `4.+` are discussed in section [The Dot Ambiguity: Property dot or Mantissa dot?](/practicas/egg-oop-parser.html#the-dot-ambiguity-property-dot-or-mantissa-dot). 
 
 ```
 ➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/curry-method        
@@ -83,8 +83,8 @@ The ambiguities that arise in the expression `4.+` will be discussed in the [inc
 The decision of overloading the meaning of the property access for functions is a risky one :warning: 
 but has few consequences over the grammar design other than the ambiguity that arise in the expression `4.+` ([See  section *Property dot or Mantissa dot?*](#the-dot-ambiguity-property-dot-or-mantissa-dot)). 
 
-**The decision of overloading the meaning of the property access for functions will have consequences during the interpretation phase**.
-
+**The decision of overloading the meaning of the property access for functions has consequences during the interpretation phase**.
+    
 In this case the idea behind the proposal is that 
 
 **Any potential argument of a function can be viewed as a property of such function whose value is the function curried for that argument**

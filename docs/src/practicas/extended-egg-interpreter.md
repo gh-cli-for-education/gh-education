@@ -263,6 +263,31 @@ That when executed produces:
 10
 ```
 
+This extension opens opportunities for the manipulation of the scope and the AST. 
+In the next example, the value of `b` is modified via the returned scope
+
+```ruby
+ ✗ cat examples/specialform-property-3.egg
+do(
+    def(b,4),
+    def(state, do[
+        print(+(b,1))
+    ]),
+    =(state.scope["b"], 9),
+    print(state.ast),
+    print(eval(state)) # 10
+)
+```                                                                                     
+
+Execution:
+
+``` 
+➜  eloquentjsegg git:(private2122) ✗ bin/egg.js examples/specialform-property-3.egg 
+{"type":"apply","operator":{"type":"word","name":"do"},"args":[{"type":"apply","operator":{"type":"word","name":"print"},"args":[{"type":"apply","operator":{"type":"word","name":"+"},"args":[{"type":"word","name":"b"},{"type":"value","value":1}]}]}]}
+10
+10
+```
+
 ## Maps, Hashes or Dictionaries
 
 Hashes are easy to implement. Here you have an example of use:
