@@ -705,7 +705,7 @@ A EOF token based on:
 
 In version `2.20.1` of Nearley, the Error object has an attribute `token` than can be used to simplify the error  message.
 
-In the example below we make use of a RegExp to traverse the `message` attribute of the error and add to the message the expected tokens. You van see the pattern `A "." based on:` that for named tokens changes to `A EOF token based on:`
+In the example below we make use of a RegExp to traverse the `message` attribute of the error and add to the message the expected tokens. In Nearley JS error message you can see many repetitions of the  `A "<something>" based on:` pattern that for named tokens changes to `A <something> token based on:`
 
 ```js
 function parseFromFile(origin) {
