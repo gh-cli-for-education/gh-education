@@ -237,7 +237,7 @@ Not much comes to my mind that may mean *The attribute of a language construct*.
 
 This is clearly a case of what we have called [The Syntactically Correct, Semantically Absurd Language Design Pattern](/practicas/egg-oop-parser.html#the-syntactically-correct-semantically-absurd-language-design-pattern).
 
-But, one that may be useful is to return an object with two properties:
+One meaning that may be useful for expressions like `while[<(x,4), ... ]` is to return an object with two properties:
 - The AST of the corresponding `Apply` node 
 - The current scope/env
 :::
