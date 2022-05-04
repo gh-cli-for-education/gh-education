@@ -667,11 +667,11 @@ Following these instructions it is trivial to extend Egg with a family of constr
 The errors produced by Nearley.JS are quite verbose:
 
 ```ruby
-➜  egg-oop-parser-solution git:(b2bc2de) cat test/errors/unexpected-token-comma.egg
+➜  egg-oop-parser-solution git:(b2bc2de) cat test/errors/unexpected-token.egg
 +{2,3}
 ```
 ```                                   
-➜  egg-oop-parser-solution git:(b2bc2de) bin/eggc.js test/errors/unexpected-token-comma.egg
+➜  egg-oop-parser-solution git:(b2bc2de) bin/eggc.js test/errors/unexpected-token.egg
 There was an error: Error near "{" in line 1
 Unexpected LCB token: "{". Instead, I was expecting to see one of the following:
 
