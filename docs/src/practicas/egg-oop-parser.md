@@ -743,7 +743,7 @@ When executed with an erroneous input the message is simplified to:
 Unexpected LCB token "{" at line 1 col 2. Tokens expected: "(","[",".",EOF
 ```
 
-Another related idea with error management is to introduce production rules for specific error situations. For instance, the rule at line 8 `expression -> %EOF` is added to control when in the middle of the parsing an unexpected end of file occurs:
+Another related idea with error management is to introduce in your Grammar production rules for specific error situations with an associated semantic action that deals with the error. For instance, the rule at line 8 `expression -> %EOF` is added to control when in the middle of the parsing an unexpected end of file occurs:
 
 ```js{8}
 expression -> 
