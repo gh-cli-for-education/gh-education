@@ -705,7 +705,7 @@ A EOF token based on:
 
 In version `2.20.1` of Nearley, the Error object has an attribute `token` than can be used to simplify the error  message.
 
-In the example below we make use of a RegExp to traverse the `message` attribute of the error and add to the message the expected tokens:
+In the example below we make use of a RegExp to traverse the `message` attribute of the error and add to the message the expected tokens. You van see the pattern `A "." based on:` that for named tokens changes to `A EOF token based on:`
 
 ```js
 function parseFromFile(origin) {
@@ -726,20 +726,21 @@ function parseFromFile(origin) {
   catch(e) {
     let token = e.token;
     let message = e.message;
-    let expected = message.match(/(?<=A )".*"(?= based on:)/g);
+    let expected = message.match(/(?<=A ).*(?= based on:)/g).map(s => s.replace(/\s+token/i,''));
     let newMessage = `Unexpected ${token.type} token "${token.value}" `+
-    `at line ${token.line} col ${token.col}\nTokens expected: ${expected}`;  
+    `at line ${token.line} col ${token.col}.`;
+    if (expected && expected.length) newMessage += ` Tokens expected: ${[...new Set(expected)]}`;  
+
     throw new Error(newMessage)
   }
-};
+}
 ```
 
 When executed with an erroneous input the message is simplified to:
 
 ```
-✗ bin/eggc.js test/errors/unexpected-token-comma.egg
-Unexpected LCB token "{" at line 1 col 2
-Tokens expected: "(","[",".","."
+➜  egg-oop-parser-solution git:(master) ✗ bin/eggc.js test/errors/unexpected-token.egg
+Unexpected LCB token "{" at line 1 col 2. Tokens expected: "(","[",".",EOF
 ```
 
 Another related idea with error management is to introduce production rules for specific error situations. For instance, the rule at line 8 `expression -> %EOF` is added to control when in the middle of the parsing an unexpected end of file occurs:
