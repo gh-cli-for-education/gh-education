@@ -309,9 +309,7 @@ ast: VALUE
 
 * Los nodos `PROPERTY` tienen dos atributos `operator` y `args`
 * El atributo `operator` de un nodo `PROPERTY` contiene información sobre el objeto (por ejemplo en `[1,2,3][0]` el operator sería el AST de `[1, 2, 3]`, En `{a: 1, b:2}.a` sería el AST de `{a: 1, b:2}`)
-* El atributo `args` de un nodo `PROPERTY` es un `ARRAY` conteniendo los ASTs que  se corresponden con los atributos/propiedades del `objeto` que está en `operator` (Para la expresión `[[1,2],3][0,1]`  serían los ASTs de `[0, 1]` o  para 
-`[[1,2],3]["length"]`  sería el AST de `["length"]`; para `{a: [1, 2], b:2}["a", 0]`  serían los ASTs de `["a", 0]`). 
-
+* El atributo `args` de un nodo `PROPERTY` es un `ARRAY` conteniendo los ASTs que  se corresponden con los atributos/propiedades del `objeto` que está en `operator`. Véase la sección [The Shape of ](#the-shape-of-property-asts) 
 * Los nodos `WORD` son nodos hoja y tienen al menos el atributo `name`. 
 * Los nodos `VALUE` tienen al menos el atributo `value`.
 
@@ -421,7 +419,11 @@ Here is the actual JSON:
 }
 ```
 
+Other examples of  what `args` contains for different property ASTs:
 
+* For the expression `[[1,2],3][0,1]` it would be the ASTs of `[0, 1]` or
+* For `[[1,2],3]["length"]` would be the AST of `["length"]`
+* For `{a: [1, 2], b:2}["a", 0]` would be the ASTs of `["a", 0]`)
 
 ## The Dot Ambiguity: Property dot or Mantissa dot?
 
