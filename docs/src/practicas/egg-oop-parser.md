@@ -666,7 +666,7 @@ Following these instructions it is trivial to extend Egg with a family of constr
 
 The errors produced by Nearley.JS are quite verbose:
 
-```ruby
+```js
 ➜  egg-oop-parser-solution git:(b2bc2de) cat test/errors/unexpected-token.egg
 +{2,3}
 ```
