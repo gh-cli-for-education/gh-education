@@ -333,7 +333,7 @@ If you have difficulties review the section [Anatomy of ASTs for Egg](/temas/syn
 
 ### The Shape of Property ASTs
 
-The final shape of property-type generated ASTs depends on how you implement the functions in the `src/ast-build.js` library.
+The final shape of property-type generated ASTs depends on how you implement the functions in the `src/build-ast.js` library.
 Consider the following input:
 
 ```js
