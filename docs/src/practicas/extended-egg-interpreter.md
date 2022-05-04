@@ -233,7 +233,8 @@ evaluate(env) {
 
 Not much comes to my mind that may mean *The attribute of a language construct*. 
 
-::: The Syntactically Correct, Semantically Absurd Language Design Pattern Again!
+::: tip The Syntactically Correct, Semantically Absurd Language Design Pattern Again!
+
 This is clearly a case of what we have called [The Syntactically Correct, Semantically Absurd Language Design Pattern](/practicas/egg-oop-parser.html#the-syntactically-correct-semantically-absurd-language-design-pattern).
 
 But, one that may be useful is to return an object with two properties:
