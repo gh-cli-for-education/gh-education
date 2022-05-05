@@ -8,10 +8,9 @@ sidebar: auto
 ## Introducción
 
 * Cualquier propuesta relacionada con lo visto en la asignatura es bienvenida. Consulte con el profesor.
-* Las ideas que se proponen aquí son las de extender el lenguaje [Egg](https://github.com/ULL-ESIT-PL-1819/egg) o el lenguaje de Infijo 
+* Las ideas que se proponen aquí son las de extender el lenguaje [Egg](https://github.com/ULL-ESIT-PL-1819/egg) 
 pero puede proponer un TFA con otro tópico relacionado con PL.
-* Una idea puede ser extender Egg o el lenguaje de Infijo con un DSL con funcionalidades para facilitar la resolución de problemas en un contexto específico que sea del interés del alumno. Vea las secciones [Strategy Pattern](#strategy-pattern-use) y [Extensiones de Egg via *use*](#extensiones-de-egg-via-use)
-*  Todas las sugerencias que se muestran aquí para Egg se pueden hacer con cualquiera de los lenguajes Infijo
+* Una idea puede ser extender Egg con un DSL con funcionalidades para facilitar la resolución de problemas en un contexto específico que sea del interés del alumno. Vea las secciones [Strategy Pattern](#strategy-pattern-use) y [Extensiones de Egg via *use*](#extensiones-de-egg-via-use)
 
 
 
@@ -75,36 +74,29 @@ Supongamos que extendemos Egg con un objeto `fetch` que implementa la API fetch 
 topEnv['fetch'] = require('node-fetch');
 ```
 
+En versiones superiores a la 17 `fetch`forma parte del core de Node.js como módulo ESM.
+
 Inmediatamente podemos escribir programas Egg como este:
 
 ```
 [~/.../egg/crguezl-egg(private2019)]$ cat examples/fetch.egg
 ```
 ```js
-do{
+➜  egg-oop-parser-solution git:(master) ✗ cat examples/fetch.egg 
+(
   fetch("https://api.github.com/users/github")
-    .then(->{res, res.json()})
-    .then(->{json,
+    .then(->(res, res.json()))
+    .then(->( json, 
       print(json)
-    })
-    .catch(->{err,
-      print(err.message)
-    })
-}
+    ))
+) 
 ```
 
 Al ejecutarlo obtenemos:
 
 ```js
-[~/.../egg/crguezl-egg(private2019)]$ bin/egg.js examples/fetch.egg
-{
-  login: 'github',
-  id: 9919,
-  node_id: 'MDEyOk9yZ2FuaXphdGlvbjk5MTk=',
-  ...
-  created_at: '2008-05-11T04:37:31Z',
-  updated_at: '2020-02-07T13:08:07Z'
-}
+➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/fetch
+{"login":"github","id":9919,"node_id":"MDEyOk9yZ2FuaXphdGlvbjk5MTk=","avatar_url":"https://avatars.githubusercontent.com/u/9919?v=4","gravatar_id":"","url":"https://api.github.com/users/github","html_url":"https://github.com/github","followers_url":"https://api.github.com/users/github/followers","following_url":"https://api.github.com/users/github/following{/other_user}","gists_url":"https://api.github.com/users/github/gists{/gist_id}","starred_url":"https://api.github.com/users/github/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/github/subscriptions","organizations_url":"https://api.github.com/users/github/orgs","repos_url":"https://api.github.com/users/github/repos","events_url":"https://api.github.com/users/github/events{/privacy}","received_events_url":"https://api.github.com/users/github/received_events","type":"Organization","site_admin":false,"name":"GitHub","company":null,"blog":"https://github.com/about","location":"San Francisco, CA","email":null,"hireable":null,"bio":"How people build software.","twitter_username":null,"public_repos":410,"public_gists":0,"followers":0,"following":0,"created_at":"2008-05-11T04:37:31Z","updated_at":"2022-04-08T10:02:08Z"}
 ```
 
 #### Callbacks en Egg
@@ -113,24 +105,25 @@ Veamos un ejemplo de asíncronía en Egg con callbacks.
 Extendamos Egg con un objeto que provee acceso al sistema de
 archivos:
 
-```
+```js
 topEnv['fs'] = require('fs');
 ```
 
 Me he encontrado con algunos problemas cuando probé a escribir este programa:
 
-```js
-➜  eloquentjsegg git:(private2021) ✗ cat examples/fs.egg  
-do {
+```ruby
+➜  egg-oop-parser-solution git:(master) ✗ cat examples/fs.egg 
+do (
   fs.readFile("examples/no-existe.egg", "utf8", 
-    fun{err, data, # brackets do not change to method semantics for specialForms
-      if[==(err, null), print(data), print(err)] 
-    }),
+    fun(err, data, 
+      if(==(err, null), print(data), print(err))
+    )),
   fs.readFile("examples/fs.egg", "utf8", 
-    fun{err, data, 
-      if[==(err, null), print(data), print(err)]
-    })
-}
+    fun(err, data, 
+      if(==(err, null), print(data), print(err))
+    ) # end fun
+  ) # end fs.readFile
+)
 ```
 
 El problema es que JS llama a la callback
@@ -144,7 +137,7 @@ La cosa tiene varias soluciones, pero en este momento he optado por la mas rápi
 Otro asunto en este ejemplo es que en algunas versiones Egg carece del objeto `null` de JS y 
 la convención es que JS llama a la callback con `cb(null, data)` para indicar la ausencia de error. De nuevo hay númerosas formas de abordar este asunto, pero una sencilla es advertir a la máquina virtual Egg de la existencia de `null` para que no proteste:
 
-```
+```js
 topEnv['null'] = null;
 topEnv['true'] = true;
 ...
@@ -153,281 +146,25 @@ topEnv['true'] = true;
 Sigue un ejemplo de ejecución:
 
 ```js
-➜  eloquentjsegg git:(private2021) ✗ ./egg examples/fs.egg
-[Error: ENOENT: no such file or directory, open 'examples/no-existe.egg'] {
-  errno: -2,
-  code: 'ENOENT',
-  syscall: 'open',
-  path: 'examples/no-existe.egg'
-}
-do {
+➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/fs
+{"errno":-2,"code":"ENOENT","syscall":"open","path":"examples/no-existe.egg"}
+do (
   fs.readFile("examples/no-existe.egg", "utf8", 
-    fun{err, data, # brackets do not change to method semantics for specialForms
-      if[==(err, null), print(data), print(err)] 
-    }),
+    fun(err, data, 
+      if(==(err, null), print(data), print(err))
+    )),
   fs.readFile("examples/fs.egg", "utf8", 
-    fun{err, data, 
-      if[==(err, null), print(data), print(err)]
-    })
-}
+    fun(err, data, 
+      if(==(err, null), print(data), print(err))
+    ) # end fun
+  ) # end fs.readFile
+)
 ```
 
-### Mejoras en el Manejo de la Asincronía
-
-Posibles objetivos en este campo son la mejora del manejo de la asincronía en Egg.
-Un experimento que he realizado (rama `async`) es el de reescribir  el código de manera que la computación asíncrona sea la computación por defecto y que se espere por cualquier promesa:
-
-```js
-➜  eloquentjsegg git:(async) ✗ cat examples/fetch.egg 
-do{
-  :=(res, fetch("https://api.github.com/users/github")),
-  :=(json, res.json()),
-  print(json)
-}
-```
-En esta versión Egg internamente hace un `await` por el `fetch` así como por el `res.json`.
-
-```js
-➜  eloquentjsegg git:(async) ✗ bin/egg.js examples/fetch.egg | head -n 10
-{
-  login: 'github',
-  id: 9919,
-  node_id: 'MDEyOk9yZ2FuaXphdGlvbjk5MTk=',
-  avatar_url: 'https://avatars.githubusercontent.com/u/9919?v=4',
-  gravatar_id: '',
-  url: 'https://api.github.com/users/github',
-  html_url: 'https://github.com/github',
-  followers_url: 'https://api.github.com/users/github/followers',
-  following_url: 'https://api.github.com/users/github/following{/other_user}',
-```
-
-Aunque quizá lo ideal sería una sintáxis mas a la JS como esta:
-
-```js
-do {
-    async {
-        :=(res, await(fetch("https://api.github.com/users/github"))),
-        :=(json, await(res.json())),
-        print(json)
-    },
-    print("hello") # it appears first
-}
-```
-
-
-<!--
-La idea es que en Egg  `async(expression)` funciona de forma similar a como lo hace en JS, disparando una commutación a una evaluación asíncrona (`async`) en la que se pueden  usar expresiones de la forma `await(p)` para esperar por una promesa `p` que aparezca dentro de la evaluación de la `expression` que `async` recibe como argumento.
-
-Esto va a implicar que existirán dos tipos de evaluación de los árboles Egg: síncrona y asíncrona dentro de Egg. 
-
-### Una Posible Implementación
-
-Creo que sería adecuado intervenir desde las primeras fases del compilador, haciendo que `async` sea una palabra reservada que produce el token `async`:
-
-```Yacc
-expression: (STRING | 
-             NUMBER | 
-             REGEXP | 
-             WORD) apply |   
-             ASYNC asyncapply  
-
-apply: /* vacio */
-     | '(' (expression ',')* expression? ')' apply
-     | '[' (expression ',')* expression? ']' apply
-
-asyncapply: /* vacio */
-     | '(' (asyncexpression ',')* asyncexpression? ')' asyncapply
-     | '[' (asyncexpression ',')* asyncexpression? ']' asyncapply
-
-asyncexpression: (STRING | 
-                  NUMBER | 
-                  REGEXP | 
-                  AWAIT  |
-                  WORD) asyncapply 
-
-
-WHITES = /^(\s|[#;].*|\/\*(.|\n)*?\*\/)*/;
-STRING = /^"((?:[^"\\]|\\.)*)"/;
-NUMBER = /^([-+]?\d*\.?\d+([eE][-+]?\d+)?)/;
-COMMA = /^,|:(?!=)/ # : is an alias for comma ',' when not followed by '='
-ASYNC = /^async\b/
-AWAIT = /^await\b/
-REGEXP = /r\/([^\/]|\\.)+\//
-WORD   = ([^\s().,:"\{\}\[\]]+|:=)
-DOT    = /^[.]/;
-
-REMARKS:
-The curly brackets "{ }" are equivalent to the parenthesis "( )"
-La secuencia léxica [WORD[b], COMMA[:]] es transformada a [STRING("b"), COMMA[:]]
-La secuencia léxica [DOT, WORD[b]] es transformada a ["[", STRING["b"], "]"]
-```
-
-cuando se encuentra un `async` la generación del árbol por el parser cambia produciéndose nuevos tipos de nodos que se implantarían en un fichero `lib/async-ast.js`:
-
-* `AsyncValue`, 
-* `AsyncWord`, 
-* `AsyncApply`, 
-* `AsyncMethodApply`
-
-que tienen unos métodos `evaluate` que computan en un contexto asíncrono.
-La implementación de `await(p)` espera por el resultado de la evaluación de `p`.
-
-Ahora los ASTs generados por el parser serían algo similar a esto:
-
-```yacc
-ast: VALUE{value: String | Number}
-   | WORD{name: String}
-   | APPLY{operator: ast, args: [ ast ...]}
-   | METHODAPPLY{operator: ast, args: [ ast ...]}
-   | asyncast:
-asyncast:
-   | ASYNCVALUE{value: String | Number}
-   | ASYNCWORD{name: String}
-   | ASYNCAPPLY{
-                 operator: asyncast, 
-                 args: [ asyncast ...]
-               }
-   | ASYNCMETHODAPPLY{
-                       operator: asyncast, 
-                       args: [ asyncast ...]
-                     }   
-```
-
-Este diseño no está contrastado.
--->
-
-### Recursos sobre Async 
+#### Recursos sobre Async 
 
 * [Book *The Modern Javascript Tutorial*. Chapter Promises, async/await](https://javascript.info/async)
 * Vídeo [Cómo funciona Async/Await en menos de 15 minutos](https://youtu.be/u2axmPnxUoo) YouTube Vídeo por Appdelante
-
-## Making more Expressive Assignments
-
-Extienda `set` de manera que permita expresiones complejas en el lado izquierdo de la asignación como 
-```ruby
-=(self.c, +(self["c"], 1))
-```
-o bien las que aparecen en este ejemplo:
-
-```
-➜  eloquentjsegg git:(private2021) ✗ cat examples/map-colon-leftside.egg 
-```
-```js
-do {
-  def(x, map{x: 4, y: map{z: 3}}),
-  print(x),                     # { x: 4, y: { z: 3 } }
-  print(x[y:][z:]),             # 3
-  =(x["y"]["z"], 50),
-  print(x[y:])                  # { z: 50 }
-}
-```
-
-Ejecución:
-```
-➜  eloquentjsegg git:(private2021) ✗ bin/egg.js examples/map-colon-leftside.egg
-{ x: 4, y: { z: 3 } }
-3
-{ z: 50 }
-```
-
-Observe que el lado izquierdo de una asignación podría incluir una llamada a función (siempre que esta retorne una referencia a un objeto estructurado) como ocurre en este ejemplo:
-
-```
-➜  eloquentjsegg git:(private2021) ✗ cat examples/funonthelefside.egg
-```
-```js
-do{
-  def(a, array(1,2,3,4)),
-  def(f, fun(x, do { a.push(x), a })), # f returns a
-  =(f(5)[0], Math.PI),
-  print(a)
-}
-```
-Ejecución:
-
-```
-➜  eloquentjsegg git:(private2021) ✗ ./egg examples/funonthelefside.egg
-[ 3.141592653589793, 2, 3, 4, 5 ]
-```
-
-Los índices negativos deberían funcionar tanto en el lado izquierdo de una asignación como e el lado derecho:
-
-```js
-➜  eloquentjsegg git:(private2021) ✗ cat examples/array-set-negative-index.egg 
-do(
-  def(x, array(1,2,3, array(9,8,7))),
-  print(x[-1][-1]), # 7
-  set(x[-1][-2], 1000),
-  print(x)              # [ 1, 2, 9, [ 9, 1000, 7 ] ]
-)
-```
-
-Ejecución:
-
-```
-➜  eloquentjsegg git:(private2021) ✗ node bin/egg.js examples/array-set-negative-index.egg
-7
-[ 1, 2, 3, [ 9, 1000, 7 ] ]
-```
-
-Otro ejemplo:
-
-```js
-➜  eloquentjsegg git:(private2021) ✗ cat examples/set-lefteval-2.egg 
-do { 
-  def (x, array(array(1,2),array(3,4))),
-  set(x[0], 9), # [9, [3,4]]
-  print(x), # [ 9, [ 3, 4 ] ]
-  
-  def(y, map{x:4, y: array(0,7)}),
-  set(y[y:][1], 9)
-  print(y["y"][1]), # 9
-  print(y), # { x: 4, y: [ 0, 9 ] }
-
-  def(z, object{
-           c:4, 
-           g: fun(a, set(self.c, a))
-          }
-  ),
-  set(z.c, 12),
-  print(z.c),    # 12
-  print(z.g(8)), # 8
-  print(z.c)     # 8
-}
-```
-
-Ejecución:
-
-```
-➜  eloquentjsegg git:(private2021) ✗ bin/egg.js examples/set-lefteval-2.egg                  
-[ 9, [ 3, 4 ] ]
-9
-{ x: 4, y: [ 0, 9 ] }
-12
-8
-8
-```
-
-### Multiple assignments
-
-Una vez logrado el objetivo anterior puede considerar introducir la posibilidad de
-asignar un valor a múltiples variables:
-
-```js
-➜  eloquentjsegg git:(private2021) ✗ cat examples/set-multiple-assignment.egg
-do(
-    def(x, array(1,2,3)),
-    set(x[0], x[1], x[2], 5),
-    print(x) # [ 5, 5, 5 ]
-)
-```                                                                                  
-
-cuyo equivalente en JS sería `x[0] = x[1] = x[2] = 5`.
-
-```
-➜  eloquentjsegg git:(private2021) ✗ ./egg examples/set-multiple-assignment.egg
-[ 5, 5, 5 ]
-```
 
 ## Scope Analysis
 
@@ -468,13 +205,10 @@ Vea el Capítulo [Análisis del Contexto](/temas/analisis-dependiente-del-contex
 
 include google-books.html id="Pq7pHwG1_OkC&l" pg="PP1&pg=PA43" 
 
-
-## Regular Expressions in Egg
-
 ## Compilador de Egg a JS
 
-Extienda el traductor desde Egg a JavaScript de la práctica 
-[generating-js](/practicas/generating-js) haciéndolo lo mas completo posible.
+Extienda el traductor desde Egg a JavaScript como se describe en  
+[generating-js](/temas/translation/egg-2-js) haciéndolo lo mas completo posible.
 
 
 ## Lua Compiler 

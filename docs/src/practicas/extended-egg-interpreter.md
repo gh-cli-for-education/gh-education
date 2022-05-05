@@ -220,6 +220,8 @@ specialForms['='] = specialForms['set'] = function(args, env) {
 
 ## Accesing Egg ASTs and Evaluating them from Egg Programs
 
+### Proposal
+
 Coming back to the `evaluate` method of the `Property` nodes, it may be worth considering this lines of code that were in the code of the `evaluate` method of the `Apply` nodes:
 
 ```js{1-3}
@@ -241,6 +243,8 @@ One meaning that may be useful for expressions like `while[<(x,4), ... ]` is to 
 - The AST of the corresponding `Apply` node 
 - The current scope/env
 :::
+
+### eval
 
 With that in mind and adding an `eval` function, we can write Egg programs like the following:
 
@@ -267,29 +271,27 @@ That when executed produces:
 10
 ```
 
-This extension opens opportunities for the manipulation of the scope and the AST. 
-In the next example, the value of `b` is modified via the returned scope
+### Adding the parser to topEnv 
+
+We can add the `parser` to the virtual machine memory `topEnv` and in this way produce an AST from an input string that can be evaluated later:
 
 ```ruby
- ✗ cat examples/specialform-property-3.egg
-do(
+➜  egg-oop-parser-solution git:(master) cat examples/eval.egg
+(
     def(b,4),
-    def(state, do[
-        print(+(b,1))
-    ]),
-    =(state.scope["b"], 9),
-    print(state.ast),
-    print(eval(state)) # 10
+    def(input, "print(def(b,+(b,1)))"),
+    def(ast, parse(input)),
+    def(scope, do[]),
+    =(scope.ast, ast),
+    =(scope.scope["b"], 10), # Change b in an odd way
+    print(ast),
+    eval(scope)
 )
-```                                                                                     
-
-Execution:
-
-``` 
-➜  eloquentjsegg git:(private2122) ✗ bin/egg.js examples/specialform-property-3.egg 
-{"type":"apply","operator":{"type":"word","name":"do"},"args":[{"type":"apply","operator":{"type":"word","name":"print"},"args":[{"type":"apply","operator":{"type":"word","name":"+"},"args":[{"type":"word","name":"b"},{"type":"value","value":1}]}]}]}
-10
-10
+```                                                                                                                      
+```js    
+➜  egg-oop-parser-solution git:(master) bin/egg examples/eval
+{"type":"apply","operator":{"type":"word","name":"print"},"args":[{"type":"apply","operator":{"type":"word","name":"def"},"args":[{"type":"word","name":"b"},{"type":"apply","operator":{"type":"word","name":"+"},"args":[{"type":"word","name":"b"},{"type":"value","value":1}]}]}]}
+11
 ```
 
 ## Maps, Hashes or Dictionaries
