@@ -5,14 +5,12 @@ permalink: /tfa
 sidebar: auto
 ---
 
-## Introducción
+## Introduction
 
-* Cualquier propuesta relacionada con lo visto en la asignatura es bienvenida. Consulte con el profesor.
-* Las ideas que se proponen aquí son las de extender el lenguaje [Egg](https://github.com/ULL-ESIT-PL-1819/egg) 
-pero puede proponer un TFA con otro tópico relacionado con PL.
-* Una idea puede ser extender Egg con un DSL con funcionalidades para facilitar la resolución de problemas en un contexto específico que sea del interés del alumno. Vea las secciones [Strategy Pattern](#strategy-pattern-use) y [Extensiones de Egg via *use*](#extensiones-de-egg-via-use)
-
-
+* Any proposal related to what is seen in the course is welcome. Check with the teacher.
+* The ideas proposed here are to extend the [Egg] language(https://github.com/ULL-ESIT-PL-1819/egg)
+but you can propose a TFA with another topic related to PL.
+* An idea may be to extend Egg with a DSL with functionalities to facilitate the resolution of problems in a specific context that is of interest to the student. See the sections [Strategy Pattern](#strategy-pattern-use) and [Egg extensions via *use*](#egg-via-use-extensions)
 
 
 <!--
@@ -64,19 +62,19 @@ Veamos el resultado de una ejecución:
 
 #### Promesas en Egg
 
-A estas alturas la máquina Egg puede manejar promesas por cuanto 
-que es posible en Egg llamar a los métodos de los objetos JavaScript
-y las promesas no son otra cosa que Objetos JS.
+At this point the Egg machine can handle promises as
+that it is possible in Egg to call the methods of JavaScript objects
+and promises are nothing but JS Objects.
 
-Supongamos que extendemos Egg con un objeto `fetch` que implementa la API fetch de JS:
+Suppose we extend Egg with a `fetch` object that implements the JS fetch API:
 
 ```js
 topEnv['fetch'] = require('node-fetch');
 ```
 
-En versiones superiores a la 17 `fetch`forma parte del core de Node.js como módulo ESM.
+In versions higher than 17 `fetch` is part of the Node.js core as an ESM module.
 
-Inmediatamente podemos escribir programas Egg como este:
+We can immediately write Egg programs like this:
 
 ```
 [~/.../egg/crguezl-egg(private2019)]$ cat examples/fetch.egg
@@ -126,16 +124,16 @@ do (
 )
 ```
 
-El problema es que JS llama a la callback
-con un solo argumento `err` cuando se produce un error y con dos 
-`(err, data)` cuando la operación tiene éxito.
+The problem is that JS calls the callback
+with a single argument `err` when an error occurs and with two
+`(err, data)` when the operation succeeds.
 
-Esta conducta de JS da lugar a que la versión actual de la máquina virtual Egg proteste por cuanto espera que el número de argumentos coincida con el número de parámetros declarados. Desafortunadamente, cuando hay error JS llama a la Egg-callback con un número de argumentos diferente de aquel con el que fue declarada.
+This JS behavior causes the current version of the Egg virtual machine to protest saying that it expects the number of arguments to match the number of declared parameters. Unfortunately, when there is an error JS calls the Egg-callback with a different number of arguments than it was declared with.
 
-La cosa tiene varias soluciones, pero en este momento he optado por la mas rápida que ha sido que Egg no proteste ante llamadas con número de argumentos menor que los que le fueron declarados.
+The thing has several solutions, but at this moment I have opted for the fastest one, which has been that Egg does not protest against calls with a number of arguments less than those that were declared.
 
-Otro asunto en este ejemplo es que en algunas versiones Egg carece del objeto `null` de JS y 
-la convención es que JS llama a la callback con `cb(null, data)` para indicar la ausencia de error. De nuevo hay númerosas formas de abordar este asunto, pero una sencilla es advertir a la máquina virtual Egg de la existencia de `null` para que no proteste:
+Another issue in this example is that in some versions Egg lacks the JS `null` object and
+the convention is that JS calls the callback with `cb(null, data)` to indicate the absence of an error. Again there are numerous ways to approach this issue, but a simple one is to warn the Egg virtual machine of the existence of `null` so that it doesn't protest:
 
 ```js
 topEnv['null'] = null;
@@ -199,7 +197,8 @@ Podemos entonces recorrer el AST comprobando que no se hace ningún intento de m
 
 ### Referencias
 
-Vea el Capítulo [Análisis del Contexto](/temas/analisis-dependiente-del-contexto/) en estos apuntes y lea el capítulo *Symbol Table Structure* y el Chapter 3 del libro de Muchnik:
+* [Scope Analysis Notes]()
+* Vea el Capítulo [Análisis del Contexto](/temas/scope-analysis/analisis-dependiente-del-contexto) en estos apuntes y lea el capítulo *Symbol Table Structure* y el Chapter 3 del libro de Muchnik:
 
 ## Compilador de Egg a JS
 
