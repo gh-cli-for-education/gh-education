@@ -227,12 +227,12 @@ do(
   print(y.c)
 )
 ```
-La declaración `def(y, child(x))` hace que el objeto `y` herede las propiedades y métodos del objeto `x`
 
-## Añadir Clases 
+The `def(y, child(x))` declaration causes the `y` object to inherit the properties and methods of the `x` object.
 
-Sigue un posible ejemplo:
+## Add Classes
 
+Here is a possible example:
 
 ```ruby
 do(
@@ -254,10 +254,10 @@ do(
 )
 ```
 
-## Valores por defecto de los parámetros de una función
+## Default values of function parameters
 
-Esta extensión consiste en añadir la posibilidad de que los
-últimos parámetros de una función tengan valores por defecto y puedan ser omitidos en la llamada:
+This extension consists of adding the possibility that the
+last parameters of a function have default values and can be omitted in the call:
 
 ```js
 do (
@@ -272,16 +272,16 @@ do (
 )
 ```
 
-Puede resultarte útil leer este tutorial  [JavaScript Default Parameters](https://www.javascripttutorial.net/es6/javascript-default-parameters/)
-si decides abordar esta extensión.
+You may find it helpful to read this tutorial [JavaScript Default Parameters](https://www.javascripttutorial.net/es6/javascript-default-parameters/)
+if you decide to tackle this extension.
 
-## Operador spread
+## spread trader
 
-Se trata de añadir a Egg un operador `spread` que funcione como el de JS
-permitiendo que un `spread(array)` sea expandido en llamadas a funciones donde se esperan múltiples elementos y al revés: que los múltiples argumentos de una función sean colocados en un array dentro del cuerpo de la función.
+Add a `spread` operator to Egg that works like the one in JS.
+`spread(array)`  can be used in function calls where multiple elements are expected and vice versa: 
+multiple arguments to a function can be placed in an array within the function body.
 
-Sigue un ejemplo:
-
+Follows an example:
 
 ```ruby
 do (
@@ -301,24 +301,26 @@ do (
 )
 ```
 
-## Mejorar Información de Localizacion y Errores en Run Time
+## Improve Location Information and Run Time Errors
 
-Traspase la información de localización de los tokens (línea, offset, punto de comienzo, etc.) en los nodos del árbol AST. Lo ideal es que para cada nodo se disponga de donde empieza el código asociado al nodo y de donde termina. Por ejemplo, dado un AST:
+Compute the location information of the tokens (line, offset, starting point, etc.) for each node of the AST tree. Ideally, you can have stored  on each node where the associated code begins and where it ends. 
+
+For example, given an AST like:
 
 ```
-APPLY(op: W[n:if], args:ARRAY(W[n: true], V[v:4], V[V:5]]) # `if(true,4,5) 
-``` 
+APPLY(op: W[n:if], args:ARRAY(W[n: true], V[v:4], V[V:5]]) # `if(true,4,5)
+```
 
-calcular un atributo `loc` para los nodos `APPLY`y los nodos `PROPERTY` con información sobre la línea y columna de comienzo del `APPLY` y su final. Aproveche dicha información para mejorar los errores en tiempo de ejecución.
+we compute a `loc` attribute for `APPLY` nodes and `PROPERTY` nodes with information about the start and end line and column of the `APPLY`. Take advantage of such information to improve runtime errors.
 
 
 ## AST Optimizations
 
-### Plegado de Constantes
+### Folding Constants
 
-Se trata de añadir al compilador de Egg una fase de optimización que haga plegado de constantes.
+It is about adding an optimization phase to the Egg compiler that does constant folding.
 
-Por ejemplo, cuando se le da como entrada un programa como este:
+For example, when given a program like this as input:
 
 ```
 [.../TFA-04-16-2020-03-22-00/davafons(casiano)]$ cat examples/optimize.egg
@@ -328,6 +330,7 @@ do (
   :=(x, +(*(2, 3), -(5, 1))) # 2 * 3 + (5 - 1) == 10
 )
 ```
+
 Si se compila con la opción `--optimize` de lugar a un plegado de constantes (o en inglés [constant folding](https://en.wikipedia.org/wiki/Constant_folding))
 
 ```
@@ -376,7 +379,7 @@ See the book [Advanced Compiler Design Implementation](https://books.google.es/b
 
 ### Other Machine Independent Optimizations
 
-Otras posibles optimizaciones son:
+Other possible optimizations are:
 
 - [Loop invariant code motion](https://www.tuhh.de/es/esd/research/wcc/optimizations/loop-invariant-code-motion.html)
 - [Constant Propagation](https://cran.r-project.org/web/packages/rco/vignettes/opt-constant-propagation.html)
@@ -384,16 +387,140 @@ Otras posibles optimizaciones son:
 
 ## Strategy Pattern: use 
 
-La idea es introducir una función `use` que es parecida a `require` 
-pero con la diferencia de que extiende el lenguaje `Egg-aluXX`
-mediante una librería escrita en JavaScript. 
+The idea is to introduce a `use` function which is similar to `require`
+but with the difference that it extends the `Egg-aluXX` language
+using a library written in JavaScript.
 
-Esto es, alguien del mundo mundial, un programador llamado Y entusiasmado por tu lenguaje `Egg-aluXX` 
-extiende el lenguaje `egg-aluXX` con una librería llamada `egg-aluXX-tutu` que publica en [npm](http://npmjs.com).  
-Y lo ha hecho añadiendo en `specialForms` y `topEnv` nuevas funcionalidades. Puede hacerlo porque importa tu módulo en el que tu exportas los hashes `specialForms` y `topEnv`.
+That is, someone from the world wide, a programmer named Y excited about your language `Egg-aluXX`
+extends it with a library called `egg-aluXX-tutu` which she publishes at [npm](http://npmjs.com).
 
-Una sentencia como `use('tutu')` debe hacer que el intérprete `egg` haga un `require` de `egg-aluXX-tutu` (que se supone ha sido previamente instalada en `node_modules/`) y que las funcionalidades exportadas por `egg-aluXX-tutu` estén disponibles al programa Egg.
+She has done it by adding new features to `specialForms` and `topEnv`. 
 
-Como posibles ejemplos de uso, véanse las siguientes 
-secciones 
+She was able to do so because her module imports from the module in which you export the `specialForms` and `topEnv` hashes.
 
+A statement like `use('tutu')` should cause the `egg` interpreter to do a `require` of `egg-aluXX-tutu` (which is assumed to have been previously installed in `node_modules/`) and the features exported by `egg-aluXX-tutu` are available to the Egg program.
+
+Here is an skeleton of a plugin called `github.js`:
+
+```js
+let specialForms_ = new Map;
+let topEnv_ = new Map;
+const readFileSync = require('fs').readFileSync;
+const path = require('path');
+let accessToken;
+/* ... load other libraries ... */
+
+topEnv_['setToken'] = function (token_) {
+  try {
+    debugger;
+    if (token_) {
+        return accessToken = readFileSync(token_);
+    }
+    else if (accessToken = process.env["egggithubtoken"]) {
+        return accessToken;
+    }
+    let eggConfig = require(
+      path.join(
+        require('os').homedir(),'.egg','config.json'
+      )
+    );
+    return accessToken = eggConfig.github.token;
+  } catch(e) {
+        console.error(`
+        Go to https://github.com/settings/tokens and get a token for
+        GitHub Egg. Save it in the Egg config file 
+        '~/.egg/config.json' as the entry 'github.token' 
+        or in a file and provide its name calling 'setToken(fileName)'
+        or save it in a environment variable with name 'egggithubtoken'
+        `)
+        process.exit(1);
+    }
+    return accessToken;
+}
+
+topEnv_['org'] = function (org_) {
+  ...
+}
+
+topEnv_['whoami'] = function () {
+  ...
+}
+
+topEnv_['members'] = function (org_) {
+  ...
+}
+
+topEnv_['collaborators'] = function (org_) {
+  ...
+}
+
+topEnv_['names'] = function (array) {
+  ...
+}
+
+try {
+  topEnv_['setToken']();
+} catch(e) {
+   // nothing
+}
+module.exports = {topEnv_, specialForms_};
+```
+
+Here is an example of use of `use` of the former lib  `github.js`
+
+```ruby
+➜  egg-oop-parser-solution git:(master) ✗ cat examples/github.egg 
+do(
+    def(lib, 
+      path.join(
+        process.cwd(), # Execute from the root of this project
+        "node_modules", 
+        "@ull-esit-pl-2122",
+        "eloquentjsegg",
+        "lib",
+        "github.js"
+      )
+    ),
+    #print(lib),
+
+    use(lib),   # Carga el módulo para trabajar con la Api de GitHub
+    #use("@ull-esit-pl-2122/eloquentjsegg/lib/github.js"),
+    setToken("examples/.eggtoken"),               # Token Obtenido en la web de GitHub https://github.com/settings/tokens
+
+    def(me, whoami()),
+    print("Teacher: ",me.name),
+    print("Teacher's blog:",me.blog),
+
+    def(pl, org("ULL-ESIT-PL-2122")), 
+    # print(pl),
+    print("Total number of repos in ULL-ESIT-PL-1920: ",pl.total_private_repos),
+    print("Number of collaborators in ULL-ESIT-PL-1920: ",pl.collaborators),
+
+    def(membersPL, members(pl)),
+    print("Total members in PL: ",membersPL.length),
+
+    def(collaboratorsPL, collaborators(pl)), 
+    print("Total collaborators in PL: ",collaboratorsPL.length),
+    
+    def(inside, membersPL.map(fun(cv, i, a, 
+          [cv.login, cv.url]
+        ) # end function
+      ) # end map
+    ), # end def
+    print("First and last Members: ", inside[0], inside[-1])
+)
+```
+
+and here is an example of execution:
+
+
+```
+➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/github
+Teacher:  Casiano Rodriguez-Leon
+Teacher's blog: https://crguezl.github.io/
+Total number of repos in ULL-ESIT-PL-1920:  725
+Number of collaborators in ULL-ESIT-PL-1920:  1
+Total members in PL:  30
+Total collaborators in PL:  0
+First and last Members:  ["0ria","https://api.github.com/users/0ria"] ["alu0101315058","https://api.github.com/users/alu0101315058"]
+```
