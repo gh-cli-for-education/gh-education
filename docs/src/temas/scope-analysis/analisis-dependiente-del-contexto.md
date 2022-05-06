@@ -2,7 +2,7 @@
 title: Análisis Dependiente del Contexto
 ---
 
-####  Análisis de Ámbito
+##  Análisis de Ámbito
 
 * [Análisis de Ambito](https://campusvirtual.ull.es/ocw/pluginfile.php/2208/mod_resource/content/0/perlexamples/node282.html) (Perl, Parse::Eyapp)
 * [Práctica: Análisis de Ámbito en PL0](http://crguezl.github.io/pl-html/node51.html) (JS, Jison)
@@ -14,7 +14,7 @@ title: Análisis Dependiente del Contexto
 * [Análisis de Ámbito](https://campusvirtual.ull.es/ocw/pluginfile.php/2319/mod_resource/content/0/perlexamples/node282.html) con Parse::Eyapp
 
 
-####  Análisis de Tipos
+##  Análisis de Tipos
 
 * [Análisis de Tipos](https://campusvirtual.ull.es/ocw/pluginfile.php/2208/mod_resource/content/0/perlexamples/node294.html)
     - [repo pegjscalc-solutions: branch semantic](https://github.com/ULL-ESIT-GRADOII-PL/pegjscalc-solutions/tree/semantic)

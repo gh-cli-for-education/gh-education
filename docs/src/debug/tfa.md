@@ -58,9 +58,9 @@ Veamos el resultado de una ejecución:
   
 ## Async and Await en Egg
 
-### Introducción a la Programación asincrona en Egg
+### Introduction to Asynchronous Programming in Egg
 
-#### Promesas en Egg
+#### Promises in Egg
 
 At this point the Egg machine can handle promises as
 that it is possible in Egg to call the methods of JavaScript objects
@@ -200,19 +200,19 @@ Podemos entonces recorrer el AST comprobando que no se hace ningún intento de m
 * [Scope Analysis Notes]()
 * Vea el Capítulo [Análisis del Contexto](/temas/scope-analysis/analisis-dependiente-del-contexto) en estos apuntes y lea el capítulo *Symbol Table Structure* y el Chapter 3 del libro de Muchnik:
 
-## Compilador de Egg a JS
+## Egg to JS Compiler
 
-Extienda el traductor desde Egg a JavaScript como se describe en  
-[generating-js](/temas/translation/egg-2-js) haciéndolo lo mas completo posible.
+Extend the translator from Egg to JavaScript as described in
+[generating-js](/themes/translation/egg-2-js) making it as complete as possible.
 
 
-## Lua Compiler 
+## Lua Compiler
 
-Usando un intérprete para un subconjunto suficientemente grande de la [Gramática de Lua](https://github.com/kach/nearley/blob/master/examples/lua.ne) en Nearley.js traduciendo a árboles Egg o bien directamente a JS.
+Using an interpreter for a large enough subset of the [Lua Grammar](https://github.com/kach/nearley/blob/master/examples/lua.ne) in Nearley.js by translating to Egg trees or directly to JS.
 
-## Añadir Herencia entre objetos a Egg
+## Add Object Inheritance to Egg
 
-Podría ser mediante un método `child` como este:
+It could be via a `child` method like this:
 
 ```js
 do(
