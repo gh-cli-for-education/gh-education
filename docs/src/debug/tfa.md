@@ -475,7 +475,7 @@ do(
       path.join(
         process.cwd(), # Execute from the root of this project
         "node_modules", 
-        "@ull-esit-pl-2122",
+        "@ull-esit-pl-1920",
         "eloquentjsegg",
         "lib",
         "github.js"
