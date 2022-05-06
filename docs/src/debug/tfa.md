@@ -468,7 +468,7 @@ module.exports = {topEnv_, specialForms_};
 
 Here is an example of use of `use` of the former lib  `github.js`
 
-```ruby
+```ruby{15}
 ➜  egg-oop-parser-solution git:(master) ✗ cat examples/github.egg 
 do(
     def(lib, 
@@ -484,8 +484,8 @@ do(
     #print(lib),
 
     use(lib),   # Carga el módulo para trabajar con la Api de GitHub
-    #use("@ull-esit-pl-2122/eloquentjsegg/lib/github.js"),
-    setToken("examples/.eggtoken"),               # Token Obtenido en la web de GitHub https://github.com/settings/tokens
+   
+    setToken("examples/.eggtoken"),  # Token Obtenido en la web de GitHub https://github.com/settings/tokens
 
     def(me, whoami()),
     print("Teacher: ",me.name),
@@ -509,18 +509,4 @@ do(
     ), # end def
     print("First and last Members: ", inside[0], inside[-1])
 )
-```
-
-and here is an example of execution:
-
-
-```
-➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/github
-Teacher:  Casiano Rodriguez-Leon
-Teacher's blog: https://crguezl.github.io/
-Total number of repos in ULL-ESIT-PL-1920:  725
-Number of collaborators in ULL-ESIT-PL-1920:  1
-Total members in PL:  30
-Total collaborators in PL:  0
-First and last Members:  ["0ria","https://api.github.com/users/0ria"] ["alu0101315058","https://api.github.com/users/alu0101315058"]
 ```
