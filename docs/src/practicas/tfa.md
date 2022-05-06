@@ -1,16 +1,23 @@
 ---
 title: "TFA: Final Project PL"
 categories: ["temas", "practicas"]
-permalink: /tfa
 sidebar: auto
+key: tfa
+published: true
+date: 2022/05/06
+delivery: "2022/05/26"
+order: 15
+layout: Practica
+prev: /practicas/extended-egg-interpreter.md
+template: 
 ---
 
 ## Introduction
 
 * Any proposal related to what is seen in the course is welcome. Check with the teacher.
-* The ideas proposed here are to extend the [Egg] language(https://github.com/ULL-ESIT-PL-1819/egg)
+* The ideas proposed here are to extend the [Egg language](https://github.com/ULL-ESIT-PL-1819/egg)
 but you can propose a TFA with another topic related to PL.
-* An idea may be to extend Egg with a DSL with functionalities to facilitate the resolution of problems in a specific context that is of interest to the student. See the sections [Strategy Pattern](#strategy-pattern-use) and [Egg extensions via *use*](#egg-via-use-extensions)
+* An idea may be to extend Egg with a DSL with functionalities to facilitate the resolution of problems in a specific context that is of interest to the student. See the section [Strategy Pattern](#strategy-pattern-use) 
 
 
 <!--
@@ -180,20 +187,19 @@ Si lo ejecutamos nos da un  run-time error:
 ReferenceError: Tried setting an undefined variable: x
 ```
 
-De lo que se trata aquí es de detectar los errores lo mas temprano posible, antes de que se ejecute el programa recorriendo el AST y buscando los nodos de usos de *words* que no han sido definidos en un ámbito superior:
+The point here is to detect errors as early as possible, 
+before the program is executed.
+This is done by walking the AST and looking for usage nodes of *words* that have not been defined in a higher scope:
 
 ```
 [.../TFA-04-16-2020-03-22-00/davafons(casiano)]$ bin/egg.js -c examples/set-error-compile.egg
 ReferenceError: Trying to use the undefined symbol x
 ```
 
-En esta variante de Egg la opción `-c` usada compila el programa pero no lo ejecuta. 
+In this variant of Egg the `-c` option used compiles the program but does not run it.
 
-En esta fase de análisis de ámbito también se pueden comprobar algunos otros tipos de errores de uso. 
-
-Por ejemplo si se anima, puede extender Egg con declaraciones de la forma `const(a,4)` para constantes. 
-
-Podemos entonces recorrer el AST comprobando que no se hace ningún intento de modificación (`set(a, ...)`) de esa variable en su ámbito de declaración.
+Some other types of usage errors can also be checked in this scope analysis phase.
+We can extend Egg with declarations of the form `const(a,4)` for constants, and then we can walk the AST checking that no attempt is made to modify (`set(a, ...)`) that variable in its declaration scope.
 
 ### Referencias
 
@@ -275,7 +281,7 @@ do (
 You may find it helpful to read this tutorial [JavaScript Default Parameters](https://www.javascripttutorial.net/es6/javascript-default-parameters/)
 if you decide to tackle this extension.
 
-## spread trader
+## Spread operator
 
 Add a `spread` operator to Egg that works like the one in JS.
 `spread(array)`  can be used in function calls where multiple elements are expected and vice versa: 
@@ -372,8 +378,8 @@ El código resultante produce un programa equivalente a `:= (x, 10)`:
 ```
 
 * [constant folding](https://en.wikipedia.org/wiki/Constant_folding) en la Wikipedia
-* Puede usar [estraverse](https://github.com/estools/estraverse) para recorrer el AST buscando por árboles constantes
-
+* You can use [estraverse](https://github.com/estools/estraverse) to traverse the AST looking for constant trees
+* 
 See the book [Advanced Compiler Design Implementation](https://books.google.es/books/about/Advanced_Compiler_Design_Implementation.html?id=Pq7pHwG1_OkC&redir_esc=y) by Muchnick.
 
 
