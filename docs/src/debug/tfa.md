@@ -439,7 +439,7 @@ topEnv_['setToken'] = function (token_) {
 }
 
 topEnv_['org'] = function (org_) {
-  ...
+  ... // request to GitHub API asking for org info 
 }
 
 topEnv_['whoami'] = function () {
@@ -447,7 +447,7 @@ topEnv_['whoami'] = function () {
 }
 
 topEnv_['members'] = function (org_) {
-  ...
+  ... // request to GitHub API
 }
 
 topEnv_['collaborators'] = function (org_) {
@@ -475,7 +475,7 @@ do(
       path.join(
         process.cwd(), # Execute from the root of this project
         "node_modules", 
-        "@ull-esit-pl-1920",
+        "@ull-esit-pl-2122,
         "eloquentjsegg",
         "lib",
         "github.js"
@@ -493,8 +493,8 @@ do(
 
     def(pl, org("ULL-ESIT-PL-2122")), 
     # print(pl),
-    print("Total number of repos in ULL-ESIT-PL-1920: ",pl.total_private_repos),
-    print("Number of collaborators in ULL-ESIT-PL-1920: ",pl.collaborators),
+    print("Total number of repos in ULL-ESIT-PL: ",pl.total_private_repos),
+    print("Number of collaborators in ULL-ESIT-PL: ",pl.collaborators),
 
     def(membersPL, members(pl)),
     print("Total members in PL: ",membersPL.length),
