@@ -201,10 +201,6 @@ Podemos entonces recorrer el AST comprobando que no se hace ningún intento de m
 
 Vea el Capítulo [Análisis del Contexto](/temas/analisis-dependiente-del-contexto/) en estos apuntes y lea el capítulo *Symbol Table Structure* y el Chapter 3 del libro de Muchnik:
 
-<!-- Scope Analysis. ck book -->
-
-include google-books.html id="Pq7pHwG1_OkC&l" pg="PP1&pg=PA43" 
-
 ## Compilador de Egg a JS
 
 Extienda el traductor desde Egg a JavaScript como se describe en  
@@ -214,8 +210,6 @@ Extienda el traductor desde Egg a JavaScript como se describe en
 ## Lua Compiler 
 
 Usando un intérprete para un subconjunto suficientemente grande de la [Gramática de Lua](https://github.com/kach/nearley/blob/master/examples/lua.ne) en Nearley.js traduciendo a árboles Egg o bien directamente a JS.
-
-Véase la sección [Lua](/practicas/infix2evm#lua) en la práctica *Desde Lenguajes de Infijo a EVM usando Nearley.js*
 
 ## Añadir Herencia entre objetos a Egg
 
@@ -236,30 +230,29 @@ do(
 ```
 La declaración `def(y, child(x))` hace que el objeto `y` herede las propiedades y métodos del objeto `x`
 
-## Añadir Clases al Lenguaje de Infijo
+## Añadir Clases 
 
-Podría tanto en el lenguaje de infijo como en Egg considerar la posibilidad de introducir clases. Sigue un posible ejemplo:
+Sigue un posible ejemplo:
 
 
-```pascal
-class Math
-begin
-  constructor(x, y)
-  begin
-    self.x = x;
-    self.y = y;
-  end;
-
-  method sum();
-  begin
-    self.x + self.y;
-  end;
-end
-
-begin /* main */
-  let a = new Math(2,3);
-  print(a.sum()); // 5
-end;
+```ruby
+do(
+  class(Math, 
+    {
+      constructor: fun(x, y, 
+        do(
+          =(self.x, x),
+          =(self.y, y)
+        )
+      ),
+      sum: fun(+(self.x, self.y))
+    }
+  ),
+  do( /* main */
+    def(a, Math.new(2,3)),
+    print(a.sum()); // 5
+  )
+)
 ```
 
 ## Valores por defecto de los parámetros de una función
@@ -268,16 +261,16 @@ Esta extensión consiste en añadir la posibilidad de que los
 últimos parámetros de una función tengan valores por defecto y puedan ser omitidos en la llamada:
 
 ```js
-do {
+do (
   def(f, fun(x, default(y, 3)), default(z, 2),
-    do {
+    do (
       print(x+y+z)
-    }
+    )
   ),
   f(3),      # 8
   f(3, 5),   # 10
   f(3, 1, 9) # 13
-}
+)
 ```
 
 Puede resultarte útil leer este tutorial  [JavaScript Default Parameters](https://www.javascripttutorial.net/es6/javascript-default-parameters/)
@@ -292,30 +285,22 @@ Sigue un ejemplo:
 
 
 ```ruby
-do {
+do (
   def(f1, fun(x, y, # f1 espera dos argumentos
-    do {
+    do (
       +(x,y)
-    }
+    )
   )),
   def(z, array(1,4)),
   print(f1(spread(z))), # Lo llamamos con un array. Resultado: 5
   def(g, fun(a, spread(x), # g espera uno o mas argumentos
-    do {
+    do (
       +(x[0], x[1])
-    }
+    )
   )),
   print(g(1, 4, 5)) # a es 1 y x es [4, 5]. Resultado: 9
-}
+)
 ```
-
-
-## LexerGenerator
-
-Extienda la práctica de LexerGenerator para hacer un generador de Analizadores Léxicos que sea compatible con NearleyJS y que tenga funcionalidades similares a las de [Moo](https://github.com/no-context/moo).
-
-- Añádale una opción para volcar el analizador léxico generado a una string y guardarlo en un fichero .js separado
-- Como prueba de su capacidad de expresión, reescriba su analizador de Egg o el de la práctica [infix2evm](/practicas/infix2evm) usando su LexerGenerator.
 
 ## Mejorar Información de Localizacion y Errores en Run Time
 
@@ -325,7 +310,7 @@ Traspase la información de localización de los tokens (línea, offset, punto d
 APPLY(op: W[n:if], args:ARRAY(W[n: true], V[v:4], V[V:5]]) # `if(true,4,5) 
 ``` 
 
-tendría asociado un atributo `loc` con información sobre la línea y columna de comienzo del `if` y su final. Aproveche dicha información para mejorar los errores en tiempo de ejecución.
+calcular un atributo `loc` para los nodos `APPLY`y los nodos `PROPERTY` con información sobre la línea y columna de comienzo del `APPLY` y su final. Aproveche dicha información para mejorar los errores en tiempo de ejecución.
 
 
 ## AST Optimizations
@@ -340,9 +325,9 @@ Por ejemplo, cuando se le da como entrada un programa como este:
 [.../TFA-04-16-2020-03-22-00/davafons(casiano)]$ cat examples/optimize.egg
 ```
 ```ruby
-do {
+do (
   :=(x, +(*(2, 3), -(5, 1))) # 2 * 3 + (5 - 1) == 10
-}
+)
 ```
 Si se compila con la opción `--optimize` de lugar a un plegado de constantes (o en inglés [constant folding](https://en.wikipedia.org/wiki/Constant_folding))
 
@@ -387,10 +372,7 @@ El código resultante produce un programa equivalente a `:= (x, 10)`:
 * [constant folding](https://en.wikipedia.org/wiki/Constant_folding) en la Wikipedia
 * Puede usar [estraverse](https://github.com/estools/estraverse) para recorrer el AST buscando por árboles constantes
 
-See
-
-<!-- Scope Analysis. Muchnick book -->
-include google-books.html id="Pq7pHwG1_OkC&l" pg="PP1&pg=PA43" lpg="PP1"
+See the book [Advanced Compiler Design Implementation](https://books.google.es/books/about/Advanced_Compiler_Design_Implementation.html?id=Pq7pHwG1_OkC&redir_esc=y) by Muchnick.
 
 
 ### Other Machine Independent Optimizations
@@ -400,16 +382,6 @@ Otras posibles optimizaciones son:
 - [Loop invariant code motion](https://www.tuhh.de/es/esd/research/wcc/optimizations/loop-invariant-code-motion.html)
 - [Constant Propagation](https://cran.r-project.org/web/packages/rco/vignettes/opt-constant-propagation.html)
 - Dead code elimination
-
-## Syntax Highlighting for VSCode
-
-Proveer Syntax Highlight en Visual Code para Egg. 
-
-Véase
-
-* [Syntax Highlight Guide](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide)
-* [Egg Tools](https://marketplace.visualstudio.com/items?itemName=jasonhaxstuff.egg-tools)
-
 
 ## Strategy Pattern: use 
 
@@ -425,217 +397,4 @@ Una sentencia como `use('tutu')` debe hacer que el intérprete `egg` haga un `re
 
 Como posibles ejemplos de uso, véanse las siguientes 
 secciones 
-
-
-## Extensiones de Egg via `use`
-
-Las opciones descritas en este apartado aunque no conllevan la aplicación de conceptos y competencias de Procesadores de Lenguajes se pueden considerar válidas para el TFA. Su ponderación es por tanto menor que  las contribuciones descritas en  los anteriores apartados.
-
-* Estas extensiones deberían estar en módulos separados que extienden Egg usando el patrón [registry-strategy](https://youtu.be/9nMK2yuln_I).
-  * Si es este el caso, tiene permisos para crear en la organización repos con nombre `egg-tfa-plugin-<name>-aluXXX`. 
-  * En cada caso busque en npm librerías que le den apoyo para que la tarea resulte mas fácil
-  * Si necesita publicar un módulo npm deberá usar [GitHub registry](https://help.github.com/en/articles/about-github-package-registry) en vez de npm.js y publícarlo  como paquete privado. 
-
-
-### Egg Extension for GitHub
-
-La idea general es extender el lenguaje [Egg](https://github.com/ULL-ESIT-PL-1819/egg) con funcionalidades para la 
-manipulación de GitHub
-
-```js
-do {
-  use('github'),
-  Org("ULL-ESIT-PL-1920").then(
-    ->(org, # Object describing the org
-      do {
-        People(org).then(
-          ->(people,  # Result is an array of objects with the people in the org
-              print(people)
-            )
-        ) # end then
-      } # end do
-     ) # end function
-  ) # end then
-}
-```
-
-Para implementar la extensión `github` podríamos hacer uso de alguna librería asíncrona como [octokit/rest.js](https://github.com/octokit/rest.js/), [github-api](https://www.npmjs.com/package/github-api), [octonode](https://github.com/pksunkara/octonode) o similar.
-
-### Request Síncronos con sync-request
-
-Todas las librerías de JavaScript para comunicaciones 
-suelen ser asíncronas y esto casa mal con la naturaleza de Egg, hasta ahora bastante síncrona.
-
-Una excepción es `sync-request`:
-
-* [sync-request](https://www.npmjs.com/package/sync-request)
-
-Usando [sync-request](https://www.npmjs.com/package/sync-request) podemos diseñar una sintáxis mas simple:
-
-```ruby
-do{
-    use("../lib/github"),     # Carga el módulo para trabajar con la Api de GitHub
-    # setToken(".eggtoken"),  # Token Obtenido en la web de GitHub https://github.com/settings/tokens
-    def(me, whoami()),
-    print("Teacher: ",me.name),
-    print("Teacher's blog:",me.blog),
-    :=(pl, org("ULL-ESIT-PL-1920")),
-    # print(pl),
-    print("Total number of repos in ULL-ESIT-PL-1920: ",pl.total_private_repos),
-    print("Number of collaborators in ULL-ESIT-PL-1920: ",pl.collaborators),
-    :=(membersPL, members(pl)),
-    print("Total members in PL: ",membersPL.length),
-    :=(collaboratorsPL, collaborators(pl)),
-    print("Total collaborators in PL: ",collaboratorsPL.length),
-
-    :=(inside,
-      membersPL.map{->(cv, i, a,
-          array[cv.login, cv.url]
-        ) # end function
-      } # end map
-    ),
-    print("First and last Members: ", inside[0], element(inside,-1)),
-    def(lastCol, element(collaboratorsPL, -1)),
-    print("Last collaborator: ", lastCol.login, lastCol.url)
-```
-
-Cuando se ejecuta obtenemos:
-
-```
-Teacher:  Casiano Rodriguez-Leon
-Teacher's blog: https://crguezl.github.io/quotes-and-thoughts/
-Total number of repos in ULL-ESIT-PL-1920:  829
-Number of collaborators in ULL-ESIT-PL-1920:  54
-Total members in PL:  25
-Total collaborators in PL:  29
-First and last Members:  [ 'Alien-97', 'https://api.github.com/users/Alien-97' ] [ 'victoriamr210', 'https://api.github.com/users/victoriamr210' ]
-Last collaborator:  sermg111 https://api.github.com/users/sermg111
-```
-
-que nos informa que el Sábado 16/05/2020 tenemos 54 personas y  820 repos en la organización.
-
-Por supuesto es necesario configurar la extensión con un token.
-En esta solución hemos optado por poner el token en un fichero de 
-configuración para Egg:
-
-```
-[~/.../PLgrado/eloquentjsegg(async)]$ tree ~/.egg/
-/Users/casiano/.egg/
-└── config.json
-
-0 directories, 1 file
-[~/.../PLgrado/eloquentjsegg(async)]$ cat ~/.egg/config.json
-{
-  "github" : {
-    "token": "badbadbadbadbadbadbad..."
-  }
-}
-```
-
-* [sync-request](https://www.npmjs.com/package/sync-request)
-* [GitHub: Traversing with Pagination](https://developer.github.com/v3/guides/traversing-with-pagination/)
-
-### Embedding gh in Egg
-
-Es posible empotrar la gh cli en Egg con una correspondencia casi uno-uno conservando el estilo `gh`:
-
-```js
-do {
-  use('gh'), # exports into topEnv a gh object
-  print(
-    gh
-    .repo
-    .list(
-      'ULL-ESIT-PL-2021, Map{public: true, limit: 5}
-    )
-  )  
-}
-```
-
-Que daría lugar a la ejecución de un proceso que arranca `gh`con las opciones correspondientes:
-
-```
-✗ gh repo list --public --limit 5 ULL-ESIT-PL-2021
-
-Showing 5 of 115 repositories in @ULL-ESIT-PL-2021 that match your search
-
-ULL-ESIT-PL-2021/hello-js-action-alu0101240374                hello-js-action-alu0101240374 created by GitHub Classroom       public  9d
-ULL-ESIT-PL-2021/hello-js-action-use-alu0101240374            hello-js-action-use-alu0101240374 created by GitHub Classroom   public  9d
-ULL-ESIT-PL-2021/jekyll-github-pages-y-netlify-alu0101240374  jekyll-github-pages-y-netlify-alu0101240374 created by GitH...  public  11d
-ULL-ESIT-PL-2021/hello-js-action-alu0101243498                hello-js-action-alu0101243498 created by GitHub Classroom       public  11d
-ULL-ESIT-PL-2021/hello-js-action-use-alu0101225296            hello-js-action-use-alu0101225296 created by GitHub Classroom   public  11d
-~
-```
-y retornaría  un objeto `{ stdout: string, stderr: string }` con 
-las salidas por los streams standard.
-
-Para hacer este ejercicio debería de familiarizarse con las funciones para la ejecución de programas y captura de entrada/salida de procesos desde Node.JS. See 
-[Working with stdout and stdin of a child process in Node.js](https://2ality.com/2018/05/child-process-streams.html) by Portrait Dr. Axel Rauschmayer.
-
-
-### Calculo Vectorial, Algoritmos Evolutivos, IA, etc.
-
-Las posibilidades son infinitas, tanto para Egg como para el lenguaje de Infijo. Puede añadir funcionalidades que faciliten la escritura 
-en determinados dominios: algoritmos evolutivos, 
-redes neuronales, estadística, etc.
-
-Un ejemplo simple es extender el lenguaje [Egg](https://github.com/ULL-ESIT-PL-1819/egg) con funcionalidades para el cálculo vectorial
-
-```js
-do {
-  use('science'),
-  :=(v1, arr(4, 5, 9)),
-  :=(v2, arr(3, 2, 7)), 
-  :=(s, *(+(v1, v2),v2)),
-  print(s)
-}
-```
-
-### Gestor de Tareas
-
-La idea general es extender el lenguaje [Egg](https://github.com/ULL-ESIT-PL-1819/egg) con funcionalidades para la descripción de tareas. Este código sería el contenido de un fichero `eggfile.egg`:
-
-```js
-tasks {
-  use('tasks'),
-  task(compile: sh("gcc hello.c"), depends: "mylib"),
-  task(mylib: sh("gcc -c -o mylib.o mylib.c")),
-  task(default: "compile")
-}
-```
-
-### Command line processing 
-
-La idea general es extender el lenguaje [Egg](https://github.com/ULL-ESIT-PL-1819/egg) con funcionalidades para procesar los argumentos dados en línea de comandos (similar a lo que es [commander](https://www.npmjs.com/package/commander) para Node.js):
-
-Por ejemplo para una ejecución como esta:
-```
-$ example.egg -vt 1000 one.js two.js
-```
-
-Tendríamos que escribir `example-egg` siguiendo un patrón como este:
-
-```js
-do {
-  use('command-line'),
-  :=(optionDefinition, arr ()
-    map { name: 'verbose', alias: 'v', type: Boolean },
-    map { name: 'src', type: String, multiple: true, defaultOption: true },
-    map { name: 'timeout', alias: 't', type: Number },
-    map { name: 'help', alias: 'h', type: Boolean },
-  )),
-  :=(options, parseArgs(optionDefinitions)),
-  print(options)
-    /* options es un map como este:
-        {
-          src: [
-            'one.js',
-            'two.js'
-          ],
-          verbose: true,
-          timeout: 1000
-        }
-    */
-}
-```
 

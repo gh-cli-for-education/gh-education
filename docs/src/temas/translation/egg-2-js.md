@@ -130,11 +130,10 @@ module.exports = {
 
 ## Consideraciones semánticas 
 
-El `print` en mi versión de Egg retorna los argumentos con los que se llamó, mientras que en JS `console.log` retorna `undefined`. 
+El `do` en Egg retorna la última expresión evaluada, mientras que un bloque JS no es una expresión. 
+Entonces no puedo traducir `do(...)` directamente a un bloque JS `{ ... }`.
 
-Nótese que entonces no puedo traducir `do(...)` directamente a un bloque JS `{ ... }`.
-
-Por eso `do(...)` se podría traducir siguiendo este esquema:
+Por eso `do(...)` se podría intentar traducir siguiendo este esquema:
 
 ```js
 generateJS['do'] = function(statements) {
