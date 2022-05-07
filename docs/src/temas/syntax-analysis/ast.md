@@ -166,6 +166,19 @@ Here is the JSON:
 }
 ```
 
+The npm module [evm2term](https://www.npmjs.com/package/evm2term) allows you to get a compact representation of the AST:
+
+```js
+✗ eggc examples/greater-x-5.egg
+✗ evm2term examples/greater-x-5.egg.evm 
+apply(op:word{do}, args:[
+  apply(op:word{:=}, args:[word{x},value{9}]),
+  apply(op:word{print}, args:[
+    apply(op:word{>}, args:[word{x},value{5}])
+  ])
+])
+```
+
 ## Example: AST ` +(a,*(4,5))`
 
 
