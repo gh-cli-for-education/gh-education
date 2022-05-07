@@ -7,6 +7,7 @@ delivery: "2022/05/12"
 order: 14
 layout: Practica
 prev: /practicas/egg-oop-parser.md
+next: /practicas/tfa.md
 sidebar: auto
 template: "https://github.com/LL-ESIT-PL-2122/extended-egg-template"
 rubrica: 

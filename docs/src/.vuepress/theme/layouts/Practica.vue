@@ -28,8 +28,10 @@
         <slot name="page-bottom" />
 
         <div class="theme-default-content" style="padding: 0 rem 0 rem;">
-          <h2>Grading Rubric<a href="#rubrica" class="header-anchor">#</a></h2>
-          <Rubrica></Rubrica>
+          <div v-if="$page.frontmatter.rubrica && $page.frontmatter.rubrica.length">
+            <h2>Grading Rubric<a href="#rubrica" class="header-anchor">#</a></h2>
+            <Rubrica></Rubrica>
+          </div>
 
           <h2><a href="#labs" class="header-anchor">#</a>Labs</h2>
           <Practicas></Practicas>
