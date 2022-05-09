@@ -23,7 +23,8 @@ rubrica:
     - Documentación del módulo npm (API) y ejecutables 
     - "Opcional: publicar la documentación de la API usando GitHub Pages en la carpeta `docs/`. Informe de cubrimiento"
 --- 
-## {{ $frontmatter.title }}
+
+# {{ $frontmatter.title }}
 
 ## Objetivos
 
