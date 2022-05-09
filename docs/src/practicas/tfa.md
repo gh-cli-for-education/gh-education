@@ -516,3 +516,7 @@ do(
     print("First and last Members: ", inside[0], inside[-1])
 )
 ```
+
+## Translator from Egg AST to AST Term 
+
+!!!include(includes/evmtoterm.md)!!!
