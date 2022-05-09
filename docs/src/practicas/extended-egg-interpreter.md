@@ -361,11 +361,11 @@ and here is an execution:
 To add objects to Egg, you can follow these instructions: 
 
 1. Add the corresponding function entry to `specialForms["object"]`  
-2. Create a new environment for the object having as parent the current environment 
-3. Create the object as a JS object so that it has all the properties of JS objects
-4. Add `self` to the object environment. Has to reference the just created object
+2. Create a new environment `objEnv` for the object having as parent the current environment 
+3. Create the object `obj` as a JS object so that it has all the properties of JS objects
+4. Add `self` to the object environment `objEnv`. Has to reference the just created object `obj`
 5. Traverse the `args` ASTs (has to be a forest with an even number of trees) taking the key value pair on each step
-6. Evaluate the pairs key, value in the context of the object environment
+6. Evaluate the pairs key, value in the context of the object environment `objEnv` updating both the object entry and the object environment `objEnv` entry
 7. Return the just created object
 
 ## RegExps
