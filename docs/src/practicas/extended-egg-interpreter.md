@@ -366,7 +366,7 @@ To add objects to Egg, you can follow these instructions:
 4. Add `self` to the object environment `objEnv`. Has to reference the just created object `obj`
 5. Traverse the `args` ASTs (has to be a forest with an even number of trees) taking the key value pair on each step
 6. Evaluate the pairs key, value in the context of the object environment `objEnv` updating both the object entry and the object environment `objEnv` entry
-7. Return the just created object
+7. Return the just created object `obj`
 
 ## RegExps
 
