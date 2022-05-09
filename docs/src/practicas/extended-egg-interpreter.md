@@ -604,8 +604,8 @@ Element 3 of  [4,3,2,1] is 1
 
 ## Tests
 
-Add a `test` folder and in it the
-test programs `test/test.js` (Mocha or Jest, use whichever you prefer).
+Add a `test` folder and in it, add the
+test programs like `test/test.js` (Mocha or Jest, use whichever you prefer).
 
 
 ## Continuous Integration
