@@ -199,7 +199,37 @@ do (
 )
 ```
 
-#### Recursos sobre Async 
+### The Goals
+
+To have **async** and **await** availables in Egg or to implement some alternative mechanisms.
+
+An exploration I did is in repo [ULL-ESIT-PL-1819/private-egg branch async2019](https://github.com/ULL-ESIT-PL-1819/private-egg/tree/async2019) (private). The idea was to make async `evaluate`s (see [lib/ast.js](https://github.com/ULL-ESIT-PL-1819/private-egg/blob/async2019/lib/ast.js)).
+
+For instance, see [examples/fetch.egg](https://github.com/ULL-ESIT-PL-1819/private-egg/blob/async2019/examples/fetch.egg):
+
+```ruby
+➜  eloquentjsegg git:(async2019) ✗ cat examples/fetch.egg 
+do(
+  :=(res, fetch("https://api.github.com/users/crguezl")),
+  :=(json, res.json()),
+  print(json.name), 
+  print(json.blog), 
+  print(json.bio)
+)
+``` 
+
+When executed produces:
+
+```
+➜  eloquentjsegg git:(async2019) ✗ bin/egg.js examples/fetch.egg
+Casiano Rodriguez-Leon
+https://crguezl.github.io/
+My Control Version Bio: Started with Unix RCS, then moved to  CVS, then Subversion and finally git 
+```
+
+However, this wasn't a satisfactory solution.
+
+#### Resources and References 
 
 * [ULL-ESIT-PL-1819/private-egg branch async2019](https://github.com/ULL-ESIT-PL-1819/private-egg/tree/async2019) (private)
   * [lib/ast.js](https://github.com/ULL-ESIT-PL-1819/private-egg/blob/async2019/lib/ast.js)
