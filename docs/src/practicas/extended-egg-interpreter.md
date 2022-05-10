@@ -467,6 +467,8 @@ That will match expressions like `r/ characters that aren't slashes or escaped c
 
 **Question**: Why we do not use slash delimiters `/regexp/` to denote Egg regexps?
 
+**Question**: Why  `/(?<REGEXP>r\/((?:[^\/\\]|\\.)*)\/(\w*?\b)?)/` accepts newlines?
+
 
 It is better to take advantage of the `value` transformer to return as value  an object 
 describing the regexp:
