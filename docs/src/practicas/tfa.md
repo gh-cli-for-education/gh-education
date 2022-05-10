@@ -203,7 +203,7 @@ do (
 
 To have **async** and **await** availables in Egg or to implement some alternative mechanisms.
 
-An exploration I did is in repo [ULL-ESIT-PL-1819/private-egg branch async2019](https://github.com/ULL-ESIT-PL-1819/private-egg/tree/async2019) (private). The idea was to make async `evaluate`s (see [lib/ast.js](https://github.com/ULL-ESIT-PL-1819/private-egg/blob/async2019/lib/ast.js)).
+An exploration I did is in repo [ULL-ESIT-PL-1819/private-egg branch async2019](https://github.com/ULL-ESIT-PL-1819/private-egg/tree/async2019) (private). The idea was to make async `evaluate`s (see [lib/ast.js](https://github.com/ULL-ESIT-PL-1819/private-egg/blob/async2019/lib/ast.js)) and prodce an implicit `await` after each evaluation.
 
 For instance, see [examples/fetch.egg](https://github.com/ULL-ESIT-PL-1819/private-egg/blob/async2019/examples/fetch.egg):
 
