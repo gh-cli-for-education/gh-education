@@ -311,13 +311,13 @@ That when executed produces:
 We can add the `parser` to the virtual machine memory `topEnv` and in this way produce an AST from an input string that can be evaluated later:
 
 ```ruby{7}
-➜  egg-oop-parser-solution git:(master) ✗ cat examples/eval.egg 
+➜  egg-oop-parser-solution git:(master) ✗ cat examples/eval.egg
 (
-  def(b,4),
-  def(input, "print(def(b,+(2,1)))"),
-  def(ast, parse(input)),
-  print(JSON.stringify(ast,null,2)),
-  eval({ast: ast, scope: scope()})
+    def(b,4),
+    def(input, "print(def(b,+(b,1)))"),
+    def(ast, parse(input)),
+    print(JSON.stringify(ast,null,2)),
+    eval({ast: ast, scope: scope()})
 )
 ```                                                                                                                     
 
