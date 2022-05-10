@@ -741,25 +741,43 @@ Extend the language with one or more types of `for` loops
 
 ### Conventional For Loop
 
+Let us add a conventional `for` loop:
+
 ```
 [.../TFA-04-16-2020-03-22-00/davafons(casiano)]$ cat examples/for.egg
 ```
 ```ruby
+➜  davafons-tfa-1819-egg git:(casiano) ✗ cat examples/for.egg
 do(
-  for(define(x, 0), <(x, 5), ++(x),
-    print(x)
-  )
+  def(x, 7),
+  def(b, 
+    for(define(x, 1), <(x, 5), ++(x),
+      print(x)
+    )
+  ),
+  print(b),
+  print(x)
 )
 ```
 
+We want:
+
+1. The `for` loop has to return the last evaluated expression
+2. Create a new scope for the loop so that `x` inside the loop refers to a variable that is local to the loop
+
 ```
-[.../TFA-04-16-2020-03-22-00/davafons(casiano)]$ bin/egg.js examples/for.egg
-0
+➜  davafons-tfa-1819-egg git:(casiano) ✗ bin/egg.js examples/for.egg
+
 1
 2
 3
 4
+[ 4 ]
+7
 ```
+
+Notice that in this version of the Egg interpreter the function `print` returns an array with the values of 
+the received arguments.
 
 ### For Each Loop
 
