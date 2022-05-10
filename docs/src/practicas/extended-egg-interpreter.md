@@ -760,7 +760,7 @@ do(
 )
 ```
 
-We want:
+We want the following semantic for the `for` loop:
 
 1. The `for` loop has to return the last evaluated expression
 2. Create a new scope for the loop so that `x` inside the loop refers to a variable that is local to the loop
