@@ -312,12 +312,12 @@ We can add the `parser` to the virtual machine memory `topEnv` and in this way p
 
 ```ruby{7}
 ➜  egg-oop-parser-solution git:(master) ✗ cat examples/eval.egg 
-(
+do(
     def(b,4),
-    def(input, "print(def(b,+(2,1)))"),
+    def(input, "print(def(b,+(b,1)))"),
     def(ast, parse(input)),
     print(JSON.stringify(ast,null,2)),
-    eval({ast: ast, scope: scope()})
+    eval(object(ast: ast, scope: scope()))
 )
 ```                                                                                                                     
 
@@ -353,8 +353,8 @@ When executed, `examples/eval.egg ` produces this output:
           },
           "args": [
             {
-              "type": "value",
-              "value": 2
+              "type": "word",
+              "name": "b"
             },
             {
               "type": "value",
@@ -366,7 +366,7 @@ When executed, `examples/eval.egg ` produces this output:
     }
   ]
 }
-3
+5
 ```
 
 ## Maps, Hashes or Dictionaries
