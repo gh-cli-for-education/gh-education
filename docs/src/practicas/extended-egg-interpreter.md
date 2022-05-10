@@ -287,6 +287,8 @@ We can add the `parser` to the virtual machine memory `topEnv` and in this way p
 )
 ```                                                                                                                     
 
+Here we have added the `specialForm` `scope()` that with no arguments returns the current scope.
+
 That when executed produces this output:
 
 ```js    
