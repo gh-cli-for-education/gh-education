@@ -556,7 +556,7 @@ Here is anotehr example of use:
 
 ```ruby
 ➜  egg-oop-parser-solution git:(master) ✗ cat examples/regexp.egg 
-do (
+(
   def(d, r/
          (?<year>  \d{4} ) -?  # year 
          (?<month> \d{2} ) -?  # month 
@@ -567,10 +567,10 @@ do (
   print(util.inspect(m, {depth: null})),   /*  [  '1987-07-14',  '1987',  '07',  '14',  index: 0,  input: '1987-07-14',  groups: undefined ] */
   print(m.index), # 0
   
-  def(x, RegExp.exec("2015-02-22", d)), 
+  def(x, RegExp.exec("2015-01-22", d)), 
   print(util.inspect(x, {depth: null})),
   print(x.year), # 2015
-  print(x.month) # 02
+  print(x.month) # 01
 )
 ```
 
@@ -592,13 +592,13 @@ true
 [
   '2015-02-22',
   '2015',
-  '02',
+  '01',
   '22',
   index: 0,
-  input: '2015-02-22',
+  input: '2015-01-22',
   groups: undefined,
   year: '2015',
-  month: '02',
+  month: '01',
   day: '22'
 ]
 2015
