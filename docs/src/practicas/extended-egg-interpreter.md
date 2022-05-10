@@ -465,6 +465,9 @@ const REGEXP = /(?<REGEXP>r\/((?:[^\/\\]|\\.)*)\/(\w*?\b)?)/;
 
 That will match expressions like `r/ characters that aren't slashes or escaped characters /`.
 
+**Question**: Why we do not use slash delimiters `/regexp/` to denote Egg regexps?
+
+
 It is better to take advantage of the `value` transformer to return as value  an object 
 describing the regexp:
 
