@@ -323,7 +323,7 @@ We can add the `parser` to the virtual machine memory `topEnv` and in this way p
 
 Here we have added the `specialForm` `scope()` that with no arguments returns the current scope.
 
-That when executed produces this output:
+When executed, `examples/eval.egg ` produces this output:
 
 ```js    
 ➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/eval
