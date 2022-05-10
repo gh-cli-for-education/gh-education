@@ -377,8 +377,7 @@ See branch `private2019` in [ULL-ESIT-PL-1819/private-egg/lib/eggvm.js](https://
   obj["this"] = obj;
 ```
 
-It produces
-a cyclic reference. See this old example (In this version `this` refers to the object being built):
+However, it produces a cyclic reference. See the execution for this old example (In this version `this` refers to the object being built):
 
 ```ruby
 ➜  eloquentjsegg git:(private2019) ✗ cat examples/bind.egg 
