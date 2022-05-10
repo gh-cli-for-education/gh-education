@@ -576,7 +576,7 @@ Here is anotehr example of use:
 
 and this is a capture of one execution:
 
-```
+```js
 ➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/regexp
 true
 [
