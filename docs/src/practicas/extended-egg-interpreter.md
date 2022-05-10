@@ -370,7 +370,7 @@ To add objects to Egg, you can follow these instructions:
 
 ### Alternative solution: Using the object as Environment
 
-See branch `private2019` in [ULL-ESIT-PL-1819/private-egg/lib/eggvm.js](https://github.com/ULL-ESIT-PL-1819/private-egg/blob/private2019/lib/eggvm.js#L129-L150) for an alternative solution using only the object as environment:
+See file `lib/eggvm.js` in branch `private2019` in [ULL-ESIT-PL-1819/private-egg/lib/eggvm.js](https://github.com/ULL-ESIT-PL-1819/private-egg/blob/private2019/lib/eggvm.js#L129-L150) for an alternative solution using only the object as environment:
 
 ```js
   const obj = Object.create(env); // {}; // Object.create(null);
