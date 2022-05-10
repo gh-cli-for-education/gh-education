@@ -276,7 +276,7 @@ That when executed produces:
 
 We can add the `parser` to the virtual machine memory `topEnv` and in this way produce an AST from an input string that can be evaluated later:
 
-```ruby
+```ruby{7}
 ➜  egg-oop-parser-solution git:(master) ✗ cat examples/eval.egg 
 (
     def(b,4),
