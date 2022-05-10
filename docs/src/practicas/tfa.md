@@ -209,7 +209,7 @@ We can extend Egg with declarations of the form `const(a,4)` for constants, and 
 ## Egg to JS Compiler
 
 Extend the translator from Egg to JavaScript as described in
-[generating-js](/themes/translation/egg-2-js) making it as complete as possible.
+[generating-js](/temas/translation/egg-2-js) making it as complete as possible.
 
 
 ## Lua Compiler
