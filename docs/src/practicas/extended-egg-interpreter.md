@@ -551,6 +551,61 @@ topEnv['fs'] = require('fs');
 
 So that `topEnv[obj.value.type]` is `topEnv[RegExp]` and that contains the `xregexp` object.
 
+
+Here is anotehr example of use:
+
+```ruby
+➜  egg-oop-parser-solution git:(master) ✗ cat examples/regexp.egg 
+do (
+  def(d, r/
+         (?<year>  \d{4} ) -?  # year 
+         (?<month> \d{2} ) -?  # month 
+         (?<day>   \d{2} )     # day
+        /x),
+  print(d.test("1987-07-14")),  # true
+  def(m, d.exec("1987-07-14")),  
+  print(util.inspect(m, {depth: null})),   /*  [  '1987-07-14',  '1987',  '07',  '14',  index: 0,  input: '1987-07-14',  groups: undefined ] */
+  print(m.index), # 0
+  
+  def(x, RegExp.exec("2015-02-22", d)), 
+  print(util.inspect(x, {depth: null})),
+  print(x.year), # 2015
+  print(x.month) # 02
+)
+```
+
+and this is a capture of one execution:
+
+```
+➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/regexp
+true
+[
+  '1987-07-14',
+  '1987',
+  '07',
+  '14',
+  index: 0,
+  input: '1987-07-14',
+  groups: undefined
+]
+0
+[
+  '2015-02-22',
+  '2015',
+  '02',
+  '22',
+  index: 0,
+  input: '2015-02-22',
+  groups: undefined,
+  year: '2015',
+  month: '02',
+  day: '22'
+]
+2015
+02
+➜  egg-oop-parser-solution git:(master) ✗ A
+```
+
 ## Require
 
 Expand the language with a `require`  expression to allow the use of libraries.
