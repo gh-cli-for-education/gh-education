@@ -201,7 +201,9 @@ do (
 
 #### Recursos sobre Async 
 
-* [ULL-ESIT-PL-1819/private-egg branch async2019](https://github.com/ULL-ESIT-PL-1819/private-egg/tree/async2019)
+* [ULL-ESIT-PL-1819/private-egg branch async2019](https://github.com/ULL-ESIT-PL-1819/private-egg/tree/async2019) (private)
+  * [lib/ast.js](https://github.com/ULL-ESIT-PL-1819/private-egg/blob/async2019/lib/ast.js)
+  * [examples/fetch.egg](https://github.com/ULL-ESIT-PL-1819/private-egg/blob/async2019/examples/fetch.egg)
 * [Book *The Modern Javascript Tutorial*. Chapter Promises, async/await](https://javascript.info/async)
 * Vídeo [Cómo funciona Async/Await en menos de 15 minutos](https://youtu.be/u2axmPnxUoo) YouTube Vídeo por Appdelante
 
