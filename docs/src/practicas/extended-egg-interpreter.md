@@ -368,7 +368,16 @@ To add objects to Egg, you can follow these instructions:
 6. Evaluate the pairs key, value in the context of the object environment `objEnv` updating both the object entry and the object environment `objEnv` entry
 7. Return the just created object `obj`
 
-See branch `private2019` in [ULL-ESIT-PL-1819/private-egg/lib/eggvm.js](https://github.com/ULL-ESIT-PL-1819/private-egg/blob/private2019/lib/eggvm.js#L129-L150) for an alternative solution using only the object as environment. It produces
+### Alternative solution: Using the object as Environment
+
+See branch `private2019` in [ULL-ESIT-PL-1819/private-egg/lib/eggvm.js](https://github.com/ULL-ESIT-PL-1819/private-egg/blob/private2019/lib/eggvm.js#L129-L150) for an alternative solution using only the object as environment:
+
+```js
+  const obj = Object.create(env); // {}; // Object.create(null);
+  obj["this"] = obj;
+```
+
+It produces
 a cyclic reference. See this old example (In this version `this` refers to the object being built):
 
 ```ruby
