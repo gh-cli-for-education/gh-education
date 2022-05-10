@@ -776,8 +776,14 @@ We want the following semantic for the `for` loop:
 7
 ```
 
-Notice that in this version of the Egg interpreter the function `print` returns an array with the values of 
-the received arguments.
+::: warning Notes
+
+* Notice that in this version of the Egg interpreter the function `print` returns an array with the values of 
+the received arguments. Thus, the value returned by the loop is `[ 4 ]`
+
+* This version also implements the `++` operator `++(x)`. **Notice that this operator is a case of `leftEvaluate`** since it implies modification of the `x` variable
+  
+:::
 
 ### For Each Loop
 
