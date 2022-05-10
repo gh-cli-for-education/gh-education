@@ -285,7 +285,10 @@ We can add the `parser` to the virtual machine memory `topEnv` and in this way p
     print(JSON.stringify(ast,null,2)),
     eval({ast: ast, scope: scope()})
 )
-```                                                                                                                      
+```                                                                                                                     
+
+That when executed produces this output:
+
 ```js    
 ➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/eval
 {
