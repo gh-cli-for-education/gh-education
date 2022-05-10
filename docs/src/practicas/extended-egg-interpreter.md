@@ -377,7 +377,7 @@ See file `lib/eggvm.js` in branch `private2019` in [ULL-ESIT-PL-1819/private-egg
   obj["this"] = obj;
 ```
 
-However, it produces a cyclic reference. See the execution for this old example (In this version `this` refers to the object being built, brackets and curly brackets are synonyms of  the parenthesis):
+However, it produces a cyclic reference. See the execution for this old example (In this version `this` refers to the object being built. Brackets and curly brackets are synonyms of  the parenthesis):
 
 ```ruby
 ➜  eloquentjsegg git:(private2019) ✗ cat examples/bind.egg 
