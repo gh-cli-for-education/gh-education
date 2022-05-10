@@ -679,7 +679,6 @@ true
 ]
 2015
 01
-➜  egg-oop-parser-solution git:(master) ✗ A
 ```
 
 ## Require
