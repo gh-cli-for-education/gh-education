@@ -227,7 +227,7 @@ https://crguezl.github.io/
 My Control Version Bio: Started with Unix RCS, then moved to  CVS, then Subversion and finally git 
 ```
 
-However, this wasn't a satisfactory solution.
+However, this wasn't a satisfactory solution. I believe it will be much easier to do in a Egg to JS translator.
 
 #### Resources and References 
 
