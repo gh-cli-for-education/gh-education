@@ -602,7 +602,7 @@ true
   day: '22'
 ]
 2015
-02
+01
 ➜  egg-oop-parser-solution git:(master) ✗ A
 ```
 
