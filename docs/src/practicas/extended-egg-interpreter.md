@@ -626,7 +626,9 @@ topEnv['fs'] = require('fs');
 So that `topEnv[obj.value.type]` is `topEnv[RegExp]` and that contains the `xregexp` object.
 
 
-Here is anotehr example of use:
+### Example
+
+Here is another example of use:
 
 ```ruby
 ➜  egg-oop-parser-solution git:(master) ✗ cat examples/regexp.egg 
