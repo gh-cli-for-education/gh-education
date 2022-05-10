@@ -258,7 +258,7 @@ With that in mind and adding an `eval` function, we can write Egg programs like 
     ]),
     =(state.scope.b, 9),
     print(Object.keys(state)), # ["ast","scope"]
-    print(state.ast), # the AST of do(print(+(b,1))))
+    print(JSON.stringify(state.ast, null, 2)), # the AST of do(print(+(b,1))))
     eval(state)       # 10 evals the AST in the current scope
 )
 ```
@@ -266,9 +266,43 @@ With that in mind and adding an `eval` function, we can write Egg programs like 
 That when executed produces:
 
 ```json
-➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/specialform-property-4
+➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/specialform-property-4 
 ["ast","scope"]
-{"type":"apply","operator":{"type":"word","name":"do"},"args":[{"type":"apply","operator":{"type":"word","name":"print"},"args":[{"type":"apply","operator":{"type":"word","name":"+"},"args":[{"type":"word","name":"b"},{"type":"value","value":1}]}]}]}
+{
+  "type": "apply",
+  "operator": {
+    "type": "word",
+    "name": "do"
+  },
+  "args": [
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "name": "+"
+          },
+          "args": [
+            {
+              "type": "word",
+              "name": "b"
+            },
+            {
+              "type": "value",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 10
 ```
 
