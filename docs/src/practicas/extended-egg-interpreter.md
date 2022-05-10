@@ -368,6 +368,52 @@ To add objects to Egg, you can follow these instructions:
 6. Evaluate the pairs key, value in the context of the object environment `objEnv` updating both the object entry and the object environment `objEnv` entry
 7. Return the just created object `obj`
 
+See branch `private2019` in [ULL-ESIT-PL-1819/private-egg/lib/eggvm.js](https://github.com/ULL-ESIT-PL-1819/private-egg/blob/private2019/lib/eggvm.js#L129-L150) for an alternative solution using only the object as environment. It produces
+a cyclic reference. See this old example (In this version `this` refers to the object being built):
+
+```ruby
+➜  eloquentjsegg git:(private2019) ✗ cat examples/bind.egg 
+do (
+  def(x, object ( 
+    "c", 0,
+    "gc", ->{element[this, "c"]},
+    "sc", ->{value, =(this, "c", value)},
+    "inc", ->{=(this, "c", +(element[this, "c"],1))}
+  )),
+  print(x),
+  x.sc(4),
+  define(g, element(x, "gc")),
+  print(g),    # [Function: bound ]
+  print(g()),  # 4
+  define(h, element(x, "sc")),
+  print(h),    # [Function: bound ]
+  print(h(5)), # 5
+  print(x.c),  # 5
+  print(x.gc()), # 5
+  print(g()),  # 5
+)
+```
+
+Execution:
+
+```
+➜  eloquentjsegg git:(private2019) ✗ bin/egg.js examples/bind.egg
+<ref *1> Map {
+  this: [Circular *1],
+  c: 0,
+  gc: [Function: bound ],
+  sc: [Function: bound ],
+  inc: [Function: bound ]
+}
+[Function: bound ]
+4
+[Function: bound ]
+5
+5
+5
+5
+```
+
 ## RegExps
 
 It will be nice to have support for RegExps in Egg:
