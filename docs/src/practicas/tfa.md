@@ -203,8 +203,10 @@ For instance, see [examples/fetch.egg](https://github.com/ULL-ESIT-PL-1819/priva
 ```ruby
 ➜  eloquentjsegg git:(async2019) ✗ cat examples/fetch.egg 
 do(
-  :=(res, fetch("https://api.github.com/users/crguezl")),
-  :=(json, res.json()),
+  def(userUrl, +("https://api.github.com/users/", process.argv[3])),
+  print(userUrl),
+  def(res, fetch(userUrl)),
+  def(json, res.json()),
   print(json.name), 
   print(json.blog), 
   print(json.bio)
@@ -214,7 +216,8 @@ do(
 When executed produces:
 
 ```
-➜  eloquentjsegg git:(async2019) ✗ bin/egg.js examples/fetch.egg
+➜  eloquentjsegg git:(async2019) ✗ bin/egg.js examples/fetch.egg crguezl
+https://api.github.com/users/crguezl
 Casiano Rodriguez-Leon
 https://crguezl.github.io/
 My Control Version Bio: Started with Unix RCS, then moved to  CVS, then Subversion and finally git 
