@@ -65,9 +65,7 @@ Veamos el resultado de una ejecución:
   
 ## Async and Await en Egg
 
-### Introduction to Asynchronous Programming in Egg
-
-#### Promises in Egg
+### Promises in Egg
 
 At this point the Egg machine can handle promises as
 that it is possible in Egg to call the methods of JavaScript objects
@@ -137,7 +135,7 @@ Al ejecutarlo obtenemos:
 }
 ```
 
-#### Callbacks en Egg
+### Callbacks en Egg
 
 Veamos un ejemplo de asíncronía en Egg con callbacks.
 Extendamos Egg con un objeto que provee acceso al sistema de
@@ -164,13 +162,15 @@ do (
 )
 ```
 
+::: danger JS calls the callback with different number of arguments
 The problem is that JS calls the callback
 with a single argument `err` when an error occurs and with two
 `(err, data)` when the operation succeeds.
 
-This JS behavior causes the current version of the Egg virtual machine to protest saying that it expects the number of arguments to match the number of declared parameters. Unfortunately, when there is an error JS calls the Egg-callback with a different number of arguments than it was declared with.
+This JS behavior causes that in some versions of the Egg compiler, the virtual machine  protests saying that *it expects the number of arguments to match the number of declared parameters*. Unfortunately, when there is an error JS calls the Egg-callback with a different number of arguments than it was declared with.
+:::
 
-The thing has several solutions, but at this moment I have opted for the fastest one, which has been that Egg does not protest against calls with a number of arguments less than those that were declared.
+The thing has several solutions, but I have opted for the fastest one, which has been that Egg does not protest against calls with a number of arguments less than those that were declared.
 
 Another issue in this example is that in some versions Egg lacks the JS `null` object and
 the convention is that JS calls the callback with `cb(null, data)` to indicate the absence of an error. Again there are numerous ways to approach this issue, but a simple one is to warn the Egg virtual machine of the existence of `null` so that it doesn't protest:
@@ -229,7 +229,7 @@ My Control Version Bio: Started with Unix RCS, then moved to  CVS, then Subversi
 
 However, this wasn't a satisfactory solution. I believe it will be much easier to do in a Egg to JS translator.
 
-#### Resources and References 
+### Resources and References 
 
 * [ULL-ESIT-PL-1819/private-egg branch async2019](https://github.com/ULL-ESIT-PL-1819/private-egg/tree/async2019) (private)
   * [lib/ast.js](https://github.com/ULL-ESIT-PL-1819/private-egg/blob/async2019/lib/ast.js)
