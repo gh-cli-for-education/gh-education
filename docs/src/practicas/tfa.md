@@ -172,7 +172,7 @@ This JS behavior causes that in some versions of the Egg compiler, the virtual m
 
 The thing has several solutions, but I have opted for the fastest one, which has been that Egg does not protest against calls with a number of arguments less than those that were declared.
 
-Another issue in this example is that in some versions Egg lacks the JS `null` object and
+Another issue in this example is that in some versions, the Egg interpreter lacks the JS `null` object and
 the convention is that JS calls the callback with `cb(null, data)` to indicate the absence of an error. Again there are numerous ways to approach this issue, but a simple one is to warn the Egg virtual machine of the existence of `null` so that it doesn't protest:
 
 ```js
