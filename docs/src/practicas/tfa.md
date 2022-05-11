@@ -149,16 +149,12 @@ Me he encontrado con algunos problemas cuando probé a escribir este programa:
 
 ```ruby
 ➜  egg-oop-parser-solution git:(master) ✗ cat examples/fs.egg 
-do (
-  fs.readFile("examples/no-existe.egg", "utf8", 
-    fun(err, data, 
+(
+  def(cb, fun(err, data, 
       if(==(err, null), print(data), print(err))
-    )),
-  fs.readFile("examples/fs.egg", "utf8", 
-    fun(err, data, 
-      if(==(err, null), print(data), print(err))
-    ) # end fun
-  ) # end fs.readFile
+  )),
+  fs.readFile("examples/no-existe.egg", "utf8", cb ),
+  fs.readFile("examples/fs.egg", "utf8", cb) 
 )
 ```
 
@@ -173,15 +169,16 @@ This JS behavior causes that in some versions of the Egg compiler, the virtual m
 The thing has several solutions, but I have opted for the fastest one, which has been that Egg does not protest against calls with a number of arguments less than those that were declared.
 
 Another issue in this example is that in some versions, the Egg interpreter lacks the JS `null` object and
-the convention is that JS calls the callback with `cb(null, data)` to indicate the absence of an error. Again there are numerous ways to approach this issue, but a simple one is to warn the Egg virtual machine of the existence of `null` so that it doesn't protest:
+the convention is that JS calls the callback with `cb(null, data)` to indicate the absence of an error. 
+Again there are numerous ways to approach this issue, but a simple one is to warn the Egg virtual machine of the existence of `null` so that it doesn't protest:
 
-```js
+```js{1}
 topEnv['null'] = null;
 topEnv['true'] = true;
 ...
 ```
 
-Sigue un ejemplo de ejecución:
+Here is an execution:
 
 ```js
 ➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/fs
