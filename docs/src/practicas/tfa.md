@@ -183,16 +183,12 @@ Here is an execution:
 ```js
 ➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/fs
 {"errno":-2,"code":"ENOENT","syscall":"open","path":"examples/no-existe.egg"}
-do (
-  fs.readFile("examples/no-existe.egg", "utf8", 
-    fun(err, data, 
+(
+  def(cb, fun(err, data, 
       if(==(err, null), print(data), print(err))
-    )),
-  fs.readFile("examples/fs.egg", "utf8", 
-    fun(err, data, 
-      if(==(err, null), print(data), print(err))
-    ) # end fun
-  ) # end fs.readFile
+  )),
+  fs.readFile("examples/no-existe.egg", "utf8", cb ),
+  fs.readFile("examples/fs.egg", "utf8", cb) 
 )
 ```
 
