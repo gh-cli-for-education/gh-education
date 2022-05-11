@@ -87,7 +87,11 @@ We can immediately write Egg programs like this:
 ```js
 ➜  egg-oop-parser-solution git:(master) ✗ cat examples/fetch.egg 
 (
-  fetch("https://api.github.com/users/github")
+  def(user, ||(process.argv[3], "crguezl")),
+  print(user),
+  def(userUrl, +("https://api.github.com/users/", user)),
+  print(userUrl),
+  fetch(userUrl)
     .then(->(res, res.json()))
     .then(->( json, 
       print(JSON.stringify(json,null,2))
@@ -97,41 +101,44 @@ We can immediately write Egg programs like this:
 
 Al ejecutarlo obtenemos:
 
-```js
-➜  egg-oop-parser-solution git:(master) ✗ bin/egg examples/fetch
+```json
+➜  egg-oop-parser-solution git:(master) ✗ bin/eggc.js examples/fetch.egg      
+➜  egg-oop-parser-solution git:(master) ✗ npx evm examples/fetch.json esegredo
+esegredo
+https://api.github.com/users/esegredo
 {
-  "login": "github",
-  "id": 9919,
-  "node_id": "MDEyOk9yZ2FuaXphdGlvbjk5MTk=",
-  "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+  "login": "esegredo",
+  "id": 2370777,
+  "node_id": "MDQ6VXNlcjIzNzA3Nzc=",
+  "avatar_url": "https://avatars.githubusercontent.com/u/2370777?v=4",
   "gravatar_id": "",
-  "url": "https://api.github.com/users/github",
-  "html_url": "https://github.com/github",
-  "followers_url": "https://api.github.com/users/github/followers",
-  "following_url": "https://api.github.com/users/github/following{/other_user}",
-  "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
-  "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
-  "subscriptions_url": "https://api.github.com/users/github/subscriptions",
-  "organizations_url": "https://api.github.com/users/github/orgs",
-  "repos_url": "https://api.github.com/users/github/repos",
-  "events_url": "https://api.github.com/users/github/events{/privacy}",
-  "received_events_url": "https://api.github.com/users/github/received_events",
-  "type": "Organization",
+  "url": "https://api.github.com/users/esegredo",
+  "html_url": "https://github.com/esegredo",
+  "followers_url": "https://api.github.com/users/esegredo/followers",
+  "following_url": "https://api.github.com/users/esegredo/following{/other_user}",
+  "gists_url": "https://api.github.com/users/esegredo/gists{/gist_id}",
+  "starred_url": "https://api.github.com/users/esegredo/starred{/owner}{/repo}",
+  "subscriptions_url": "https://api.github.com/users/esegredo/subscriptions",
+  "organizations_url": "https://api.github.com/users/esegredo/orgs",
+  "repos_url": "https://api.github.com/users/esegredo/repos",
+  "events_url": "https://api.github.com/users/esegredo/events{/privacy}",
+  "received_events_url": "https://api.github.com/users/esegredo/received_events",
+  "type": "User",
   "site_admin": false,
-  "name": "GitHub",
-  "company": null,
-  "blog": "https://github.com/about",
-  "location": "San Francisco, CA",
+  "name": "Eduardo Segredo",
+  "company": "Universidad de La Laguna",
+  "blog": "",
+  "location": "San Cristóbal de La Laguna, Canary Islands, Spain",
   "email": null,
   "hireable": null,
-  "bio": "How people build software.",
+  "bio": null,
   "twitter_username": null,
-  "public_repos": 410,
+  "public_repos": 27,
   "public_gists": 0,
-  "followers": 0,
-  "following": 0,
-  "created_at": "2008-05-11T04:37:31Z",
-  "updated_at": "2022-04-08T10:02:08Z"
+  "followers": 30,
+  "following": 10,
+  "created_at": "2012-09-18T14:31:50Z",
+  "updated_at": "2022-04-26T10:57:58Z"
 }
 ```
 
@@ -200,7 +207,7 @@ An exploration I did in 2018 to achieve this goal can be found in repo [ULL-ESIT
 
 For instance, see [examples/fetch.egg](https://github.com/ULL-ESIT-PL-1819/private-egg/blob/async2019/examples/fetch.egg):
 
-```ruby
+```ruby{3,5}
 ➜  eloquentjsegg git:(async2019) ✗ cat examples/fetch.egg 
 do(
   def(userUrl, +("https://api.github.com/users/", process.argv[3])),
