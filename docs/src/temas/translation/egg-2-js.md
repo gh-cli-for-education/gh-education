@@ -69,12 +69,23 @@ Una aproximación que he seguido a la hora de hacer esta práctica es añadir m�
 ```js
 class Apply {
   ...
-  generateJS() {
-    let argsTranslations = this.args.map(x => x.generateJS())
+
+  generateJS(scope) {
     if (this.operator.type === 'word') {
-      ...
-    }
-    else {
+      // check if word exist in generateJSForms
+      if (generateJSForms[this.operator.name]) {
+        return generateJSForms[this.operator.name](this.args, scope);
+      } 
+      else {
+        let opTranslation = this.operator.generateJS(scope);
+        if (scope.includes(opTranslation)) {
+          ... 
+        } 
+        else { 
+          ...
+        }
+      }
+    } else if (this.operator.type == 'apply') {
       ...
     }
   }
