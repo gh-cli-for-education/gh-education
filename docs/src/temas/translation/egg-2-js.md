@@ -26,20 +26,20 @@ rubrica:
 
 # {{ $frontmatter.title }}
 
-## Objetivos
+## Goals
 
-Escriba un traductor desde el lenguaje [Egg](https://eloquentjavascript.net/12_language.html) hasta el lenguaje JavaScript.
+Write a translator from the [Egg](https://eloquentjavascript.net/12_language.html) language to the JavaScript language.
 
-Reutilice su parser para  crear los árboles sintácticos. Añada funciones de recorrido de los ASTs para ir generando el código JS.
+Reuse your parser to create the parse trees. Add traversal functions of the ASTs to generate the JS code.
 
-## El Compilador
+## The Compiler
 
-Añada al compilador una opción `-j --js`a su ejecutable o bien en su directorio `bin`  un nuevo ejecutable `egg2js.js` que permita hacer la traducción
+Add a `-j --js` option to your compiler executable, or add a new `egg2js.js` executable to your `bin` directory to do the translation
  
 
-## Un ejemplo sencillo: examples/times.egg
+## A simple example: examples/times.egg
 
-Cuando al programa se le proporciona una entrada con expresiones Egg de tipo *apply* como estas:
+When the program is given input with Egg expressions of type *apply* like these:
 
 ```ruby
 $ cat examples/times.egg
@@ -53,7 +53,7 @@ print(
 )
 ```
 
-debería dar como salida un fichero `examples/times.js` con una salida parecida a esta:
+should output an `examples/times.js` file with output similar to this:
 
 ```js
 ➜  crguezl-egg-2-js-2021 git:(main) ✗ bin/egg2js.js -j examples/times.egg 
@@ -62,9 +62,9 @@ const Egg = require("runtime-support");
 Egg.print((3 + (4 * 5)), (9 - 3));
 ```
 
-## Añadiendo Métodos a las Clases de los Nodos del AST
+## Adding Methods to AST Node Classes
 
-Una aproximación que he seguido a la hora de hacer esta práctica es añadir métodos `generateJS` a cada uno de los diferentes tipos de nodos del AST que se encarguen de la generación del código JS correspondiente a ese tipo de nodo:
+An approach that I have followed when doing this practice is to add `generateJS` methods to each of the different types of AST nodes that are responsible for generating the JS code corresponding to that type of node:
 
 ```js
 class Apply {
@@ -94,9 +94,9 @@ class Apply {
 
 ## Strategy Pattern Again: Un mapa de generadores de JS
 
-Para facilitar la generación del código JS puede serle útil seguir el *Strategy Pattern* y tener un módulo que exporta un mapa/hash `generateJS` cuyas claves son 
-las mismas que en `specialForms`y `topEnv` y los  valores son las correspondientes 
-funciones de generación de código JS. De esta manera evitamos en lo posible violar el principio OPEN/CLOSED:
+To make it easier to generate JS code you may find it useful to follow the *Strategy Pattern* and have a module that exports a `generateJS` map/hash whose keys are
+the same as in `specialForms` and `topEnv` and the values are the corresponding
+JS code generation functions. In this way we avoid as far as possible violating the OPEN/CLOSED principle:
 
 ```js
 
@@ -135,10 +135,10 @@ module.exports = { generateJSForms };
 
 ## Consideraciones semánticas 
 
-El `do` en Egg retorna la última expresión evaluada, mientras que un bloque JS no es una expresión. 
-Entonces no puedo traducir `do(...)` directamente a un bloque JS `{ ... }`.
+The `do` in Egg returns the last expression evaluated, whereas a JS block is not an expression.
+So I can't translate `do(...)` directly into a JS `{ ... }` block.
 
-Por eso `do(...)` se podría intentar traducir siguiendo este esquema:
+So `do(...)` could be attempted to be translated following this scheme:
 
 ```ruby
 ➜  egg2js-solution git:(master) cat examples/generatingJS/do.egg
@@ -163,11 +163,11 @@ runtimeSupport.print((() => {
 })())
 ```
 
-en general, procure que cualquier programa JS resultante de la traducción de un programa Egg produzca los mismos resultados que cuando el programa Egg es interpretado.
+In general, make sure that any JS program resulting from the translation of an Egg program produces the same results as when the Egg program is parsed.
  
-## Librería de Soporte en Ejecución (Runtime Library)
+## Runtime Library Support
 
-Puede serle útil escribir una librería `runtime-support.js` con funciones que den soporte a la ejecución de los programas JS traducidos. Algo así:
+You may find it useful to write a `runtime-support.js` library with functions that support running the translated JS programs. Something like that:
 
 ```js
 ➜  egg2js-solution git:(master) ✗ cat lib/generateJS/runtimeSupport.js 
@@ -186,22 +186,13 @@ runtimeSupport = {
 module.exports = runtimeSupport;
 ```
 
-Por ejemplo, otra traducción para `print(4)` sería:
+
+## A more complex example: Managing Scopes
+
+When variables and functions are declared and new scopes are created like in this example (assume that in addition to the functions the `do` has its own scope):
 
 ```js
-const egg = require("runtime-support");
-egg.print(4);
-```
-
-que queda mas simple que la anterior solución y que garantiza que `egg.print(4)` retorna un `4`.
-
-
-## Un ejemplo mas complejo: Manejo de Ámbitos
-
-Cuando se declaren variables y funciones y se creen nuevos ámbitos como en este ejemplo (supongamos que además de las funciones el `do` tiene su propio ámbito):
-
-```js
-✗ cat examples/hello-scope.egg
+➜  egg2js-solution git:(master) ✗ cat examples/generatingJS/hello-scope.egg
 print("computed value = ", 
   do(
     def(x,4),
@@ -217,71 +208,82 @@ print("computed value = ",
 )
 ```
 
-La traducción debe producir el código JavaScript equivalente:
+The translation should produce the equivalent JavaScript code:
 
 ```
-✗ bin/egg.js -j examples/hello-scope.egg
-✗ cat examples/hello-scope.js              
+➜  egg2js-solution git:(master) ✗ bin/egg.js examples/generatingJS/hello-scope.egg -J
 ```
 ```js
-const Egg = require("runtime-support");
-Egg.print("computed value = ", (() => {
-    let $x = 4
-    let $inc = function($w) {
-        if (arguments.length !== 1) throw Error("Function called with wrong number of arguments");
-        return (() => {
-            let $y = 999
-            return ($w + 1)
-        })()
-
-    }
-
-    let $z = -1
-    return $x = $inc($x)
-})());
+const path = require('path');
+const runtimeSupport = require(path.join('/Users/casianorodriguezleon/campus-virtual/2122/pl2122/practicas-alumnos/egg2js/egg2js-solution/lib/eggInterpreter', "..", "generateJS", "runtimeSupport"));
+runtimeSupport.print('computed value = ', (() => {
+  var $x, $inc, $z;
+  $x = 4;
+  $inc = ($w) => {
+    return (() => {
+      var $y;
+      $y = 999;
+      return ($w + 1)
+    })()
+  };
+  $z = -1;
+  return $x = $inc($x)
+})())
 ```
 
-Note como prefijamos las variables del fuente con "`$`"  de manera que `def(x,4)` se convierte en:
+Notice how we prefix source variables with "`$`" so that statements like `def(x,4)` become:
 
 ```js
-let $x = 4
+  var $x, $inc, $z;
+  $x = 4;
 ```
 
-esto es para que las *variables traducidas* no **colisionen** contra variables auxiliares que pudieramos necesitar introducir para dar soporte a la traducción.
+this is done so that *translated variables* don't **collide** with auxiliary variables that we might need to introduce to support the translation.
 
-Obsérvese como es la traducción que hemos hecho de un `do`: 
+Observe how is the translation that we have made of a `do`:
 
-```js
-do(
-  def(y, 999),
-  +(w,1)
-) # do
+```ruby
+➜  egg2js-solution git:(master) ✗ cat examples/generatingJS/do.egg
+print(
+  do(
+    def(a,1),
+    =(a,9),
+    def(b, +(a,1))
+  )
+)                                                                                           
 ```
 
 lo hemos convertido en:
 
 ```js
-(() => {
-  let $y = 999
-  return ($w + 1)
-})()
+       
+➜  egg2js-solution git:(master) ✗ bin/egg.js examples/generatingJS/do.egg -J         
+const path = require('path');
+const runtimeSupport = require(path.join('/Users/casianorodriguezleon/campus-virtual/2122/pl2122/practicas-alumnos/egg2js/egg2js-solution/lib/eggInterpreter', "..", "generateJS", "runtimeSupport"));
+runtimeSupport.print((() => {
+  var $a, $b;
+  $a = 1;
+  $a = 9
+  return $b = ($a + 1);
+})())
 ```
 
-Vea como se crea el ámbito mediante una función anónima `(() => { ... })()` que se ejecuta sobre la marcha *de manera que retorna la última expresión evaluada*.  
+See how the scope is created using an anonymous function `(() => { ... })()` that is executed on the fly *so that it returns the last expression evaluated*.
 
-No hemos hecho uso de una traducción directa de un `do` por una sentencia compuesta 
+We have not made use of a direct translation of a `do` by a compound statement
 
 ```js
 { ... }
 ```
-y nos hemos tomado estas molestias para respetar la semántica de Egg.
 
-## Traduciendo applys sobre applys
+and we have taken this pains to respect the semantics of Egg.
 
-Nótese que en Egg el operador de un apply puede ser a su vez un apply como en este ejemplo con la expresión `f(2)(4)`:
+## Translating applys onto applys
+
+Note that in Egg the operator of an apply can itself be an apply as in this example with the expression `f(2)(4)`:
 
 ```js
-➜  crguezl-egg-2-js-2021 git:(operator) ✗ cat examples/funfun.egg 
+➜  egg2js-solution git:(master) ✗ cat examples/generatingJS/funfun.egg
 do(
   def(f, fun(x, fun(y, +(x,y)))),
   print(f(2)(4)) # 6
@@ -291,43 +293,35 @@ do(
 Es por tanto necesario traducir correctamente el operador: 
 
 ```
-➜  crguezl-egg-2-js-2021 git:(main) ✗ cat examples/funfun.js
+➜  egg2js-solution git:(master) ✗ bin/egg.js examples/generatingJS/funfun.egg -J
 ```
 ```js
-const Egg = require("runtime-support");
+const path = require('path');
+const runtimeSupport = require(path.join('/Users/casianorodriguezleon/campus-virtual/2122/pl2122/practicas-alumnos/egg2js/egg2js-solution/lib/eggInterpreter', "..", "generateJS", "runtimeSupport"));
 (() => {
-    let $f = function($x) {
-        if (arguments.length !== 1) throw Error("Function called with wrong number of arguments");
-        return function($y) {
-            if (arguments.length !== 1) throw Error("Function called with wrong number of arguments");
-            return ($x + $y)
-        }
-
+  var $f;
+  $f = ($x) => {
+    return ($y) => {
+      return ($x + $y)
     }
-
-    return Egg.print($f(2)(4));
+  };
+  return runtimeSupport.print($f(2)(4))
 })()
 ```
 
-## Aspecto Visual del Código Generado
+## Visual Appearance of the Generated Code
 
-Puede usar algún módulo como este:
+You can use some module like this:
 
 * [js-beautify](https://www.npmjs.com/package/js-beautify) npm module
 
-para mejorar el aspecto visual del código de salida
+to improve the visual appearance of the exit code
 
-## Simplificaciones
+## Simplifications
 
-No hace falta añadir comprobaciones de errores de ámbito ni de tipo en esta fase.
-Esto es, se asume que el código Egg es correcto y las variables han sido declaradas antes de su uso y que son usadas de acuerdo al tipo del valor que contienen.
+You don't need to translate all of your Egg language, just the most important features. At least the examples used on this page should work.
 
-No hace falta que traduzca el total de su lenguaje Egg, sólo las funcionalidades mas importantes. Deberían funcionar al menos los ejemplos usados en esta página.
-
-Procure mantener la semántica de Egg pero no se complique si es difícil. Tanto si le resulta muy difícil o si decide cambiarla en algún punto, hágalo notar en la documentación.
-
-
-## Referencias
+## References
 
 * [Repo ULL-ESIT-PL-2122/egg2js-solution](https://github.com/ULL-ESIT-PL-2122/egg2js-solution) private
 * [Repo ULL-ESIT-GRADOII-PL/egg2js](https://github.com/ULL-ESIT-GRADOII-PL/egg2js) private
