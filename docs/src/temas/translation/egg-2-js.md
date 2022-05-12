@@ -170,19 +170,20 @@ en general, procure que cualquier programa JS resultante de la traducción de un
 Puede serle útil escribir una librería `runtime-support.js` con funciones que den soporte a la ejecución de los programas JS traducidos. Algo así:
 
 ```js
-➜  crguezl-egg-2-js-2021 git:(main) ✗ cat lib/runtime-support.js 
-
-function print(...args) {
+➜  egg2js-solution git:(master) ✗ cat lib/generateJS/runtimeSupport.js 
+runtimeSupport = {
+  /**
+   * print function emulating egg print behavior
+   * @param  {...any} args 
+   */
+  print: (...args) => {
     console.log(...args);
     return args;
-}
+  }
+  /* ... */
+};
 
- ...
-
-module.exports = {
-    print,
-    ...
-}
+module.exports = runtimeSupport;
 ```
 
 Por ejemplo, otra traducción para `print(4)` sería:
