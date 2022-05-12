@@ -1,7 +1,6 @@
 ---
 title: "Translating from Egg to JavaScript" 
 categories: ["practicas"] 
-permalink: "/practicas/generating-js"
 rubrica:
   - "Se añadió  una opción -j --js al ejecutable o bien en su directorio bin hay un nuevo ejecutable egg2js.js que permite hacer la traducción"
   - "Traduce correctamente todos los ejemplos en la descripción de la práctica"
