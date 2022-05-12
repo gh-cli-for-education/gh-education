@@ -99,45 +99,38 @@ las mismas que en `specialForms`y `topEnv` y los  valores son las correspondient
 funciones de generación de código JS. De esta manera evitamos en lo posible violar el principio OPEN/CLOSED:
 
 ```js
-const util = require('util');
-const ins = x => util.inspect(x, { depth: null});
-let generateJS = Object.create(null);
 
-const ARITHM_OPERATORS = [ "+", "-", ... ">>>" ];
-  
-ARITHM_OPERATORS.forEach(op => {
-  generateJS[op] = function([left, right]) {
-      return `(${left} ${op} ${right})`;
-    }
+let generateJSForms = Object.create(null);
+
+['+', '-', '*', '/', '==', '<', '>', '&&', '||' ].forEach(op => {
+  generateJSForms[op] = function(args, scope) {
+    ...
+  }
 });
-  
-generateJS['print'] = function(...args) {
-  ...
-}
 
-generateJS['do'] = function(statements) {
-  ...
-}
-
-generateJS['def'] = function([variable, initexpression]) {
-  ...
-}
-
-
-generateJS['='] = generateJS['set'] = function([variable, expression]) {
-  ...
-}
-
-generateJS['fun'] = function(parameters) {
-  ...
-}
-
-...
-
-module.exports = {
-  generateJS,
+generateJSForms["print"] = function(args, scope) {
   ...
 };
+
+generateJSForms["do"] = function(args, scope) {
+  ...
+};
+
+generateJSForms["fun"] = generateJSForms["->"] = function(args, scope) {
+  ...
+};
+
+generateJSForms["="] = generateJSForms["set"] = function(args, scope) {
+  ... 
+};
+
+generateJSForms[':='] = 
+generateJSForms['def'] = 
+generateJSForms['define'] = function(args, scope) {
+  ...
+};
+
+module.exports = { generateJSForms };
 ```
 
 ## Consideraciones semánticas 
@@ -147,18 +140,27 @@ Entonces no puedo traducir `do(...)` directamente a un bloque JS `{ ... }`.
 
 Por eso `do(...)` se podría intentar traducir siguiendo este esquema:
 
-```js
-generateJS['do'] = function(statements) {
-  debugger;
-  let last = statements.pop();
-  let translation = 
-          '(() => {\n';
-                    statements.forEach(s => translation += `  ${s}\n`)
-  translation += `  return ${last}\n`
-  translation += '})()\n';
+```ruby
+➜  egg2js-solution git:(master) cat examples/generatingJS/do.egg
+print(
+  do(
+    def(a,1),
+    =(a,9),
+    def(b, +(a,1))
+  )
+)
+```                                                                                         
 
-  return translation;
-}
+```js
+➜  egg2js-solution git:(master) bin/egg.js examples/generatingJS/do.egg -J    
+const path = require('path');
+const runtimeSupport = require(path.join('/Users/casianorodriguezleon/campus-virtual/2122/pl2122/practicas-alumnos/egg2js/egg2js-solution/lib/eggInterpreter', "..", "generateJS", "runtimeSupport"));
+runtimeSupport.print((() => {
+  var $a, $b;
+  $a = 1;
+  $a = 9
+  return $b = ($a + 1);
+})())
 ```
 
 en general, procure que cualquier programa JS resultante de la traducción de un programa Egg produzca los mismos resultados que cuando el programa Egg es interpretado.
