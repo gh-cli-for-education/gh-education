@@ -315,7 +315,8 @@ Procure mantener la semántica de Egg pero no se complique si es difícil. Tanto
 
 ## Referencias
 
-* [Repo ULL-ESIT-GRADOII-PL/egg2js](https://github.com/ULL-ESIT-GRADOII-PL/egg2js)
+* [Repo ULL-ESIT-PL-2122/egg2js-solution](https://github.com/ULL-ESIT-PL-2122/egg2js-solution) private
+* [Repo ULL-ESIT-GRADOII-PL/egg2js](https://github.com/ULL-ESIT-GRADOII-PL/egg2js) private
 * [Lab Generating JS 2020/2021](https://ull-esit-pl-2021.github.io/practicas/generating-js)
   * [labs generating js 2020/2021](https://github.com/orgs/ULL-ESIT-PL-2021/repositories?q=generating-js&type=all&language=&sort=)
 * [Apuntes 2019/2020 de PL: Compilador de Egg a JS](https://ull-esit-pl-1819.github.io/introduccion/tfa/#compilador-de-egg-a-js)
