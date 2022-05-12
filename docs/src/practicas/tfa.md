@@ -589,3 +589,13 @@ do(
 ## Translator from Egg AST to AST Term 
 
 !!!include(includes/evmtoterm.md)!!!
+
+
+## JSCodeshift, Putout and others
+
+You can propose for the TFA tree transformations to help in code factorization using any of these tools:
+
+* [JSCodeshift](/temas/tree-transformations/jscodeshift)
+* [Putout](/temas/tree-transformations/putout)
+* [ast-types](/temas/tree-transformations/ast-types)
+* [codemods](/temas/tree-transformations/codemods)
