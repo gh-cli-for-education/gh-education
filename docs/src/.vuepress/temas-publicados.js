@@ -13,6 +13,7 @@ module.exports = [
     {text: "Earley Parsers", link: "/temas/syntax-analysis/earley/nearley.html"},
     {text: "Ambiguity", link: "/temas/syntax-analysis/earley/ambiguity.html"},
     {text: "Abstract Syntax Trees", link: "/temas/syntax-analysis/ast.html"},
+    {text: "Translation", link: "/temas/translation/egg-2-js.html"},
     {text: "The Strategy Pattern", link: "/temas/introduccion-a-javascript/design.html"},
     {text: "Interpretation of the ASTs", link: "/temas/interpretation/index.html"},
     {text: "jscodeshift", link: "/temas/tree-transformations/jscodeshift"},
