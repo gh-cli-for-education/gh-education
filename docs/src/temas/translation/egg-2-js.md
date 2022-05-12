@@ -72,14 +72,14 @@ class Apply {
 
   generateJS(scope) {
     if (this.operator.type === 'word') {
-      // check if word exist in generateJSForms
       if (generateJSForms[this.operator.name]) {
         return generateJSForms[this.operator.name](this.args, scope);
       } 
       else {
         let opTranslation = this.operator.generateJS(scope);
-        if (scope.includes(opTranslation)) {
-          ... 
+        if (scope[opTranslation]) {
+          let argsTranslated = this.args.map(arg => arg.generateJS(scope));
+          return `${opTranslation}(${argsTranslated})`; 
         } 
         else { 
           ...
