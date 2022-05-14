@@ -411,7 +411,8 @@ generateJSForms['define'] = function(args, scope) {
 
 And here is an example of use:
 
-```ruby➜  egg2js-solution git:(master) ✗ cat ex/declared-twice.egg
+```ruby
+➜  egg2js-solution git:(master) ✗ cat ex/declared-twice.egg
 do(
     def(a,4),
     def(a,5),
