@@ -394,6 +394,53 @@ generateJSForms["do"] = function(args, scope) {
 };
 ```
 
+## Translating a def
+
+```js 
+generateJSForms[':='] = 
+generateJSForms['def'] = 
+generateJSForms['define'] = function(args, scope) {
+  if (args.length != 2)  throw new Error('define only accepts two arguments');
+  let [variable, expr] = args.map(arg => arg.generateJS(scope));
+  setAsDeclared(scope, variable);
+  return `${variable} = ${expr};`;
+};
+```
+
+And here is an example of use:
+
+```ruby➜  egg2js-solution git:(master) ✗ cat ex/declared-twice.egg
+do(
+    def(a,4),
+    def(a,5),
+    def(b, 9),
+    print(+(a,b))
+)
+```
+
+That when compiled produces:
+
+```js
+➜  egg2js-solution git:(master) ✗ bin/egg.js -J ex/declared-twice.egg
+const path = require('path');
+const runtimeSupport = require(path.join('/Users/casianorodriguezleon/campus-virtual/2122/pl2122/practicas-alumnos/egg2js/egg2js-solution/lib/eggInterpreter', "..", "generateJS", "runtimeSupport"));
+var $a, $b;
+(() => {
+  $a = 4;
+  $a = 5;
+  $b = 9;
+  return runtimeSupport.print(($a + $b))
+})()
+```
+
+If we run the resulting js we get:
+
+```
+➜  egg2js-solution git:(master) ✗ bin/egg.js -Jj ex/declared-twice.egg
+➜  egg2js-solution git:(master) ✗ node ex/declared-twice.egg.js 
+14
+```
+
 ## A more complex example: Managing Scopes
 
 When variables and functions are declared and new scopes are created like in this example (assume that in addition to the functions the `do` has its own scope):
