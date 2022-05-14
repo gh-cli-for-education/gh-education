@@ -198,6 +198,28 @@ class Apply extends Ast {
   }
 ```
 
+Here is an example that activates lines 18-20 since `while` is in `specialForms` but its translator has not being implemented yet:
+
+```ruby
+➜  egg2js-solution git:(master) ✗ cat ex/not-implemented.egg          
+do(
+    def(i, 1),
+    while(<(i, 4),
+      do(
+        print(i),
+        =(i, +(i,1))  
+      )
+    )
+)
+```
+
+When executes produces:
+
+```  
+➜  egg2js-solution git:(master) ✗ bin/egg.js -J ex/not-implemented.egg
+Translation of "while" not implemented yet.
+```
+
 ## Strategy Pattern Again
 
 To make it easier to generate JS code you may find it useful to follow the *Strategy Pattern* and have a module that exports a `generateJS` map/hash whose keys are
