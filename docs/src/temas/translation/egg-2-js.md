@@ -36,7 +36,7 @@ Reuse your parser to create the parse trees. Add traversal functions of the ASTs
 Add a `-j --js` option to your compiler executable, or add a new `egg2js.js` executable to your `bin` directory to do the translation
  
 
-## A simple example: examples/times.egg
+## Translating Arithmetic Expressions
 
 When the program is given input with Egg expressions of type *apply* like these:
 
@@ -54,20 +54,104 @@ print(
 
 should output an `examples/times.js` file with output similar to this:
 
+```
+➜  egg2js-solution git:(master) git remote -v
+origin  git@github.com:ULL-ESIT-PL-2122/egg2js-solution.git (fetch)
+origin  git@github.com:ULL-ESIT-PL-2122/egg2js-solution.git (push)
+➜  egg2js-solution git:(master) git -P lg -n 1
+6e62885 - (HEAD -> master, origin/master) test/testfiles/generatingJS (hace 2 minutos Casiano Rodriguez-Leon)
+```
 ```js
-➜  crguezl-egg-2-js-2021 git:(main) ✗ bin/egg2js.js -j examples/times.egg 
-➜  crguezl-egg-2-js-2021 git:(main) ✗ cat examples/times.js
-const Egg = require("runtime-support");
-Egg.print((3 + (4 * 5)), (9 - 3));
+➜  egg2js-solution git:(master) bin/egg.js test/testfiles/generatingJS/times.egg -J
+const path = require('path');
+const runtimeSupport = require(path.join('/Users/casianorodriguezleon/campus-virtual/2122/pl2122/practicas-alumnos/egg2js/egg2js-solution/lib/eggInterpreter', "..", "generateJS", "runtimeSupport"));
+runtimeSupport.print((3 + (4 * 5)), (9 - 3))
+``` 
+
+Observe how the JS expression is fully parenthesized 
+
+```
+➜  egg2js-solution git:(master) bin/egg.js test/testfiles/generatingJS/times.egg -j
+➜  egg2js-solution git:(master) node test/testfiles/generatingJS/times.egg.js 
+23 6
+```
+
+Here is another example but with an arithmetic string expressions instead:
+
+```ruby
+➜  egg2js-solution git:(master) ✗ cat ex/string.egg 
+print(+(
+    "hello",
+    +(
+        " ",
+        "world"
+    )
+))
+``` 
+```js
+➜  egg2js-solution git:(master) ✗ bin/egg.js -J ex/string.egg
+const path = require('path');
+const runtimeSupport = require(path.join('/Users/casianorodriguezleon/campus-virtual/2122/pl2122/practicas-alumnos/egg2js/egg2js-solution/lib/eggInterpreter', "..", "generateJS", "runtimeSupport"));
+runtimeSupport.print(('hello' + (' ' + 'world')))
+```
+```
+➜  egg2js-solution git:(master) ✗ bin/egg.js -j ex/string.egg
+➜  egg2js-solution git:(master) ✗ node ex/string.egg.js 
+hello world
 ```
 
 ## Adding Methods to AST Node Classes
 
-An approach that I have followed when doing this practice is to add `generateJS` methods to each of the different types of AST nodes that are responsible for generating the JS code corresponding to that type of node:
+An approach that I have followed when doing this practice is to add `generateJS` methods to each of the different types of AST nodes that are responsible for generating the JS code corresponding to that type of node. These methods always receive as a paraemeter the symbol table for the current scope:
+
+**file** `ast.js`
+```js
+const { setAsUsed } = require('../utils/scope.js');
+const {specialForms} = require('../eggInterpreter/specialForms.js');
+const {generateJSForms} = require('../generateJS/generateJSForms.js');
+
+class Ast { ... } // Abstract class 
+
+class Value extends Ast {
+  constructor(value) { ... }
+  evaluate() { ... }
+
+  generateJS() {
+    if (typeof this.value === 'number') {
+      return this.value;
+    }
+    return `'${this.value}'`;
+  }
+}
+
+class Word extends Ast {
+  constructor(name) { ... }
+  evaluate(env) { ... }
+
+  generateJS(scope) {
+      let eggName = '$'+this.name;
+      setAsUsed(scope, eggName);
+      return eggName;
+  }
+}
+```
+
+Observe how we concatenate the prefix string `'$'` to all the source variables in order to avoid clashes with any variables we will need  for our translation algorithm.
+
+For instance `Egg.print`! What if the egg source code has a variable with name `Egg`?
+This way we are on safe ground.
+
+The utility function `setAsUsed` is imported from `'../utils/scope.js'`.
+It saves in the current symbol table that the variable is being **used** in the current scope. 
+
+Later, when the scope is **closed** we will check that all **used** variables were declared.
+
+## Translating Apply nodes 
 
 ```js
-class Apply {
-  ...
+class Apply extends Ast {
+  constructor(tree, args = []) { ... }
+  evaluate(env) { ... }
 
   generateJS(scope) {
     if (this.operator.type === 'word') {
@@ -76,19 +160,39 @@ class Apply {
       } 
       else {
         let opTranslation = this.operator.generateJS(scope);
-        if (scope[opTranslation]) {
+        if (opTranslation && scope[opTranslation].declared) {
           let argsTranslated = this.args.map(arg => arg.generateJS(scope));
           return `${opTranslation}(${argsTranslated})`; 
         } 
-        else { 
-          ...
+        else if (opTranslation && ! scope[opTranslation].declared){ 
+          if (this.operator.name in specialForms) {
+            let errorMsg = `Translation of "${this.operator.name}" not implemented yet.\n`;
+            console.error(errorMsg);
+            process.exit(1);
+          }
+          let argsTranslated = this.args.map(arg => arg.generateJS(scope));
+          return `${opTranslation}(${argsTranslated})`; 
+        }
+        else {
+          let errMsg = `Fatal error.\n`+
+              `AST=${JSON.stringify(this)}.\nscope=${JSON.stringify(scope)}.\n`;
+          console.error(errMsg);
+          process.exit(0);
         }
       }
     } else if (this.operator.type == 'apply') {
-      ...
+      let argsTranslated = this.args.map(arg => arg.generateJS(scope));
+      return `${this.operator.generateJS(scope)}(${argsTranslated})`;
     }
   }
-}
+```
+
+As exercise do the `generateJS` translation function for the `Property` class.
+
+```js
+class Property extends Ast { ... }
+
+module.exports = {Value, Word, Apply, Property };
 ```
 
 ## Strategy Pattern Again: Un mapa de generadores de JS
@@ -164,6 +268,30 @@ runtimeSupport.print((() => {
 
 In general, make sure that any JS program resulting from the translation of an Egg program produces the same results as when the Egg program is parsed.
  
+## Scope
+
+Some scope analysis is needed. Again, we can use hashes to keep the Symbol Table:
+
+```js
+function compileToJS(fileName) {
+  let scope = Object.create(null);
+  scope["print"] = { /Whatever you want to save about the symbol */  }; 
+  // etc.
+  const template = (declarations, jsCode) => 
+     declarations.length? `var ${declarations.join(',')}; ${jsCode}`: jsCode;
+
+  try {
+    let program = fs.readFileSync(fileName, 'utf8');
+    let tree = parse(program);
+    let jscode = json2Ast[tree.type](tree).generateJS(scope);
+    return template(scope, jscode);
+  }
+  catch (err) {
+    console.log(err);
+  }
+}
+```
+
 ## Runtime Library Support
 
 You may find it useful to write a `runtime-support.js` library with functions that support running the translated JS programs. Something like that:
@@ -185,6 +313,27 @@ runtimeSupport = {
 module.exports = runtimeSupport;
 ```
 
+To reach the runtime support library in an independent manner, you can use the fact that wherever it is installed the path relative to the caller is going to be the same:
+
+```js
+const compileToJsWB = (eggFile) => {
+  let compiledJS = `
+const path = require('path');
+const runtimeSupport = require(
+  path.join(
+    '${__dirname}', 
+    "..", 
+    "generateJS", 
+    "runtimeSupport"
+  )
+);
+
+${compileToJS(eggFile)}
+`;
+
+  return compiledJS;
+}
+``` 
 
 ## A more complex example: Managing Scopes
 
