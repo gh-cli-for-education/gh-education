@@ -277,20 +277,27 @@ Some scope analysis is needed. Again, we can use hashes to keep the Symbol Table
 
 ```js
 function compileToJS(fileName) {
-  let scope = Object.create(null);
-  scope["print"] = { /Whatever you want to save about the symbol */  }; 
-  // etc.
-  const template = (declarations, jsCode) => 
-     declarations.length? `var ${declarations.join(',')}; ${jsCode}`: jsCode;
+  let topScope = Object.create(null);
+  Object.keys(topEnv).forEach((key) => {
+    topScope[key] = { declared: true};
+  });
+
+  let scope = Object.create(topScope);
+
+  const template = (declarations, jsCode) => declarations.length?
+                      `var ${declarations.join(',')}; ${jsCode}`: 
+                      jsCode;
 
   try {
     let program = fs.readFileSync(fileName, 'utf8');
     let tree = parse(program);
     let jscode = json2Ast[tree.type](tree).generateJS(scope);
-    return template(scope, jscode);
+    checkDeclarationsIn(scope, "In global program");
+    return template(Object.keys(scope), jscode);
   }
   catch (err) {
-    console.log(err);
+    console.log(err.message);
+    process.exit(0);
   }
 }
 ```
@@ -316,7 +323,7 @@ runtimeSupport = {
 module.exports = runtimeSupport;
 ```
 
-To reach the runtime support library in an independent manner, you can use the fact that wherever it is installed the path relative to the caller is going to be the same:
+To reach the runtime support library in an independent manner, you can use the fact that **wherever it is installed the path relative to the caller is going to be the same**:
 
 ```js
 const jsBeautify = require('js-beautify');
