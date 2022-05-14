@@ -275,10 +275,10 @@ We can extend Egg with declarations of the form `const(a,4)` for constants, and 
 * [Scope Analysis Notes]()
 * Vea el Capítulo [Análisis del Contexto](/temas/scope-analysis/analisis-dependiente-del-contexto) en estos apuntes y lea el capítulo *Symbol Table Structure* y el Chapter 3 del libro de Muchnik:
 
-## Egg to JS Compiler
+## Translation: Egg to JS Compiler
 
-Extend the translator from Egg to JavaScript as described in
-[generating-js](/temas/translation/egg-2-js) making it as complete as possible.
+The goal is to implement a translator from Egg to JavaScript as is described in the section
+[Scope Analysis and Translation: Translating From Egg to JavaScript](/temas/translation/egg-2-js) of this book/site/subject. This task implies the study and building of the  Scope Analysis stage. Make it as complete as possible.
 
 
 ## Lua Compiler
