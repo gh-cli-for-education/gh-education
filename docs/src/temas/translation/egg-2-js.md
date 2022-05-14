@@ -198,6 +198,8 @@ class Apply extends Ast {
   }
 ```
 
+### Not Implemented Constructs
+
 Here is an example that activates lines 18-20 since `while` is in `specialForms` but its translator has not being implemented yet:
 
 ```ruby
@@ -218,6 +220,40 @@ When executes produces:
 ```  
 ➜  egg2js-solution git:(master) ✗ bin/egg.js -J ex/not-implemented.egg
 Translation of "while" not implemented yet.
+```
+
+### Translating applys onto applys
+
+Lines 32-34 of the method take care of the case when `this.operator.type` is `apply`.
+
+Note that in Egg the operator of an apply can itself be an apply as in this example with the expression `f(2)(4)`:
+
+```js
+➜  egg2js-solution git:(master) ✗ cat examples/generatingJS/funfun.egg
+do(
+  def(f, fun(x, fun(y, +(x,y)))),
+  print(f(2)(4)) # 6
+)
+```
+
+It is therefore necessary to correctly translate the operator:
+
+```
+➜  egg2js-solution git:(master) ✗ bin/egg.js examples/generatingJS/funfun.egg -J
+```
+```js
+➜  egg2js-solution git:(master) bin/egg.js -J examples/generatingJS/funfun.egg
+const path = require('path');
+const runtimeSupport = require(path.join('/Users/casianorodriguezleon/campus-virtual/2122/pl2122/practicas-alumnos/egg2js/egg2js-solution/lib/eggInterpreter', "..", "generateJS", "runtimeSupport"));
+var $f;
+(() => {
+  $f = function($x) {
+    return function($y) {
+      return ($x + $y)
+    }
+  };
+  return runtimeSupport.print($f(2)(4))
+})()
 ```
 
 ## Strategy Pattern Again
@@ -520,37 +556,6 @@ Notice how we prefix source variables with "`$`" so that statements like `def(x,
 
 this is done so that *translated variables* don't **collide** with auxiliary variables that we might need to introduce to support the translation.
 
-
-## Translating applys onto applys
-
-Note that in Egg the operator of an apply can itself be an apply as in this example with the expression `f(2)(4)`:
-
-```js
-➜  egg2js-solution git:(master) ✗ cat examples/generatingJS/funfun.egg
-do(
-  def(f, fun(x, fun(y, +(x,y)))),
-  print(f(2)(4)) # 6
-)
-```
-
-Es por tanto necesario traducir correctamente el operador: 
-
-```
-➜  egg2js-solution git:(master) ✗ bin/egg.js examples/generatingJS/funfun.egg -J
-```
-```js
-const path = require('path');
-const runtimeSupport = require(path.join('/Users/casianorodriguezleon/campus-virtual/2122/pl2122/practicas-alumnos/egg2js/egg2js-solution/lib/eggInterpreter', "..", "generateJS", "runtimeSupport"));
-(() => {
-  var $f;
-  $f = ($x) => {
-    return ($y) => {
-      return ($x + $y)
-    }
-  };
-  return runtimeSupport.print($f(2)(4))
-})()
-```
 
 ## Visual Appearance of the Generated Code
 

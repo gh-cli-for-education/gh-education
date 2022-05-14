@@ -112,6 +112,10 @@ Para ampliar la compatibilidad y facilitar el uso de este servicio desde cualqui
 
 ## Recursos GitHub
 
+### GitHub Campus
+
+* [Global Campus](https://education.github.com/globalcampus/teacher#)
+
 ### GitHub Benefits
 
 * [Solicitar Free Plan para uso educativo](https://education.github.com/discount_requests/new)
