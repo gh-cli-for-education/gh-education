@@ -319,22 +319,31 @@ module.exports = runtimeSupport;
 To reach the runtime support library in an independent manner, you can use the fact that wherever it is installed the path relative to the caller is going to be the same:
 
 ```js
-const compileToJsWB = (eggFile) => {
+const jsBeautify = require('js-beautify');
+const jsBeautifyConfig = {
+  indent_size: 2,
+  space_in_empty_paren: true,
+  end_with_newline: true,
+  preserve_newlines: false
+}
+
+const compileToJsAndBeautify = (eggFile) => {  
   let compiledJS = `
-const path = require('path');
-const runtimeSupport = require(
-  path.join(
-    '${__dirname}', 
-    "..", 
-    "generateJS", 
-    "runtimeSupport"
-  )
-);
-
-${compileToJS(eggFile)}
-`;
-
-  return compiledJS;
+  const path = require('path');
+  const runtimeSupport = require(
+    path.join(
+      '${__dirname}', 
+      "..", 
+      "generateJS", 
+      "runtimeSupport"
+    )
+  );
+  
+  ${compileToJS(eggFile)}
+  `;
+  
+  let compiledJSBW = jsBeautify(compiledJS, jsBeautifyConfig);
+  return compiledJSBW;
 }
 ``` 
 
