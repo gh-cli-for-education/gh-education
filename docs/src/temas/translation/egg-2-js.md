@@ -271,9 +271,17 @@ runtimeSupport.print((() => {
 
 In general, make sure that any JS program resulting from the translation of an Egg program produces the same results as when the Egg program is parsed.
  
-## Scope
+## Compiling the input program: compileToJS
 
-Some scope analysis is needed. Again, we can use hashes to keep the Symbol Table:
+Some scope analysis is needed. Again, we can use a hash list to keep track of the declarations and uses of the symbols in the input  program. Such data structure is called a  Symbol Table. Our symbol tables are objects with the following structure:
+
+```
+{
+  key is the variable: { declared: true if declared, used: true if used }
+}
+```
+
+Here is the entry function `compileToJS` that initiates the translation:
 
 ```js
 function compileToJS(fileName) {
