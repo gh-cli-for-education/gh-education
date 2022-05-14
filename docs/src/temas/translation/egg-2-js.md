@@ -396,6 +396,8 @@ generateJSForms["do"] = function(args, scope) {
 
 ## Translating a def
 
+Here you have a translation strategy for the `def`:
+
 ```js 
 generateJSForms[':='] = 
 generateJSForms['def'] = 
