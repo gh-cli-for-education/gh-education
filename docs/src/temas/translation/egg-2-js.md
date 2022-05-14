@@ -198,7 +198,7 @@ class Apply extends Ast {
   }
 ```
 
-## Strategy Pattern Again: Un mapa de generadores de JS
+## Strategy Pattern Again
 
 To make it easier to generate JS code you may find it useful to follow the *Strategy Pattern* and have a module that exports a `generateJS` map/hash whose keys are
 the same as in `specialForms` and `topEnv` and the values are the corresponding
