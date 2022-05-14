@@ -277,7 +277,7 @@ We can extend Egg with declarations of the form `const(a,4)` for constants, and 
 
 ## Translation: Egg to JS Compiler
 
-The goal is to implement a translator from Egg to JavaScript as is described in the section
+The goal of this proposal is to implement a translator from Egg to JavaScript as is described in the section
 [Scope Analysis and Translation: Translating From Egg to JavaScript](/temas/translation/egg-2-js) of this book/site/subject. This task implies the study and building of the  Scope Analysis stage. Make it as complete as possible.
 
 
