@@ -238,38 +238,6 @@ generateJSForms['define'] = function(args, scope) {
 
 module.exports = { generateJSForms };
 ```
-
-## Consideraciones semánticas 
-
-The `do` in Egg returns the last expression evaluated, whereas a JS block is not an expression.
-So I can't translate `do(...)` directly into a JS `{ ... }` block.
-
-So `do(...)` could be attempted to be translated following this scheme:
-
-```ruby
-➜  egg2js-solution git:(master) cat examples/generatingJS/do.egg
-print(
-  do(
-    def(a,1),
-    =(a,9),
-    def(b, +(a,1))
-  )
-)
-```                                                                                         
-
-```js
-➜  egg2js-solution git:(master) bin/egg.js examples/generatingJS/do.egg -J    
-const path = require('path');
-const runtimeSupport = require(path.join('/Users/casianorodriguezleon/campus-virtual/2122/pl2122/practicas-alumnos/egg2js/egg2js-solution/lib/eggInterpreter', "..", "generateJS", "runtimeSupport"));
-runtimeSupport.print((() => {
-  var $a, $b;
-  $a = 1;
-  $a = 9
-  return $b = ($a + 1);
-})())
-```
-
-In general, make sure that any JS program resulting from the translation of an Egg program produces the same results as when the Egg program is parsed.
  
 ## Compiling the input program: compileToJS
 
@@ -362,7 +330,12 @@ const compileToJsAndBeautify = (eggFile) => {
 }
 ``` 
 
+
 ## Translating a do
+
+The `do` in Egg returns the last expression evaluated, whereas a JS block is not an expression.
+So I can't translate `do(...)` directly into a JS `{ ... }` block.
+
 
 Observe how is the translation that we have made of a `do`:
 
@@ -400,6 +373,8 @@ We have not made use of a direct translation of a `do` by a compound statement
 ```
 
 and we have taken this pains to respect the semantics of Egg.
+
+In general, make sure that any JS program resulting from the translation of an Egg program produces the same results as when the Egg program is parsed.
 
 ## A more complex example: Managing Scopes
 
