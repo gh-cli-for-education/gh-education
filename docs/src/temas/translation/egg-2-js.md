@@ -376,6 +376,24 @@ and we have taken this pains to respect the semantics of Egg.
 
 In general, make sure that any JS program resulting from the translation of an Egg program produces the same results as when the Egg program is parsed.
 
+Here is the entry for the `do` translation strategy:
+
+```js 
+generateJSForms["do"] = function(args, scope) { 
+  let argsTranslated = args.map(arg => arg.generateJS(scope));
+  const lastOne = argsTranslated.pop();
+
+  const template = (expressions, lastOne) => {
+    return `(()=>{
+      ${expressions.join("\n")}
+      return ${lastOne}
+    })()`;
+  }
+
+  return template(argsTranslated, lastOne);
+};
+```
+
 ## A more complex example: Managing Scopes
 
 When variables and functions are declared and new scopes are created like in this example (assume that in addition to the functions the `do` has its own scope):
