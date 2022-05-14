@@ -100,18 +100,25 @@ runtimeSupport.print(('hello' + (' ' + 'world')))
 hello world
 ```
 
-## Adding Methods to AST Node Classes
+## Adding `generateJS` Methods to the AST nodes 
 
-An approach that I have followed when doing this practice is to add `generateJS` methods to each of the different types of AST nodes that are responsible for generating the JS code corresponding to that type of node. These methods always receive as a paraemeter the symbol table for the current scope:
+An approach that I have followed when doing this practice is to add `generateJS` methods to each of the different types of AST nodes that are responsible for generating the JS code corresponding to that type of node. These methods always receive as a paraemeter the symbol table for the current scope.
 
-**file** `ast.js`
+Inside the file `ast.js` we wrote:
+
 ```js
 const { setAsUsed } = require('../utils/scope.js');
 const {specialForms} = require('../eggInterpreter/specialForms.js');
 const {generateJSForms} = require('../generateJS/generateJSForms.js');
 
 class Ast { ... } // Abstract class 
+``` 
 
+## Translating Value nodes
+
+The `generateJS` for the `Value` class is almost trivial:
+
+```js
 class Value extends Ast {
   constructor(value) { ... }
   evaluate() { ... }
@@ -123,7 +130,16 @@ class Value extends Ast {
     return `'${this.value}'`;
   }
 }
+```
 
+## Translating Word nodes
+
+Observe how we concatenate the prefix string `'$'` to all the source variables in order to avoid clashes with any variables we will need  for our translation algorithm.
+
+For instance `Egg.print`! What if the egg source code has a variable with name `Egg`?
+This way we are on safe ground.
+
+```js
 class Word extends Ast {
   constructor(name) { ... }
   evaluate(env) { ... }
@@ -135,11 +151,6 @@ class Word extends Ast {
   }
 }
 ```
-
-Observe how we concatenate the prefix string `'$'` to all the source variables in order to avoid clashes with any variables we will need  for our translation algorithm.
-
-For instance `Egg.print`! What if the egg source code has a variable with name `Egg`?
-This way we are on safe ground.
 
 The utility function `setAsUsed` is imported from `'../utils/scope.js'`.
 It saves in the current symbol table that the variable is being **used** in the current scope. 
@@ -185,14 +196,6 @@ class Apply extends Ast {
       return `${this.operator.generateJS(scope)}(${argsTranslated})`;
     }
   }
-```
-
-As exercise do the `generateJS` translation function for the `Property` class.
-
-```js
-class Property extends Ast { ... }
-
-module.exports = {Value, Word, Apply, Property };
 ```
 
 ## Strategy Pattern Again: Un mapa de generadores de JS
@@ -335,6 +338,45 @@ ${compileToJS(eggFile)}
 }
 ``` 
 
+## Translating a do
+
+Observe how is the translation that we have made of a `do`:
+
+```ruby
+➜  egg2js-solution git:(master) ✗ cat examples/generatingJS/do.egg
+print(
+  do(
+    def(a,1),
+    =(a,9),
+    def(b, +(a,1))
+  )
+)                                                                                           
+```
+
+lo hemos convertido en:
+
+```js
+➜  egg2js-solution git:(master) bin/egg.js examples/generatingJS/do.egg -J
+const path = require('path');
+const runtimeSupport = require(path.join('/Users/casianorodriguezleon/campus-virtual/2122/pl2122/practicas-alumnos/egg2js/egg2js-solution/lib/eggInterpreter', "..", "generateJS", "runtimeSupport"));
+var $a, $b;
+runtimeSupport.print((() => {
+  $a = 1;
+  $a = 9
+  return $b = ($a + 1);
+})())
+```
+
+See how the scope is created using an anonymous function `(() => { ... })()` that is executed on the fly *so that it returns the last expression evaluated*.
+
+We have not made use of a direct translation of a `do` by a compound statement
+
+```js
+{ ... }
+```
+
+and we have taken this pains to respect the semantics of Egg.
+
 ## A more complex example: Managing Scopes
 
 When variables and functions are declared and new scopes are created like in this example (assume that in addition to the functions the `do` has its own scope):
@@ -362,14 +404,15 @@ The translation should produce the equivalent JavaScript code:
 ➜  egg2js-solution git:(master) ✗ bin/egg.js examples/generatingJS/hello-scope.egg -J
 ```
 ```js
+➜  egg2js-solution git:(develop) ✗ bin/egg.js examples/generatingJS/hello-scope.egg -J
 const path = require('path');
 const runtimeSupport = require(path.join('/Users/casianorodriguezleon/campus-virtual/2122/pl2122/practicas-alumnos/egg2js/egg2js-solution/lib/eggInterpreter', "..", "generateJS", "runtimeSupport"));
+var $x, $inc, $z;
 runtimeSupport.print('computed value = ', (() => {
-  var $x, $inc, $z;
   $x = 4;
-  $inc = ($w) => {
+  $inc = function($w) {
+    var $y;
     return (() => {
-      var $y;
       $y = 999;
       return ($w + 1)
     })()
@@ -388,43 +431,6 @@ Notice how we prefix source variables with "`$`" so that statements like `def(x,
 
 this is done so that *translated variables* don't **collide** with auxiliary variables that we might need to introduce to support the translation.
 
-Observe how is the translation that we have made of a `do`:
-
-```ruby
-➜  egg2js-solution git:(master) ✗ cat examples/generatingJS/do.egg
-print(
-  do(
-    def(a,1),
-    =(a,9),
-    def(b, +(a,1))
-  )
-)                                                                                           
-```
-
-lo hemos convertido en:
-
-```js
-       
-➜  egg2js-solution git:(master) ✗ bin/egg.js examples/generatingJS/do.egg -J         
-const path = require('path');
-const runtimeSupport = require(path.join('/Users/casianorodriguezleon/campus-virtual/2122/pl2122/practicas-alumnos/egg2js/egg2js-solution/lib/eggInterpreter', "..", "generateJS", "runtimeSupport"));
-runtimeSupport.print((() => {
-  var $a, $b;
-  $a = 1;
-  $a = 9
-  return $b = ($a + 1);
-})())
-```
-
-See how the scope is created using an anonymous function `(() => { ... })()` that is executed on the fly *so that it returns the last expression evaluated*.
-
-We have not made use of a direct translation of a `do` by a compound statement
-
-```js
-{ ... }
-```
-
-and we have taken this pains to respect the semantics of Egg.
 
 ## Translating applys onto applys
 
@@ -468,6 +474,17 @@ to improve the visual appearance of the exit code
 ## Simplifications
 
 You don't need to translate all of your Egg language, just the most important features. At least the examples used on this page should work.
+
+
+## Translating Property nodes
+
+As exercise do the `generateJS` translation function for the `Property` class.
+
+```js
+class Property extends Ast { ... }
+
+module.exports = {Value, Word, Apply, Property };
+```
 
 ## References
 
