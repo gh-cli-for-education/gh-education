@@ -353,7 +353,7 @@ print(
 )                                                                                           
 ```
 
-lo hemos convertido en:
+is translated as:
 
 ```js
 ➜  egg2js-solution git:(master) bin/egg.js examples/generatingJS/do.egg -J
