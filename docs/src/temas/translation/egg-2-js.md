@@ -356,6 +356,14 @@ The following image illustrates the search on a C compiler in the scope analysis
 
 ![](/images/scope-analysis-non-declared-variable.png)
 
+Here is an example of the typical info to store in a symbol table:
+
+![](/images/global-symbol-table-c-like.png)
+
+### References
+
+* [Experimental Language: EXPL](https://silcnitc.github.io/) Write your own compiler!. An educational platform for compiler construction ([silcnitc](https://github.com/silcnitc))
+
 ## Runtime Library Support
 
 You may find it useful to write a `runtime-support.js` library with functions that support running the translated JS programs. Something like that:
