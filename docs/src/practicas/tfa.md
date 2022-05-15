@@ -585,6 +585,30 @@ do(
     print("First and last Members: ", inside[0], inside[-1])
 )
 ```
+## Types
+
+Here is a proposal of syntax for types in Egg:
+
+```ruby
+do(
+  TYPE(STUDENT, OBJECT(name: STRING,id: STRING, mark: NUMBER)),
+  TYPE(NUMLIST, ARRAY(NUMBER)),
+  TYPE(NUMFUN, FUN(NUMBER, NUMBER)),
+  NUMLIST(x, [4,7,9]),
+  STUDENT(juan, {name: "Juan", id: "aluXX", mark: 10}),
+  NUMFUN(f, fun(x, "hi!")), # error
+  =(juan.name, 4),          # error
+  =(juan.id, "alu123"),     # correct
+  =(x[0], "not allowed"),   # error
+)
+``` 
+
+* `TYPE`s and type names will be in uppercase
+* The call to type `TYPE(X, ...) ` will produce a sort of *constructor of the type* that can be referred later in the program as `X(leftvalue, expression)`
+* The special form `def` dissapears and is substituted by these type constructors
+* Now we have to compute the type attribute of every AST node and check for type compatibility
+* Ideally structural compatibility
+
 
 ## Translator from Egg AST to AST Term 
 
