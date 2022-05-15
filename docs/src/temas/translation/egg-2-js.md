@@ -356,7 +356,7 @@ The following image illustrates the search on a C compiler in the scope analysis
 
 ![](/images/scope-analysis-non-declared-variable.png)
 
-Here is an example of the typical info to store in a symbol table:
+Here is an example that illustrates the typical info to store in a symbol table and how the AST *use nodes* have references to its declarations stored in the symbol table:
 
 ![](/images/global-symbol-table-c-like.png)
 
