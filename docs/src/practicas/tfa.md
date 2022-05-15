@@ -587,7 +587,7 @@ do(
 ```
 ## Types
 
-Here is a proposal of syntax for types in Egg:
+Here is a proposal of syntax for introducing types in Egg:
 
 ```ruby
 do(
