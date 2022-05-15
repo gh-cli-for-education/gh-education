@@ -587,6 +587,9 @@ do(
 ```
 ## Types
 
+To attempt this phase you must first have completed the scope analysis.
+Now the symbol table and the ASTs will be decorated with the `type` attribute.
+
 Here is a proposal of syntax for introducing types in Egg:
 
 ```ruby
