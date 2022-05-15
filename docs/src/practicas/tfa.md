@@ -587,8 +587,6 @@ do(
 ```
 ## Types
 
-To attempt this phase you must first have completed the scope analysis.
-Now both the symbol table and the ASTs will be decorated with the `type` attribute.
 
 Here is a proposal of syntax for introducing types in Egg:
 
@@ -612,7 +610,14 @@ do(
 * Now we have to compute the type attribute of every AST node and check for type compatibility
 * Ideally structural compatibility
 
+To attempt this phase you must first have completed the scope analysis.
+
+Scope analysis is the computation of the bindings between variable uses and variable declarations:
+
 ![](/images/type-analysis-binding-from-use-to-declaration.png)
+
+Now both the symbol table and the ASTs will be decorated with the `type` attribute.
+Then we traverse the AST computing the types of the nodes, their correct use and making amendments wherever it is necessary
 
 ![](/images/type-analysis-computing-node-types.png)
 
