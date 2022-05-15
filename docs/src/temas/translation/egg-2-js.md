@@ -352,7 +352,7 @@ function checkDeclarationsIn(localScope, message) {
 }
 ```
 
-The following image illustrates the search on a C compiler in the scope analysis phase for a non declared variable:  
+The following image illustrates the search on a C compiler in the scope analysis phase for a non declared variable `i = 2`:  
 
 ![](/images/scope-analysis-non-declared-variable.png)
 
