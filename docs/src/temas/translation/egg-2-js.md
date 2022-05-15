@@ -336,6 +336,24 @@ function compileToJS(fileName) {
 }
 ```
 
+## checkDeclarationsIn
+
+Since we are using JS inheritance chain the search in the symbol table is automatically made by JS. Awfully simple!
+
+```js
+
+function checkDeclarationsIn(localScope, message) {
+  Object.keys(localScope).forEach((key) => {
+    if (!localScope[key].declared) {
+      //console.warn
+      throw new TypeError(`Variable "${key.slice(1)}" is not declared. ${message? message : ""}`);
+    }
+  })
+}
+```
+
+![](/images/scope-analysis-non-declared-variable.png)
+
 ## Runtime Library Support
 
 You may find it useful to write a `runtime-support.js` library with functions that support running the translated JS programs. Something like that:
