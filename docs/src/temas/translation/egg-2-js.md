@@ -336,7 +336,7 @@ function compileToJS(fileName) {
 }
 ```
 
-## checkDeclarationsIn
+## Checking Declarations: checkDeclarationsIn
 
 Since we are using JS inheritance chain the search in the symbol table is automatically made by JS. Awfully simple!
 
