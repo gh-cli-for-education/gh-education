@@ -352,6 +352,8 @@ function checkDeclarationsIn(localScope, message) {
 }
 ```
 
+The following image illustrates the search on a C compiler in the scope analysis phase for a non declared variable:  
+
 ![](/images/scope-analysis-non-declared-variable.png)
 
 ## Runtime Library Support
