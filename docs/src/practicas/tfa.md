@@ -617,7 +617,9 @@ Scope analysis is the computation of the bindings between variable uses and vari
 ![](/images/type-analysis-binding-from-use-to-declaration.png)
 
 Now both the symbol table and the ASTs will be decorated with the `type` attribute.
-Then we traverse the AST computing the types of the nodes, their correct use and making amendments wherever it is necessary
+Then we traverse the AST computing the types of the nodes, their correct use and making amendments wherever it is necessary.
+
+For instance, for each operator we know that the operands must have certain types, and that the result has a certain type. 
 
 ![](/images/type-analysis-computing-node-types.png)
 
