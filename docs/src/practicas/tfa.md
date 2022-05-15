@@ -614,6 +614,8 @@ do(
 
 ![](/images/type-analysis-binding-from-use-to-declaration.png)
 
+![](/images/type-analysis-computing-node-types.png)
+
 ## Translator from Egg AST to AST Term 
 
 !!!include(includes/evmtoterm.md)!!!
