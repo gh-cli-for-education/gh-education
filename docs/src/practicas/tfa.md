@@ -629,5 +629,5 @@ You can propose for the TFA tree transformations to help in code factorization u
 
 ## Experimental Language
 
-Do the compiler in
+Do the compiler explained in
 * [Experimental Language: EXPL](https://silcnitc.github.io/) Write your own compiler!. An educational platform for compiler construction ([silcnitc](https://github.com/silcnitc))
