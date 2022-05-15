@@ -612,6 +612,7 @@ do(
 * Now we have to compute the type attribute of every AST node and check for type compatibility
 * Ideally structural compatibility
 
+![](/images/type-analysis-binding-from-use-to-declaration.png)
 
 ## Translator from Egg AST to AST Term 
 
