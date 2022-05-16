@@ -669,7 +669,10 @@ do(
         =(a, +(a,1))
       )
     )
-)```                                                                                         
+)
+```
+
+Execution:
 
 ```
 ➜  egg2js-solution git:(master) bin/egg.js -xj ex/while.egg       
