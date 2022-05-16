@@ -493,7 +493,7 @@ generateJSForms["do"] = function(args, scope) {
   
   let argsTranslated = args.map(arg => arg.generateJS(scope));
 
-  const template = (expressions, lastOne) => {
+  const template = (expressions) => {
     return `(${expressions.join(", ")})`;
   }
 
