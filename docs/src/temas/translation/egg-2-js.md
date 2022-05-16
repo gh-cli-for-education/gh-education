@@ -465,7 +465,7 @@ and we have taken this pains to respect the semantics of Egg.
 
 In general, make sure that any JS program resulting from the translation of an Egg program produces the same results as when the Egg program is parsed.
 
-Here is the entry for the `do` translation strategy:
+Here is the hash `generateJSForms["do"]` entry for this `do` translation strategy:
 
 ```js 
 generateJSForms["do"] = function(args, scope) { 
