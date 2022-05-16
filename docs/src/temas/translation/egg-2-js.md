@@ -652,6 +652,31 @@ to improve the visual appearance of the exit code
 
 You don't need to translate all of your Egg language, just the most important features. At least the examples used on this page should work.
 
+## Exercise
+
+Write a translation scheme for the  Egg `while` loop.
+Assume the Egg `while` loop always returns `false`.
+
+Try your proposal with this example:
+
+```ruby
+➜  egg2js-solution git:(master) cat examples/generatingJS/while.egg
+do(
+    def(a,1),
+    while(<(a,4),
+      do(
+        print(a),
+        =(a, +(a,1))
+      )
+    )
+)```                                                                                         
+
+```
+➜  egg2js-solution git:(master) bin/egg.js -xj ex/while.egg       
+1
+2
+3
+``` 
 
 ## Translating Property nodes
 
