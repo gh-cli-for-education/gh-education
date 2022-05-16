@@ -29,6 +29,11 @@ rubrica:
 5. Use Live Share para colaborar con un compañero
 6. Elabore un informe con la experiencia adquirida en el repositorio asignado
 
+
+## CodeSpaces
+
+See section [CodeSpaces](/temas/introduccion-a-javascript/codespaces)
+
 ## GitPod
 
 * [Apuntes de GitPod](/temas/introduccion-a-javascript/gitpod)
