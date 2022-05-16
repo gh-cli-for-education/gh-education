@@ -100,20 +100,6 @@ runtimeSupport.print(('hello' + (' ' + 'world')))
 hello world
 ```
 
-## Adding `generateJS` Methods to the AST nodes 
-
-An approach that I have followed when doing this practice is to add `generateJS` methods to each of the different types of AST nodes that are responsible for generating the JS code corresponding to that type of node. These methods always receive as a parameter the symbol table for the current scope.
-
-Inside the file `ast.js` we wrote:
-
-```js
-const { setAsUsed } = require('../utils/scope.js');
-const {specialForms} = require('../eggInterpreter/specialForms.js');
-const {generateJSForms} = require('../generateJS/generateJSForms.js');
-
-class Ast { ... } // Abstract class 
-``` 
-
 ## Translating Value nodes
 
 The `generateJS` for the `Value` class is almost trivial:
@@ -156,6 +142,21 @@ The utility function `setAsUsed` is imported from `'../utils/scope.js'`.
 It saves in the current symbol table that the variable is being **used** in the current scope. 
 
 Later, when the scope is **closed** we will check that all **used** variables were declared.
+
+
+## Adding `generateJS` Methods to the AST nodes 
+
+An approach that I have followed when doing this practice is to add `generateJS` methods to each of the different types of AST nodes that are responsible for generating the JS code corresponding to that type of node. These methods always receive as a parameter the symbol table for the current scope.
+
+Inside the file `ast.js` we wrote:
+
+```js
+const { setAsUsed } = require('../utils/scope.js');
+const {specialForms} = require('../eggInterpreter/specialForms.js');
+const {generateJSForms} = require('../generateJS/generateJSForms.js');
+
+class Ast { ... } // Abstract class 
+``` 
 
 ## Translating Apply nodes 
 
