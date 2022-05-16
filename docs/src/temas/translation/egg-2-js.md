@@ -488,7 +488,7 @@ generateJSForms["do"] = function(args, scope) {
 But, is the case with `do`, we can have more than one translation cheme for a construct. 
 For instance
 
-```
+```js
 generateJSForms["do"] = function(args, scope) {
   debugger;
   
