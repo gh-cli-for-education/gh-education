@@ -424,7 +424,9 @@ The `do` in Egg returns the last expression evaluated, whereas a JS block is not
 So I can't translate `do(...)` directly into a JS `{ ... }` block.
 
 
-Observe how is the translation that we have made of a `do`:
+### Translation Scheme: Using Anonymous Functions
+
+Observe how is this translation that we have made of a `do`:
 
 ```ruby
 ➜  egg2js-solution git:(master) ✗ cat examples/generatingJS/do.egg
@@ -437,7 +439,7 @@ print(
 )                                                                                           
 ```
 
-is translated as:
+can be translated as:
 
 ```js
 ➜  egg2js-solution git:(master) bin/egg.js examples/generatingJS/do.egg -J
@@ -478,6 +480,27 @@ generateJSForms["do"] = function(args, scope) {
   }
 
   return template(argsTranslated, lastOne);
+};
+```
+
+### Another translation Scheme for do 
+
+But, is the case with `do`, we can have more than one translation cheme for a construct. 
+For instance
+
+```
+generateJSForms["do"] = function(args, scope) {
+  debugger;
+  
+  let argsTranslated = args.map(arg => arg.generateJS(scope));
+
+  const template = (expressions, lastOne) => {
+    return `(${expressions.join(", ")})`;
+  }
+
+  let temp = template(argsTranslated);
+
+  return temp;
 };
 ```
 
