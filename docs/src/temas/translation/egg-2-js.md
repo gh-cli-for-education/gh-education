@@ -102,7 +102,7 @@ hello world
 
 ## Adding `generateJS` Methods to the AST nodes 
 
-An approach that I have followed when doing this practice is to add `generateJS` methods to each of the different types of AST nodes that are responsible for generating the JS code corresponding to that type of node. These methods always receive as a paraemeter the symbol table for the current scope.
+An approach that I have followed when doing this practice is to add `generateJS` methods to each of the different types of AST nodes that are responsible for generating the JS code corresponding to that type of node. These methods always receive as a parameter the symbol table for the current scope.
 
 Inside the file `ast.js` we wrote:
 
