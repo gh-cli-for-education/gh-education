@@ -11,14 +11,15 @@ CodeSpaces allows you to create a codespace to start developing in a secure, con
 
 <youtube></youtube>
 
-## Using it in Classroom Assignments
+## Teachers: Using it in Classroom Assignments
+
+Go to the classroom config and enable codespaces:
 
 ![](/images/codespaces-github-classroom-settings.png)
+
+Now inside an assignment you can choose codespaces as eeditor for the students:
 
 ![](/images/codespaces-github-classroom-assignment.png)
-
-![](/images/codespaces-github-classroom-settings.png)
-
 
 ## Using it as a User
 
