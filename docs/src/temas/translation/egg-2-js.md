@@ -485,8 +485,7 @@ generateJSForms["do"] = function(args, scope) {
 
 ### Another translation Scheme for do 
 
-But, is the case with `do`, we can have more than one translation cheme for a construct. 
-For instance
+But, is the case with `do`, we can have more than one translation scheme for the same source construct. For instance, for the tanslation of the `do` we can follow this alternative approach:
 
 ```js
 generateJSForms["do"] = function(args, scope) {
