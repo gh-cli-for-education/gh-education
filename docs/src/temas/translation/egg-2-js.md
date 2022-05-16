@@ -652,7 +652,7 @@ to improve the visual appearance of the exit code
 
 You don't need to translate all of your Egg language, just the most important features. At least the examples used on this page should work.
 
-## Exercise
+## Exercise: Translation Scheme for While
 
 Write a translation scheme for the  Egg `while` loop.
 Assume the Egg `while` loop always returns `false`.
