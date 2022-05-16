@@ -503,6 +503,38 @@ generateJSForms["do"] = function(args, scope) {
 };
 ```
 
+That for the same input example `do.egg`:
+
+```ruby
+➜  egg2js-solution git:(master) cat ex/do.egg         
+print(
+  do(
+    def(a,1),
+    =(a,9),
+    def(b, +(a,1))
+  )
+)
+```
+Produces this  translation:
+
+```js
+➜  egg2js-solution git:(master) bin/egg.js -J ex/do.egg
+const path = require('path');
+const runtimeSupport = require(path.join('/Users/casianorodriguezleon/campus-virtual/2122/pl2122/practicas-alumnos/egg2js/egg2js-solution/lib/eggInterpreter', "..", "generateJS", "runtimeSupport"));
+var $a, $b;
+runtimeSupport.print(($a = 1, $a = 9, $b = ($a + 1)))
+```
+
+Take notice of the importance of the nested parenthesis `(($a =1, ...))`. 
+If we were using a single parenthesis instead, the meaning will be quite different!
+
+That produces the same result than the interpreted egg program:
+
+```
+➜  egg2js-solution git:(master) bin/egg.js -xj ex/do.egg
+10
+```
+
 ## Translating a def
 
 Here you have a translation strategy for the `def`:
