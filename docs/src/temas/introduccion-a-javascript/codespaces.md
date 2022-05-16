@@ -3,15 +3,15 @@ video: "https://youtu.be/_W9B7qc9lVc"
 ---
 # GitHub CodeSpaces
 
-## Announcing GitHub Global Campus and Codespaces for Teachers!
+## Announcing GitHub Global Campus and Codespaces for Teachers
 
 GitHub  announced in May 9th 2022 this message:
 
-https://github.com/github-community/Global-Campus-Teachers/discussions/79
+<https://github.com/github-community/Global-Campus-Teachers/discussions/79>
 
 which is inside of the new page for everything that has to do with educational resources:
 
-https://education.github.com/
+<https://education.github.com/>
 
 One of the things they comment on is a certain number of hours of Codespaces integrated with Classroom:
 
