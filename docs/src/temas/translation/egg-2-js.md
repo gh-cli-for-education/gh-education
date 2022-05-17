@@ -176,12 +176,13 @@ class Apply extends Ast {
           let argsTranslated = this.args.map(arg => arg.generateJS(scope));
           return `${opTranslation}(${argsTranslated})`; 
         } 
-        else if (opTranslation && ! scope[opTranslation].declared){ 
+        else if (opTranslation && !scope[opTranslation].declared){ 
           if (this.operator.name in specialForms) {
             let errorMsg = `Translation of "${this.operator.name}" not implemented yet.\n`;
             console.error(errorMsg);
             process.exit(1);
           }
+          console.warn(`Warning: Non declared symbol "${this.operator.name}" used as function.\n`);
           let argsTranslated = this.args.map(arg => arg.generateJS(scope));
           return `${opTranslation}(${argsTranslated})`; 
         }
@@ -225,7 +226,7 @@ Translation of "while" not implemented yet.
 
 ### Translating applys onto applys
 
-Lines 32-34 of the method take care of the case when `this.operator.type` is `apply`.
+Lines 33-35 of the method take care of the case when `this.operator.type` is `apply`.
 
 Note that in Egg the operator of an apply can itself be an apply as in this example with the expression `f(2)(4)`:
 
