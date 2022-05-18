@@ -50,7 +50,7 @@ Here is another quote you can use to justify your failure:
 
 - Unknown Author
 
-You can also try to say that, according to Robert Frost, it is because there is too much poetry in Egg:
+You can also try to say that, according to Robert Frost, it is because there is too much poetry in the original Egg:
 
 > Poetry is what gets lost in translation
 
@@ -72,6 +72,8 @@ Instead you have to follow Gunter Grass:
 > The word 'translation' comes, etymologically, from the Latin for 'bearing across'. Having been borne across the world, we are translated men. It is normally supposed that something always gets lost in translation; I cling, obstinately to the notion that something can also be gained
 
 -  Salman Rushdie, Imaginary Homelands: Essays and Criticism 1981-1991
+
+Here there are a few ethimological entries:
 
 - traductĭo, -ōnis (latin): *hacer pasar de un lugar a otro*. *to move from one place to another*
 - translatio (classical latin): traslación, translation
