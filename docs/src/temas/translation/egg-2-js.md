@@ -42,7 +42,7 @@ None of these quotes will serve as an excuse for your Egg to JS translator not t
 
 Borges poses the idea that, in some ways, the translation may be *true*r to the *fundamental spirit* of the original than the original itself.
 
-Equivalent excuse: *"The JS semantics is better than the one in the original Egg"*
+Equivalent excuse: *"The JS semantics of my translator is better than the one in the original Egg"*
 
 Here is another quote you can use to justify your failure:
 
