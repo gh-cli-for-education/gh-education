@@ -31,6 +31,48 @@ Write a translator from the [Egg](https://eloquentjavascript.net/12_language.htm
 
 Reuse your parser to create the parse trees. Add traversal functions of the ASTs to generate the JS code.
 
+## Semantic Preservation
+
+**None of these quotes will serve as an excuse for your translator not to be faithful to the original Egg interpreter**
+
+::: tip Quotes
+> The original is unfaithful to the translation.
+
+- Jorge Luis Borges, book *Other Inquisitions*
+
+Borges poses the idea that, in some ways, the translation may be *true*r to the *fundamental spirit* of the original than the original itself.
+
+Equivalent excuse: *"JS semantics are better than original Egg"*
+
+Another quote you can use to justify your failure:
+
+> Translations are mostly like men. They are never faithful 
+
+Unknown Author
+
+You can also try to say that, according to Robert Frost, it is because there is too much poetry in Egg:
+
+> Poetry is what gets lost in translation
+
+- Robert Frost
+
+Instead you have to follow Gunter Grass:
+
+> Translation is that which transforms everything so that nothing changes
+
+- Gunter Grass
+
+> The word 'translation' comes, etymologically, from the Latin for 'bearing across'. Having been borne across the world, we are translated men. It is normally supposed that something always gets lost in translation; I cling, obstinately to the notion that something can also be gained
+
+-  Salman Rushdie, Imaginary Homelands: Essays and Criticism 1981-1991
+
+- traductĭo, -ōnis: *hacer pasar de un lugar a otro*
+- translatio (classical latin): traslación
+- interpretatio: interpretación
+- übersetzen (german): *pasar a la otra orilla*
+
+:::
+
 ## The Compiler
 
 Add a `-j --js` option to your compiler executable, or add a new `egg2js.js` executable to your `bin` directory to do the translation
