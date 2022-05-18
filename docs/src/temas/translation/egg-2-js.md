@@ -33,9 +33,9 @@ Reuse your parser to create the parse trees. Add traversal functions of the ASTs
 
 ## Semantic Preservation
 
-**None of these quotes will serve as an excuse for your translator not to be faithful to the original Egg interpreter**
+None of these quotes will serve as an excuse for your Egg to JS translator not to be faithful to the original Egg interpreter
 
-::: tip Quotes
+::: tip Negative Quotes
 > The original is unfaithful to the translation.
 
 - Jorge Luis Borges, book *Other Inquisitions*
@@ -55,12 +55,18 @@ You can also try to say that, according to Robert Frost, it is because there is 
 > Poetry is what gets lost in translation
 
 - Robert Frost
+:::
+
 
 Instead you have to follow Gunter Grass:
+
+::: tip Positive Quotes
 
 > Translation is that which transforms everything so that nothing changes
 
 - Gunter Grass
+:::
+
 
 > The word 'translation' comes, etymologically, from the Latin for 'bearing across'. Having been borne across the world, we are translated men. It is normally supposed that something always gets lost in translation; I cling, obstinately to the notion that something can also be gained
 
@@ -70,8 +76,6 @@ Instead you have to follow Gunter Grass:
 - translatio (classical latin): traslación
 - interpretatio: interpretación
 - übersetzen (german): *pasar a la otra orilla*
-
-:::
 
 ## The Compiler
 
