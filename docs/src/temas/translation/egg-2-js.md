@@ -31,7 +31,7 @@ Write a translator from the [Egg](https://eloquentjavascript.net/12_language.htm
 
 Reuse your parser to create the parse trees. Add traversal functions of the ASTs to generate the JS code.
 
-## Semantic Preservation
+## On the Preservation of Semantics
 
 None of these quotes will serve as an excuse for your Egg to JS translator not to be faithful to the original Egg interpreter
 
@@ -75,7 +75,7 @@ Instead you have to follow Gunter Grass:
 
 - traductĭo, -ōnis (latin): *hacer pasar de un lugar a otro*. *to move from one place to another*
 - translatio (classical latin): traslación, translation
-- interpretatio: interpretación
+- interpretatio: interpretación, interpretation
 - übersetzen (german): *pasar a la otra orilla*, *cross over to the other shore*, ex. *Wir haben über den Fluss übergesetzt*
 
 ## The Compiler
