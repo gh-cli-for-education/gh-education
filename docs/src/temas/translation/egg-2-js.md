@@ -73,8 +73,8 @@ Instead you have to follow Gunter Grass:
 
 -  Salman Rushdie, Imaginary Homelands: Essays and Criticism 1981-1991
 
-- traductĭo, -ōnis: *hacer pasar de un lugar a otro*
-- translatio (classical latin): traslación
+- traductĭo, -ōnis (latin): *hacer pasar de un lugar a otro*. *to move from one place to another*
+- translatio (classical latin): traslación, translation
 - interpretatio: interpretación
 - übersetzen (german): *pasar a la otra orilla*
 
