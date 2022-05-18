@@ -76,7 +76,7 @@ Instead you have to follow Gunter Grass:
 - traductĭo, -ōnis (latin): *hacer pasar de un lugar a otro*. *to move from one place to another*
 - translatio (classical latin): traslación, translation
 - interpretatio: interpretación
-- übersetzen (german): *pasar a la otra orilla*
+- übersetzen (german): *pasar a la otra orilla*, *cross over to the other shore*, ex. *Wir haben über den Fluss übergesetzt*
 
 ## The Compiler
 
