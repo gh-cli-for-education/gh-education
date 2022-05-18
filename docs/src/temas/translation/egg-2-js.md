@@ -42,13 +42,13 @@ None of these quotes will serve as an excuse for your Egg to JS translator not t
 
 Borges poses the idea that, in some ways, the translation may be *true*r to the *fundamental spirit* of the original than the original itself.
 
-Equivalent excuse: *"JS semantics are better than original Egg"*
+Equivalent excuse: *"The JS semantics is better than the one in the original Egg"*
 
-Another quote you can use to justify your failure:
+Here is another quote you can use to justify your failure:
 
 > Translations are mostly like men. They are never faithful 
 
-Unknown Author
+- Unknown Author
 
 You can also try to say that, according to Robert Frost, it is because there is too much poetry in Egg:
 
@@ -67,6 +67,7 @@ Instead you have to follow Gunter Grass:
 - Gunter Grass
 :::
 
+### Etimology 
 
 > The word 'translation' comes, etymologically, from the Latin for 'bearing across'. Having been borne across the world, we are translated men. It is normally supposed that something always gets lost in translation; I cling, obstinately to the notion that something can also be gained
 
