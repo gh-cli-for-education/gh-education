@@ -649,10 +649,6 @@ You can use some module like this:
 
 to improve the visual appearance of the exit code
 
-## Simplifications
-
-You don't need to translate all of your Egg language, just the most important features. At least the examples used on this page should work.
-
 ## Exercise: Translation Scheme for While
 
 Write a translation scheme for the  Egg `while` loop.
