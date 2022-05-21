@@ -26,4 +26,4 @@ template: https://github.com/ULL-ESIT-PL-2122/exam-training-template
 ## Other Examples
 
 * See also another exam example in section [Translator from Egg AST to AST Term
-](/practicas/tfa.html#translator-from-egg-ast-to-ast-term) of the TFA
+](/practicas/tfa.html#translator-from-egg-ast-to-ast-term) of the TFA. The task there is to build a JSON Parser and translate a JSON containing the AST of an Egg parser onto the term notation.
