@@ -289,21 +289,92 @@ Using an interpreter for a large enough subset of the [Lua Grammar](https://gith
 
 It could be via a `child` method like this:
 
-```js
+```ruby
+➜  eloquentjsegg git:(develop2122) ✗ cat examples/child.egg 
 do(
   def(x, object ( 
     "c", 0,
-    "gc", ->{element[self, "c"]},
-    "sc", ->{value, =(self, "c", value)},
-    "inc", ->{=(self, "c", +(element[self, "c"],1))}
+    "d", 4,
+    "gc", ->( c ),
+    "sc", ->(value, =(self.c, value)), # = never creates a new entry!
+    "inc", ->(=(self.c, +(self.c, 1)))
   )),
   def(y, child(x)),
-  print(y.sc(5)),
-  print(y.c)
+  y.sc(5),  
+  y.inc(),
+  print(y),   # {c: 6}
+  print(y.d), # 4
+  print(x)    # {c:0, d:4}
 )
 ```
 
 The `def(y, child(x))` declaration causes the `y` object to inherit the properties and methods of the `x` object.
+
+Execution:
+
+```
+➜  eloquentjsegg git:(develop2122) ✗ bin/egg.js examples/child.egg 
+{"c":6}
+4
+{"c":0,"d":4}
+```
+
+Here is another example:
+
+```ruby
+➜  eloquentjsegg git:(develop2122) ✗ cat examples/child2.egg
+do(
+  def(x, object ( 
+    "c", 0,
+    "gc", ->( self.c ),
+    "sc", ->(value, =(self.c, value)),
+    "inc", ->(=(self.c, +(self.c, 1)))
+  )),
+  def(y, child(x)),
+  y.sc(3),
+  =(y.d, 4), 
+  y.inc(), y.inc(),
+  console.log(y),
+  console.log(x),
+)
+``` 
+
+Execution:
+
+```js
+➜  eloquentjsegg git:(develop2122) ✗ bin/egg.js examples/child2.egg
+{
+  gc: [Function: jsFun] {
+    numParams: 0,
+    ast: Apply { type: 'apply', operator: [Object], args: [Array] }
+  },
+  sc: [Function: jsFun] {
+    numParams: 1,
+    ast: Apply { type: 'apply', operator: [Object], args: [Array] }
+  },
+  inc: [Function: jsFun] {
+    numParams: 0,
+    ast: Apply { type: 'apply', operator: [Object], args: [Array] }
+  },
+  c: 5,
+  d: 4
+}
+{
+  c: 0,
+  gc: [Function: jsFun] {
+    numParams: 0,
+    ast: Apply { type: 'apply', operator: [Object], args: [Array] }
+  },
+  sc: [Function: jsFun] {
+    numParams: 1,
+    ast: Apply { type: 'apply', operator: [Object], args: [Array] }
+  },
+  inc: [Function: jsFun] {
+    numParams: 0,
+    ast: Apply { type: 'apply', operator: [Object], args: [Array] }
+  }
+}
+```
 
 ## Add Classes
 
