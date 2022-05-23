@@ -319,7 +319,7 @@ Execution:
 {"c":0,"d":4}
 ```
 
-Notice how `self` references `y` when the code makes the calls `y.sc(5), y.inc()` setting its `c` to 6, while the  attribute `d` of `y` is inherited from `x`.
+Notice how `self` references `y` when the code makes the calls `y.sc(5), y.inc()` setting its `c` to 6, while the  attribute `d` of `y` hast the value `4` since it is inherited from `x`.
 
 Here is another example:
 
