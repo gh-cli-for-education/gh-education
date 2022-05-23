@@ -332,7 +332,7 @@ do(
   )),
   def(y, child(x)),
   y.sc(3),
-  =(y.d, 4), 
+  =(y.d, 4), # The attribute d only exists in y not in x
   y.inc(), y.inc(),
   console.log(y),
   console.log(x),
