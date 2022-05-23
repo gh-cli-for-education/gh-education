@@ -382,7 +382,7 @@ In this case the assignment `=(y.d, 4)` creates the property `d` in the object `
 
 ## Add Classes
 
-Here is a possible example:
+Here is a proposal of syntax. Feel free to change it:
 
 ```ruby
 do(
@@ -394,15 +394,25 @@ do(
           =(self.y, y)
         )
       ),
-      sum: fun(+(self.x, self.y))
+      methods: {
+        sum: fun(+(self.x, self.y))
+      },
+      properties: { # class properties
+        PI: 3.14159
+      },
+      extends: null # Optional. Reference to the parent class
     }
   ),
   do( /* main */
     def(a, Math.new(2,3)),
-    print(a.sum()); // 5
+    print(a.sum()), # 5
+    print(Math.PI)
   )
 )
 ```
+
+`Class` receives as arguments the **name** of the class and an object  describing the class:
+ constructor and properties.
 
 ## Default values of function parameters
 
