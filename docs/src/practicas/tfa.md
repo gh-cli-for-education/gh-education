@@ -378,6 +378,8 @@ Execution:
 }
 ```
 
+In this case the assignment `=(y.d, 4)` creates the property `d` in the object `y` which does not exists in the parent object `x`
+
 ## Add Classes
 
 Here is a possible example:
