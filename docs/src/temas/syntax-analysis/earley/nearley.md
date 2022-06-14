@@ -263,7 +263,7 @@ See section [Importing other grammars](importing-grammars)
 
 * See section [Lexical Analysis with Moo](moo)
 
-## Example
+## Example: A Calculator
 
 ### Grammar
 
