@@ -265,7 +265,7 @@ See section [Importing other grammars](importing-grammars)
 
 ## Example
 
-* [examples/calculator/arithmetic-lexer.ne](https://github.com/ULL-ESIT-PL/learning-nearley/blob/main/examples/calculator/arithmetic-lexer.ne)
+See [examples/calculator/arithmetic-lexer.ne](https://github.com/ULL-ESIT-PL/learning-nearley/blob/main/examples/calculator/arithmetic-lexer.ne)
 
 
 ```js
@@ -355,7 +355,7 @@ LN -> %ln         {% d => Math.log %}
 
 ### Lexical Analyzer 
 
-* [examples/calculator/lex.js](https://github.com/ULL-ESIT-PL/learning-nearley/blob/main/examples/calculator/lex.js)
+See [examples/calculator/lex.js](https://github.com/ULL-ESIT-PL/learning-nearley/blob/main/examples/calculator/lex.js)
 
 ```js
 const { makeLexer, moo } = require("moo-ignore");
