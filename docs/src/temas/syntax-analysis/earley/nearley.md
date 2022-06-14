@@ -265,6 +265,8 @@ See section [Importing other grammars](importing-grammars)
 
 ## Example
 
+### Grammar
+
 See [examples/calculator/arithmetic-lexer.ne](https://github.com/ULL-ESIT-PL/learning-nearley/blob/main/examples/calculator/arithmetic-lexer.ne)
 
 
