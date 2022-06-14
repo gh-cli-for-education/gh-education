@@ -395,7 +395,7 @@ module.exports = lexer;
 
 ### main
 
-* [examples/calculator/use-arithmetic.js](https://github.com/ULL-ESIT-PL/learning-nearley/blob/main/examples/calculator/use-arithmetic.js)
+See [examples/calculator/use-arithmetic.js](https://github.com/ULL-ESIT-PL/learning-nearley/blob/main/examples/calculator/use-arithmetic.js)
 
 ```js
 const nearley = require("nearley");
