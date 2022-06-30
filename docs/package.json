@@ -16,6 +16,7 @@
     "build": "vuepress build src",
     "deploy": "touch src/.vuepress/dist/.nojekyll; ./deploy.sh",
     "push": "git ci -am 2122; git push origin; git push pl2122",
+    "push2223": "git ci -am 2223; git push origin; git push pl2223",
     "save": "npm run push; npm run deploy"
   },
   "license": "MIT",
