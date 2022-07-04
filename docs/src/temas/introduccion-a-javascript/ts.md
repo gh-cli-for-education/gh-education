@@ -2,13 +2,15 @@
 
 ## Building, Debugging and Running TS
 
-* [Build and Debug NodeJS Typescript with ONLY VSCODE. Basarat Codes](https://youtu.be/JdvkaW2xeiI) Youtube
+Watch [Build and Debug NodeJS Typescript with ONLY VSCODE. Basarat Codes](https://youtu.be/JdvkaW2xeiI) Youtube
 
-Además he tenido que instalar como dependencias de desarrollo localmente:
+<youtube id="JdvkaW2xeiI"></youtube>
 
-ts-node y ts-config-paths
+In addition I had to install as development dependencies locally:
 
-Este es el fichero `launch.json` usado para depurar `gh-edu.ts`:
+ts-node and ts-config-paths
+
+This is the `launch.json` file used to debug `gh-edu.ts`:
 
 ```js
 {
@@ -37,7 +39,8 @@ Este es el fichero `launch.json` usado para depurar `gh-edu.ts`:
 }
 ```
 
-special interest has the double asterics in `/js/**/*.js` allowing the debugging of other files, not only the main one. See 
+special interest has the double asterics in `/js/**/*.js` allowing the debugging of other files, not only the main one. 
+See 
 <https://stackoverflow.com/questions/69326439/debug-multiple-files-in-typescript>
 
 ```js
