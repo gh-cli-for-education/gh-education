@@ -1,6 +1,6 @@
 # TypeScript
 
-## Building and Running TS
+## Building, Debugging and Running TS
 
 * [Build and Debug NodeJS Typescript with ONLY VSCODE. Basarat Codes](https://youtu.be/JdvkaW2xeiI) Youtube
 
