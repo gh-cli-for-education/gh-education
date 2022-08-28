@@ -1625,6 +1625,10 @@ And here is the [ULL-ESIT-PL-1920/project-lexer-generator](https://github.com/UL
 * [npm-scope manual: Scoped packages](https://docs.npmjs.com/misc/scope#publishing-public-scoped-packages-to-the-public-npm-registry)
 * [Working with npm private modules. YouTube Video](https://youtu.be/O6JoXGnHK_Y)
 
+### TypeScript
+
+* [Step by step: Building and publishing an NPM Typescript package](https://itnext.io/step-by-step-building-and-publishing-an-npm-typescript-package-44fe7164964c)
+
 ### Semantic versioning and npm
 
 * [Semantic versioning and npm](https://docs.npmjs.com/getting-started/semantic-versioning)
