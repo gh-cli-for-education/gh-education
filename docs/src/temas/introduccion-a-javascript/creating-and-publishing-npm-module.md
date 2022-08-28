@@ -1628,6 +1628,7 @@ And here is the [ULL-ESIT-PL-1920/project-lexer-generator](https://github.com/UL
 ### TypeScript
 
 * [Step by step: Building and publishing an NPM Typescript package](https://itnext.io/step-by-step-building-and-publishing-an-npm-typescript-package-44fe7164964c)
+* [Publishing what you mean to publish](https://blog.npmjs.org/post/165769683050/publishing-what-you-mean-to-publish)
 
 ### Semantic versioning and npm
 
