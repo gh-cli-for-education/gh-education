@@ -124,7 +124,7 @@ See
 !!!include(includes/npm-ts.md)!!!
 
 
-### Curso FullStack Open 
+## Curso FullStack Open 
 
 El curso **Profundización en el desarrollo web moderno**
 
