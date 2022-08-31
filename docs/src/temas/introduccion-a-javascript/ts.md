@@ -1,6 +1,43 @@
 # TypeScript
 
-## Building, Debugging and Running TS
+## Building, Debugging and Running TS 
+
+### With Chrome
+
+See the video *Debug Node.js apps with Chrome DevTools and TypeScript*
+
+<youtube id="bV-DHjmwuZ0"></youtube>
+
+We run the .js generated file 
+
+```
+node --inspect-brk fordebug/findbug.js
+```
+
+after compiling the .ts source with `tsc fordebug/findbug.ts --sourceMap true`:
+
+```
+➜  debug pwd
+/Users/casianorodriguezleon/campus-virtual/2122/learning/typescript-learning/debug
+➜  debug npm run debug
+
+> debug@1.0.0 debug
+> npm test; node --inspect-brk fordebug/findbug.js
+
+
+> debug@1.0.0 test
+> tsc fordebug/findbug.ts --sourceMap true
+
+Debugger listening on ws://127.0.0.1:9229/013ee471-d752-447a-904e-6037b8d236d1
+For help, see: https://nodejs.org/en/docs/inspector
+```
+
+Here is an example of a session with chrome:
+
+![](/images/debugging-ts-with-chrome.png)
+
+
+### With VSCode
 
 Watch [Build and Debug NodeJS Typescript with ONLY VSCODE. Basarat Codes](https://youtu.be/JdvkaW2xeiI) Youtube
 
@@ -48,6 +85,37 @@ See
         "${workspaceFolder}/js/**/*.js"
       ]
 ```
+
+## Introduction to TypeScript
+
+
+### TypeScript - Tutorial desde CERO en Español 🏆
+
+<youtube id="https://youtu.be/xtp_DuPxo9Q"></youtube>
+
+
+
+### Tutorial TypeScript con Node.js y Express. ¡Crea tu API REST con tipos estáticos DESDE CERO!
+
+<youtube id="https://youtu.be/ZpY5KdGQvwI"></youtube>
+
+
+## Writing Modules in TypeScript
+
+!!!include(includes/npm-ts.md)!!!
+
+
+### Curso FullStack Open 
+
+El curso **Profundización en el desarrollo web moderno**
+
+<https://fullstackopen.com/es/>
+
+📚 🧑‍💻 Presentación del curso y Fundamentos del Desarrollo Web - Bootcamp FullStack Gratuito
+
+<youtube id="https://youtu.be/wTpuKOhGfJE"></youtube>
+
+MiDuDev comienza aquí el Bootcamp FullStack gratuito con una introducción. Después de eso,  una descripción general de los conceptos básicos del desarrollo web y tambin habla sobre los avances en el desarrollo de aplicaciones web durante las últimas décadas.
 
 ## References
 
