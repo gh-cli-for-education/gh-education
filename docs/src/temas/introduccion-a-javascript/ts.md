@@ -110,7 +110,7 @@ See
 
 ### TypeScript - Tutorial desde CERO en Español 🏆
 
-<youtube id="https://youtu.be/xtp_DuPxo9Q"></youtube>
+<youtube id="xtp_DuPxo9Q"></youtube>
 
 
 
@@ -134,7 +134,7 @@ El curso **Profundización en el desarrollo web moderno**
 
 <youtube id="https://youtu.be/wTpuKOhGfJE"></youtube>
 
-MiDuDev comienza aquí el Bootcamp FullStack gratuito con una introducción. Después de eso,  una descripción general de los conceptos básicos del desarrollo web y tambin habla sobre los avances en el desarrollo de aplicaciones web durante las últimas décadas.
+MiDuDev comienza aquí el Bootcamp FullStack gratuito con una introducción. Después de eso,  una descripción general de los conceptos básicos del desarrollo web y también habla sobre los avances en el desarrollo de aplicaciones web durante las últimas décadas.
 
 ## References
 
