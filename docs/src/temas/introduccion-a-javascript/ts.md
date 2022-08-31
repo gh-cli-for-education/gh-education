@@ -8,13 +8,32 @@ See the video *Debug Node.js apps with Chrome DevTools and TypeScript*
 
 <youtube id="bV-DHjmwuZ0"></youtube>
 
-We run the .js generated file 
+We set a `debugger` statement inside the code to stop the execution. for instance for the file`findbug.ts`:
+
+```
+class FindBug {
+  findBugg(bug: string) {
+    console.log(`Finding this ${bug} on my program!`)
+  }
+}
+debugger;
+const bugs: FindBug = new FindBug()
+console.log(bugs.findBugg('Spider'))
+```
+
+We run the .js generated file with `--inspect-brk`:
 
 ```
 node --inspect-brk fordebug/findbug.js
 ```
 
-after compiling the .ts source with `tsc fordebug/findbug.ts --sourceMap true`:
+we must compile the .ts source with the sourceMap option activated:
+
+``` 
+tsc fordebug/findbug.ts --sourceMap true`:
+```
+
+Here is an example:
 
 ```
 ➜  debug pwd
