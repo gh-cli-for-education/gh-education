@@ -10,7 +10,7 @@ See the video *Debug Node.js apps with Chrome DevTools and TypeScript*
 
 We set a `debugger` statement inside the code to stop the execution. for instance for the file`findbug.ts`:
 
-```
+```ts
 class FindBug {
   findBugg(bug: string) {
     console.log(`Finding this ${bug} on my program!`)
@@ -27,7 +27,7 @@ We run the .js generated file with `--inspect-brk`:
 node --inspect-brk fordebug/findbug.js
 ```
 
-we must compile the .ts source with the sourceMap option activated:
+we must compile the .ts source with the `sourceMap` option activated:
 
 ``` 
 tsc fordebug/findbug.ts --sourceMap true`:
@@ -51,7 +51,7 @@ Debugger listening on ws://127.0.0.1:9229/013ee471-d752-447a-904e-6037b8d236d1
 For help, see: https://nodejs.org/en/docs/inspector
 ```
 
-Here is an example of a session with chrome:
+Here is a screenshot of a session with chrome after visiting `chrome://inspect`:
 
 ![](/images/debugging-ts-with-chrome.png)
 
