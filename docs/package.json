@@ -1,22 +1,22 @@
 {
-  "name": "pl-book",
+  "name": "vuepress-sytws-2223-apuntes",
   "version": "2.0.0",
-  "description": "ULL PL pages",
+  "description": "ULL SYTWS pages",
   "main": "index.js",
   "authors": {
     "name": "Casiano",
     "email": "crguezl@ull.edu.es"
   },
-  "repository": " git@github.com:crguezl/vuepress-pl-prototype.git/pl-prototype",
+  "repository": "git@github.com:ULL-MII-SYTWS/vuepress-apuntes.git",
   "scripts": {
     "dev": "vuepress dev src -t src/.vuepress/dev -c src/.vuepress/cache",
-    "raw:dev": "http-server $HOME/campus-virtual/2122/pl2122/pl2122apuntes/docs/src/.vuepress/dist -c-1",
+    "raw:dev": "http-server $HOME/campus-virtual/2223/sytws2223/vuepress-sytws-2223-apuntes/docs/src/.vuepress/dist -c-1",
     "raw:build": "nodemon -w . -e 'vue,md,html,js,json,png,jpeg,jpg' --exec 'node_modules/.bin/vuepress build src'",
     "deb": "vuepress --debug dev src",
     "build": "vuepress build src",
     "deploy": "touch src/.vuepress/dist/.nojekyll; ./deploy.sh",
-    "push": "git ci -am 2122; git push origin; git push pl2122",
-    "push2223": "git ci -am 2223; git push origin; git push pl2223",
+    "push": "git ci -am 2223; git push origin; git push origin main",
+    "push2223": "git ci -am 2223; git push origin; git push sytws2223",
     "save": "npm run push; npm run deploy"
   },
   "license": "MIT",

@@ -15,7 +15,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'PL 21/22',
+  title: 'SYTWS 22/23',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
