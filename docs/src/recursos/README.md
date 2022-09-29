@@ -8,7 +8,7 @@ sidebar: auto
 
 ###  Campus Virtual y UDV
 
-* <a :href="$var.campus_virtual">PL</a>
+* <a :href="$var.campus_virtual">Campus</a>
 * <a :href="$var.participantes">Participantes</a>
 * <a :href="$var.calificador">Calificaciones</a>
 * <a :href="$var.tareas">Tareas</a>

@@ -1,4 +1,4 @@
-// Crguezl: My Jekyll _config.yml file for PL web site
+// Crguezl: My Jekyll _config.yml file for SYTWS web site
 const TemasPublicados = require('./temas-publicados.js')
 
 const navigationBar = [
@@ -63,7 +63,7 @@ const navigationBar = [
       {text: 'Teacher',
         items: [
           {text: 'ULL-MFP-TFM-Y-PCE-2223', link: 'https://github.com/ULL-MFP-TFM-Y-PCE-2223/private'},
-          //{text: 'PL Discussions', link: 'https://github.com/ULL-MII-SYTWS-2223/PL-2223-discussions/discussions'},
+          //{text: 'SYTWS Discussions', link: 'https://github.com/ULL-MII-SYTWS-2223/SYTWS-2223-discussions/discussions'},
           {text: 'Global Campus Teachers', link: 'https://github.com/GitHub-Global-Campus/Global-Campus-Teachers/discussions'},
         ]
       }
@@ -72,23 +72,22 @@ const navigationBar = [
   {
     text: 'Campus Virtual',
     items: [
-      { text:'PL en el Campus Virtual', link: 'https://campusingenieriaytecnologia2122.ull.es/course/view.php?id=2122090039' },
+      { text:'SYTWS en el Campus Virtual', link: 'https://campusdoctoradoyposgrado2223.ull.es/course/view.php?id=2223110630' },
       {text: 'Guía Docente',
        items: [
-         { text: "Guía", link: 'https://www.ull.es/apps/guias/guias/view_guide_course/2122/139263121/'},
+         { text: "Guía", link: 'https://www.ull.es/apps/guias/guias/view_guide_course/2223/835941105/'},
          { text: "Casiano", link: 'https://www.ull.es/apps/guias/guias/view_teacher_niu/798/crguezl/'},
-         { text: "Israel", link: 'https://www.ull.es/apps/guias/guias/view_teacher_niu/798/ilopezpl/'},
-         {text: 'Horario de Tutorías', link: 'https://www.ull.es/apps/guias/guias/view_guide_course/2122/139263121/3/'},
+         {text: 'Horario de Tutorías', link: 'https://www.ull.es/apps/guias/guias/view_guide_course/2223/835941105/3/'},
        ]
       },
       { text: 'Campus',
         items: [
-          { text: 'Participantes', link: "https://campusingenieriaytecnologia2122.ull.es/user/index.php?id=2122090039" },
-          { text: 'Calificador', link: "https://campusingenieriaytecnologia2122.ull.es/grade/report/user/index.php?id=2122090039" },
-          { text: 'Tareas', link: "https://campusingenieriaytecnologia2122.ull.es/mod/assign/index.php?id=2122090039"},
-          { text: 'Foros', link: "https://campusingenieriaytecnologia2122.ull.es/mod/forum/index.php?id=2122090039"},
-          { text: 'Banco de Preguntas', link: "https://campusingenieriaytecnologia2122.ull.es/question/edit.php?courseid=2122090039" },
-          { text: 'Introducción a PL', link: 'https://campusingenieriaytecnologia2122.ull.es/course/view.php?id=2122090039#section-12'}
+          { text: 'Participantes', link: "https://campusdoctoradoyposgrado2223.ull.es/user/index.php?id=2223110630" },
+          { text: 'Calificador', link: "https://campusdoctoradoyposgrado2223.ull.es/grade/report/user/index.php?id=2223110630" },
+          { text: 'Tareas', link: "https://campusdoctoradoyposgrado2223.ull.es/mod/assign/index.php?id=2223110630"},
+          { text: 'Foros', link: "https://campusdoctoradoyposgrado2223.ull.es/mod/forum/index.php?id=2223110630"},
+          { text: 'Banco de Preguntas', link: "https://campusdoctoradoyposgrado2223.ull.es/question/edit.php?courseid=2223110630" },
+          { text: 'Introducción a SYTWS', link: 'https://campusdoctoradoyposgrado2223.ull.es/course/view.php?id=2223110630#section-12'}
         ]
       },
       { 
@@ -98,8 +97,8 @@ const navigationBar = [
           {text: 'Portafirmas', link: 'https://sede.ull.es/ecivilis-signature-inbox-application/inbox.html'},
         ]
       },
-      { text: 'TFG', link: "https://campusingenieriaytecnologia2122.ull.es/grade/report/user/index.php?id=2122090070&userid=254"},
-      { text: 'Campus de Masters', link: "https://campusdoctoradoyposgrado2122.ull.es/my/"},
+      { text: 'TFG', link: "https://campusdoctoradoyposgrado2223.ull.es/grade/report/user/index.php?id=2223090070&userid=254"},
+      { text: 'Campus de Masters', link: "https://campusdoctoradoyposgrado2223.ull.es/my/"},
  
 /*
       <li><a :href="$var.foros" target="_blank">Foros</a></li>
@@ -125,10 +124,10 @@ const navigationBar = [
   }
 ];
 
-const PLinfo = {
+const SYTWSinfo = {
   networks: ['telegram', 'whatsapp', 'email', 'twitter', ],
   "locale": "en-US",
-  "title": "PL",
+  "title": "SYTWS",
   "title_separator": "-",
   "name": "Procesadores de Lenguajes",
   "description": "Itinerario de Computación. 2º cuatrimestre",
@@ -195,14 +194,14 @@ const PLinfo = {
     "master": "https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io/tree/master/"
   },
   "apuntes_repo": "https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io",
-  "campus_virtual": "https://campusingenieriaytecnologia2122.ull.es/course/view.php?id=2122090039",
-  "calificador": "https://campusingenieriaytecnologia2122.ull.es/grade/report/user/index.php?id=2122090039",
-  "participantes": "https://campusingenieriaytecnologia2122.ull.es/user/index.php?id=2122090039",
-  "tareas": "https://campusingenieriaytecnologia2122.ull.es/mod/assign/index.php?id=2122090039",
-  "foros": "https://campusingenieriaytecnologia2122.ull.es/mod/forum/index.php?id=2122090039",
+  "campus_virtual": "https://campusdoctoradoyposgrado2223.ull.es/course/view.php?id=2223110630",
+  "calificador": "https://campusdoctoradoyposgrado2223.ull.es/grade/report/user/index.php?id=2223110630",
+  "participantes": "https://campusdoctoradoyposgrado2223.ull.es/user/index.php?id=2223110630",
+  "tareas": "https://campusdoctoradoyposgrado2223.ull.es/mod/assign/index.php?id=2223110630",
+  "foros": "https://campusdoctoradoyposgrado2223.ull.es/mod/forum/index.php?id=2223110630",
   "profesor": "https://www.ull.es/apps/guias/guias/view_teacher_niu/745/(%3FPcrguezl.*)/",
   "teacher_profile_edit": "https://www.ull.es/apps/guias/teachers/view_profile/",
-  "alu_github": "https://campusingenieriaytecnologia2122.ull.es/mod/assign/view.php?id=21205",
+  "alu_github": "https://campusdoctoradoyposgrado2223.ull.es/mod/assign/view.php?id=21205",
   "udv": "https://udv.ull.es/portal/",
   "profesor_github": "crguezl",
   "chat": "https://chat.google.com/u/1/room/AAAANx1edCg",
@@ -226,7 +225,7 @@ const PLinfo = {
   },
 };
 
-module.exports = PLinfo;
+module.exports = SYTWSinfo;
 
 /*
     sidebar: {
@@ -236,7 +235,7 @@ module.exports = PLinfo;
           collapsable: false,
           children: [
             '',
-            'introducción a PL',
+            'introducción a SYTWS',
           ]
         }
       ],

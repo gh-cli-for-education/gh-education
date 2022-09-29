@@ -1,5 +1,6 @@
 module.exports = [
-    {text: 'Introduction to PL', link:'/temas/introduccion-a-pl/guia-docente.html'},
+    {text: 'Introduction to SYTWS', link:'/temas/introduccion-a-pl/guia-docente.html'},
+    /*
     {text: 'Introduction to Compilers', link: 'https://docs.google.com/presentation/d/1N8h99dXzud9HzH8XY6QCZSmATCAWXtZebuqRTiy8qMU/edit#slide=id.gb7d71a5159_0_1024'},
     {text: 'The Phases  of a Translator', link: '/temas/introduccion-a-pl/esprima.html'},
     {text: "AST transformations", link: '/temas/tree-transformations/'},
@@ -19,13 +20,7 @@ module.exports = [
     {text: "Interpretation of the ASTs", link: "/temas/interpretation/index.html"},
     {text: "jscodeshift", link: "/temas/tree-transformations/jscodeshift"},
     {text: "putout", link: "/temas/tree-transformations/putout"},
-
-    
-
-
-
-
-
+*/ 
 /*
 This has to be the last or the first
 */
