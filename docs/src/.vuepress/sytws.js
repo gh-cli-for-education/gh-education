@@ -32,7 +32,7 @@ const navigationBar = [
         text: 'Horarios',
         items: [  
           { text: 'Google Cal, Cal Acad y Exámenes', link: '/horarios/index.html'},
-          { text: 'Horarios de Tercero', link: 'https://www.ull.es/grados/ingenieria-informatica/informacion-academica/horarios-y-calendario-examenes/#tercero'},
+          { text: 'Horarios del Master', link: 'https://www.ull.es/masteres/ingenieria-informatica/informacion-academica/horarios-y-calendario-examenes/'},
         ],
       },
       {
@@ -185,7 +185,7 @@ const PLinfo = {
   "excerpt_separator": "\n\n",
   "incremental": false,
   "calendario_academico": "https://www.ull.es/estudios-docencia/calendario-academico/",
-  "horarios_tercero": "https://www.ull.es/grados/ingenieria-informatica/informacion-academica/horarios-y-calendario-examenes/#tercero",
+  "horarios_master": "https://www.ull.es/masteres/ingenieria-informatica/informacion-academica/horarios-y-calendario-examenes/",
   "horarios_tutorias": "https://www.ull.es/apps/guias/guias/view_guide/24127/",
   "cita_previa": "https://calendar.google.com/calendar/u/0/selfsched?sstoken=UUd1YlJSLURtcE5JfGRlZmF1bHR8ZmNiMWNmMTE4MjNjNzk1MWQwZGQyYTI4ZjZjYjZjY2E",
   "google_plus": "https://currents.google.com/u/1/communities/101901734024125937720",
