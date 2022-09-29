@@ -1,11 +1,10 @@
-
 ## Horarios, Calendario académico y Tutorías
 
 * [Horarios, Calendario académico y Tutorías](/horarios)
 
 ### Vías de Comunicación
 
-* Usaremos la organización GitHub ULL-ESIT-PL-2122 y los Issues en GitHub en el repo de la correspondiente práctica. 
+* Usaremos la organización GitHub {{ $var.organization.name }} y los Issues en GitHub en el repo de la correspondiente práctica. 
 * Asociarlos con el GitHub Project Board del alumno y actualizarlos según su progreso
 <!--* [Google group de PL ](https://groups.google.com/u/1/a/ull.edu.es/g/asignatura_139263121)-->
 <!--* [GitHub Discussions in the repo ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io](https://github.com/ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io/discussions)-->
@@ -19,14 +18,14 @@
 
 ### Rellenar Cuestionario 
 
-Rellena el Cuestionario <a href="https://campusingenieriaytecnologia2122.ull.es/mod/assign/view.php?id=21205">Relación GitHub-AluXXXX</a>.  
+Rellena el Cuestionario: <a :href="$frontmatter.cuestionario">Relación GitHub-AluXXXX</a>.  
 
 * Puedes poner un correo distinto del de la ULL si lo prefieres
 * Pon los usuarios GitHub (si tienes mas de uno) con los que vayas a hacer los commits en las prácticas de la asignatura
 
-### Google Plus: Comunidad PL
+### Comunidad {{ $var.organization.name }} 
 
-Date de alta en la comunidad <a :href="$var.google_plus">Google + de PL</a>. 
+Date de alta en la comunidad <a :href="$var.google_plus">de {{ $var.organization.name }}</a>. 
 
 ::: tip
 * Cuando lo hagas asegúrate de estar usando tu cuenta de gmail ull (*aluXXX@ull.edu.es*)

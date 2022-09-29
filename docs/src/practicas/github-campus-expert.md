@@ -41,7 +41,7 @@ Es un equipo individual.
 Estas son las tareas a realizar:
 
 1. Rellene el cuestionario GitHub-Alu
-2. Hágase miembro de la comunidad Currents/G+ de PL (deberá estar autenticado con el gmail de la ULL)
+2. Date de alta en la comunidad <a :href="$var.google_plus" target="_blank">de {{ $var.organization.name }}</a> (deberás estar autenticado con el gmail de la ULL)
 3. Cree un project board kanban automated asociado al repo de la asignación. Rellene la columna TODO con los requisitos de la práctica. 
    * Véase también [GitHub Docs: About project boards](https://docs.github.com/en/github/managing-your-work-on-github/about-project-boards)
 4. Considere la posibilidad de [realizar el curso *Become a Campus Expert*](https://githubcampus.expert/training) de GitHub. Puede no hacerlo si no lo considera oportuno.

@@ -187,7 +187,7 @@ const SYTWSinfo = {
   "horarios_master": "https://www.ull.es/masteres/ingenieria-informatica/informacion-academica/horarios-y-calendario-examenes/",
   "horarios_tutorias": "https://www.ull.es/apps/guias/guias/view_guide/24127/",
   "cita_previa": "https://calendar.google.com/calendar/u/0/selfsched?sstoken=UUd1YlJSLURtcE5JfGRlZmF1bHR8ZmNiMWNmMTE4MjNjNzk1MWQwZGQyYTI4ZjZjYjZjY2E",
-  "google_plus": "https://currents.google.com/u/1/communities/101901734024125937720",
+  "google_plus": "https://currents.google.com/u/1/communities/104629784252354892324",
   "organization": {
     "url": "https://github.com/ULL-MII-SYTWS-2223",
     "name": "ULL-MII-SYTWS-2223",
