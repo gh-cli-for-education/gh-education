@@ -1,5 +1,6 @@
 // Crguezl: My Jekyll _config.yml file for PL web site
 const TemasPublicados = require('./temas-publicados.js')
+
 const navigationBar = [
   {
     text: 'Clases',
@@ -44,25 +45,25 @@ const navigationBar = [
     text: 'GitHub',
     items: [
       {
-        text: "ULL-ESIT-PL-2122",
+        text: "ULL-MII-SYTWS-2223",
         items: [
-          {text: 'Organization', link: 'https://github.com/ULL-ESIT-PL-2122'},
-          {text: 'Teams', link: 'https://github.com/orgs/ULL-ESIT-PL-2122/teams'},
-          {text: 'Projects', link: 'https://github.com/orgs/ULL-ESIT-PL-2122/projects'},
-          {text: 'Classroom', link: 'https://classroom.github.com/classrooms/90842648-ull-esit-pl-2122'},
+          {text: 'Organization', link: 'https://github.com/ULL-MII-SYTWS-2223'},
+          {text: 'Teams', link: 'https://github.com/orgs/ULL-MII-SYTWS-2223/teams'},
+          {text: 'Projects', link: 'https://github.com/orgs/ULL-MII-SYTWS-2223/projects'},
+          {text: 'Classroom', link: 'https://classroom.github.com/classrooms/108465218-ull-mii-sytws-2223'},
         ]    
       },
       {text: 'Apuntes Repo', 
         items: [
-        { text: 'Deploy at GH', link: 'https://github.com/ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io'},
-        { text: "Deploy at netlify", link: 'https://fervent-swirles-a16008.netlify.app/'},
-        { text: 'Source', link: 'https://github.com/ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io-source'}
+        { text: 'Deploy at GH', link: 'https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io'},
+        //{ text: "Deploy at netlify", link: 'https://fervent-swirles-a16008.netlify.app/'},
+        { text: 'Source', link: 'https://github.com/ULL-MII-SYTWS/vuepress-apuntes'}
         ]
       },
       {text: 'Teacher',
         items: [
-          {text: 'ULL-MFP-TFM-Y-PCE-2122', link: 'https://github.com/ULL-MFP-TFM-Y-PCE-2122/private'},
-          //{text: 'PL Discussions', link: 'https://github.com/ULL-ESIT-PL-2122/PL-2122-discussions/discussions'},
+          {text: 'ULL-MFP-TFM-Y-PCE-2223', link: 'https://github.com/ULL-MFP-TFM-Y-PCE-2223/private'},
+          //{text: 'PL Discussions', link: 'https://github.com/ULL-MII-SYTWS-2223/PL-2223-discussions/discussions'},
           {text: 'Global Campus Teachers', link: 'https://github.com/GitHub-Global-Campus/Global-Campus-Teachers/discussions'},
         ]
       }
@@ -108,10 +109,10 @@ const navigationBar = [
   {
     text: 'Google',
     items: [
-      {text: 'Meet', link: 'https://meet.google.com/eha-yfij-zmo'},
+      {text: 'Meet', link: 'https://meet.google.com/bhv-togn-ynm'},
       {text: 'Chat', link: 'https://mail.google.com/chat/u/1/#chat/welcome'},
-      {text: 'Spreadsheets', link: 'https://docs.google.com/spreadsheets/u/1/?tgif=d'},
-      {text: 'Community', link: 'https://currents.google.com/u/0/communities/101901734024125937720'},
+      {text: 'Spreadsheets', link: 'https://docs.google.com/spreadsheets/d/1aSoJX0QO9gTsGmK_TUXbiNTlBj8Ka4IEJQwJYkY6x5s/edit#gid=1724628448'},
+      {text: 'Community', link: 'https://currents.google.com/u/1/communities/104629784252354892324' },
       {
         text: 'Vídeos', 
         items: [
@@ -133,7 +134,7 @@ const PLinfo = {
   "description": "Itinerario de Computación. 2º cuatrimestre",
   "url": null,
   "baseurl": "",
-  "repository": "ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io",
+  "repository": "ULL-MII-SYTWS/ull-mii-sytws.github.io",
   "teaser": null,
   "logoLightBackground": "/images/escuela-politecnica-ingenieria-original.png",
   "logoDarkBackground": "/images/escuela-politecnica-ingenieria-positivo.png",
@@ -189,11 +190,11 @@ const PLinfo = {
   "cita_previa": "https://calendar.google.com/calendar/u/0/selfsched?sstoken=UUd1YlJSLURtcE5JfGRlZmF1bHR8ZmNiMWNmMTE4MjNjNzk1MWQwZGQyYTI4ZjZjYjZjY2E",
   "google_plus": "https://currents.google.com/u/1/communities/101901734024125937720",
   "organization": {
-    "url": "https://github.com/ULL-ESIT-PL-2122",
-    "name": "ULL-ESIT-PL-2122",
-    "master": "https://github.com/ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io/tree/master/"
+    "url": "https://github.com/ULL-MII-SYTWS-2223",
+    "name": "ULL-MII-SYTWS-2223",
+    "master": "https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io/tree/master/"
   },
-  "apuntes_repo": "https://github.com/ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io",
+  "apuntes_repo": "https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io",
   "campus_virtual": "https://campusingenieriaytecnologia2122.ull.es/course/view.php?id=2122090039",
   "calificador": "https://campusingenieriaytecnologia2122.ull.es/grade/report/user/index.php?id=2122090039",
   "participantes": "https://campusingenieriaytecnologia2122.ull.es/user/index.php?id=2122090039",
@@ -210,7 +211,7 @@ const PLinfo = {
   "covid_ull": "https://campusvirtual.ull.es/doctoradoyposgrado/course/view.php?id=201913946",
   "turnitin": "https://docs.google.com/forms/d/e/1FAIpQLSfEyKnNYAXH5lH9eTh6de6qu5dP-lp33ul4QE8PrFLqeXT66A/viewform",
   "dsi": {
-    "apuntes": "https://ull-esit-dsi-1819.github.io/dsi-1819/"
+    "apuntes": "https://ull-mii-dsi-1819.github.io/dsi-1819/"
   },
   "sytws": {
     "url": "https://ull-mii-sytws-1920.github.io/"
@@ -220,8 +221,8 @@ const PLinfo = {
     "comments": true
   },
   "classroom": {
-    "url": "https://classroom.github.com/classrooms/90842648-ull-esit-pl-2122",
-    "name": "ULL-ESIT-PL-2122"
+    "url": "https://classroom.github.com/classrooms/108465218-ull-mii-sytws-2223",
+    "name": "ULL-MII-SYTWS-2223"
   },
 };
 

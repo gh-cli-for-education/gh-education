@@ -1,5 +1,5 @@
 const { description } = require('../../package')
-const PLVariables = require('./pl')
+const SYTWSVariables = require('./sytws')
 const path = require('path');
 const includesPath = path.join(__dirname, '..');
 console.error(includesPath);
@@ -76,7 +76,7 @@ module.exports = {
       
     },
     // displayAllHeaders: true, // Default: false
-    nav: PLVariables.nav, 
+    nav: SYTWSVariables.nav, 
   },
 
   /**
@@ -86,7 +86,7 @@ module.exports = {
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
     [ '@vuepress/last-updated',  { transformer: ComputeTime } ],
-    ['vuepress-plugin-global-variables',   {  variables: PLVariables  } ],
+    ['vuepress-plugin-global-variables',   {  variables: SYTWSVariables  } ],
     ['vuepress-plugin-mathjax',  { target: 'svg',   macros: { '*': '\\times',  },  },  ],
     ['vuepress-plugin-code-copy',  {
       /* selector: "pre", */
@@ -97,7 +97,7 @@ module.exports = {
       successText: String*/
       }],
     [ '@saintic/utterances',  {
-            repo: 'ULL-ESIT-GRADOII-PL/ull-esit-gradoii-pl.github.io',
+            repo: 'ULL-MII-SYTWS/ull-mii-sytws.github.io',
             theme: 'github-light',
             issueTerm: 'pathname'
       }
@@ -107,7 +107,7 @@ module.exports = {
     [
       'social-share',
       {
-        networks: PLVariables.networks,
+        networks: SYTWSVariables.networks,
         email: 'crguezl@ull.edu.es',
         twitterUser: 'crguezl',
         fallbackImage: '/favicon-32x32.png',
