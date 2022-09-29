@@ -1,6 +1,6 @@
 ---
 sidebar: false
-prev: ../introduccion-a-pl/guia-docente.html
+prev: ../introduccion/guia-docente.html
 ---
 # Introducción a la Asignatura
 

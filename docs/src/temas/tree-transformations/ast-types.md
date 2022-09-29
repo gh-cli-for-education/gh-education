@@ -181,13 +181,13 @@ console.log(deb(yAssignmentExpression.node));
 ➜  hello-ast-types git:(master) ✗ node --inspect-brk hello-ast-types.js 
 ```
 
-1. [Code of deb.js](/temas/introduccion-a-pl/code-examples/deb-js)
+1. [Code of deb.js](/temas/introduccion/code-examples/deb-js)
 
 
-<<< @/src/temas/introduccion-a-pl/code-examples/deb.js
+<<< @/src/temas/introduccion/code-examples/deb.js
 
-2. Output of [console.log(deb(programPath.node));](/temas/introduccion-a-pl/code-examples/xeq1yeq2-json)
-3. Outputs of [console.log(deb(xAssignmentExpression.node));](/temas/introduccion-a-pl/code-examples/xAssignmentExpresson-node)
+2. Output of [console.log(deb(programPath.node));](/temas/introduccion/code-examples/xeq1yeq2-json)
+3. Outputs of [console.log(deb(xAssignmentExpression.node));](/temas/introduccion/code-examples/xAssignmentExpresson-node)
 
 ## path.parentPath
 

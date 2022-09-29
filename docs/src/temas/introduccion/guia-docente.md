@@ -3,4 +3,4 @@ title: Organización de la Asignatura
 next: what-is-pl-about
 ---
 
-!!!include(temas/introduccion-a-pl/presentacion.md)!!!
+!!!include(temas/introduccion/presentacion.md)!!!
