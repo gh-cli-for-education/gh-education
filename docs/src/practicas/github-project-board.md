@@ -4,6 +4,7 @@ date: "2022/10/03 02"
 delivery: "2022/10/13"
 published: true
 layout: Practica
+key: github-project-board
 order: 3
 prev: github-campus-expert.md
 next: visual-studio-code.html
