@@ -37,10 +37,11 @@ Es un equipo individual.
   * Los equipos son de un sólo miembro.
 :::
 
-Una vez ha sido creado el repositorio de trabajo a partir del <a :href="$frontmatter.template" target="_blank">template</a>, puede editarlo usando [codespaces](/temas/introduccion-a-javascript/codespaces)
+Una vez que GitHub Classroom ha creado el repositorio de trabajo del alumno  para la entrega a partir del <a :href="$frontmatter.template" target="_blank">template</a> especificado por el profesor, el alumno puede editarlo usando [codespaces](/temas/introduccion-a-javascript/codespaces)
 
 ![](/images/codespaces-new-label.png)
 
+Haciendo click en la etiqueta *"Create Codespace on main"*  se abrirá un contenedor en la nube de azure conteniendo una copia de trabajo  del repositorio del alumno.
 
 ## Tareas 
 
