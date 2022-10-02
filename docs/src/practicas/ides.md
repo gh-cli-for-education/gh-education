@@ -3,7 +3,7 @@ title: CodeSpaces, GitPod and Visual Studio Code
 published: true
 date: "2022/10/03 03"
 delivery: "2022/10/13"
-
+key: editors
 layout: Practica
 order: 4
 prev: github-project-board.md
