@@ -7,7 +7,7 @@ layout: Practica
 key: github-project-board
 order: 3
 prev: github-campus-expert.md
-next: visual-studio-code.html
+next: ides.html
 rubrica:
   - "Proyecto Kanban creado a nivel de Organización"
   - "Lo estoy usando para informar del avance en mis prácticas"

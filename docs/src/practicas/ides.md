@@ -1,5 +1,5 @@
 ---
-title: CodeSpaces, GitPod and Visual Studio Code
+title: IDEs based on Visual Studio Code
 published: true
 date: "2022/10/03 03"
 delivery: "2022/10/13"

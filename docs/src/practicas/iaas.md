@@ -5,7 +5,7 @@ published: true
 date: "2022/10/03 04"
 delivery: "2022/10/13"
 
-prev: "visual-studio-code.md"
+prev: "ides.md"
 next: # esprima-logging.md
 order: 5
 rubrica:
