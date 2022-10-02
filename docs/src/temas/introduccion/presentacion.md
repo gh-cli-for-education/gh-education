@@ -23,7 +23,7 @@ Rellena el Cuestionario: <a :href="$frontmatter.cuestionario">Relación GitHub-A
 * Puedes poner un correo distinto del de la ULL si lo prefieres
 * Pon los usuarios GitHub (si tienes mas de uno) con los que vayas a hacer los commits en las prácticas de la asignatura
 
-### Comunidad {{ $var.organization.name }} 
+### Comunidad
 
 Date de alta en la comunidad <a :href="$var.google_plus">de {{ $var.organization.name }}</a>. 
 
