@@ -1,7 +1,7 @@
 ---
 title: GitHub-AluXXXX Form
-date: "2022/02/14 00:50"
-delivery: "2022/02/17"
+date: "2022/10/03 00:50"
+delivery: "2022/10/10"
 layout: Practica
 order: 1
 kind: "task"

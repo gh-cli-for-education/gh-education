@@ -1,12 +1,13 @@
 ---
 title: GitHub Campus Expert
-date: "2022/02/14 01"
-delivery: "2022/02/18"
+date: "2022/10/03 01"
+delivery: "2022/10/13"
 order: 2
 layout: Practica
 prev: github-alu-form.md
 next: github-project-board.html
 published: true
+template: "https://github.com/ULL-MII-SYTWS/github-campus-expert-template"
 rubrica:
   - "Rellenado cuestionario GitHub-Alu"
   - "Miembro de la comunidad Currents/G+"
@@ -35,6 +36,11 @@ Es un equipo individual.
   * Use SnakeCase si su nombre es compuesto p.ej. "Ana María González de Pérez" es `ana_maria-gonzalez-de_perez-alu010034789`. 
   * Los equipos son de un sólo miembro.
 :::
+
+Una vez ha sido creado el repositorio de trabajo a partir del <a :href="$frontmatter.template" target="_blank">template</a>, puede editarlo usando [codespaces](/temas/introduccion-a-javascript/codespaces)
+
+![](/images/codespaces-new-label.png)
+
 
 ## Tareas 
 

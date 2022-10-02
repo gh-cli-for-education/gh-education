@@ -1,14 +1,15 @@
 ---
-title: GitPod and Visual Studio Code
+title: CodeSpaces, GitPod and Visual Studio Code
 published: true
-date: "2022/02/14 03"
-delivery: "2022/02/18"
+date: "2022/10/03 03"
+delivery: "2022/10/13"
 
 layout: Practica
 order: 4
 prev: github-project-board.md
 next: iaas.html
 rubrica:
+  - Codespaces configurado
   - "GitPod: dado de alta e informe correcto"
   - "Instalado botón gitpod en su browser"
   - "Ha usado gitpod: <i>Open in VSCode</i>"
@@ -19,6 +20,7 @@ rubrica:
 ---
 
 # {{ $frontmatter.title }}
+
 
 ## Objetivos
 

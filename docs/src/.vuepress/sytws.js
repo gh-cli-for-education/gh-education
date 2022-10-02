@@ -129,7 +129,7 @@ const SYTWSinfo = {
   "locale": "en-US",
   "title": "SYTWS",
   "title_separator": "-",
-  "name": "Procesadores de Lenguajes",
+  "name": "Sistemas y Tecnologías Web en el Servidor",
   "description": "Itinerario de Computación. 2º cuatrimestre",
   "url": null,
   "baseurl": "",
