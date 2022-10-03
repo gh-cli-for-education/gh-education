@@ -49,12 +49,8 @@ Date de alta en la comunidad <a :href="$var.google_plus">de {{ $var.organization
 
 ## La Bibliografía
 
-La mayor parte de los [libros](/references) están accesible via el [PuntoQ de la BULL](/recursos/#bull).
+La mayor parte de los [libros](/referencias) están accesible via el [PuntoQ de la BULL](/recursos/#bull).
 
-Usaremos bastante estos libros:
-
-* [Eloquent JS 3rd Edition](https://eloquentjavascript.net/)
-* [The Modern JavaScript Tutorial. https://javascript.info/](https://javascript.info/)
 
 ## Contenidos
 
@@ -114,6 +110,3 @@ El alumnado puede obtener una calificación entre 0 y  10 puntos.
 * [Modificación del Máster Universitario en Ingeniería Informática (2019)](https://drive.google.com/file/d/1WgfkehRpR4Uom_Qv-xMXhHx23_0qGyuo/view)
 
 
-## Referencias
-
-* [GitHub Classroom Intro](github-classroom)
