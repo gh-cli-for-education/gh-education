@@ -18,10 +18,6 @@ const navigationBar = [
     text: 'Context',
     items: [
       {
-        text: '\u2442 ASTexplorer',
-        link: 'https://astexplorer.net/'
-      },      
-      {
         text: 'Recursos',
         items: [
             { text: "ULL", link: '/recursos/index.html/#recursos-ull'},
