@@ -56,10 +56,21 @@ Usaremos bastante estos libros:
 * [Eloquent JS 3rd Edition](https://eloquentjavascript.net/)
 * [The Modern JavaScript Tutorial. https://javascript.info/](https://javascript.info/)
 
+## Contenidos
+
+En la página 21 del documento de [Modificación del Máster Universitario en Ingeniería Informática (2019)](https://drive.google.com/file/d/1WgfkehRpR4Uom_Qv-xMXhHx23_0qGyuo/view)
+puede verse:
+
+![contenidos-sytws-modifica-2019](/images/contenidos-sytws-modifica-2019.png)
 
 ## Evaluación 
 
-La Evaluación de la asignatura se rige por el [Reglamento de evaluacion y calificacion](https://www.ull.es/portal/normativa/normativa/nuevo-reglamento-de-evaluacion-y-calificacion-de-la-universidad-de-la-laguna)   (REC) que la Universidad tenga vigente, además de por lo establecido en la Memoria de Verificación inicial o posteriores modificaciones.
+La Evaluación de la asignatura se rige por el [Reglamento de evaluacion y calificacion](https://www.ull.es/portal/normativa/normativa/nuevo-reglamento-de-evaluacion-y-calificacion-de-la-universidad-de-la-laguna)   (REC) o el que la Universidad tenga vigente, además de por lo establecido en la Memoria de Verificación inicial o posteriores modificaciones.
+
+En la página 23 del documento de [Modificación del Máster Universitario en Ingeniería Informática (2019)](https://drive.google.com/file/d/1WgfkehRpR4Uom_Qv-xMXhHx23_0qGyuo/view)
+puede verse:
+
+![sistema de evaluación modifica 2019](/images/sistema-de-evaluacion-modifica-2019.png)
 
 Es obligatorio asistir a las clases presenciales y hacer uso de los foros y tutorías tanto presenciales como virtuales así como realizar los ejercicios y actividades marcados como obligatorios.
 
@@ -77,8 +88,6 @@ El alumnado puede obtener una calificación entre 0 y  10 puntos.
 * Se mantiene la modalidad de evaluación contínua en todas las convocatorias. 
 * Si un estudiante no supera una de las partes deberá superarlas en las siguientes convocatorias. 
 * Se le guardarán al alumno las partes que tenga superadas  y las pruebas de la segunda convocatoria tendrán en cuenta los contextos posibles.
-
-Según el Artículo 4.7 del REC, "se entenderá agotada la convocatoria desde que el alumnado se presente, al menos, a las actividades cuya ponderación compute el 50% de la evaluación continua, salvo en los casos recogidos en el Artículo 5.5".  Una vez realizado cualquier conjunto de actividades cuya suma de ponderaciones alcance el 50%  la calificación en el acta no podrá ser "No presentado".
 
 
 * Según el Artículo 4.7 del REC, 
@@ -102,7 +111,7 @@ Según el Artículo 4.7 del REC, "se entenderá agotada la convocatoria desde qu
 * [Normativas de la ULL para el estudiantado](https://www.ull.es/portal/normativa/estudiantes/)
 * [Estructura del Plan de Estudios](https://www.ull.es/grados/ingenieria-informatica/plan-de-estudios/estructura-del-plan-de-estudios/)
 * [Distribución temporal de las materias y asignaturas obligatorias del itinerario 4 de Tecnología Específica: Sistemas de Información](https://drive.google.com/file/d/1zo-xNyfhotrraVDc66ACPrLSkJlHjQgK/view)
-* [Memoria de modificación del Grado en Ingeniería Informática (2015)](https://drive.google.com/open?id=1B0iU3svFd27UVgXHvh36iFXAYQh0RxXM)
+* [Modificación del Máster Universitario en Ingeniería Informática (2019)](https://drive.google.com/file/d/1WgfkehRpR4Uom_Qv-xMXhHx23_0qGyuo/view)
 
 
 ## Referencias
