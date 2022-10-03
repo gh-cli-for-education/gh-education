@@ -94,7 +94,7 @@ El alumnado puede obtener una calificación entre 0 y  10 puntos.
 
   > "se entenderá **agotada la convocatoria** desde que el alumnado se presente, al menos, a las actividades cuya ponderación compute el 50% de la evaluación continua, salvo en los casos recogidos en el Artículo 5.5".  
 
-  Una vez realizado cualquier conjunto de actividades cuya suma de ponderaciones alcance el 50%  (esto es, cuando se superan los 34 puntos) la calificación en el acta no podrá ser **"No presentado"**
+  Una vez realizado cualquier conjunto de actividades cuya suma de ponderaciones alcance el 50% la calificación en el acta no podrá ser **"No presentado"**
 * Según el Artículo 4.4 del REC, 
 
   > "todo el alumnado está sujeto a evaluación continua en la primera convocatoria de la asignatura, salvo quienes se acojan a la evaluación única según se dispone en el Artículo 5.4". 
