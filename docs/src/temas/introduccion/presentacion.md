@@ -109,8 +109,8 @@ El alumnado puede obtener una calificación entre 0 y  10 puntos.
 
 * [Reglamento de evaluacion y calificacion](https://www.ull.es/portal/normativa/normativa/nuevo-reglamento-de-evaluacion-y-calificacion-de-la-universidad-de-la-laguna/)
 * [Normativas de la ULL para el estudiantado](https://www.ull.es/portal/normativa/estudiantes/)
-* [Estructura del Plan de Estudios](https://www.ull.es/grados/ingenieria-informatica/plan-de-estudios/estructura-del-plan-de-estudios/)
-* [Distribución temporal de las materias y asignaturas obligatorias del itinerario 4 de Tecnología Específica: Sistemas de Información](https://drive.google.com/file/d/1zo-xNyfhotrraVDc66ACPrLSkJlHjQgK/view)
+* [Estructura del Plan de Estudios](https://www.ull.es/masteres/ingenieria-informatica/plan-de-estudios/estructura-del-plan-de-estudios/)
+  - ![](/images/estructura-del-plan-de-estudios.png)
 * [Modificación del Máster Universitario en Ingeniería Informática (2019)](https://drive.google.com/file/d/1WgfkehRpR4Uom_Qv-xMXhHx23_0qGyuo/view)
 
 
