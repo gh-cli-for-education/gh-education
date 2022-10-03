@@ -53,7 +53,8 @@ const navigationBar = [
         items: [
         { text: 'Deploy at GH', link: 'https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io'},
         //{ text: "Deploy at netlify", link: 'https://fervent-swirles-a16008.netlify.app/'},
-        { text: 'Source', link: 'https://github.com/ULL-MII-SYTWS/vuepress-apuntes'}
+        { text: 'Source', link: 'https://github.com/ULL-MII-SYTWS/vuepress-apuntes'},
+        { text: 'Generated repo', link: 'https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io' }
         ]
       },
       {text: 'Teacher',
@@ -94,7 +95,10 @@ const navigationBar = [
         ]
       },
       { text: 'TFG', link: "https://campusdoctoradoyposgrado2223.ull.es/grade/report/user/index.php?id=2223090070&userid=254"},
-      { text: 'Campus de Masters', link: "https://campusdoctoradoyposgrado2223.ull.es/my/"},
+      { text: 'Campus de Masters', link: "https://campusdoctoradoyposgrado2223.ull.es/"},
+      { text: 'Campus de ESIT', link: "https://campusingenieriaytecnologia2223.ull.es/"},
+      { text: "DMSI", link: "https://campusingenieriaytecnologia2223.ull.es/course/view.php?id=2223090033"},
+      { text: "AET", link: "https://campusdoctoradoyposgrado2223.ull.es/course/view.php?id=2223110052"}
  
 /*
       <li><a :href="$var.foros" target="_blank">Foros</a></li>

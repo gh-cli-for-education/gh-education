@@ -50,8 +50,7 @@ module.exports = {
   //theme: 'default-prefers-color-scheme',
   themeConfig: {
     //overrideTheme: 'dark',
-    logo: '/favicon-32x32.png',
-    repo: '',
+    logo: '/favicon.ico',
     editLinks: false,
     docsDir: '',
     editLinkText: '',
