@@ -42,9 +42,9 @@ El máster contempla un 50% de no presencialidad y las clases de teoría (Grupos
 * Semana B: 
     * Lunes de 17 a 17:50. Grupo G2. [Telemático][meet]
     * Miércoles 
-        * de 16 a 16:50. Grupo G2. Sala 1.3
-        * de 17 a 17:50. Grupo G2. Sala 1.3
-        * de 18 a 18:50. Grupo G2. Sala 1.3
+        * de 16 a 16:50. Grupo PA101. Sala 1.3
+        * de 17 a 17:50. Grupo PA101. Sala 1.3
+        * de 18 a 18:50. Grupo PA101. Sala 1.3
 * Semana C: Lunes de 17 a 17:50. Grupo G2. [Telemático][meet]
 
 [meet]: https://meet.google.com/bhv-togn-ynm
