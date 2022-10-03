@@ -56,6 +56,7 @@ Estas son las tareas a realizar:
    * ... The training itself has a six-week timeline where you’ll be able to analyze your community and learn community leadership skills, —like public speaking, technical writing, and software development, as well as —and write a community proposal. [Introducing the New (and Improved!) Campus Experts Program](https://github.blog/2020-12-10-introducing-the-new-and-improved-campus-experts-program/) 2020-12-10
 5. Considere la posibilidad de solicitar su [Student Developer Pack](https://education.github.com/pack) 
 6. Considere la posibilidad de [solicitar una GitHub Internship](https://internships.github.com/). Si está cerrada puede subscríbirse para recibir las actualizaciones
+3. Haga la práctica [GitHub Project Board](/practicas/github-project-board.html). Cree un project board kanban automated asociado al repo de la asignación. Rellene la columna `TODO` con los requisitos de la práctica. 
 7. En todas las entregas de prácticas en el Campus de la asignatura deberá poner
    1. El enlace al repo de entrega en GitHub
    2. En todas las prácticas, siempre que ocupe menos de la capacidad admitida por el servidor Moodle, deberá adjuntar el repo en formato zip. En GH vaya a `code`y de ahí a:
