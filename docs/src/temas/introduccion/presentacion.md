@@ -59,6 +59,28 @@ Usaremos bastante estos libros:
 
 ## Evaluación 
 
+La Evaluación de la asignatura se rige por el Reglamento de Evaluación y Calificación  (REC) que la Universidad tenga vigente, además de por lo establecido en la Memoria de Verificación inicial o posteriores modificaciones.
+
+Es obligatorio asistir a las clases presenciales y hacer uso de los foros y tutorías tanto presenciales como virtuales así como realizar los ejercicios y actividades marcados como obligatorios.
+
+El sistema de evaluación de la asignatura incluye:
+
+* Pruebas objetivas que constituye el 30% de la calificación y
+* Trabajos y Proyectos que constituye el 40% de la calificación
+* Informes y Memorias que constituye el 30% de la calificación
+
+En caso de no superar la evaluación continua, después de finalizar las clases del semestre el alumno dispondrá del examen de la parte práctica de la asignatura en los períodos de exámenes oficiales, con las convocatorias fijadas por la Universidad.  
+
+La evaluación única consiste en un examen en el que se valoran los conocimientos, resultados de aprendizaje  y competencias. 
+El alumnado puede obtener una calificación entre 0 y  10 puntos.
+
+* Se mantiene la modalidad de evaluación contínua en todas las convocatorias. 
+* Si un estudiante no supera una de las partes deberá superarlas en las siguientes convocatorias. 
+* Se le guardarán al alumno las partes que tenga superadas  y las pruebas de la segunda convocatoria tendrán en cuenta los contextos posibles.
+
+Según el Artículo 4.7 del REC, "se entenderá agotada la convocatoria desde que el alumnado se presente, al menos, a las actividades cuya ponderación compute el 50% de la evaluación continua, salvo en los casos recogidos en el Artículo 5.5".  Una vez realizado cualquier conjunto de actividades cuya suma de ponderaciones alcance el 50%  la calificación en el acta no podrá ser "No presentado".
+
+Según el Artículo 4.4 del REC, "todo el alumnado está sujeto a evaluación continua en la primera convocatoria de la asignatura, salvo quienes se acojan a la evaluación única según se dispone en el Artículo 5.4". Según 5.4: "El alumnado podrá optar a la evaluación única en una o varias de sus asignaturas matriculadas, comunicándolo al coordinador o coordinadora correspondiente, a través del procedimiento habilitado en el aula virtual de la misma, en el plazo de un mes a partir del inicio del cuatrimestre correspondiente": Se habilitará en el aula virtual una tarea al efecto con plazo de un mes, permitiendo entregas posteriores solo por circunstancias sobrevenidas derivadas, tales como enfermedad grave, accidente o incompatibilidad de la jornada laboral.
 ### Normativa de Evaluación
 
 La Evaluación de la asignatura se rige por el Reglamento de Evaluación y Calificación de la Universidad de La Laguna (BOC de 19 de enero de 2016), o el que la Universidad tenga vigente, además de por lo establecido en la Memoria de Verificación inicial o posteriores modificaciones.
@@ -69,36 +91,6 @@ de enero de 2016)](https://riull.ull.es/xmlui/bitstream/handle/915/4096/reglamen
 * [Acuerdo 12/CG 27-06-2017 por el que se aprueba el Reglamento de la
 Evaluación Curricular por Compensación de la Universidad de La Laguna](https://riull.ull.es/xmlui/bitstream/handle/915/8580/acuerdo12.pdf?sequence=1&isAllowed=y)
 
-### Requisitos para participar en la Evaluación Continua
-
-* Para participar en la evaluación continua, es obligatorio hacer uso de los recursos proveídos (apuntes, vídeos, repositorios, foros, wikis, etc.) y realizar los ejercicios y actividades señaladas como obligatorios. Se realizará control de asistencia.
-
-* El alumno deberá demostrar que ha adquirido las habilidades y competencias de la asignatura en entrevistas con los profesores que se realizan en las horas lectivas, de laboratorio, de tutorías y en los micro-exámenes. 
-
-### Pruebas Objetivas 
-
-Haremos un primer examen a mitad del desarrollo del cuatrimestre y otro al final aprovechando las fechas de convocatoria.
-
-El primero es el 20% de la nota  y el segundo el 80% de la nota. Es necesario aprobar esta parte para superar la asignatura. 
-
-### Trabajos y proyectos, Informes y Valoración
-
-* Se llevarán a cabo micro-proyectos/prácticas/laboratorios. Los estudiantes deberán superar los micro-proyectos para aprobar la asignatura. Son apróximadamente 15 prácticas.
-
-#### TFA
-
-* Se desarrolla un Trabajo Fin de Asignatura (TFA) consistente en el diseño e implementación de un lenguaje (en algunos casos, un lenguaje de dominio específico, Domain Specific Language o DSL) que se presenta al final del curso. El proyecto se comienza tan pronto como el estudiante tiene los conocimientos mínimos para diseñarlo e implantarlo. Es necesario superar el proyecto para aprobar la asignatura.
-
-### Cálculo de la Calificación
-
-* Superadas las partes: prácticas, tfa y teoría  la nota es la media ponderada de las partes:
-  $$0,4 \times practicas + 0,5 \times teoria + 0,1 \times tfa$$
-
-<img src="/images/evaluacion.png" />
-
-### Alumnos que no participan en la Evaluación Continua
-
-* Los estudiantes que no participen en la evaluación continua se evalúan a través de los exámenes oficiales y convocatorias fijados por la Universidad de La Laguna.
 
 ## Referencias
 
