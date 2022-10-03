@@ -59,7 +59,7 @@ Usaremos bastante estos libros:
 
 ## Evaluación 
 
-La Evaluación de la asignatura se rige por el Reglamento de Evaluación y Calificación  (REC) que la Universidad tenga vigente, además de por lo establecido en la Memoria de Verificación inicial o posteriores modificaciones.
+La Evaluación de la asignatura se rige por el [Reglamento de evaluacion y calificacion](https://www.ull.es/portal/normativa/normativa/nuevo-reglamento-de-evaluacion-y-calificacion-de-la-universidad-de-la-laguna)   (REC) que la Universidad tenga vigente, además de por lo establecido en la Memoria de Verificación inicial o posteriores modificaciones.
 
 Es obligatorio asistir a las clases presenciales y hacer uso de los foros y tutorías tanto presenciales como virtuales así como realizar los ejercicios y actividades marcados como obligatorios.
 
@@ -80,16 +80,29 @@ El alumnado puede obtener una calificación entre 0 y  10 puntos.
 
 Según el Artículo 4.7 del REC, "se entenderá agotada la convocatoria desde que el alumnado se presente, al menos, a las actividades cuya ponderación compute el 50% de la evaluación continua, salvo en los casos recogidos en el Artículo 5.5".  Una vez realizado cualquier conjunto de actividades cuya suma de ponderaciones alcance el 50%  la calificación en el acta no podrá ser "No presentado".
 
-Según el Artículo 4.4 del REC, "todo el alumnado está sujeto a evaluación continua en la primera convocatoria de la asignatura, salvo quienes se acojan a la evaluación única según se dispone en el Artículo 5.4". Según 5.4: "El alumnado podrá optar a la evaluación única en una o varias de sus asignaturas matriculadas, comunicándolo al coordinador o coordinadora correspondiente, a través del procedimiento habilitado en el aula virtual de la misma, en el plazo de un mes a partir del inicio del cuatrimestre correspondiente": Se habilitará en el aula virtual una tarea al efecto con plazo de un mes, permitiendo entregas posteriores solo por circunstancias sobrevenidas derivadas, tales como enfermedad grave, accidente o incompatibilidad de la jornada laboral.
-### Normativa de Evaluación
 
-La Evaluación de la asignatura se rige por el Reglamento de Evaluación y Calificación de la Universidad de La Laguna (BOC de 19 de enero de 2016), o el que la Universidad tenga vigente, además de por lo establecido en la Memoria de Verificación inicial o posteriores modificaciones.
+* Según el Artículo 4.7 del REC, 
 
-* [Resolución de 8 de enero de 2016, por la que se dispone la publicación del
-Reglamento de Evaluación y Calificación de la Universidad de La Laguna (BOC de 19
-de enero de 2016)](https://riull.ull.es/xmlui/bitstream/handle/915/4096/reglamento_evaluacion_calificacion.pdf)
-* [Acuerdo 12/CG 27-06-2017 por el que se aprueba el Reglamento de la
-Evaluación Curricular por Compensación de la Universidad de La Laguna](https://riull.ull.es/xmlui/bitstream/handle/915/8580/acuerdo12.pdf?sequence=1&isAllowed=y)
+  > "se entenderá **agotada la convocatoria** desde que el alumnado se presente, al menos, a las actividades cuya ponderación compute el 50% de la evaluación continua, salvo en los casos recogidos en el Artículo 5.5".  
+
+  Una vez realizado cualquier conjunto de actividades cuya suma de ponderaciones alcance el 50%  (esto es, cuando se superan los 34 puntos) la calificación en el acta no podrá ser **"No presentado"**
+* Según el Artículo 4.4 del REC, 
+
+  > "todo el alumnado está sujeto a evaluación continua en la primera convocatoria de la asignatura, salvo quienes se acojan a la evaluación única según se dispone en el Artículo 5.4". 
+  
+  Fecha límite de contestación en el campus: 26-10-2022.
+
+  Según 5.4: 
+
+  > "El alumnado podrá optar a la evaluación única en una o varias de sus asignaturas matriculadas, comunicándolo al coordinador o coordinadora correspondiente, a través del procedimiento habilitado en el aula virtual de la misma, en el plazo de un mes a partir del inicio del cuatrimestre correspondiente": Se habilitará en el aula virtual una tarea al efecto con plazo de un mes, permitiendo entregas posteriores solo por circunstancias sobrevenidas derivadas, tales como enfermedad grave, accidente o incompatibilidad de la jornada laboral.
+
+### Normativa
+
+* [Reglamento de evaluacion y calificacion](https://www.ull.es/portal/normativa/normativa/nuevo-reglamento-de-evaluacion-y-calificacion-de-la-universidad-de-la-laguna/)
+* [Normativas de la ULL para el estudiantado](https://www.ull.es/portal/normativa/estudiantes/)
+* [Estructura del Plan de Estudios](https://www.ull.es/grados/ingenieria-informatica/plan-de-estudios/estructura-del-plan-de-estudios/)
+* [Distribución temporal de las materias y asignaturas obligatorias del itinerario 4 de Tecnología Específica: Sistemas de Información](https://drive.google.com/file/d/1zo-xNyfhotrraVDc66ACPrLSkJlHjQgK/view)
+* [Memoria de modificación del Grado en Ingeniería Informática (2015)](https://drive.google.com/open?id=1B0iU3svFd27UVgXHvh36iFXAYQh0RxXM)
 
 
 ## Referencias
