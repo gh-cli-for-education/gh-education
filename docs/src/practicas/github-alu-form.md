@@ -14,6 +14,8 @@ rubrica:
 # Práctica {{ $frontmatter.title }}
 
 
-Puede encontrar el enlace al formulario a rellenar en la [correspondiente tarea en el campus virtual de la asignatura](https://campusingenieriaytecnologia2122.ull.es/mod/assign/view.php?id=21205&forceview=1)
+Puede encontrar el enlace al formulario a rellenar en la [correspondiente tarea en el campus virtual de la asignatura](https://campusdoctoradoyposgrado2223.ull.es/mod/assign/view.php?id=763).
+
+En el campo **circunstancias especiales** puedes indicar si trabajas.
 
 <campus-virtual></campus-virtual>
