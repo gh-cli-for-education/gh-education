@@ -3,7 +3,7 @@ title: IAAS
 layout: Practica
 published: true
 date: "2022/10/03 04"
-delivery: "2022/10/13"
+delivery: "2022/10/20"
 key: iaas
 prev: "ides.md"
 next: # esprima-logging.md

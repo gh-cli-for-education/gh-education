@@ -1,12 +1,12 @@
 ---
 title: Async map
 published: true
-date: "2022/10/10 01"
-delivery: "2022/10/17"
+date: "2022/10/10 02"
+delivery: "2022/11/03"
 key: asyncmap
 layout: Practica
-order: 5
-prev: iaas.md
+order: 7
+prev: intro2sd.md
 next: 
 rubrica:
   - "Código de la práctica correcto"
