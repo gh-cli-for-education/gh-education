@@ -1,5 +1,5 @@
 ---
-title: A Jekyll Web Site  
+title:  "\"Introduction to Systems Development\" and Static Generators"
 published: true
 date: "2022/10/10 01"
 delivery: "2022/10/27"
