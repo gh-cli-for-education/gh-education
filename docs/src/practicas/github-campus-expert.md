@@ -66,7 +66,7 @@ Estas son las tareas a realizar:
 
 ## References
 
-* [GitHub Classroom Intro](/temas/introduccion/github-classroom)
+* [GitHub Classroom Intro](/temas/introduccion-a-sytws/github-classroom)
 * [GitHub Docs: About project boards](https://docs.github.com/en/github/managing-your-work-on-github/about-project-boards)
 * [Students leading the way: Campus Experts - Juan Pablo Flores](https://www.twitch.tv/videos/833713562?collection=lrqXyFWFThau8w) twitch video. De 08:00 a 13:25 se dan consejos sobre como rellenar la solicitud.
 * [Teachers guiding teachers: Campus Advisors](https://www.twitch.tv/videos/833727589?collection=lrqXyFWFThau8w) Arelia Jones
