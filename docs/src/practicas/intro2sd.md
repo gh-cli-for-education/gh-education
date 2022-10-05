@@ -1,5 +1,5 @@
 ---
-title: Introduction to Systems Development
+title: A Jekyll Web Site  
 published: true
 date: "2022/10/10 01"
 delivery: "2022/10/27"
@@ -12,14 +12,18 @@ rubrica:
   - "Se ha desplegado el sitio Web en GitHub pages usando Jekyll"
   - Se resumen correctamente los conceptos del capítulo
   - "Kanban Board project conteniendo las incidencias de la rúbrica"
+  - "Despliegue en netlify"
+  - "Página personal en GitHub Pages"
   - "Ha entregado el .zip en el campus con el repo"
 ---
 
-# Introduction to Systems Development
+# {{ $frontmatter.title }}
 
 Lea el capítulo 1 del libro 
 
-> Ahmed, Tahir, Cadle, James, Cox, Julian, Girvan, Lynda, Paul, Alan, Paul, Debra, Thompson, Pete, and BCS, The Chartered Institute for IT. **Developing Information Systems: Practical Guidance for IT Professionals**. Swindon U.K: BCS Learning & Development Limited, 2014. Web.
+::: tip Referencia
+Ahmed, Tahir, Cadle, James, Cox, Julian, Girvan, Lynda, Paul, Alan, Paul, Debra, Thompson, Pete, and BCS, The Chartered Institute for IT. **Developing Information Systems: Practical Guidance for IT Professionals**. Swindon U.K: BCS Learning & Development Limited, 2014. Web.
+:::
 
 Haga un resumen de los conceptos más importantes del capítulo y publíquelo como un post usando [Jekyll](/temas/web/jekyll) y [GitHub Pages](https://pages.github.com/) para desplegar el sitio web con el informe.
 
@@ -37,3 +41,6 @@ Recuerde cambiar `baseurl` en `_config.yml` para que contenga el nombre de su re
 baseurl                  : "/intro2sd-template/" # the subpath of your site, e.g. "/blog"
 ```
 
+Haga un segundo despliegue en Netlify.
+
+Con lo aprendido desarrolle su página personal en GitHub (si no es que ya tiene una).

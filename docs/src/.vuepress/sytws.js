@@ -47,6 +47,8 @@ const navigationBar = [
           {text: 'Teams', link: 'https://github.com/orgs/ULL-MII-SYTWS-2223/teams'},
           {text: 'Projects', link: 'https://github.com/orgs/ULL-MII-SYTWS-2223/projects'},
           {text: 'Classroom', link: 'https://classroom.github.com/classrooms/108465218-ull-mii-sytws-2223'},
+          {text: 'Template Org', link: 'https://github.com/ULL-MII-SYTWS'},
+
         ]    
       },
       {text: 'Apuntes Repo', 
