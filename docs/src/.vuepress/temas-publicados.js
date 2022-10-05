@@ -7,5 +7,4 @@ module.exports = [
     This has to be the last or the first
     */
     {text: 'All themes', link: '/temas/'} 
-
 ];
