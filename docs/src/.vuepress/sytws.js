@@ -51,7 +51,7 @@ const navigationBar = [
       },
       {text: 'Apuntes Repo', 
         items: [
-        { text: 'Deploy at GH', link: 'https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io'},
+        //{ text: 'Deploy at GH', link: 'https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io'},
         //{ text: "Deploy at netlify", link: 'https://fervent-swirles-a16008.netlify.app/'},
         { text: 'Source', link: 'https://github.com/ULL-MII-SYTWS/vuepress-apuntes'},
         { text: 'Generated repo', link: 'https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io' }
@@ -191,7 +191,7 @@ const SYTWSinfo = {
   "organization": {
     "url": "https://github.com/ULL-MII-SYTWS-2223",
     "name": "ULL-MII-SYTWS-2223",
-    "master": "https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io/tree/master/"
+    "main": "https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io/tree/main/"
   },
   "apuntes_repo": "https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io",
   "campus_virtual": "https://campusdoctoradoyposgrado2223.ull.es/course/view.php?id=2223110630",

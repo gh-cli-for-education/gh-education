@@ -6,7 +6,7 @@ published: true
 layout: Practica
 key: github-project-board
 order: 3
-prev: github-campus-expert.md
+prev: markdown.md
 next: ides.html
 rubrica:
   - "Proyecto Kanban creado a nivel de Organización"
