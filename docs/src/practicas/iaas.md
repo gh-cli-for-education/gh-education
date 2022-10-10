@@ -16,6 +16,7 @@ rubrica:
   - "Tutorial README.md bien presentado"
   - "El prompt de la shell muestra la rama actual"
   - "Ha instalado <code>nvm</code>"
+  - "Tiene instalada y configuradas las extensiones y aplicaciones solicitadas en su máquina de trabajo"
 ---
 
 # Práctica {{ $frontmatter.title }}
