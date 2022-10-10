@@ -1,13 +1,13 @@
 <template>
   <div>
     <h2>{{ totalCount }} Teams</h2>
-    <ul > 
-        <li v-for="team in teams" :key="team.name"> <a :href="team.url">{{ team.name }}</a> 
+    <ul>
+      <li v-for="team in teams" :key="team.name"> <a :href="team.url">{{ team.name }}</a>
         <ul>
           <li><a :href="team.repositories" target="_blank">Repositories</a></li>
           <li><a :href="team.userUrl" target="_blank">{{ team.userName }}</a></li>
         </ul>
-        </li>
+      </li>
     </ul>
   </div>
 </template>

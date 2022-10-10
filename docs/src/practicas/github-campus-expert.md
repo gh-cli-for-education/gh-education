@@ -54,7 +54,7 @@ Estas son las tareas a realizar:
    * Véase también [GitHub Docs: About project boards](https://docs.github.com/en/github/managing-your-work-on-github/about-project-boards)
 4. Considere la posibilidad de [realizar el curso *Become a Campus Expert*](https://githubcampus.expert/training) de GitHub. Puede no hacerlo si no lo considera oportuno.
    * ... The training itself has a six-week timeline where you’ll be able to analyze your community and learn community leadership skills, —like public speaking, technical writing, and software development, as well as —and write a community proposal. [Introducing the New (and Improved!) Campus Experts Program](https://github.blog/2020-12-10-introducing-the-new-and-improved-campus-experts-program/) 2020-12-10
-5. Considere la posibilidad de solicitar su [Student Developer Pack](https://education.github.com/pack) 
+5. Solicite su [Student Developer Pack](https://education.github.com/pack) 
 6. Considere la posibilidad de [solicitar una GitHub Internship](https://internships.github.com/). Si está cerrada puede subscríbirse para recibir las actualizaciones
 3. Haga la práctica [GitHub Project Board](/practicas/github-project-board.html). Cree un project board kanban automated asociado al repo de la asignación. Rellene la columna `TODO` con los requisitos de la práctica. 
 7. En todas las entregas de prácticas en el Campus de la asignatura deberá poner
