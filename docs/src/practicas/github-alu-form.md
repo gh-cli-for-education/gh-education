@@ -2,6 +2,7 @@
 title: GitHub-AluXXXX Form
 date: "2022/10/03 00:50"
 delivery: "2022/10/10"
+campus: "https://campusdoctoradoyposgrado2223.ull.es/mod/assign/view.php?id=763"
 layout: Practica
 order: 1
 kind: "task"
