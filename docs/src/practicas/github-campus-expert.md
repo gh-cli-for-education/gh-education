@@ -2,6 +2,7 @@
 title: GitHub Campus Expert
 date: "2022/10/03 01"
 delivery: "2022/10/13"
+campus: "https://campusdoctoradoyposgrado2223.ull.es/mod/assign/view.php?id=764"
 order: 2
 layout: Practica
 key: github-campus-expert

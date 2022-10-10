@@ -3,6 +3,7 @@ title: IDEs based on Visual Studio Code
 published: true
 date: "2022/10/03 03"
 delivery: "2022/10/13"
+campus: "https://campusdoctoradoyposgrado2223.ull.es/mod/assign/view.php?id=24627"
 key: editors
 layout: Practica
 order: 4

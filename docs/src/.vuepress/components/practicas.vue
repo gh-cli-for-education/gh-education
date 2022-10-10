@@ -7,11 +7,11 @@
         <span v-else>Lab</span>
         <a :href="getLink(page)">{{ page.title }}</a> 
         <ul>
-        <!--
-        <li v-if="page.frontmatter.delivery">
-        <span>Date: {{ page.frontmatter.delivery }}</span>
+        
+        <li v-if="page.frontmatter.campus">
+        <span>Campus page:<a :href="page.frontmatter.campus" target="blank">{{ page.title }}</a></span>
         </li>
-        -->
+        
         <li v-if="page.frontmatter.rubrica">
         <span><a :href="getLink(page)+'#rubrica'">Grading Rubric</a></span>
         </li>

@@ -3,6 +3,7 @@ title:  "\"Introduction to Systems Development\" and Static Generators"
 published: true
 date: "2022/10/10 01"
 delivery: "2022/10/27"
+campus: "https://campusdoctoradoyposgrado2223.ull.es/mod/assign/view.php?id=820"
 key: intro2sd
 layout: Practica
 order: 6
