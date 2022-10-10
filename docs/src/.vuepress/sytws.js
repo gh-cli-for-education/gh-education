@@ -15,6 +15,10 @@ const navigationBar = [
     items: TemasPublicados,
   },
   {
+    text: 'Teams',
+    link: '/teams/index.html'
+  },
+  {
     text: 'Context',
     items: [
       {
@@ -44,7 +48,7 @@ const navigationBar = [
         text: "ULL-MII-SYTWS-2223",
         items: [
           {text: 'Organization', link: 'https://github.com/ULL-MII-SYTWS-2223'},
-          {text: 'Teams', link: 'https://github.com/orgs/ULL-MII-SYTWS-2223/teams'},
+          {text: 'Teams', link: '/teams/'},
           {text: 'Projects', link: 'https://github.com/orgs/ULL-MII-SYTWS-2223/projects'},
           {text: 'Classroom', link: 'https://classroom.github.com/classrooms/108465218-ull-mii-sytws-2223'},
           {text: 'Template Org', link: 'https://github.com/ULL-MII-SYTWS'},
