@@ -30,12 +30,14 @@ export default {
   computed: {
     teams() {
       return this.rawTeams.map(team => {
+        let node = team.node
+        let member = node.members.edges[0].node
         const user = {
-          name: team.node.name,
-          url: team.node.url,
-          repositories: team.node.url + '/repositories',
-          userName: team.node.members.edges[0].node.name || capitalizeFirstLetter(team.node.name.split(/[-_]/)[0]),
-          userUrl: team.node.members.edges[0].node.url,
+          name: node.name,
+          url: node.url,
+          repositories: node.url + '/repositories',
+          userName: member.name || capitalizeFirstLetter(node.name.split(/[-_]/)[0]),
+          userUrl: member.url,
         }
         return user
       })

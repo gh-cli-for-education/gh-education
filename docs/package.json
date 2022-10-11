@@ -18,7 +18,7 @@
     "push": "git ci -am 2223; git push origin; git push origin main",
     "push2223": "git ci -am 2223; git push origin; git push sytws2223",
     "save": "npm run push; npm run deploy",
-    "update-teams": "source ./get-teams.sh > src/.vuepress/teams.mjs"
+    "update-teams": "source ./get-teams.sh"
   },
   "license": "MIT",
   "devDependencies": {

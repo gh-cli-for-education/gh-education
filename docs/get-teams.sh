@@ -26,10 +26,10 @@ QUERY='query getInfo($organization: String!) {
   }
 }'
 
-TEAMS=$(gh api graphql -F organization="$ORG" -f query="$QUERY")
+TEAMS=$(gh api graphql -F organization="$ORG" -f query="$QUERY" | jq .)
 
 TEMPLATE="
-export default "$TEAMS"
+export default $TEAMS
 "
 
 echo $TEMPLATE 
