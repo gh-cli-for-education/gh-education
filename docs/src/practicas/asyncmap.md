@@ -26,7 +26,7 @@ El objetivo es escribir un programa Node.js que usando `fs.readFile`
 1. lea **en paralelo** un conjunto de ficheros pasados como argumentos en línea de comandos y 
 2. produzca como salida la concatenación de los mismos en el orden especificado. 
  
-No se considera una solución usar `fs.readFileSync` o timers (`setTimeout` etc.) o usar promesas. Se pide una solución con callbacks.
+No se considera una solución usar `fs.readFileSync` o timers (`setTimeout` etc.) o usar promesas. Se pide una solución usando callbacks.
 Use `fs.readFile(path[, options], callback)`. 
 
 Este sería un ejemplo de uso:
@@ -57,7 +57,8 @@ $ node repeatable-option-commander.js -c a -c b -c c
 ```
 ## Pasos
 
-Lea la sección [The Async Module](/temas/async/async-js) de los apuntes y encuentre una solución usando `Async`. Considere la posibilidad de excepciones debidas a que alguno de los ficheros no exista
+Lea la sección [The Async Module](/temas/async/async-js) de los apuntes y encuentre una solución usando `Async`. Considere la posibilidad de excepciones debidas a que alguno de los ficheros no exista. Si no se le ocurre una solución, puede consultar las soluciones a la pregunta [NodeJS - How to read multiple files asynchronously and write read contents to one file](https://stackoverflow.com/questions/39020704/nodejs-how-to-read-multiple-files-asynchronously-and-write-read-contents-to-on) en StackOverflow.
+
 
 A continuación, busque  una solución sin hacer uso de `Async` ¿Cómo lo haría?
 
@@ -87,4 +88,4 @@ Versiones usadas de los módulos en los ejemplos:
 
 * Tema [Async Programming in JavaScript](/temas/async/)
 * Sección [The Async Module](/temas/async/async-js) de estos apuntes
-* <https://caolan.github.io/async/v3/>
+* El manual del módulo async: <https://caolan.github.io/async/v3/>
