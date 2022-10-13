@@ -55,7 +55,7 @@ Ejecución:
 $ node repeatable-option-commander.js -c a -c b -c c
 [ 'a', 'b', 'c' ]
 ```
-## Pasos
+## Entrega
 
 ### Solución con el Módulo async-js
 
@@ -67,16 +67,41 @@ Si no se le ocurre una solución, puede consultar las soluciones a la pregunta [
 
 ### Solucion sin usar el Módulo async-js
 
-A continuación, busque  una solución sin hacer uso de `Async` ¿Cómo lo haría?
+A continuación, busque  una solución para este problema sin hacer uso de `Async` ¿Cómo lo haría?
 No se considera una solución usar `fs.readFileSync` o timers (`setTimeout` etc.) o usar promesas. Se pide una solución usando callbacks.
 
-### Abstracción
+### Abstracción de la solución
 
-Haciendo abstracción de la solución encontrada en el paso anterior escriba una función `asyncMap` que funcione como el `map` del módulo `Async`:
+Haciendo abstracción de la solución encontrada en el paso anterior escriba una función `asyncMap` que funcione como el `map` del módulo `Async` y que sirva 
+para cualuier función asíncrona que siga el patrón de `callback(err, result)`:
 
   ```js
   asyncMap(inputs, (item, cb) => fs.readFile(item, cb), (err, contents) => { ... });
   ```
+
+### Variante del Problema: Serial en vez de paralelo
+
+Ahora cambiamos el problema para lea **en secuencial** el conjunto de ficheros pasados como argumentos en línea de comandos y 
+produzca como salida la concatenación de los mismos en el orden especificado. Las mismas restricciones que en el caso anterior.
+
+Provea una  función general `series` que secuencialice cualquier array de funciones asíncronas.
+Debe funcionar tal como lo hace la función `series`  del módulo [Async.js](/temas/async/async-js).
+
+Esta sería la forma de uso de la función `series`:
+
+```js
+series(program.files, (file, cb) => fs.readFile(file, cb),  function(err, results)  {
+    if (err == null) {
+      let file = fs.createWriteStream(program.output);
+      file.on('error', err => { throw new Error("Error en la apertura del archivo " + program.output + " " + err) });
+      results.forEach(i => { file.write(i + '\n'); });
+      file.end();
+    } else {
+         throw new Error("Fallo en la lectura de los ficheros\n" + err)
+    }
+});
+```
+
 
 ## Referencias
 
