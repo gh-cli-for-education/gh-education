@@ -11,7 +11,13 @@ prev: intro2sd.md
 next: 
 rubrica:
   - "Código de la práctica correcto"
+  - "Se da una solucion paralela usando la librería async"
+  - "Se da una solucion paralela sin usar la librería async al problema de la lectura de ficheros"
+  - "Se crea una función <code>asyncmap</code> genérica que funciona como el <code>map</code> de async"
+  - "Se da una función <code>series</code> que resuelve el problema de serializar llamadas a funciones asíncronas"
   - "Informe bien elaborado"
+  - "Kanban Board project conteniendo las incidencias de la rúbrica"
+  - "Ha entregado el .zip en el campus con el repo"
 ---
 
 # {{ $frontmatter.title }}
