@@ -57,10 +57,20 @@ $ node repeatable-option-commander.js -c a -c b -c c
 ```
 ## Pasos
 
-Lea la sección [The Async Module](/temas/async/async-js) de los apuntes y encuentre una solución usando `Async`. Considere la posibilidad de excepciones debidas a que alguno de los ficheros no exista. Si no se le ocurre una solución, puede consultar las soluciones a la pregunta [NodeJS - How to read multiple files asynchronously and write read contents to one file](https://stackoverflow.com/questions/39020704/nodejs-how-to-read-multiple-files-asynchronously-and-write-read-contents-to-on) en StackOverflow.
+### Solución con el Módulo async-js
 
+Lea la sección [The Async Module](/temas/async/async-js) de los apuntes y encuentre una solución usando `Async`. 
+
+Considere la posibilidad de excepciones debidas a que alguno de los ficheros no exista. 
+
+Si no se le ocurre una solución, puede consultar las soluciones a la pregunta [NodeJS - How to read multiple files asynchronously and write read contents to one file](https://stackoverflow.com/questions/39020704/nodejs-how-to-read-multiple-files-asynchronously-and-write-read-contents-to-on) en StackOverflow.
+
+### Solucion sin usar el Módulo async-js
 
 A continuación, busque  una solución sin hacer uso de `Async` ¿Cómo lo haría?
+No se considera una solución usar `fs.readFileSync` o timers (`setTimeout` etc.) o usar promesas. Se pide una solución usando callbacks.
+
+### Abstracción
 
 Haciendo abstracción de la solución encontrada en el paso anterior escriba una función `asyncMap` que funcione como el `map` del módulo `Async`:
 
@@ -68,24 +78,9 @@ Haciendo abstracción de la solución encontrada en el paso anterior escriba una
   asyncMap(inputs, (item, cb) => fs.readFile(item, cb), (err, contents) => { ... });
   ```
 
-
-## Versiones usadas en este texto
-
-Versiones usadas de los módulos en los ejemplos:
-
-```
-➜  daniel-alu0101040882 git:(main) ✗ jq '.dependencies' package.json 
-```
-
-```json
-{
-  "async": "^3.2.0",
-  "commander": "^6.2.0"
-}
-```
-
 ## Referencias
 
 * Tema [Async Programming in JavaScript](/temas/async/)
 * Sección [The Async Module](/temas/async/async-js) de estos apuntes
 * El manual del módulo async: <https://caolan.github.io/async/v3/>
+* Pregunta [NodeJS - How to read multiple files asynchronously and write read contents to one file](https://stackoverflow.com/questions/39020704/nodejs-how-to-read-multiple-files-asynchronously-and-write-read-contents-to-on) en StackOverflow
