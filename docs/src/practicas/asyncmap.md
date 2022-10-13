@@ -26,7 +26,8 @@ El objetivo es escribir un programa Node.js que usando `fs.readFile`
 1. lea **en paralelo** un conjunto de ficheros pasados como argumentos en línea de comandos y 
 2. produzca como salida la concatenación de los mismos en el orden especificado. 
  
-No se considera una solución usar `fs.readFileSync` o timers (`setTimeout` etc.). Use `fs.readFile(path[, options], callback)`. 
+No se considera una solución usar `fs.readFileSync` o timers (`setTimeout` etc.) o usar promesas. Se pide una solución con callbacks.
+Use `fs.readFile(path[, options], callback)`. 
 
 Este sería un ejemplo de uso:
 
@@ -54,7 +55,7 @@ Ejecución:
 $ node repeatable-option-commander.js -c a -c b -c c
 [ 'a', 'b', 'c' ]
 ```
-## Requisitos
+## Pasos
 
 Lea la sección [The Async Module](/temas/async/async-js) de los apuntes y encuentre una solución usando `Async`. Considere la posibilidad de excepciones debidas a que alguno de los ficheros no exista
 
