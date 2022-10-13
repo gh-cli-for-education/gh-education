@@ -19,7 +19,7 @@ rubrica:
 
 ## Descripción de la Práctica 
 
-Para la realización de esta práctica /repase el tema [Async Programming in JavaScript](/temas/async/).
+Para la realización de esta práctica estudie /repase el tema [Async Programming in JavaScript](/temas/async/).
 
 El objetivo es escribir un programa Node.js que usando `fs.readFile` 
 
