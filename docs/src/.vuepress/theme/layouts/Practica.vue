@@ -33,8 +33,10 @@
             <Rubrica></Rubrica>
           </div>
 
-          <h2><a href="#labs" class="header-anchor">#</a>Labs</h2>
-          <Practicas></Practicas>
+          <!--
+            <h2><a href="#labs" class="header-anchor">#</a>Labs</h2>
+            <Practicas></Practicas>
+          -->
 
           <div style="text-align: center;">
 

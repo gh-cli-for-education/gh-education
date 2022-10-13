@@ -19,7 +19,7 @@ rubrica:
 
 ## Descripción de la Práctica 
 
-Para la realización de esta práctica estudie el tema [Async Programming in JavaScript](/temas/async/).
+Para la realización de esta práctica /repase el tema [Async Programming in JavaScript](/temas/async/).
 
 El objetivo es escribir un programa Node.js que usando `fs.readFile` 
 
@@ -28,7 +28,7 @@ El objetivo es escribir un programa Node.js que usando `fs.readFile`
  
 Evite usar `fs.readFileSync` y use `fs.readFile(path[, options], callback)`. 
 
-Este sería un ejempplo de uso:
+Este sería un ejemplo de uso:
 
 ```
 $ concat -f one.txt -f two.txt -f three.txt -o salida.txt
@@ -48,19 +48,24 @@ program.parse(process.argv);
 console.log(program.collect)
 ```
 
+Ejecución:
+
 ```
 $ node repeatable-option-commander.js -c a -c b -c c
 [ 'a', 'b', 'c' ]
 ```
 ## Requisitos
 
-1. Lea la sección [The Async Module](/temas/async/async-js) de los apuntes y encuentre una solución usando `Async`. Considere la posibilidad de excepciones debidas a que alguno de los ficheros no exista
-3. Encuentre  una solución sin hacer uso de `Async` ¿Cómo lo haría?
-4. Haciendo abstracción de la solución encontrada en el paso anterior escriba una función `asyncMap` que funcione como el `map` del módulo `Async`:
+Lea la sección [The Async Module](/temas/async/async-js) de los apuntes y encuentre una solución usando `Async`. Considere la posibilidad de excepciones debidas a que alguno de los ficheros no exista
+
+A continuación, busque  una solución sin hacer uso de `Async` ¿Cómo lo haría?
+
+Haciendo abstracción de la solución encontrada en el paso anterior escriba una función `asyncMap` que funcione como el `map` del módulo `Async`:
 
   ```js
   asyncMap(inputs, (item, cb) => fs.readFile(item, cb), (err, contents) => { ... });
   ```
+
 
 ## Versiones usadas en este texto
 
