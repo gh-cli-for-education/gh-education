@@ -26,7 +26,7 @@ El objetivo es escribir un programa Node.js que usando `fs.readFile`
 1. lea **en paralelo** un conjunto de ficheros pasados como argumentos en línea de comandos y 
 2. produzca como salida la concatenación de los mismos en el orden especificado. 
  
-Evite usar `fs.readFileSync` y use `fs.readFile(path[, options], callback)`. 
+No se considera una solución usar `fs.readFileSync` o timers (`setTimeout` etc.). Use `fs.readFile(path[, options], callback)`. 
 
 Este sería un ejemplo de uso:
 
