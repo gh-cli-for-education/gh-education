@@ -85,5 +85,5 @@ Versiones usadas de los módulos en los ejemplos:
 ## Referencias
 
 * Tema [Async Programming in JavaScript](/temas/async/)
-* Sección [The Async Module](/temas/async/async-js)
+* Sección [The Async Module](/temas/async/async-js) de estos apuntes
 * <https://caolan.github.io/async/v3/>
