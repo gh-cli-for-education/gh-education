@@ -19,7 +19,16 @@ rubrica:
 
 ## Descripción de la Práctica 
 
-Escriba un programa Node.js que usando `fs.readFile` lea **en paralelo** un conjunto de ficheros pasados en vía de comandos y produzca como salida la concatenación de los mismos en el orden especificado. Evite usar `fs.readFileSync` y use `fs.readFile(path[, options], callback)`:
+Para la realización de esta práctica estudie el tema [Async Programming in JavaScript](/temas/async/).
+
+El objetivo es escribir un programa Node.js que usando `fs.readFile` 
+
+1. lea **en paralelo** un conjunto de ficheros pasados como argumentos en línea de comandos y 
+2. produzca como salida la concatenación de los mismos en el orden especificado. 
+ 
+Evite usar `fs.readFileSync` y use `fs.readFile(path[, options], callback)`. 
+
+Este sería un ejempplo de uso:
 
 ```
 $ concat -f one.txt -f two.txt -f three.txt -o salida.txt
@@ -70,5 +79,6 @@ Versiones usadas de los módulos en los ejemplos:
 
 ## Referencias
 
+* Tema [Async Programming in JavaScript](/temas/async/)
 * Sección [The Async Module](/temas/async/async-js)
 * <https://caolan.github.io/async/v3/>
