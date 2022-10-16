@@ -108,6 +108,75 @@ series(program.files, (file, cb) => fs.readFile(file, cb),  function(err, result
 });
 ```
 
+## Módulos en Node.js
+
+Esta es la estructura del template de la práctica:
+
+```
+➜  asyncmap-solution git:(main) tree -I node_modules
+.
+├── README.md
+├── concatSerialize.js
+├── my-async.mjs
+├── package-lock.json
+├── package.json
+├── scripts
+│   ├── create-inputs.bash
+│   └── make-big-file.bash
+├── sol-using-async.mjs
+└── test
+    ├── expected.txt
+    ├── f1.txt
+    ├── f2.txt
+    ├── f3.txt
+    └── output.txt
+```
+
+En `concatSerialize.js` los módulos son cargados usando `require` (ver [CommonJS](https://nodejs.org/api/modules.html#modules_modules_commonjs_modules)) mientras que en `sol-using-async.mjs`  y `my-async.mjs` 
+se usan los módulos ES6 (ver [ECMAScript Modules](https://nodejs.org/api/esm.html#esm_ecmascript_modules)).
+
+En el directorio `scripts` hay dos scripts para la creación de ficheros de prueba y que son usados en la sección `scripts` del `package.json`. 
+
+
+```
+➜  asyncmap-solution git:(main) npm run
+Lifecycle scripts included in asyncmap-solution@1.0.0:
+  test
+    npm run clean; npm run create-inputs 3 7; npm run my-async.mjs; cmp --silent test/output.txt test/expected.txt && echo 'OK'
+
+available via `npm run-script`:
+  create-inputs
+    scripts/create-inputs.bash ${npm_package_config_numfiles} ${npm_package_config_size}
+  my-async.mjs
+    node my-async.mjs -f test/f*.txt -o test/output.txt
+  sol-using-async.mjs
+    node sol-using-async.mjs -f test/f*.txt -o test/output.txt
+  concatSerialize.js
+    node concatSerialize.js -f test/f{1..3}.txt -o test/output.txt
+  test-err
+    node my-async.js -f f1.txt -f no-existe.txt -f f3.txt -o test/output.txt
+  save
+    git commit -am save && git push -u origin main
+  clean
+    rm -f test/f*.txt test/output.txt
+```
+
+El `package.json` ilustra como se pueden definir variables en la sección `"config"` y usarlas en los `scripts` de `npm` referenciándolas con `${npm_package_config_varname}`.:
+
+```json
+  ...  
+  "config": {
+    "numfiles": 3,
+    "size": 7
+  },
+  "scripts": {
+    ...
+    "create-inputs": "scripts/create-inputs.bash ${npm_package_config_numfiles} ${npm_package_config_size}",
+    ...
+  },
+
+```
+
 
 ## Referencias
 
