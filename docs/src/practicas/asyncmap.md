@@ -108,7 +108,7 @@ series(program.files, (file, cb) => fs.readFile(file, cb),  function(err, result
 });
 ```
 
-## Módulos en Node.js
+## Módulos CommonJS y ES6 
 
 Esta es la estructura del template de la práctica:
 
@@ -134,6 +134,8 @@ Esta es la estructura del template de la práctica:
 
 En `concatSerialize.js` los módulos son cargados usando `require` (ver [CommonJS](https://nodejs.org/api/modules.html#modules_modules_commonjs_modules)) mientras que en `sol-using-async.mjs`  y `my-async.mjs` 
 se usan los módulos ES6 (ver [ECMAScript Modules](https://nodejs.org/api/esm.html#esm_ecmascript_modules)).
+
+## Variables en el package.json
 
 En el directorio `scripts` hay dos scripts para la creación de ficheros de prueba y que son usados en la sección `scripts` del `package.json`. 
 
