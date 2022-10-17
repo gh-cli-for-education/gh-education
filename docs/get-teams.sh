@@ -15,7 +15,8 @@ QUERY='query getInfo($organization: String!) {
               node {
                 name
                 url
-                email                
+                email
+                login               
               }
             }
           }

@@ -6,6 +6,7 @@
         <ul>
           <li><a :href="team.repositories" target="_blank">Repositories</a></li>
           <li><a :href="team.userUrl" target="_blank">{{ team.userName }}</a></li>
+          <li><a :href="team.notifications" target="_blank"> Notifications</a></li>  for you
         </ul>
       </li>
     </ul>
@@ -38,6 +39,7 @@ export default {
           repositories: node.url + '/repositories',
           userName: member.name || capitalizeFirstLetter(node.name.split(/[-_]/)[0]),
           userUrl: member.url,
+          notifications: `https://github.com/notifications?query=author%3A${member.login}`,
         }
         return user
       })
