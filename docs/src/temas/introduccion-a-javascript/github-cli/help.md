@@ -2,7 +2,7 @@
 title: gh help
 permalink: /temas/github-cli/help.html
 toc: 'auto'
-next: /temas/github-cli/gh.md
+next: /temas/introduccion-a-javascript/github-cli/gh.md
 ---
 
 # {{ $frontmatter.title }}

@@ -1,6 +1,6 @@
 ---
 title: GitHub Command Line Interface
-permalink: /temas/github-cli/
+permalink: /temas/github-cli/index.html
 ---
 
 # {{ $frontmatter.title }}
