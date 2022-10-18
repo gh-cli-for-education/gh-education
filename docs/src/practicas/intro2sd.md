@@ -15,6 +15,7 @@ rubrica:
   - "Kanban Board project conteniendo las incidencias de la rúbrica"
   - "Despliegue en netlify"
   - "Página personal en GitHub Pages"
+  - "Página personal en GitHub Pages enlazada desde el perfil GitHub del alumno"
   - "Ha entregado el .zip en el campus con el repo"
 ---
 
@@ -42,7 +43,8 @@ Recuerde cambiar `baseurl` en `_config.yml` para que contenga el nombre de su re
 baseurl                  : "/intro2sd-template/" # the subpath of your site, e.g. "/blog"
 ```
 
-Haga un segundo despliegue en Netlify. Puede usar las referencias:
+Haga un segundo despliegue en Netlify. Netlify no forma parte del Pack de GH así que tendrá que cambiar la visibilidad de su repo a público. 
+Puede usar las referencias:
 
 * [A Step-by-Step Guide: Jekyll 3.0 on Netlify](https://www.netlify.com/blog/2015/10/28/a-step-by-step-guide-jekyll-3.0-on-netlify/)
 * [A Step-by-Step Guide: Jekyll 4.0 on Netlify](https://www.netlify.com/blog/2020/04/02/a-step-by-step-guide-jekyll-4.0-on-netlify/)
