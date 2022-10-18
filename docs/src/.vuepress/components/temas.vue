@@ -1,12 +1,14 @@
 <template>
   <div>
     <ul>
-      <div v-for="(tema, index) in temas" :key="tema.link">
-        <li  v-if="index < temas.length-1">
-          <a :href="tema.link">{{tema.text}}</a>
-        </li>
-      </div>
-
+      <li v-for="(tema, index) in temas" :key="index">
+        <h2>{{ tema.text }}</h2>
+        <ul>
+          <li  v-for="(item, section) in tema.items" :key="section">
+            <a :href="item.link">{{item.text}}</a>
+          </li>
+        </ul>
+      </li>
     </ul>
   </div>
 </template>
