@@ -1,6 +1,6 @@
 ---
 title: GitHub Command Line Interface
-permalink: /temas/github-cli/index.html
+permalink: /temas/introduccion-a-javascript/github-cli/
 ---
 
 # {{ $frontmatter.title }}
@@ -19,23 +19,25 @@ https://github.com/cli/cli/releases/tag/v2.17.0
 
 ## Help 
 
-* [Help](help)
+* Output of the command [gh help reference](/temas/introduccion-a-javascript/github-cli/help)
 
 
-
-### Installation
+## Installation
 
 To install it, see  the [installation instructions](https://github.com/cli/cli#installation).
 
 Check the [GitHub CLI Manual](https://cli.github.com/manual/) for more details.
 
 
+## Ways to extend gh-cli
+
 There are several ways you can extend/customize `gh`:
 
 *   Create shorthands using [`gh alias set`](https://cli.github.com//manual/gh_alias_set)
 *   Make custom API queries using [`gh api`](https://cli.github.com//manual/gh_api)
 *   Use [environment variables](https://cli.github.com//manual/gh_help_environment)
-
+*   Use an [extension](#extensions)
+  
 ## Option --json
 
 Some gh commands support exporting the data as JSON as an alternative to their usual line-based plain text output. 

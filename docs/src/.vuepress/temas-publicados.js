@@ -10,7 +10,7 @@ module.exports = [
         text: 'Fundamentos', 
         items: [
             { text: "Apartados", link:'/temas/introduccion-a-javascript/'},
-            { text: 'GitHub Cli', link:'/temas/github-cli/'},
+            { text: 'GitHub Cli', link:'/temas/introduccion-a-javascript/github-cli/'},
         ]
     },
     {

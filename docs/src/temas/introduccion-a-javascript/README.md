@@ -11,7 +11,7 @@ title: Fundamentos de Sistemas y Tecnologías Web
 
 ## GitHub Cli
 
-* [GitHub Cli](/temas/github-cli)
+* [GitHub Cli](/temas/introduccion-a-javascript/github-cli)
 
 ## IAAS
 
