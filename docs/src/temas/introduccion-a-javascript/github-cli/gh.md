@@ -33,7 +33,7 @@ Check the [GitHub CLI Manual](https://cli.github.com/manual/) for more details.
 
 There are several ways you can extend/customize `gh`:
 
-*   Create shorthands using [`gh alias set`](https://cli.github.com//manual/gh_alias_set)
+*   Create shorthands using [gh alias set](#aliases)
 *   Make custom API queries using [`gh api`](https://cli.github.com//manual/gh_api)
 *   Use [environment variables](https://cli.github.com//manual/gh_help_environment)
 *   Use an [extension](#extensions)

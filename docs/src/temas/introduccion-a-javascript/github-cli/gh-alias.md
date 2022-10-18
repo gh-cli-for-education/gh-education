@@ -1,6 +1,7 @@
 
 ## Introduction to `gh alias`
 
+See <https://cli.github.com//manual/gh_alias_set>
 
 ```
 ➜ gh alias set <alias> <expansion> [flags]
