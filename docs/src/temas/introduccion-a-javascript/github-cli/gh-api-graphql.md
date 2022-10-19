@@ -1,8 +1,14 @@
-## GraphQL Examples
+---
+sidebar: auto
+next: gh.md
+prev: gh-api.md
+---
+
+# GraphQL Examples
 
 **GraphQL** is a query language for web services APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more.
 
-### Example: Number of repos in an Organization 
+## Example: Number of repos in an Organization 
 
 ```
 gh api graphql --paginate --field query=@org-num-repos.gql --jq .data.organization.repositories.totalCount
@@ -27,7 +33,7 @@ Execution:
 17
 ```
 
-### Getting my repos
+## Getting my repos
 
 ```
 ➜  graphql-learning git:(main) ✗ gh config set pager cat
@@ -81,7 +87,7 @@ Here is the output of an execution:
 }
 ```
 
-### Example: Getting issues
+## Example: Getting issues
 
 Follows an example of query using GraphQL (see [The Example query in GitHub Docs](https://docs.github.com/en/graphql/guides/forming-calls-with-graphql#example-query)).
 
@@ -236,7 +242,7 @@ Execution:
 [Descripción de la práctica gh-cli]({{site.baseurl}}/practicas/p6-t1-gh-cli)
 -->
 
-### Mutation Example
+## Mutation Example
 
 ```
 ➜  graphql-learning git:(main) cat findissueid.bash 

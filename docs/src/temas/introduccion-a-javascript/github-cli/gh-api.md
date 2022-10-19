@@ -1,6 +1,16 @@
+---
+sidebar: auto
+next: gh-api-graphql.md
+prev: gh.md
+---
+
+# gh api
+
+## Manual de gh api
+
 * [Manual de gh api](https://cli.github.com/manual/gh_api)
 
-### Authentication Token
+## Authentication Token
 
 * [Manual de gh auth](https://cli.github.com/manual/gh_auth)
   * [Manual de gh auth login](https://cli.github.com/manual/gh_auth_login)
@@ -40,7 +50,7 @@ y nos pide confirmar los permisos.
 
 ![](/images/gh-auth-browser-2.png)
 
-### Example: Issues of a repo
+## Example: Issues of a repo
 
 Placeholder values `:owner`, `:repo`, and `:branch` in the endpoint argument will get replaced with values from the repository of the current directory.
 
@@ -81,7 +91,7 @@ Of course, we can explicit the repo and owner. For example:
 "Hola @alu0101040882, \r\n\r\nVeo que alguno ya está trabajando en la práctica de
 ```
 
-### POST Example 
+## POST Example 
 
 Let us see an example using the `POST` method. We will start from this `curl` example 
 in the [GitHub API getting started guide](https://docs.github.com/en/free-pro-team@latest/rest/guides/getting-started-with-the-rest-api#repositories):
@@ -113,7 +123,7 @@ This way we have created a private repo inside the user scope:
 ➜  input-option git:(master) ✗ gh api -f name=repo-prueba-gh-api -f private=true /user/repos
 ```
 
-### Pagination
+## Pagination
 
 The option `--paginate`allow us to make additional HTTP requests to fetch 
 all pages of results. Here is an example. 
@@ -161,7 +171,7 @@ If we use `--paginate` the request takes a long time and gives us near a thousan
      990     990   32868
 ```
 
-###  Templates for the output
+##  Templates for the output
 
 The option `-t, --template string`of `gh api`
 allows to format the response using a [Go template](https://pkg.go.dev/text/template).

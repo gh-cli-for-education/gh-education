@@ -1,7 +1,16 @@
+---
+sidebar: auto
+next: gh-api.md
+prev: gh.md
+---
 
-## Introduction to `gh alias`
+# Introduction to `gh alias`
+
+## Manual
 
 See <https://cli.github.com//manual/gh_alias_set>
+
+## gh alias set
 
 ```
 ➜ gh alias set <alias> <expansion> [flags]
@@ -14,70 +23,59 @@ includes positional placeholders such as `$1`, `$2`, etc., any extra arguments
 that follow the invocation of an alias will be inserted appropriately.
 
 
-If `--shell` is specified, the alias will be run through a shell interpreter (sh). This allows you
-to compose commands with `|` or redirect with `>`. Note that extra arguments following the alias
-will not be automatically passed to the expanded expression. To have a shell alias receive
-arguments, you must explicitly accept them using `$1`, `$2`, etc., or `$@` to accept all of them.
+If `--shell` is specified, the alias will be run through a shell interpreter (sh). 
 
-Platform note: on Windows, shell aliases are executed via `sh` as installed by Git For Windows. If
-you have installed git on Windows in some other way, shell aliases may not work for you.
+* This allows you
+to compose commands with `|` or redirect with `>`. 
+* Note that extra arguments following the alias
+will not be automatically passed to the expanded expression. 
+* To have a shell alias receive
+arguments, you must explicitly accept them using `$1`, `$2`, etc., or `$@` to accept all of them.
 
 Quotes must always be used when defining a command as in the examples.
 
-### Simple Examples
+## Simple Example
+
+La opción `--paginate` nos permite obtener todos los items. La opción `--jq` nos permite
+filtrar los items usando [jq](https://stedolan.github.io/jq/).
 
 ```
-  $ gh alias set pv 'pr view'
-  $ gh pv -w 123
-  #=> gh pr view -w 123
-
-  $ gh alias set bugs 'issue list --label="bugs"'
-
-  $ gh alias set epicsBy 'issue list --author="$1" --label="epic"'
-  $ gh epicsBy vilmibm
-  #=> gh issue list --author="vilmibm" --label="epic"
-
-  $ gh alias set --shell igrep 'gh issue list --label="$1" | grep $2'
-  $ gh igrep epic foo
-  #=> gh issue list --label="epic" | grep "foo"
-````
-
-### Example search for members of an organization
-
-Este request nos da un JSON con informacion sobre los miembros de una org:
-
-```
-gh alias set org-members api --paginate "/orgs/$1/members"
+➜ gh alias set org-list-names "api --paginate /user/memberships/orgs --jq '.[].organization.login'"
+- Adding alias for org-list-names: api --paginate /user/memberships/orgs --jq '.[].organization.login'
+✓ Added alias.
+➜  gh org-list-names | grep 23
+ULL-ESIT-DMSI-2223
+ULL-ESIT-PL-2223
+ULL-MII-SYTWS-2223
+ULL-MFP-AET-2223
+ULL-ESIT-LPP-2223
 ```
 
-Por ejemplo:
+## Example search for members of an organization
+
+Este request nos da un JSON con información sobre los miembros de una org:
 
 ```
-✗ gh org-members ULL-MII-SYTWS-2122 | jq '.[] | .url, .id, .login'
-"https://api.github.com/users/alu0100898293"
-22496375
-"alu0100898293"
-"https://api.github.com/users/alu0101102726"
-37936358
-"alu0101102726"
-"https://api.github.com/users/crguezl"
-1142554
-"crguezl"
-"https://api.github.com/users/PaulaExposito"
-56047765
-"PaulaExposito"
-"https://api.github.com/users/Pmolmar"
-45513418
-"Pmolmar"
+➜ gh alias set org-ms 'api --paginate "/orgs/$1/members"'
+- Adding alias for org-ms: api --paginate "/orgs/$1/members"
+✓ Added alias.
 ```
-
-A partir de este alias podemos construir sub-alias:
+  
+Que lo podemos usar así:
 
 ```
-✗ gh alias set my-orgs-names --shell "gh my-orgs --jq '.[].organization.login'"
+➜ gh org-ms ULL-MII-SYTWS-2223 --jq '.[].login'
+algorithms-ull
+alu0101225562
+alu0101229942
+casiano
+claudio4
+crguezl
+JobabaEV
+SantiagoVV
 ```
 
-### Example: Search for repos inside an organization
+## Example: Search for repos inside an organization
 
 Let us search for repos inside our organization using GitHub API v3:
 

@@ -33,24 +33,24 @@ Check the [GitHub CLI Manual](https://cli.github.com/manual/) for more details.
 
 There are several ways you can extend/customize `gh`:
 
-*   Create shorthands using [gh alias set](#aliases)
-*   Make custom API queries using [`gh api`](https://cli.github.com//manual/gh_api)
+*   Create shorthands using [gh alias set](gh-alias)
+*   Make custom API queries using [gh api](gh-api)
 *   Use [environment variables](https://cli.github.com//manual/gh_help_environment)
-*   Use an [extension](#extensions)
+*   Use an [extension](gh-extension)
 
-## Aliases
+### Aliases
 
 Véase [gh-alias](gh-alias)
 
-## Introduction to `gh api` 
+### Introduction to `gh api` 
 
 * Véase [gh api](gh-api)
 
-## Introduction to `gh api` using GraphQL
+### Introduction to `gh api` using GraphQL
 
 * Véase [gh api graphql](gh-api-graphql)
   
-## Extensions
+### Extensions
 
 * Véase [gh extensions](gh-extension)
 
@@ -72,4 +72,4 @@ Véase [gh-alias](gh-alias)
 * Blog: [GitHub CLI is Now Available: Here’s Why You Should Be Excited by 
 Kasun Rajapakse](https://blog.bitsrc.io/github-cli-is-now-available-heres-why-you-should-be-excited-91d8bdd81a51)
 * [An Introduction to GraphQL via the GitHub API](https://www.cloudbees.com/blog/an-introduction-to-graphql-via-the-github-api)  by Derek Haynes
-*[GitHub GraphQL Playground](https://docs.github.com/en/graphql/overview/explorer)
+* [GitHub GraphQL Playground](https://docs.github.com/en/graphql/overview/explorer)
