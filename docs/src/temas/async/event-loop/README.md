@@ -5,15 +5,16 @@
 
 ## Introducción
 
-[](/images/how-the-event-loop-works.png)  
-
 <i>All JavaScript environments use an event loop</i>
+
+![](/images/how-the-event-loop-works.png)  
+
 
 As long as there’s something left to do, JSs event loop will keep spinning. Whenever an event occurs, JS invokes any *callbacks* (event handlers) that are listening for that event.
 
 The general algorithm of the JS Engine is like this:
 
-```js
+```ruby
 executeSequentially(mainTask);
 while (thereArePendingTasks()) do
   let oldestFinishedTask = waitUntilSomeTaskIsReady();
