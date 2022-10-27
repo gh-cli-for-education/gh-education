@@ -54,7 +54,7 @@ El máster contempla un 50% de no presencialidad y las clases de teoría (Grupos
 
 * [Calendario Google de SYTWS](https://calendar.google.com/calendar/u/1?cid=dWxsLmVkdS5lc19oM2FiN3AzcmxmYW1qY25zbmhsdDZ1aGI0MEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t) (Por si lo quieres añadir a tu Google Calendar)
 
-!!!include(horarios/embeded-calendar-iframe.html)!!!
+!!!include(includes/embeded-calendar-iframe.html)!!!
 
 ## Calendario Académico
 
