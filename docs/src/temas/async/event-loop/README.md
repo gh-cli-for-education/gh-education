@@ -30,8 +30,7 @@ When JS runs in the browser:
 
 *   Rendering never happens while the engine executes a task. Doesn’t matter if the task takes a long time. Changes to DOM are painted only after the task is complete.
 *   If a task takes too long, the browser can’t do other tasks, process user events, so after a time it raises an alert like **Page Unresponsive** suggesting to kill the task with the whole page. That happens when there are a lot of complex calculations or a programming error leading to infinite loop.
-
-
+* There is in fact a Render queue, which is another queue in the event loop system which basically takes care of all tasks to be done before every screen update or repaints.
 
 * Your JavaScript code runs single threaded. There is just one thing happening at a time.
     * Pay attention to how you write your code and avoid anything that could block the thread, like synchronous network calls or long loops.
