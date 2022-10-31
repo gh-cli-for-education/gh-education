@@ -1,0 +1,100 @@
+
+# 404
+
+## Jekyll docs on 404
+
+* See the docs at [Custom 404 Page](https://jekyllrb.com/tutorials/custom-404-page/)
+
+## The Cat API
+
+* [TheCatApi // Developer Experience](https://docs.thecatapi.com/) docs
+  
+## An Example of a 404 page
+
+You can install the VSCode extension [Thunder Client](https://github.com/rangav/thunder-client-support) for testing the cat API.
+
+
+```
+~/.../pl1920/apuntes(master)]$ cat 404.md 
+```
+
+```md
+---
+layout: error
+title: Error
+---
+# Error: ¡Ay Diós mío!
+
+## Aún no he escrito esta página. 
+
+
+<div>
+<style>
+img, #quote, #comment-cat {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#author {
+  float: right;
+}
+</style>
+
+
+<div id="comment-cat"></div>
+<div id="cat"></div>
+<br/>
+<div id="quote"></div>
+<div id="author"></div>
+
+
+<script type="text/javascript">
+
+/*
+  https://docs.thecatapi.com/ 
+*/
+const URL = 'https://api.thecatapi.com/v1/images/search?size=full';
+
+(async function() {
+  try {
+    
+    // CAT 
+    let divTitle = document.getElementById("comment-cat");
+    
+    let divcat = document.getElementById("cat");
+    let response = await fetch(URL, {
+       headers: {
+       'x-api-key': "56a4f1cc-7f60-468d-9dba-e4b6f04b7c7d"
+       }
+    });
+    let cat = await response.json();
+    // console.log(cat);   
+    let img = document.createElement("img");
+    let title = document.createElement("h2");
+    title.innerText = "Consuélate con un gatito";   
+    divTitle.append(title);
+    img.src = cat[0].url;
+    divcat.appendChild(img);   
+
+    // QUOTE
+    const quoteDiv = document.getElementById("quote");
+    const authorDiv = document.getElementById("author");
+    
+    const quoteRes = await fetch('https://api.quotable.io/random');
+    const data = await quoteRes.json();
+    quoteDiv.innerHTML = `<h2>${data.content}</h2>`;
+    authorDiv.innerHTML = `<h3>—${data.author}</h3>`;
+  }
+  catch(e) { 
+    console.log(e);
+  }
+})();
+</script>
+
+</div>
+```
+
+## Thunder Client
+
+You can install the VSCode extension [Thunder Client](https://github.com/rangav/thunder-client-support) for testing the cat API.
+
