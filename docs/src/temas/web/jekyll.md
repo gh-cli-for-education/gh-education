@@ -39,6 +39,10 @@ Recuerda que GitHub provee un servicio de Hosting de páginas estáticas ([GitHu
 *   [Convert an HTML site to Jekyll](https://jekyllrb.com/tutorials/convert-site-to-jekyll/)
 *   [Using Jekyll with Bundler](https://jekyllrb.com/tutorials/using-jekyll-with-bundler/)
 
+## 404
+
+See the [404](jekyll-404) section in this notes
+
 ## The Jekyll Conference
 
 * [The free, online global conference for all things Jekyll](https://jekyllconf.com/)

@@ -3,7 +3,7 @@
 # The JS Event Loop
 
 
-## Introducción
+## Introducción al Event Loop
 
 <i>All JavaScript environments use an event loop</i>
 
@@ -210,7 +210,7 @@ Directorio en mi máquina:
 tema1-introduccion/practicas/p2-t1-c3-file-system/event-loop/order.js 
 ```
 
-Ejemplo sacado del Tutorial [Concurrency model and Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop) at https://developer.mozilla.org
+Ejemplo sacado del Tutorial [Concurrency model and Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop) at <https://developer.mozilla.org>
 
 
 ```js
@@ -233,7 +233,7 @@ Ejemplo sacado del Tutorial [Concurrency model and Event Loop](https://developer
 })();
 ```
 
-### Ejemplo: JS *is single threaded*
+### Ejemplo: JS is single threaded
 
 En mi máquina:
 
@@ -243,7 +243,7 @@ tema1-introduccion/practicas/p2-t1-c3-file-system/event-loop/settimeout-does-not
 
 Tomado del tutorial:
 
-* Tutorial [Concurrency model and Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop) at https://developer.mozilla.org
+* Tutorial [Concurrency model and Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop) at <https://developer.mozilla.org>
 
 Primero, un ejemplo, para entender el funcionamiento de `Date`y `getSeconds`:
 

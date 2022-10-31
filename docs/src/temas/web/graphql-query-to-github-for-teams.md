@@ -34,3 +34,7 @@ query getInfo($organization: String!) {
   }
 }
 ```
+
+## get-teams.sh
+
+Vea el script [ULL-MFP-AET/ull-mfp-aet.github.io/blob/main/get-teams.sh](https://github.com/ULL-MFP-AET/ull-mfp-aet.github.io/blob/main/get-teams.sh)
