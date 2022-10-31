@@ -194,7 +194,7 @@ When pushed on production, the <code>jekyll build</code> command will use the de
 ## Maths y Jekyll
 
 * [Adding MathJax to a GitHub Pages Jekyll Blog](https://sgeos.github.io/github/jekyll/2016/08/21/adding_mathjax_to_a_jekyll_github_pages_blog.html)
-
+* Apuntes de AET. Código de inserción de $LaTeX$ usando [MathJaX](https://github.com/ULL-MFP-AET/ull-mfp-aet.github.io/blob/main/_layouts/default.html#L21-L31)
 
 ## Cursos en YouTube de Jekyll and NetlifyCMS por Thomas Bradley
 
