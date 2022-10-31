@@ -100,6 +100,8 @@ const URL = 'https://api.thecatapi.com/v1/images/search?size=full';
 </div>
 ```
 
+puede ver la página en [funcionamiento en esta web](https://ull-esit-dmsi.github.io/2032/10/31/leccion.html)
+
 
 ## Extensions for APIs
 
