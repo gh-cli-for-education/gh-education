@@ -87,6 +87,15 @@ You can install the VSCode extension [Thunder Client](https://github.com/rangav/
 
 Con lo aprendido desarrolle su página personal en GitHub (si no es que ya tiene una).
 
+## Entrega 
+
+Elimine los posts que no son suyos y las colecciones de ejemplo simplificando el we site a lo que son sus aportaciones:
+
+* Sus colecciones
+* Sus posts
+* La barra de navegación sólo debe tener lo que es interesante para esta práctica (por ejemplo, la "quick start guide debe ser eliminada")
+* Simplifique la home page
+
 ## Campus
 
 <campus></campus>
