@@ -98,3 +98,8 @@ const URL = 'https://api.thecatapi.com/v1/images/search?size=full';
 
 You can install the VSCode extension [Thunder Client](https://github.com/rangav/thunder-client-support) for testing the cat API.
 
+## Chrome extensions for API
+
+* [JSON Formatter for API](https://chrome.google.com/webstore/detail/json-formatter-for-api/ipofikknncgcohpploljmbmpkgamedmi)
+* [Advanced REST client](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo)
+* [Altair GraphQL Client](https://chrome.google.com/webstore/detail/altair-graphql-client/flnheeellpciglgpaodhkhmapeljopja)
