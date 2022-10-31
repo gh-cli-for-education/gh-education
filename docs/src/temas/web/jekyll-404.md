@@ -111,7 +111,7 @@ You can install the VSCode extension [Thunder Client](https://github.com/rangav/
 
 ### Chrome
 
-For Chrome you have:
+For Chrome you can install:
 
 * [JSON Formatter for API](https://chrome.google.com/webstore/detail/json-formatter-for-api/ipofikknncgcohpploljmbmpkgamedmi)
 * [Advanced REST client](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo)
