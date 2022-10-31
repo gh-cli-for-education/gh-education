@@ -3,7 +3,13 @@
 
 ## Jekyll docs on 404
 
-* See the docs at [Custom 404 Page](https://jekyllrb.com/tutorials/custom-404-page/)
+
+Puede servir fácilmente páginas de error 404 personalizadas con Jekyll  reemplazando la página predeterminada `Error 404 – File Not Found` que se muestra cuando uno intenta acceder a un enlace roto en su sitio. 
+
+Cualquier fichero `404.html` en la raíz de su directorio `_site` será atendido automáticamente por GitHub Pages y el servidor de desarrollo WEBrick local.
+
+Véase la documentación de Jekyllrb en [Custom 404 Page](https://jekyllrb.com/tutorials/custom-404-page/)
+
 
 ## The Cat API
 
@@ -94,11 +100,16 @@ const URL = 'https://api.thecatapi.com/v1/images/search?size=full';
 </div>
 ```
 
-## Thunder Client
+
+## Extensions for APIs
+
+### Thunder Client
 
 You can install the VSCode extension [Thunder Client](https://github.com/rangav/thunder-client-support) for testing the cat API.
 
-## Chrome extensions for API
+### Chrome
+
+For Chrome you have:
 
 * [JSON Formatter for API](https://chrome.google.com/webstore/detail/json-formatter-for-api/ipofikknncgcohpploljmbmpkgamedmi)
 * [Advanced REST client](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo)
