@@ -105,7 +105,7 @@ puede ver la página en [funcionamiento en esta web](https://ull-esit-dmsi.githu
 
 ## Extensions for APIs
 
-### Thunder Client
+### Vscode Thunder Client
 
 You can install the VSCode extension [Thunder Client](https://github.com/rangav/thunder-client-support) for testing the cat API.
 
