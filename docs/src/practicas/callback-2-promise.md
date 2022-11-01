@@ -9,7 +9,7 @@ layout: Practica
 order: 12
 sidebar: auto
 prev: promise-allsettled.md
-next: 
+next: async-await.md
 rubrica:
   - "código correcto"
   - "Informe bien elaborado"
