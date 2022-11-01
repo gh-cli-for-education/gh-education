@@ -9,7 +9,7 @@ layout: Practica
 order: 10
 sidebar: false
 prev: promise-readfile.md
-next: 
+next: promise-allsettled.md
 rubrica:
   - "código correcto"
   - "Informe bien elaborado"
