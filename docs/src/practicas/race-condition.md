@@ -127,7 +127,7 @@ Test adicional: Con `let waitFor = 0` pruebe a recargar la página. ¿Que ocurri
 
 ## Referencias
 
-* Tema [Async Programming in JavaScript](/temas/async/)
+* Tema [Async Programming in JavaScript](/temas/async/event-loop) The Event Loop
 * [Meta repo de la Charla UAI2015](https://github.com/ULL-MII-SYTWS-1920/uai2015)
   * [Repo de Ejemplo ULL-MII-SYTWS-1920/js-race](https://github.com/ULL-MII-SYTWS-1920/js-race)
 * Charla en InfoQ: [https://www.infoq.com/presentations/javascript-concurrency-parallelism/](https://www.infoq.com/presentations/javascript-concurrency-parallelism/)
