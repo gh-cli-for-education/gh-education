@@ -25,7 +25,7 @@ readFilePromise(programName, 'utf8')
   .catch(error => console.log('Error:\n'+error));
 ```
 
-To test your solution run
+Once you have written your solution you can test it with
 
 ```
 ➜  readfilepromise-solution git:(master) ✗ npm test
