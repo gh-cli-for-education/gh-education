@@ -8,7 +8,7 @@ key: promise-readfile
 layout: Practica
 order: 9
 prev: race-condition.md
-next: 
+next: promise-all.md
 rubrica:
   - "código correcto"
   - "Informe bien elaborado"
