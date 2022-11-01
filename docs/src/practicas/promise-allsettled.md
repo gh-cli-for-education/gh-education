@@ -4,12 +4,12 @@ published: true
 date: "2022/10/31 04"
 campus: "https://campusdoctoradoyposgrado2223.ull.es/mod/assign/view.php?id=785"
 delivery: "2022/11/09"
-key: promise-all-settled
+key: promise-allsettled
 layout: Practica
 order: 11
 sidebar: false
 prev: promise-all.md
-next: 
+next: callback-2-promise.md
 rubrica:
   - "código correcto"
   - "Informe bien elaborado"
