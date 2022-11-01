@@ -282,9 +282,8 @@ while(true) {
 
 See the examples:
 
-* [A Simple Example: Loading an Image with Some Delay ](/event-loop/exercises/race-condition/instructions.html#loading-an-image-with-some-delay)
-* [Manually Interleaving Promises](/event-loop/exercises/race-condition/instructions.html#manually-interleaving-promises)
-
+* [A Simple Example: Loading an Image with Some Delay ](/practicas/race-condition.html)
+* [Yes, there are race conditions in JavaScript](https://medium.com/@ubershmekel/yes-there-are-race-conditions-in-javascript-ba044571a914) by [Yuval Greenfield](https://medium.com/@ubershmekel): An example that manually interleaves promises to produce a somehow artificial race condition
 
 ## The Event Loop en el libro [The Modern JavaScript Tutorial](https://javascript.info)
 
