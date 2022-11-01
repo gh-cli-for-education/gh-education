@@ -8,7 +8,7 @@ key: asyncmap
 layout: Practica
 order: 7
 prev: intro2sd.md
-next: 
+next: race-condition.md
 rubrica:
   - "Código de la práctica correcto"
   - "Se da una solucion paralela usando la librería async"
