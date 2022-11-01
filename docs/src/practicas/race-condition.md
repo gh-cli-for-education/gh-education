@@ -72,7 +72,7 @@ http-server -p 9000 -o
 with this line uncommented 
 
 ```js
-let waitFor = 1000;
+let waitFor = 2000;
 ```
 
 Can you see the infinite loop image?
