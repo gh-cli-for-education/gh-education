@@ -17,6 +17,7 @@ rubrica:
 
 # {{ $frontmatter.title }}
 
+
 Read chapter [Async/Await](https://javascript.info/async-await) of the <https://javascript.info> book and make a report using the GitHub Classroom assigned repo. Solve the exercises.
 
 ## Exercise 1: MicroTask and MacroTask Queues
