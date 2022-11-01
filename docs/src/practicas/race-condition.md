@@ -2,13 +2,13 @@
 title: "Race Condition: Loading an image with some delay"
 published: true
 date: "2022/10/31 01"
-campus: "https://campusdoctoradoyposgrado2223.ull.es/mod/assign/view.php?id=781"
+campus: "https://campusdoctoradoyposgrado2223.ull.es/mod/assign/view.php?id=782" 
 delivery: "2022/11/03"
 key: race-condition
 layout: Practica
 order: 8
 prev: asyncmap.md
-next: 
+next: promise-readfile.md
 rubrica:
   - "Encontrada explicación correcta"
   - "Informe bien elaborado"
