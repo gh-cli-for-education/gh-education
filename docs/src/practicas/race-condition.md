@@ -61,7 +61,9 @@ Consider this file `index.html`:
 
 ## The Experiment
 
-Copy and serve this file with:
+Install  [http-server](https://www.npmjs.com/package/http-server).
+
+Then  serve this `index.html` file with:
 
 ```
 http-server -p 9000 -o
