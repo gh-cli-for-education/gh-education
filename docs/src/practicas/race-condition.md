@@ -59,6 +59,8 @@ Consider this file `index.html`:
 </html>
 ```
 
+The `EventTarget.addEventListener()` method of the [EventTarget](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) sets up a function that will be called whenever the specified event is delivered to the target.
+
 ## The Experiment
 
 Install  [http-server](https://www.npmjs.com/package/http-server).
