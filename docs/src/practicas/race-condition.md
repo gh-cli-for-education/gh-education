@@ -121,14 +121,16 @@ haya ocurrido antes que el manejador sea registrado.
 
 *Event listeners are not called if they are attached after the event has already fired. "You snooze, you lose."*
 
-Test adicional: Con `let waitFor = 0` pruebe a recargar la página. ¿Que ocurrirà?
+## Test adicional
+
+Con `let waitFor = 0` pruebe a recargar la página. ¿Que ocurrirà?
 ¿Pasa lo mismo con todos los navegadores?
 
 <hr/>
 
 ## Objetivo
 
-En su informe desarrolle una explicación para las conductas observadas
+In your report, develop an explanation for the observed behaviors.
 
 ## Referencias
 
