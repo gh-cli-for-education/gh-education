@@ -124,6 +124,9 @@ Test adicional: Con `let waitFor = 0` pruebe a recargar la página. ¿Que ocurri
 
 <hr/>
 
+## Objetivo
+
+En su informe desarrolle una explicación para las conductas observadas
 
 ## Referencias
 

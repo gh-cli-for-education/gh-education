@@ -36,3 +36,5 @@ Once you have written your solution you can test it with
 Data:
 Prueba de lectura
 ```
+
+Una versión mas abstracta de esta práctica es la práctica [Callback to Promise](/practicas/callback-2-promise.html)
