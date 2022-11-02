@@ -1,2 +1,1 @@
-# Hello VitePress
-## Curso
+# Página principal
