@@ -11,6 +11,8 @@
   "author": "Carlos Díaz Calzadilla",
   "license": "ISC",
   "dependencies": {
+    "fs": "^0.0.1-security",
+    "recursive-readdir": "^2.2.3",
     "vitepress": "^1.0.0-alpha.26",
     "vue": "^3.2.41"
   }

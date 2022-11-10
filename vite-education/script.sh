@@ -24,6 +24,7 @@ progressbar () {
 
 checkFolder() {
     if [ -d "${FILEPATH}" ]; 
+        echo -ne "$(printcolor $RED 'Clone folder found' )"
         progressbar 'printcolor' "$RED" 'Deleting' & pid="$!"
         then rm -Rf ${FILEPATH}; 
         kill -s USR1 "$pid"
@@ -34,6 +35,8 @@ checkFolder() {
 cloneRepo() {
     echo -e "\n"
     checkFolder
+    echo -ne "$(printcolor $YELLOW "Conning in ${FILEPATH}" )"
+    echo -e "\n"
     progressbar 'printcolor' "$CYAN" 'Clonning' & pid="$!"
     cloneCmd="git clone git@github.com:gh-cli-for-education/gh-education.git ${FILEPATH}"
     cloneCmdRun=$($cloneCmd 2>&1)
@@ -42,36 +45,45 @@ cloneRepo() {
 }
 
 createTeams() {
-    echo -e "Creating teams:"
+    progressbar 'printcolor' "$CYAN" 'Creating Organization & Teams' & pid="$!"
+    kill -s USR1 "$pid"
 }
 
 initialmenu() {
-    echo -ne "
-    $(printcolor $YELLOW '# OPCIONES DISPONIBLES #' )
-    $(printcolor $CYAN '1)' ) Clonar Repositorio
-    $(printcolor $MAGENTA '2)' ) Crear Teams & Organización
-    $(printcolor $BLUE '3)' ) Configuración
-    $(printcolor $RED '0)' ) Exit
-    Choose an option:  "
-        read -r ans
-        case $ans in
-        1)
-            cloneRepo
-            ;;
-        2)
-            createTeams
-            ;;
-        3)
-            ;;
-        0)
-            echo "Bye bye."
-            exit 0
-            ;;
-        *)
-            echo "Wrong option."
-            exit 1
-            ;;
-        esac
+    ans=1
+    while [ $ans -ne 0 ]
+    do
+        echo -ne "
+        $(printcolor $YELLOW '# OPCIONES DISPONIBLES #' )
+        $(printcolor $CYAN '1)' ) Crear Template
+        $(printcolor $MAGENTA '2)' ) Crear Teams & Organización
+        $(printcolor $BLUE '3)' ) Configuración
+        $(printcolor $RED '0)' ) Exit
+        Choose an option:  "
+            read -r ans
+            case $ans in
+            1)
+                echo -en "\ec"
+                cloneRepo
+                ;;
+            2)
+                echo -en "\ec"
+                createTeams
+                ;;
+            3)
+                echo -ne "\ec"
+                ;;
+            0)
+                echo -ne "$(printcolor $RED 'exiting...' )"
+                echo -ne "\n"
+                exit 0
+                ;;
+            *)
+                cho -ne "$(printcolor $RED '0)' ) BAD OPTION"
+                ;;
+            esac
+    done
 }
 
+echo -en "\ec"
 initialmenu
