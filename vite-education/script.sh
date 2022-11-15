@@ -49,6 +49,64 @@ createTeams() {
     kill -s USR1 "$pid"
 }
 
+basicConfig() {
+    arr=("")
+    opt=""
+
+    echo -ne "$(printcolor $CYAN '1)' ) Nombre Asignatura\n"
+    echo -ne "   "
+    read -r opt
+    arr+=(${opt})
+
+    opt=""
+    echo -ne "$(printcolor $CYAN '2)' ) Curso\n"
+    echo -ne "   "
+    read -r opt
+    arr+=(${opt})
+
+    echo -ne "\ec"
+    echo -ne "
+        $(printcolor $YELLOW '# INFOROMACIÓN CONFIGURACIÓN #' )
+        $(printcolor $CYAN 'Nombre asignatura: ' ) ${arr[1]} 
+        $(printcolor $CYAN 'Curso: ' ) ${arr[2]} 
+    "
+}
+
+menuOptions() {
+    ans=1
+    while [ $ans -ne 0 ]
+    do
+        echo -ne "
+        $(printcolor $YELLOW '# CONFIGURACIÓN ASIGNATURA #' )
+        $(printcolor $CYAN '1)' ) Configuración básica
+        $(printcolor $MAGENTA '2)' ) Crear Teams & Organización
+        $(printcolor $RED '0)' ) Exit
+        Choose an option:  "
+            read -r ans
+            case $ans in
+            1)
+                echo -en "\ec"
+                basicConfig
+                ;;
+            2)
+                echo -en "\ec"
+                createTeams
+                ;;
+            3)
+                echo -ne "\ec"
+                ;;
+            0)
+                echo -ne "$(printcolor $RED 'exiting...' )"
+                echo -ne "\n"
+                exit 0
+                ;;
+            *)
+                cho -ne "$(printcolor $RED '0)' ) BAD OPTION"
+                ;;
+            esac
+    done
+}
+
 initialmenu() {
     ans=1
     while [ $ans -ne 0 ]
@@ -56,8 +114,7 @@ initialmenu() {
         echo -ne "
         $(printcolor $YELLOW '# OPCIONES DISPONIBLES #' )
         $(printcolor $CYAN '1)' ) Crear Template
-        $(printcolor $MAGENTA '2)' ) Crear Teams & Organización
-        $(printcolor $BLUE '3)' ) Configuración
+        $(printcolor $MAGENTA '2)' ) Actualizar Teams
         $(printcolor $RED '0)' ) Exit
         Choose an option:  "
             read -r ans
@@ -65,6 +122,7 @@ initialmenu() {
             1)
                 echo -en "\ec"
                 cloneRepo
+                menuOptions
                 ;;
             2)
                 echo -en "\ec"
