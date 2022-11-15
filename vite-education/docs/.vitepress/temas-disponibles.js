@@ -7,15 +7,21 @@ let dirToJSON = function(dir, done) {
     let list = fs.readdirSync(d);
     list.forEach((name) => {
       let tempResults = [];
+      let pathD = d + "/" + name;
+      console.log(pathD)
       let file = path.resolve(d, name);
       let stat = fs.statSync(file);
       if (stat && stat.isDirectory()) {
         recWalk(file, tempResults);
         let obj = {};
-        obj[name] = tempResults;
+        obj.text = name;
+        obj["items"] = tempResults;
         res.push(obj);
       } else {
-        res.push(name);
+        let obj = {};
+        obj["text"] = name;
+        obj["link"] = pathD;
+        res.push(obj);
       }
     });
   }
@@ -32,9 +38,8 @@ dirToJSON("../temas", function(err, results) {
   if (err) console.log(err);
   else {
     let json =  JSON.stringify(results);
-    fs.writeFile('temas-publicados.json', json, 'utf8', function(err) {
-        if (err) throw err;
+    fs.appendFileSync('temas-publicados.js', "module.exports = ");
+    fs.appendFileSync('temas-publicados.js', json);
         console.log('complete');
-        });
   }
 });

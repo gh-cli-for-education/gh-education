@@ -10,10 +10,4 @@ sidebar: auto
 
 # Temas
 
-## Presentación
-
-<ul>
-    <li> <a href="presentación/presentacion.html"> Presentación </a> </li>
-</ul> 
-
-## Tema 1: Primeros pasos
+<temas></temas>
