@@ -8,6 +8,11 @@ develop: false
 sidebar: auto
 ---
 
+<script setup>
+import temas from '../.vitepress/components/temas.vue'
+</script>
+
+
 # Temas
 
 <temas></temas>
