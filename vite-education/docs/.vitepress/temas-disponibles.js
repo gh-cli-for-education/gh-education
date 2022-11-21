@@ -8,7 +8,6 @@ let dirToJSON = function(dir, done) {
     list.forEach((name) => {
       let tempResults = [];
       let pathD = d + "/" + name;
-      console.log(pathD)
       let file = path.resolve(d, name);
       let stat = fs.statSync(file);
       if (stat && stat.isDirectory()) {
