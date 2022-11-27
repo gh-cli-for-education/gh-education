@@ -8,10 +8,10 @@ develop: false
 sidebar: auto
 ---
 
+<script setup>
+    import practicas from '../.vitepress/components/practicas.vue'
+</script>
+
 # Prácticas
 
-## Práctica 1: Uso del IAAS
-
-<ul>
-    <li> <a href="iaas.html"> Uso del IAAS </a> </li>
-</ul> 
+<practicas></practicas>

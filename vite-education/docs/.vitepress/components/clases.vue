@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import clase from '../clases-publicadas.js'
+import clase from '../publico/clases.js'
 
 export default {
   data() {

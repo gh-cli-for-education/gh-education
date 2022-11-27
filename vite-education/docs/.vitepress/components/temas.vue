@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import themes from '../temas-publicados.js'
+import themes from '../publico/temas.js'
 
 export default {
   data() {
