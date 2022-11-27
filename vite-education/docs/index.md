@@ -6,7 +6,7 @@ import temas from '.vitepress/components/temas.vue'
 
 ## Education Generator
 
-<div class="feature"> 
-  <h2>Themes</h2>
+<div class="temas"> 
+  <h2> Temas </h2>
   <temas></temas>
-  </div>
+</div>

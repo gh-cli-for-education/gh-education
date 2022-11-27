@@ -8,4 +8,8 @@ develop: false
 sidebar: auto
 ---
 
-# Clase 20 Octubre 2022
+# Clases 11 Octubre 2022
+
+## Presentación Asignatura
+
+* Tema: [Presentación](../../temas/presentación/presentacion.md)
