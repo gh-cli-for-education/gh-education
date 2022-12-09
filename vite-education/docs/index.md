@@ -1,9 +1,9 @@
 <script setup>
-import register from '.vitepress/components/Register.vue'
+    import Principal from '.vitepress/components/Principal.vue'
 </script>
 
 # Página principal
 
 ## Education Generator
 
-<register></register>
+<Principal></Principal>
