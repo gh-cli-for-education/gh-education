@@ -11,6 +11,7 @@
   "author": "Carlos Díaz Calzadilla",
   "license": "ISC",
   "dependencies": {
+    "firebase": "^9.15.0",
     "fs": "^0.0.1-security",
     "recursive-readdir": "^2.2.3",
     "tree-parser": "^1.2.4",
