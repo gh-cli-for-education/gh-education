@@ -1,9 +1,9 @@
 <script setup>
-    import Principal from '.vitepress/components/Principal.vue'
+    import Auth from '.vitepress/components/Auth.vue'
 </script>
 
 # Página principal
 
 ## Education Generator
 
-<Principal></Principal>
+<Auth></Auth>
