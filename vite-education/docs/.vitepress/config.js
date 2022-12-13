@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
     title: 'GH EDUCATION', // appended to all page titles
     themeConfig: {
@@ -17,7 +19,7 @@ module.exports = {
         ["script",{src: "https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"}],
         ["script",{src: "https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"}],
         ["script",{src: "https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"}],
-        ["script",{src: "/mnt/c/Users/Usuario/Desktop/gh-edu/gh-education-template/vite-education/docs/.vitepress/firebase.js"}]
+        ["script",{src: path.join(__dirname, "firebase.js")}]
 
     ],
     extendMarkdown: (md) => { // See https://github.com/vuejs/vuepress/issues/222#issuecomment-874001675
