@@ -32,7 +32,7 @@ export default {
     teams() {
       return this.rawTeams.map(team => {
         let node = team.node
-        let member = node.members.edges[0].node
+        let member = node.members.edges[0].node;
         const user = {
           name: node.name,
           url: node.url,

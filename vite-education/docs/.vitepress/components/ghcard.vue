@@ -1,22 +1,23 @@
 <template>
-  <a :href="href">
     <div class="card">
+      <h3 class="name">{{ name }}</h3>
       <div class="flex">
         <div class="media">
           <img :src="image" :alt="ghuser" />
         </div>
         <div class="details">
           <div class="author">
-            <div>
-              <h3 class="name">{{ name }}</h3>
-              <p class="ghuser">{{ ghuser }}</p>
-              <p class="date">{{ date }}</p>
-            </div>
+            <p class="ghuser">{{name}} github: <a :href="href">{{ ghuser }} </a> </p>
+            <p class="ghuser">{{name}} <a :href="repositoryUrl"> repositorio  </a> </p>
+            <p class="ghuser">{{name}} <a :href="notifications"> notificaciones </a> </p>
+            <p class="ghuser"> Proyectos recientes: </p>
+            <li v-for="(repository, section) in repositories['edges']" :key="section">
+              <a :href="repository['node']['url']"> {{repository["node"]["name"]}} </a>
+            </li>
           </div>
         </div>
       </div>
     </div>
-  </a>
 </template>
 
 <script>
@@ -35,6 +36,18 @@ export default {
       required: true,
     },
     href: {
+      type: String,
+      required: true,
+    },
+    repositories: {
+      type: Object,
+      required: true,
+    },
+    repositoryUrl: {
+      type: String,
+      required: true,
+    },
+    notifications: {
       type: String,
       required: true,
     },
