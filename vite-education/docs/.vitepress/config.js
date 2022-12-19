@@ -9,7 +9,7 @@ module.exports = {
             { text: '🧑🏽‍🏫 Clases', link: '/clases/clases' },
             { text: '💻 Prácticas', link: '/practicas/practicas' },
             { text: '👥 Teams', link: '/teams/teams' },
-            { text: '📝 Temas', link: '/temas/temas' },
+            { text: '📝 Temas', link: '/temas/temas' }
         ]
     },
     markdown: {
