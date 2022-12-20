@@ -63,9 +63,6 @@
 <script>
     import "../css/auth-form.css";
     import * as firebase from 'firebase/compat/app'
-
-    const SERVER_URL = "http://localhost:3000/"
-
     export default {
         data() {
             return {
@@ -99,28 +96,20 @@
                         alert(error.message);
                     });
             },
-            async login() {
+            login() {
                 if (this.emailReg === "" || this.passwordReg === "") {
                     this.emptyFields = true;
                 } else {
-                    await fetch(SERVER_URL + "login", {
-                        method: 'POST',
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({
-                            "email": this.email,
-                            "password": this.password
-                         })
-                    })
-                    .then((response) => response.json())
-                    .then(responseData => {
-                        console.log(responseData);
-                        this.userlogged = true;
-                        this.principalView = !this.principalView;
-                        this.authView = !this.authView;
-                    })
-                    .catch(error => {console.log(error);});
+                    auth.signInWithEmailAndPassword(this.email, this.password).then((data) => {
+                            this.userlogged = true;
+                            this.principalView = !this.principalView;
+                            this.authView = !this.authView;
+                            this.currentUser = auth.currentUser.displayName;
+                        })
+                        .catch(error => {
+                            console.log(error.code)
+                            alert(error.message);
+                        });
                 }
             },
             registerUser() {    
