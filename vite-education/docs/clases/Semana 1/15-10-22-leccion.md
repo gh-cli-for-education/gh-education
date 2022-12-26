@@ -12,4 +12,4 @@ sidebar: auto
 
 ## Presentación Asignatura
 
-* Tema: [Presentación](../../temas/presentación/presentacion.md)
+* Tema: [Presentación](../../temas/Tema 1/presentacion.md)
