@@ -31,6 +31,9 @@ module.exports = {
             // bracesAreOptional: true,
             // includeRe: /\!{3}\s*include(.+?)\!{3}/i
             }
+        ),
+        md.use(
+            require('vitepress-plugin-tabs')
         )
     }
 }

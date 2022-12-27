@@ -19,5 +19,8 @@
     "vitepress": "^1.0.0-alpha.26",
     "vue": "^3.2.41",
     "vue-router": "^4.1.6"
+  },
+  "devDependencies": {
+    "vitepress-plugin-tabs": "^0.2.0"
   }
 }

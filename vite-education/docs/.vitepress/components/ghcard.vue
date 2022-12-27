@@ -1,23 +1,19 @@
 <template>
-    <div class="card">
-      <h3 class="name">{{ name }}</h3>
-      <div class="flex">
-        <div class="media">
-          <img :src="image" :alt="ghuser" />
-        </div>
-        <div class="details">
-          <div class="author">
-            <p class="ghuser">{{name}} github: <a :href="href">{{ ghuser }} </a> </p>
-            <p class="ghuser">{{name}} <a :href="repositoryUrl"> repositorio  </a> </p>
-            <p class="ghuser">{{name}} <a :href="notifications"> notificaciones </a> </p>
-            <p class="ghuser"> Proyectos recientes: </p>
-            <li v-for="(repository, section) in repositories['edges']" :key="section">
-              <a :href="repository['node']['url']"> {{repository["node"]["name"]}} </a>
-            </li>
-          </div>
+  <div class="card">
+    <h3 class="name">{{ name }}</h3>
+    <div class="flex">
+      <div class="media">
+        <img :src="image" :alt="ghuser" />
+      </div>
+      <div class="details">
+        <div class="author">
+          <p class="ghuser">{{name}} github: <a :href="href">{{ ghuser }} </a> </p>
+          <p class="ghuser">{{name}} <a :href="repositoryUrl"> repositorio  </a> </p>
+          <p class="ghuser">{{name}} <a :href="notifications"> notificaciones </a> </p>
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -75,8 +71,8 @@ export default {
 }
 
 .media {
-  width: 35%;
-  height: 50%;
+  width: 20%;
+  height: 35%;
   object-fit: cover;
   object-position: center;
 }
