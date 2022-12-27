@@ -53,6 +53,16 @@ export default {
           userUrl: member.url,
           notifications: `https://github.com/notifications?query=author%3A${member.login}`,
         }
+
+        for(let cnode = 0; cnode < user.repositories.edges.length; cnode++) {
+          user.repositories.edges[cnode].node.commits = user.repositories.edges[cnode].node.url + '/commits/master';
+          user.repositories.edges[cnode].node.issues = user.repositories.edges[cnode].node.url + '/issues';
+          user.repositories.edges[cnode].node.summary = user.repositories.edges[cnode].node.url + '/pulse';
+
+        }
+
+        console.log(user.repositories)
+
         return user
       })
     }

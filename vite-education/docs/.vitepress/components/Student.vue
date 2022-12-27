@@ -8,13 +8,13 @@
         <p class="ghuser">{{currentStudent.userName}} github: <a :href="currentStudent.userUrl">{{ currentStudent.login }} </a> </p>
         <p class="ghuser">{{currentStudent.userName}} <a :href="currentStudent.repositoryUrl"> repositorio  </a> </p>
         <p class="ghuser">{{currentStudent.userName}} <a :href="currentStudent.notifications"> notificaciones </a> </p>
-        <p class="ghuser"> Proyectos recientes: </p>
-        <li v-for="(repository, section) in currentStudent.repositories['edges']" :key="section">
-          <a :href="repository['node']['url']"> {{repository["node"]["name"]}} </a>
-        </li>
       </div>
     </div>
   </div>
+  <p class="ghuser"> Proyectos recientes: </p>
+  <li v-for="(repository, section) in currentStudent.repositories['edges']" :key="section">
+    {{currentStudent.userName}}  <a :href="repository['node']['commits']">Commits </a>, <a :href="repository['node']['issues']">Issues </a>, <a :href="repository['node']['summary']">Summary </a> for <a :href="repository['node']['url']"> {{repository["node"]["name"]}} </a>
+  </li>
 </template>
 
 <script>
@@ -36,8 +36,8 @@ export default {
 }
 
 .media {
-  width: 40%;
-  height: 55%;
+  width: 20%;
+  height: 35%;
   object-fit: cover;
   object-position: center;
 }
