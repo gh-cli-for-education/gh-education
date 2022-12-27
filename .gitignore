@@ -13,3 +13,4 @@ config.local.js
 basement_dist
 docs/src/.vuepress/cache/
 docs/src/.vuepress/dev/
+cache

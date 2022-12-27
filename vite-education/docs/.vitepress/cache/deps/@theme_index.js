@@ -1,5 +1,3 @@
-import "./chunk-JC4IRQUL.js";
-
 // node_modules/vitepress/dist/client/theme-default/index.js
 import "/mnt/c/Users/Usuario/Desktop/gh-edu/gh-education-template/vite-education/node_modules/vitepress/dist/client/theme-default/styles/fonts.css";
 import "/mnt/c/Users/Usuario/Desktop/gh-edu/gh-education-template/vite-education/node_modules/vitepress/dist/client/theme-default/styles/vars.css";

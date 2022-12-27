@@ -5,7 +5,7 @@
     </div>
     <div class="details">
       <div class="author">
-        <p class="ghuser">{{currentStudent.userName}} github: <a :href="href">{{ currentStudent.login }} </a> </p>
+        <p class="ghuser">{{currentStudent.userName}} github: <a :href="currentStudent.userUrl">{{ currentStudent.login }} </a> </p>
         <p class="ghuser">{{currentStudent.userName}} <a :href="currentStudent.repositoryUrl"> repositorio  </a> </p>
         <p class="ghuser">{{currentStudent.userName}} <a :href="currentStudent.notifications"> notificaciones </a> </p>
         <p class="ghuser"> Proyectos recientes: </p>
