@@ -105,6 +105,7 @@
                             this.principalView = !this.principalView;
                             this.authView = !this.authView;
                             this.currentUser = auth.currentUser.displayName;
+                            localStorage.setItem('userLogged', auth.currentUser.displayName);
                         })
                         .catch(error => {
                             console.log(error.code)
