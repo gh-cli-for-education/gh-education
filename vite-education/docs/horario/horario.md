@@ -1,13 +1,3 @@
----
-title: Calendarios, Horarios y Exámenes
-permalink: /horarios
-testVar: "https://www.google.com"
-msg:  "<a href=\"https://www.google.com\">hello</a>"
-google: "https://www.google.com"
-develop: false
-sidebar: auto
----
-
 ## Horario
 
 * [Página de Horarios del Master de II](https://www.ull.es/masteres/ingenieria-informatica/informacion-academica/horarios-y-calendario-examenes/)

@@ -1,7 +1,6 @@
 <template>
 
         <div v-if="principalView">
-            si
             <div v-if="!userlogged">
                 <button type="button" @click="changeView(false)"> Login </button>
                 <button type="button" @click="changeView(true)"> Register </button>
@@ -50,12 +49,6 @@
                     </form>
                 </div>
             </div>
-        </div>
-        
-
-        <div class="social">
-          <div class="go"><i class="fab fa-google"></i>  Google</div>
-          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
         </div>
 
 </template>
