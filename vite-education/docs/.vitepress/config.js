@@ -17,7 +17,15 @@ module.exports = {
             { text: '🧑🏽‍🏫 Classes', link: '/clases/clases', activeMatch: '/clases' },
             { text: '💻 Tasks', link: '/practicas/practicas', activeMatch: '/practicas' },
             { text: '👥 Teams', link: '/teams/teams', activeMatch: '/teams' },
-            { text: '📝 Units', link: '/temas/temas', activeMatch: '/temas' }
+            { text: '📝 Units', link: '/temas/temas', activeMatch: '/temas' },
+            { text: 'Debug', items: [
+                { text: 'index', link: '/debug/index', activeMatch: '/debug' },
+                { text: 'more', link: '/debug/more', activeMatch: '/debug' },
+                { text: 'auth', link: '/debug/auth', activeMatch: '/debug' },
+            ]
+            }
+
+
         ]
     },
     markdown: {
