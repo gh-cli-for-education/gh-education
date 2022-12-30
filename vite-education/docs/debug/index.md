@@ -6,8 +6,8 @@ sidebar: auto
 
 [mode debs](more)
 
-* [Presentación](/temas/tema0-presentacion/)
-* [Introducción](/temas/tema1-introduccion/)
+* [Presentación]())
+* [Introducción]()
 
 <ol>
 <li v-for="i in 3">Tema {{ i }}</li>
