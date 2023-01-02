@@ -51,7 +51,28 @@
             </div>
         </div>
 
+    <pre>
+    {{site}}
+    </pre>
+
 </template>
+
+
+<script setup>
+import { useData } from 'vitepress'
+
+const { site, page, theme } = useData()
+
+function refreshNavUser(newUser) {
+    site.nav[site.nav.length - 1].text = "🔓 " + newUser;
+}
+
+defineExpose({
+  refreshNavUser,
+  site
+})
+
+</script>
 
 <script>
     import "../css/auth-form.css";
@@ -64,6 +85,8 @@
                 userlogged: false,
                 currentUser: "",
                 register:false,
+
+                siteData: useData().site,
                 
                 user: "",
                 email: "",
@@ -99,9 +122,13 @@
                             this.authView = !this.authView;
                             this.currentUser = auth.currentUser.displayName;
                             localStorage.setItem('userLogged', auth.currentUser.displayName);
-                            const listNav = document.querySelector(".VPNavBar .VPNavBarMenuLink [innerText='🔒 Login']")
-                            console.log(listNav)
+                            console.log(this.siteData)
                             
+                            this.siteData.themeConfig.nav[this.siteData.themeConfig.nav.length - 1].text = "🔓 " + auth.currentUser.displayName;
+                            this.siteData.themeConfig.nav.push({text: "🔓 " + auth.currentUser.displayName});
+                            this.siteData = {}
+                            console.log(this.siteData)                            
+
                         })
                         .catch(error => {
                             console.log(error.code)
