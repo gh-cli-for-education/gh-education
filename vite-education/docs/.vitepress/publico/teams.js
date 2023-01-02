@@ -43,6 +43,48 @@ export default {
                                                                 "name": "github2pandas_manager",
                                                                 "url": "https://github.com/gh-cli-for-education/github2pandas_manager"
                                                             }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-orgstats",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-orgstats"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-team-add",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-team-add"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": ".github",
+                                                                "url": "https://github.com/gh-cli-for-education/.github"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "github-cli-discussions",
+                                                                "url": "https://github.com/gh-cli-for-education/github-cli-discussions"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-alias-for-teachers",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-alias-for-teachers"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-org-clone",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-org-clone"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-org-browse-repo",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-org-browse-repo"
+                                                            }
                                                         }
                                                     ]
                                                 }
@@ -79,6 +121,48 @@ export default {
                                                             "node": {
                                                                 "name": "github2pandas_manager",
                                                                 "url": "https://github.com/gh-cli-for-education/github2pandas_manager"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-orgstats",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-orgstats"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-team-add",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-team-add"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": ".github",
+                                                                "url": "https://github.com/gh-cli-for-education/.github"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "github-cli-discussions",
+                                                                "url": "https://github.com/gh-cli-for-education/github-cli-discussions"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-alias-for-teachers",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-alias-for-teachers"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-org-clone",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-org-clone"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-org-browse-repo",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-org-browse-repo"
                                                             }
                                                         }
                                                     ]
@@ -128,6 +212,48 @@ export default {
                                                                 "name": "github2pandas_manager",
                                                                 "url": "https://github.com/gh-cli-for-education/github2pandas_manager"
                                                             }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-orgstats",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-orgstats"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-team-add",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-team-add"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": ".github",
+                                                                "url": "https://github.com/gh-cli-for-education/.github"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "github-cli-discussions",
+                                                                "url": "https://github.com/gh-cli-for-education/github-cli-discussions"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-alias-for-teachers",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-alias-for-teachers"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-org-clone",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-org-clone"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-org-browse-repo",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-org-browse-repo"
+                                                            }
                                                         }
                                                     ]
                                                 }
@@ -165,6 +291,48 @@ export default {
                                                                 "name": "github2pandas_manager",
                                                                 "url": "https://github.com/gh-cli-for-education/github2pandas_manager"
                                                             }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-orgstats",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-orgstats"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-team-add",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-team-add"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": ".github",
+                                                                "url": "https://github.com/gh-cli-for-education/.github"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "github-cli-discussions",
+                                                                "url": "https://github.com/gh-cli-for-education/github-cli-discussions"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-alias-for-teachers",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-alias-for-teachers"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-org-clone",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-org-clone"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-org-browse-repo",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-org-browse-repo"
+                                                            }
                                                         }
                                                     ]
                                                 }
@@ -201,6 +369,48 @@ export default {
                                                             "node": {
                                                                 "name": "github2pandas_manager",
                                                                 "url": "https://github.com/gh-cli-for-education/github2pandas_manager"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-orgstats",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-orgstats"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-team-add",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-team-add"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": ".github",
+                                                                "url": "https://github.com/gh-cli-for-education/.github"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "github-cli-discussions",
+                                                                "url": "https://github.com/gh-cli-for-education/github-cli-discussions"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-alias-for-teachers",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-alias-for-teachers"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-org-clone",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-org-clone"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-org-browse-repo",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-org-browse-repo"
                                                             }
                                                         }
                                                     ]
@@ -250,6 +460,48 @@ export default {
                                                                 "name": "github2pandas_manager",
                                                                 "url": "https://github.com/gh-cli-for-education/github2pandas_manager"
                                                             }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-orgstats",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-orgstats"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-team-add",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-team-add"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": ".github",
+                                                                "url": "https://github.com/gh-cli-for-education/.github"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "github-cli-discussions",
+                                                                "url": "https://github.com/gh-cli-for-education/github-cli-discussions"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-alias-for-teachers",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-alias-for-teachers"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-org-clone",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-org-clone"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-org-browse-repo",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-org-browse-repo"
+                                                            }
                                                         }
                                                     ]
                                                 }
@@ -286,6 +538,48 @@ export default {
                                                             "node": {
                                                                 "name": "github2pandas_manager",
                                                                 "url": "https://github.com/gh-cli-for-education/github2pandas_manager"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-orgstats",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-orgstats"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-team-add",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-team-add"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": ".github",
+                                                                "url": "https://github.com/gh-cli-for-education/.github"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "github-cli-discussions",
+                                                                "url": "https://github.com/gh-cli-for-education/github-cli-discussions"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-alias-for-teachers",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-alias-for-teachers"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-org-clone",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-org-clone"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-org-browse-repo",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-org-browse-repo"
                                                             }
                                                         }
                                                     ]
@@ -335,6 +629,48 @@ export default {
                                                                 "name": "github2pandas_manager",
                                                                 "url": "https://github.com/gh-cli-for-education/github2pandas_manager"
                                                             }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-orgstats",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-orgstats"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-team-add",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-team-add"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": ".github",
+                                                                "url": "https://github.com/gh-cli-for-education/.github"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "github-cli-discussions",
+                                                                "url": "https://github.com/gh-cli-for-education/github-cli-discussions"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-alias-for-teachers",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-alias-for-teachers"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-org-clone",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-org-clone"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-org-browse-repo",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-org-browse-repo"
+                                                            }
                                                         }
                                                     ]
                                                 }
@@ -371,6 +707,48 @@ export default {
                                                             "node": {
                                                                 "name": "github2pandas_manager",
                                                                 "url": "https://github.com/gh-cli-for-education/github2pandas_manager"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-orgstats",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-orgstats"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-team-add",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-team-add"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": ".github",
+                                                                "url": "https://github.com/gh-cli-for-education/.github"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "github-cli-discussions",
+                                                                "url": "https://github.com/gh-cli-for-education/github-cli-discussions"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-alias-for-teachers",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-alias-for-teachers"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-org-clone",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-org-clone"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-org-browse-repo",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-org-browse-repo"
                                                             }
                                                         }
                                                     ]
@@ -420,6 +798,48 @@ export default {
                                                                 "name": "github2pandas_manager",
                                                                 "url": "https://github.com/gh-cli-for-education/github2pandas_manager"
                                                             }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-orgstats",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-orgstats"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-team-add",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-team-add"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": ".github",
+                                                                "url": "https://github.com/gh-cli-for-education/.github"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "github-cli-discussions",
+                                                                "url": "https://github.com/gh-cli-for-education/github-cli-discussions"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-alias-for-teachers",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-alias-for-teachers"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-org-clone",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-org-clone"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-org-browse-repo",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-org-browse-repo"
+                                                            }
                                                         }
                                                     ]
                                                 }
@@ -467,6 +887,48 @@ export default {
                                                             "node": {
                                                                 "name": "github2pandas_manager",
                                                                 "url": "https://github.com/gh-cli-for-education/github2pandas_manager"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-orgstats",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-orgstats"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-team-add",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-team-add"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": ".github",
+                                                                "url": "https://github.com/gh-cli-for-education/.github"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "github-cli-discussions",
+                                                                "url": "https://github.com/gh-cli-for-education/github-cli-discussions"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-alias-for-teachers",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-alias-for-teachers"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-org-clone",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-org-clone"
+                                                            }
+                                                        },
+                                                        {
+                                                            "node": {
+                                                                "name": "gh-org-browse-repo",
+                                                                "url": "https://github.com/gh-cli-for-education/gh-org-browse-repo"
                                                             }
                                                         }
                                                     ]

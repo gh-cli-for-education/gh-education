@@ -17,7 +17,8 @@ module.exports = {
             { text: '🧑🏽‍🏫 Classes', link: '/clases/clases', activeMatch: '/clases' },
             { text: '💻 Tasks', link: '/practicas/practicas', activeMatch: '/practicas' },
             { text: '👥 Teams', link: '/teams/teams', activeMatch: '/teams' },
-            { text: '📝 Units', link: '/temas/temas', activeMatch: '/temas' }
+            { text: '📝 Units', link: '/temas/temas', activeMatch: '/temas' },
+            { text: '🔒 Login'}
         ]
     },
     markdown: {

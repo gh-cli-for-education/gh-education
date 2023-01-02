@@ -99,6 +99,9 @@
                             this.authView = !this.authView;
                             this.currentUser = auth.currentUser.displayName;
                             localStorage.setItem('userLogged', auth.currentUser.displayName);
+                            const listNav = document.querySelector(".VPNavBar .VPNavBarMenuLink [innerText='🔒 Login']")
+                            console.log(listNav)
+                            
                         })
                         .catch(error => {
                             console.log(error.code)
