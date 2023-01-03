@@ -1,7 +1,3 @@
-<script setup>
-    import Auth from '.vitepress/components/Auth.vue'
-</script>
-
 # Quick Guide
 
 This is a quick guide for all the features of the template, were are the important files to change and all the important information.

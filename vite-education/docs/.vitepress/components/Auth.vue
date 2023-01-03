@@ -2,6 +2,7 @@
 
         <div v-if="principalView">
             <div v-if="!userlogged">
+                <h1> LOGIN FIREBASE </h1>
                 <button type="button" @click="changeView(false)"> Login </button>
                 <button type="button" @click="changeView(true)"> Register </button>
             </div>
@@ -51,28 +52,7 @@
             </div>
         </div>
 
-    <pre>
-    {{site}}
-    </pre>
-
 </template>
-
-
-<script setup>
-import { useData } from 'vitepress'
-
-const { site, page, theme } = useData()
-
-function refreshNavUser(newUser) {
-    site.nav[site.nav.length - 1].text = "🔓 " + newUser;
-}
-
-defineExpose({
-  refreshNavUser,
-  site
-})
-
-</script>
 
 <script>
     import "../css/auth-form.css";
@@ -85,8 +65,6 @@ defineExpose({
                 userlogged: false,
                 currentUser: "",
                 register:false,
-
-                siteData: useData().site,
                 
                 user: "",
                 email: "",
@@ -121,19 +99,12 @@ defineExpose({
                             this.principalView = !this.principalView;
                             this.authView = !this.authView;
                             this.currentUser = auth.currentUser.displayName;
-                            localStorage.setItem('userLogged', auth.currentUser.displayName);
-                            console.log(this.siteData)
-                            
-                            this.siteData.themeConfig.nav[this.siteData.themeConfig.nav.length - 1].text = "🔓 " + auth.currentUser.displayName;
-                            this.siteData.themeConfig.nav.push({text: "🔓 " + auth.currentUser.displayName});
-                            this.siteData = {}
-                            console.log(this.siteData)                            
-
-                        })
-                        .catch(error => {
-                            console.log(error.code)
-                            alert(error.message);
-                        });
+                            localStorage.setItem('userLogged', auth.currentUser.displayName);                       
+                    })
+                    .catch(error => {
+                        console.log(error.code)
+                        alert(error.message);
+                    });
                 }
             },
             registerUser() {    
