@@ -21,7 +21,7 @@ module.exports = {
             { text: '📝 Units', link: '/temas/temas', activeMatch: '/temas' },
             { text: '🔒 Login', link: '/'}
         ],
-        sidebar: getSidebar({ contentRoot: '/', contentDirs: ['team'], collapsible: true, collapsed: true })
+        sidebar: getSidebar({ contentRoot: '/', contentDirs: ['teams'], collapsible: true, collapsed: true })
     },
     markdown: {
         config: (md) => {
