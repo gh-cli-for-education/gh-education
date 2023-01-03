@@ -18,6 +18,7 @@
     "recursive-readdir": "^2.2.3",
     "tree-parser": "^1.2.4",
     "vitepress": "^1.0.0-alpha.26",
+    "vitepress-plugin-auto-sidebar": "^1.0.5",
     "vue": "^3.2.41",
     "vue-router": "^4.1.6"
   },

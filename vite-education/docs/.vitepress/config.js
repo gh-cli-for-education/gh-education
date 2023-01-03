@@ -1,4 +1,5 @@
 const path = require('path')
+import { getSidebar } from 'vitepress-plugin-auto-sidebar'
 
 module.exports = {
     title: 'GH EDUCATION', // appended to all page titles
@@ -19,7 +20,8 @@ module.exports = {
             { text: '👥 Teams', link: '/teams/teams', activeMatch: '/teams' },
             { text: '📝 Units', link: '/temas/temas', activeMatch: '/temas' },
             { text: '🔒 Login', link: '/'}
-        ]
+        ],
+        sidebar: getSidebar({ contentRoot: '/', contentDirs: ['team'], collapsible: true, collapsed: true })
     },
     markdown: {
         config: (md) => {
