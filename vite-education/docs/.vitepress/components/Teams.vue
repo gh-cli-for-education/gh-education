@@ -2,7 +2,7 @@
   <div v-if="main">
     <h1> Teams </h1>
     <h2> Organization: {{ org["name"] }} </h2>
-    <h2> Número de equipos: {{ totalCount}} </h2>
+    <h2> Number of teams: {{ totalCount}} </h2>
     <div v-for="(team, section) in teams" :key="section">
       <h3> Equipo: {{ team.name }} {{section + 1}} / {{ totalCount }} </h3>
       <ghcard @click="goStudent(false, team)" :notifications="team.notifications" :repositoryUrl="team.repositoryUrl" :image="team.avatarUrl" :repositories="team.repositories" :name="team.userName" :href="team.userUrl" :ghuser="team.login" ></ghcard>
@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import Teams from '../publico/teams.js'
-import ghcard from './ghcard.vue'
-import student from './student.vue'
+import Teams from '../public/teams.js'
+import ghcard from './Ghcard.vue'
+import student from './Student.vue'
 
 export default {
   components: {
