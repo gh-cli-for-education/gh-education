@@ -21,7 +21,7 @@ features:
     title: Schedule tab
     details: Page for the schedule of the subject, allowing to add the google calendar, university calendar,...
   - icon: 🧑🏽‍🏫
-    title: Classess tab
+    title: Lessons tab
     details: Page for the classess of the subject, that can use references of the diferent tasks or themes that are in the other folders.
   - icon: 💻
     title: Taks tab

@@ -13,14 +13,14 @@ module.exports = {
 
     ],
     themeConfig: {
-        logo: {light: "../logo-gh-dark.png", dark: "../logo-gh-light.png"},
+        logo: {light: "../assets/logo-gh-dark.png", dark: "../assets/logo-gh-light.png"},
         nav: [
             { text: '🏠 Home', link: '/'},
-            { text: '🕒 Schedule', link: '/horario/horario', activeMatch: '/horario' },
-            { text: '🧑🏽‍🏫 Classes', link: '/clases/clases', activeMatch: '/clases' },
-            { text: '💻 Tasks', link: '/practicas/practicas', activeMatch: '/practicas' },
+            { text: '🕒 Schedule', link: '/schedule', activeMatch: '/horario' },
+            { text: '🧑🏽‍🏫 Lessons', link: '/lessons/lessons', activeMatch: '/lessons' },
+            { text: '💻 Tasks', link: '/tasks/tasks', activeMatch: '/tasks' },
             { text: '👥 Teams', link: '/teams/teams', activeMatch: '/teams' },
-            { text: '📝 Units', link: '/temas/temas', activeMatch: '/temas' },
+            { text: '📝 Units', link: '/units/units', activeMatch: '/units' },
             { text: '🔒 Login / Register', link: '/auth.md'}
         ],
         sidebar: getSidebar({ contentRoot: '/', contentDirs: ['teams'], collapsible: true, collapsed: true })
@@ -29,6 +29,14 @@ module.exports = {
         config: (md) => {
             md.use(require('markdown-it-include'))
         }
+    },
+    chainWebpack: config => {
+        config.module
+          .rule('raw')
+          .test(/\.md$/)
+          .use('raw-loader')
+          .loader('raw-loader')
+          .end()
     },
     footer: {
         message: 'Released under the <a href="https://github.com/vuejs/vitepress/blob/main/LICENSE">MIT License</a>.',

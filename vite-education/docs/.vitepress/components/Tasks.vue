@@ -1,10 +1,10 @@
 <template>
   <div>
     <ul>
-      <li v-for="(tema, index) in temas" :key="index">
-        <h2>{{ tema.text }}</h2>
+      <li v-for="(task, index) in tasks" :key="index">
+        <h2>{{ task.text }}</h2>
         <ul>
-          <li  v-for="(item, section) in tema.items" :key="section">
+          <li  v-for="(item, section) in task.items" :key="section">
             <a :href="item.link">{{item.text}}</a>
           </li>
         </ul>
@@ -14,12 +14,12 @@
 </template>
 
 <script>
-import themes from '../publico/temas.js'
+import task from '../public/tasks.js'
 
 export default {
   data() {
     return {      
-      temas: themes.temas
+      tasks: task.tasks
     }
   }
   

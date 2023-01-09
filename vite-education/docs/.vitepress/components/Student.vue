@@ -1,5 +1,6 @@
 <template>
   <div class="flex">
+    <br/>
     <div class="media">
       <img :src="currentStudent.avatarUrl" :alt="currentStudent.userName" />
     </div>
@@ -11,7 +12,7 @@
       </div>
     </div>
   </div>
-  <p class="ghuser"> Proyectos recientes: </p>
+  <p class="ghuser"> Recent projects: </p>
   <li v-for="(repository, section) in currentStudent.repositories['edges']" :key="section">
     {{currentStudent.userName}}  <a :href="repository['node']['commits']">Commits </a>, <a :href="repository['node']['issues']">Issues </a>, <a :href="repository['node']['summary']">Summary </a> for <a :href="repository['node']['url']"> {{repository["node"]["name"]}} </a>
   </li>

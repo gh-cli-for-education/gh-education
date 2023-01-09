@@ -16,11 +16,11 @@ First the user need to login or register into the system. All the users are regi
 
 In the navbar there are diferent pages for the units, teams, students, schedule,...
 
-[🕒 Schedule ](./horario/horario.md)
-[🧑🏽‍🏫 Classes ](./clases/clases.md)
-[💻 Tasks ](./practicas/practicas.md)
+[🕒 Schedule ](./schedule.md)
+[🧑🏽‍🏫 Lessons ](./lessons/lessons.md)
+[💻 Tasks ](./tasks/tasks.md)
 [👥 Teams ](./teams/teams.md)
-[📝 Units ](./temas/temas.md)
+[📝 Units ](./units/units.md)
 
 ## Teams & Students
 

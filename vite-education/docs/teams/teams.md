@@ -1,9 +1,5 @@
----
-title: Teams
----
-
 <script setup>
-import teams from '../.vitepress/components/teams.vue'
+import teams from '../.vitepress/components/Teams.vue'
 </script>
 
 

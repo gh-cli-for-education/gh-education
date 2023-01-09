@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "markdown-it-include": "^2.0.0",
-    "sass": "^1.57.1",
+    "raw-loader": "^4.0.2",
     "vitepress-plugin-tabs": "^0.2.0"
   }
 }
