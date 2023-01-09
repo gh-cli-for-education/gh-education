@@ -2,7 +2,9 @@ const path = require('path')
 import { getSidebar } from 'vitepress-plugin-auto-sidebar'
 
 module.exports = {
-    title: 'GH EDUCATION', // appended to all page titles
+    title: 'GH EDUCATION', 
+    appearance: false,
+    lastUpdated: true,
     head: [
         ["script",{src: "https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"}],
         ["script",{src: "https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"}],

@@ -1,5 +1,4 @@
 <template>
-
         <div v-if="principalView">
             <div v-if="!userlogged">
                 <h1> LOGIN FIREBASE </h1>
