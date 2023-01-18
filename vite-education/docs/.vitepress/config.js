@@ -3,7 +3,7 @@ import { getSidebar } from 'vitepress-plugin-auto-sidebar'
 
 module.exports = {
     title: 'GH EDUCATION', 
-    appearance: false,
+    appearance: true,
     lastUpdated: true,
     head: [
         ["script",{src: "https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"}],
