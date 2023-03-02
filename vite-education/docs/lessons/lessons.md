@@ -1,8 +1,9 @@
 
 <script setup>
-    import lessons from '../.vitepress/components/Lessons.vue'
+    import lesson from '../.vitepress/components/Lessons.vue'
+    let unit = "unit"
 </script>
 
 # Lessons
 
-<lessons></lessons>
+<lesson></lesson>

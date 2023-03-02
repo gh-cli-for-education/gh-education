@@ -1,5 +1,5 @@
 export default{
-    lessons: [
+    data: [
         {
             text: '1º Week', 
             items: [

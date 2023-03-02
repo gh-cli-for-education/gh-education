@@ -30,14 +30,14 @@ export default {
     return {  
       main: true,     
       currentStudent: {},  
-      equipos: Teams["data"]["organization"]["teams"]['edges'],
+      teamsArray: Teams["data"]["organization"]["teams"]['edges'],
       org: Teams["data"]["organization"],
       totalCount: Teams.data.organization.teams.totalCount
     }
   },
   computed: {
     teams() {
-      return this.equipos.map(team => {
+      return this.teamsArray.map(team => {
         let node = team.node
         let member = node.members.edges[node.members.edges.length - 1].node
         const user = {

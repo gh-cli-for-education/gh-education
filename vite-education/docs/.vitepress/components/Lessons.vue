@@ -19,7 +19,7 @@ import lesson from '../public/lessons.js'
 export default {
   data() {
     return {      
-      lessons: lesson.lessons
+      lessons: lesson.data
     }
   }
   

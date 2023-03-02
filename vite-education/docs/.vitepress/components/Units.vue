@@ -19,7 +19,7 @@ import unit from '../public/units.js'
 export default {
   data() {
     return {      
-      units: unit.units
+      units: unit.data
     }
   }
   

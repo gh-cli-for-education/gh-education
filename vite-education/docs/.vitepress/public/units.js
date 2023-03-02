@@ -1,5 +1,5 @@
 export default{
-    units: [
+    data: [
         {
             text: 'Introduction to SYTWS', 
             items: [
