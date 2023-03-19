@@ -27,11 +27,8 @@ export default {
     }
   },
   async mounted() {
-    console.log(this.unit);
     let info = await import(this.unit); 
-    console.log(info);
     this.general = info.default.data;
-    console.log(this.general);
   }
 }
 </script>

@@ -1,8 +1,7 @@
 <script setup>
-import units from '../.vitepress/components/Units.vue'
+    import general from '../.vitepress/components/General.vue'
 </script>
-
 
 # Units
 
-<units></units>
+<general unit='../public/units.js'></general>

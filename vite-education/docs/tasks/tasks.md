@@ -1,7 +1,7 @@
 <script setup>
-    import tasks from '../.vitepress/components/Tasks.vue'
+    import general from '../.vitepress/components/General.vue'
 </script>
 
 # Tasks
 
-<tasks unit='../public/units.js'></tasks>
+<general unit='../public/tasks.js'></general>
