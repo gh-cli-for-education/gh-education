@@ -14,18 +14,22 @@
     "@okta/okta-vue": "1.1",
     "firebase": "^9.15.0",
     "fs": "^0.0.1-security",
+    "lru-cache": "^9.1.0",
     "nodemon": "^2.0.20",
     "recursive-readdir": "^2.2.3",
     "tree-parser": "^1.2.4",
     "vitepress": "^1.0.0-alpha.26",
     "vitepress-plugin-auto-sidebar": "^1.0.5",
     "vue": "^3.2.41",
+    "vue-docgen-cli": "^4.67.0",
     "vue-navigation-bar": "^5.0.2",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "markdown-it-include": "^2.0.0",
     "raw-loader": "^4.0.2",
-    "vitepress-plugin-tabs": "^0.2.0"
+    "vitepress-plugin-tabs": "^0.2.0",
+    "vue-styleguidist": "^4.68.0",
+    "webpack": "^5.80.0"
   }
 }
