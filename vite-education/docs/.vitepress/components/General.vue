@@ -9,7 +9,10 @@
 -->
 
 <template>
-  <div>
+  <div>   
+    <div v-if="token">
+      <button type="button" @click="reresh()"> 🔄 Refresh data </button>
+    </div> 
     <ul>
       <!-- Loop over the array of data -->
       <li v-for="(task, index) in general" :key="index">
@@ -26,6 +29,7 @@
 </template>
 
 <script>
+import { Octokit } from "https://cdn.skypack.dev/octokit";
 export default {
   data() {
     return {     
@@ -33,7 +37,9 @@ export default {
       /**
        * Array with the public information to show
        */ 
-      general: []
+      general: [],
+
+      token: null
     }
   },
   props: {
@@ -46,14 +52,54 @@ export default {
     }
   },
 
+  methods: {
+    async refresh() {
+      this.token = localStorage.getItem('token');
+      const octokit = new Octokit({
+          auth: this.token
+      })
+      const response = await octokit.request('GET /user/memberships/orgs/{org}', {
+          org: 'gh-cli-for-education',
+          headers: {
+              'X-GitHub-Api-Version': '2022-11-28'
+          }
+      })
+      console.log(response);
+    },
+
+  },
+
   /**
    * Called after the component mounted doing dynamic import depending on
    * the data passed with argument.
    * @see [Await dynamic Import](https://stackoverflow.com/questions/55274868/awaiting-on-dynamic-imports-in-javascript)
    */
   async mounted() {
-    let info = await import(this.unit); 
+    let info = await import(/* @vite-ignore */this.unit); 
     this.general = info.default.data;
   }
 }
 </script>
+
+<style>
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+
+button{
+    margin-top: 50px;
+    width: 50%;
+    background-color: #ffffff;
+    padding: 15px 0;
+    color: #080710;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 14px 20px;
+    cursor: pointer;
+}
+</style>

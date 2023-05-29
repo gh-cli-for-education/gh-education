@@ -9,26 +9,23 @@
 -->
 
 <!-- 
-    TO-DO: Add tab: refresh queris
+    TO-DO: Add tab: refresh queris graphql + token auth student
     TO-DO: Move queris to template: update-teams & user-info
-
-    TO-DO: Auth username Firebase: Use github username
-    TO-DO: Autenticacion Firebase -> usar GitHub
+    TO-DO: Token autenticar github obtenido al login firebase (?)
 
     TO-DO: Roles (tomados de GitHub):
      - Profesor: owner / owners organizacion GitHub
-     - Alumno:
+     - Alumno: other people / teams
 -->
 
 
 <template>
     <!-- Check if is in principal -->
-    <div v-if="principalView">
+    <div>
         <!-- Check if user is logged to show login buttons if not -->
         <div v-if="!userlogged">
-            <h1> LOGIN FIREBASE </h1>
-            <button type="button" @click="changeView(false)"> Login </button>
-            <button type="button" @click="changeView(true)"> Register </button>
+            <h1> LOGIN FIREBASE (GitHub) </h1>
+            <button type="button" @click="login"> Login </button>
         </div>
         <!-- The user is logged, it shows a welcome -->
         <div v-else>
@@ -36,69 +33,14 @@
             <button type="button" @click="logout"> Logout </button>
         </div>
     </div>
-    <!-- Check if is in the authentication view -->
-    <div v-else="authView">
-        <!-- Check if user is logged to show login form if not -->
-        <div v-if="!userlogged">
-            <!-- Check if user change to register form -->
-            <div v-if="alreadyRegister" class="card login" v-bind:class="{ error: emptyFields }">
-                <form>
-                    <h3>Register</h3>
-                    <label>Username</label>
-                    <input id="username" name="username" class="form-control" placeholder="username" v-model="user" required/>
-
-                    <label for="username">Email</label>
-                    <input id="email" type="email" name="email" class="form-control" placeholder="example@gmail.com" v-model="email" required/>
-
-                    <label for="password">Password</label>
-                    <input id="password" type="password" name="password" class="form-control" placeholder="Password" v-model="password" required/>
-
-                    <label for="password">Repeat Password</label>
-                    <input id="rppassword" type="password" class="form-control" placeholder="Confirm Password" v-model="confirmReg" required>
-
-                    <button type="button" @click="registerUser"> Register </button>
-                    
-                    <p>Already have an account? <a href="#" @click="alreadyRegister = !alreadyRegister, emptyFields = false">Sign in here</a>
-                    </p>
-                </form>
-            </div>
-            
-            <!-- Check if user change to login form -->
-            <div v-else>
-                <form>
-                    <h3>Login</h3>
-                    <label for="username">Email</label>
-                    <input id="username" type="email" name="email" class="form-control" placeholder="example@gmail.com" v-model="email" required/>
-
-                    <label for="password">Password</label>
-                    <input id="password" type="password" name="password" class="form-control" placeholder="Password" v-model="password" required/>
-
-                    <button type="button" @click="login"> Login </button>
-                    
-                    <p>Don't have an account? <a href="#" @click="alreadyRegister = !alreadyRegister, emptyFields = false">Register in here</a></p>
-                </form>
-            </div>
-        </div>
-    </div>
 </template>
 
 <script>
     import "../css/auth-form.css";
+    import { Octokit, App } from "https://cdn.skypack.dev/octokit";
     export default {
         data() {
             return {
-
-                /**
-                 * Initial view for non authenticated users
-                 * @values true, false
-                 */
-                principalView: true,
-
-                /**
-                 * Authentication view for non authenticated users
-                 * @values true, false
-                 */
-                authView: false,
 
                 /**
                  * Check if user is logged or not
@@ -112,61 +54,18 @@
                 currentUser: "",
 
                 /**
-                 * Handle view changes
-                 * @values true, false
+                 * Firebase auth object
                  */
-                register:false,
-                
-                /**
-                 * Storages username when registered
-                 */
-                user: "",
-                
-                /**
-                 * Storages email when registered
-                 */
-                email: "",
-                
-                /**
-                 * Storages password when registered
-                 */
-                password: "",
-                
-                /**
-                 * Storages email confirmation when registered
-                 */
-                confirmReg: "",
-
-                /**
-                 * Check if user has been registered
-                 * @values true, false
-                 */
-                alreadyRegister: false,
-
-                /**
-                 * Handle if there are any empty fields in form input
-                 * @values true, false
-                 */
-                emptyFields: false
+                auth: undefined,
             }
         },
         methods: {
-            /**
-             * Is called in order to change between principal and authentication view
-             * 
-             * @param {Boolean} register boolean to change views
-             */
-            changeView(register) {
-                this.principalView = !this.principalView;
-                this.authView = !this.authView;
-                this.alreadyRegister = register;
-            },
 
             /**
              * Logout a user using Firebase auth
              */
             logout() {
-                auth.signOut()
+                this.auth.signOut()
                     .then(function() {
                         this.userlogged = false;
                         alert("Singed out succesfully");
@@ -177,62 +76,40 @@
             },
 
             /**
-             * Login a user using Firebase auth, checking if there are any empty fields
+             * Login a user using Firebase auth with Github popup window
              */
-            login() {
-                if (this.emailReg === "" || this.passwordReg === "") {
-                    this.emptyFields = true;
-                } else {
-                    /**
-                     * Firebase authentication using email and password
-                     * 
-                     * @param {String} this.email Email of the user to sign in
-                     * @param {String} this.password Password of the user to sign in
-                     */
-                    auth.signInWithEmailAndPassword(this.email, this.password).then((data) => {
-                            this.userlogged = true;
-                            this.principalView = !this.principalView;
-                            this.authView = !this.authView;
-                            this.currentUser = auth.currentUser.displayName;
-                            localStorage.setItem('userLogged', auth.currentUser.displayName);                       
-                    })
-                    .catch(error => {
-                        console.log(error.code)
-                        alert(error.message);
+            async login() {
+                
+                 if (!firebase.auth().currentUser) {
+                    const provider = new firebase.auth.GithubAuthProvider();
+                    provider.addScope('repo');
+                    provider.setCustomParameters({
+                        'allow_signup': 'false'
                     });
-                }
-            },
-
-            /**
-             * Login a user using Firebase auth, checking if there are any empty fields
-             */
-            registerUser() {    
-  
-                if (this.email === "" || this.password === "" || this.confirmReg === "") {
-                    this.emptyFields = true;
-                } else {
-                    /**
-                     * Firebase registration using email and password
-                     * 
-                     * @param {String} this.email Email of the user to register
-                     * @param {String} this.password Password of the user to register
-                     */
-                    auth.createUserWithEmailAndPassword(this.email, this.password)
-                        .then((data) => {
-                            this.alreadyRegister = true;
-                            alert("You are now registered");
-                            this.principalView = !this.principalView;
-                            this.authView = !this.authView;
-                            return data.user.updateProfile({
-                                displayName: this.user
-                            })
+                    this.currentUser = await this.auth.signInWithPopup(provider).then(async function(result) {
+                        var token = result.credential.accessToken;
+                        localStorage.setItem('token', token);
+                        const octokit = new Octokit({
+                            auth: token
                         })
-                        .catch(error => {
-                            console.log(error.code)
-                            alert(error.message);
-                        });
-                }
-            }
+                        const response = await octokit.request('GET /user/memberships/orgs/{org}', {
+                            org: 'gh-cli-for-education',
+                            headers: {
+                                'X-GitHub-Api-Version': '2022-11-28'
+                            }
+                        })
+                        console.log(response)
+                        return result.user.displayName;
+                    }).catch(function(error) {
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+
+                        console.error(`${errorCode} | ${errorMessage}`);
+                    });
+
+                    if(this.currentUser != "") this.userlogged = true;
+                } 
+            },
         }
     }
 </script>

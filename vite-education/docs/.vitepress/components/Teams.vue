@@ -30,7 +30,6 @@
 </template>
 
 <script>
-import Teams from '../public/teams.js'
 import ghcard from './Ghcard.vue'
 import student from './Student.vue'
 
@@ -56,17 +55,17 @@ export default {
       /**
        * All teams information
        */ 
-      teamsArray: Teams["data"]["organization"]["teams"]['edges'],  
+      teamsArray: [],  
 
       /**
        * Name of the GitHub organization
        */ 
-      org: Teams["data"]["organization"],  
+      org: "",  
 
       /**
        * Total number of teams in the GitHub organization
        */ 
-      totalCount: Teams.data.organization.teams.totalCount
+      totalCount: 0
     }
   },
   computed: {
@@ -84,6 +83,12 @@ export default {
      *  - notifications: Link to the GitHub notifications 
      */
     teams() {
+      const organization = "gh-cli-for-education";
+      const Teams = this.refreshQueris(organization);
+      this.teamsArray = Teams["data"]["organization"]["teams"]['edges'];
+      this.org = Teams["data"]["organization"];
+      this.totalCount = Teams.data.organization.teams.totalCount;
+
       return this.teamsArray.map(team => {
         let node = team.node
         let member = node.members.edges[node.members.edges.length - 1].node
@@ -123,8 +128,7 @@ export default {
       this.main = state;
       this.currentStudent = team;
       console.log(this.main);
-    },
-
+    }
   }  
 }
 </script>
