@@ -19,9 +19,15 @@
         <h2>{{ task.text }}</h2>
         <ul>
           <!-- Loop over the subsections of the data -->
-          <li  v-for="(item, section) in task.items" :key="section">
-            <a :href="item.link">{{item.text}}</a>
-          </li>
+          <div v-for="(item, section) in task.items" :key="section">
+	    <li v-if="(!item.hidden && role !== null) || role === 'owner'">
+            	<a :href="item.link">{{item.text}}</a> &nbsp; &nbsp;
+        	<button class="eyebtn" @click="toggleShow(item)"> 
+			<span v-if="item.hidden"> Hide  </span>
+			<span v-else> Show  </span>
+		</button>
+	    </li>
+          </div>
         </ul>
       </li>
     </ul>
@@ -38,7 +44,11 @@ export default {
        */ 
       general: [],
 
-      token: null
+      token: this.checkLocalData('token'),
+
+      role: this.checkLocalData('role'),
+
+      show: false
     }
   },
   props: {
@@ -50,11 +60,27 @@ export default {
       required: true,
     }
   },
+  computed: {
+    buttonLabel() {
+      return (this.show) ? "Hide" : "Show";
+    }
+  },
 
   methods: {
     async refresh() {
       this.token = localStorage.getItem('token');
       console.log(response);
+    },
+
+
+    toggleShow(item) {
+      console.log(item);
+      this.show = !this.show;
+    },
+	
+    checkLocalData(name) {
+	const data = localStorage.getItem(`${name}`);
+	return (data) ? data : null;
     },
 
   },
@@ -91,5 +117,13 @@ button{
     border-radius: 5px;
     padding: 14px 20px;
     cursor: pointer;
+}
+
+.eyebtn {
+    width: 15%;
+    background-color: #ffffff;
+    padding: 15px 0;
+    color: #080710;
+    font-size: 12px;
 }
 </style>

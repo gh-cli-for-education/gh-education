@@ -10,7 +10,7 @@ export default{
         {
             text: 'Basic', 
             items: [
-                { text: "Paragraphs", link:'/units/introduccion-a-javascript/'},
+                { text: "Paragraphs", link:'/units/introduccion-a-javascript/', hidden: "true"},
                 { text: 'GitHub Cli', link:'/units/introduccion-a-javascript/github-cli/'},
             ]
         },

@@ -3,7 +3,7 @@ export default{
         {
             text: 'Task Use of IAAS', 
             items: [
-                {text: "Github Repository", link:'https://github.com/SYTW/iaas-ull-es'},
+                {text: "Github Repository", link:'https://github.com/SYTW/iaas-ull-es', hidden: "true"},
                 {text: "Taks in Virtual Campus", link:'https://campusdoctoradoyposgrado2223.ull.es'}
             ]
         },
