@@ -38,7 +38,9 @@
 <script>
     import "../css/auth-form.css";
 
-    import { getAuth, onAuthStateChanged, GithubAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js'
+    import { getAuth, onAuthStateChanged, GithubAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js';
+    import { Octokit, App } from "https://esm.sh/octokit";
+
     export default {
         data() {
             return {
@@ -100,9 +102,22 @@
                      'allow_signup': 'false'
                 });
                 this.currentUser = await signInWithPopup(auth, provider).then(async function(result) {
-                        var token = result.user.accessToken;
+                        const credential = GithubAuthProvider.credentialFromResult(result);
+    			const token = credential.accessToken;
+			console.log(token);
+                        const octokit = new Octokit({
+                            auth: token
+                        })
                         localStorage.setItem('token', token);
 			localStorage.setItem('user', result.user.displayName);
+
+			const response = await octokit.request('GET /user/memberships/orgs/{org}', {
+                            org: 'gh-cli-for-education',
+                            headers: {
+                                'X-GitHub-Api-Version': '2022-11-28'
+                            }
+                        })
+                        console.log(response);
                         return result.user.displayName;
                 }).catch(function(error) {
                 	var errorCode = error.code;

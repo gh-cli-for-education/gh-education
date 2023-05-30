@@ -21,7 +21,7 @@
     "fs": "^0.0.1-security",
     "graphql": "^15.8.0",
     "graphql-tag": "^2.12.6",
-    "lru-cache": "^9.1.0",
+    "lru-cache": "^9.1.1",
     "nodemon": "^2.0.20",
     "octokit": "^2.0.19",
     "recursive-readdir": "^2.2.3",

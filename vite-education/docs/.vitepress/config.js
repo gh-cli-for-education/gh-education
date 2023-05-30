@@ -13,6 +13,7 @@ module.exports = {
         "global": {},
     },
     head: [
+	["script",{src:"https://esm.sh/octokit", type: "module"}],
         ["script",{type: "module"},
 		`
 		import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js'
