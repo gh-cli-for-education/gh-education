@@ -5,7 +5,15 @@
     <h2> Number of teams: {{ totalCount}} </h2>
     <div v-for="(team, section) in teams" :key="section">
       <h3> Equipo: {{ team.name }} {{section + 1}} / {{ totalCount }} </h3>
-      <ghcard @click="goStudent(false, team)" :notifications="team.notifications" :repositoryUrl="team.repositoryUrl" :image="team.avatarUrl" :repositories="team.repositories" :name="team.userName" :href="team.userUrl" :ghuser="team.login" ></ghcard>
+      <ghcard @click="goStudent(false, team)" 
+        :notifications="team.notifications" 
+        :repositoryUrl="team.repositoryUrl" 
+        :image="team.avatarUrl" 
+        :repositories="team.repositories" 
+        :name="team.userName" 
+        :href="team.userUrl" 
+        :ghuser="team.login" >
+      </ghcard>
     </div>
   </div>
 
