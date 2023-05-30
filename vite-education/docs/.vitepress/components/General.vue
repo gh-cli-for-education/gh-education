@@ -29,7 +29,6 @@
 </template>
 
 <script>
-import { Octokit } from "https://cdn.skypack.dev/octokit";
 export default {
   data() {
     return {     
@@ -55,15 +54,6 @@ export default {
   methods: {
     async refresh() {
       this.token = localStorage.getItem('token');
-      const octokit = new Octokit({
-          auth: this.token
-      })
-      const response = await octokit.request('GET /user/memberships/orgs/{org}', {
-          org: 'gh-cli-for-education',
-          headers: {
-              'X-GitHub-Api-Version': '2022-11-28'
-          }
-      })
       console.log(response);
     },
 

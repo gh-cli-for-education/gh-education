@@ -1,30 +1,42 @@
-import { getSidebar } from 'vitepress-plugin-auto-sidebar'
+const path = require('path');
+import { getSidebar } from 'vitepress-plugin-auto-sidebar';
 
 module.exports = {
     title: 'GH EDUCATION', 
     appearance: true,
     lastUpdated: true,
+    
+    define: {
+        // "process.env": process.env,
+        // // By default, Vite doesn't include shims for NodeJS/
+        // // necessary for segment analytics lib to work
+        "global": {},
+    },
     head: [
-        ["script",{src: "https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"}],
-        ["script",{src: "https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"}],
-        [
-            "script",
-            {},
-            `const firebaseConfig = {
-                apiKey: "AIzaSyC1WfyhIqmL1n7ahPL-XVSAmBECWxMTUrg",
-                authDomain: "gh-education.firebaseapp.com",
-                projectId: "gh-education",
-                storageBucket: "gh-education.appspot.com",
-                messagingSenderId: "232266340667",
-                appId: "1:232266340667:web:15dc478ab3ef65c66c7f1e",
-                measurementId: "G-1N1LRJY9RP"
-            };
-            firebase.initializeApp(firebaseConfig);`
-          ],
+        ["script",{type: "module"},
+		`
+		import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js'
+    		import { getAuth } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js'
+		
+		const firebaseConfig = {
+    			apiKey: "AIzaSyC1WfyhIqmL1n7ahPL-XVSAmBECWxMTUrg",
+    			authDomain: "gh-education.firebaseapp.com",
+    			projectId: "gh-education",
+    			storageBucket: "gh-education.appspot.com",
+    			messagingSenderId: "232266340667",
+		    	appId: "1:232266340667:web:15dc478ab3ef65c66c7f1e",
+    			measurementId: "G-1N1LRJY9RP"
+		};	
 
+		const app = initializeApp(firebaseConfig);
+
+		// Auth and firestore references
+		const auth = getAuth();
+		`
+	]
     ],
     themeConfig: {
-        logo: {light: "/assets/logo-gh-dark.png", dark: "/assets/logo-gh-light.png"},
+        logo: {light: "assets/logo-gh-dark.png", dark: "assets/logo-gh-light.png"},
         nav: [
             { text: '🏠 Home', link: '/'},
             { text: '🕒 Schedule', link: '/schedule', activeMatch: '/horario' },

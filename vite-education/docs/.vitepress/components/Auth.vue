@@ -37,7 +37,6 @@
 
 <script>
     import "../css/auth-form.css";
-    import { Octokit, App } from "https://cdn.skypack.dev/octokit";
     export default {
         data() {
             return {
@@ -89,16 +88,6 @@
                     this.currentUser = await this.auth.signInWithPopup(provider).then(async function(result) {
                         var token = result.credential.accessToken;
                         localStorage.setItem('token', token);
-                        const octokit = new Octokit({
-                            auth: token
-                        })
-                        const response = await octokit.request('GET /user/memberships/orgs/{org}', {
-                            org: 'gh-cli-for-education',
-                            headers: {
-                                'X-GitHub-Api-Version': '2022-11-28'
-                            }
-                        })
-                        console.log(response)
                         return result.user.displayName;
                     }).catch(function(error) {
                         var errorCode = error.code;

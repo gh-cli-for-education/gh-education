@@ -23,6 +23,7 @@
     "graphql-tag": "^2.12.6",
     "lru-cache": "^9.1.0",
     "nodemon": "^2.0.20",
+    "octokit": "^2.0.19",
     "recursive-readdir": "^2.2.3",
     "tree-parser": "^1.2.4",
     "vitepress": "^1.0.0-alpha.26",
@@ -39,7 +40,7 @@
     "raw-loader": "^4.0.2",
     "vite-plugin-firebase": "^0.5.1",
     "vitepress-plugin-tabs": "^0.2.0",
-    "vue-styleguidist": "^4.68.0",
+    "vue-styleguidist": "^3.26.2",
     "webpack": "^5.80.0"
   }
 }
