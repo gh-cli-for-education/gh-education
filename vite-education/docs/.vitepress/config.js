@@ -44,7 +44,7 @@ module.exports = {
             { text: '💻 Tasks', link: '/tasks/tasks', activeMatch: '/tasks' },
             { text: '👥 Teams', link: '/teams/teams', activeMatch: '/teams' },
             { text: '📝 Units', link: '/units/units', activeMatch: '/units' },
-            { text: '🔒 Login / Register', link: '/auth.md'}
+            { text: '🔒 Login', link: '/auth.md'}
         ],
         sidebar: getSidebar({ contentRoot: '/', contentDirs: ['teams'], collapsible: true, collapsed: true })
     },

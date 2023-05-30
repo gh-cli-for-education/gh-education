@@ -37,6 +37,8 @@
 
 <script>
     import "../css/auth-form.css";
+
+    import { getAuth, onAuthStateChanged, GithubAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js'
     export default {
         data() {
             return {
@@ -45,60 +47,71 @@
                  * Check if user is logged or not
                  * @values true, false
                  */
-                userlogged: false,
+                userlogged: this.checkUserLogged(),
 
                 /**
                  * Once user is logged, here is storaged the name
                  */
-                currentUser: "",
-
-                /**
-                 * Firebase auth object
-                 */
-                auth: undefined,
+                currentUser: this.displayUserName(),
             }
-        },
+	},
         methods: {
 
             /**
              * Logout a user using Firebase auth
              */
             logout() {
-                this.auth.signOut()
+	       const auth = getAuth();
+               const userState = auth.signOut()
                     .then(function() {
-                        this.userlogged = false;
+
                         alert("Singed out succesfully");
+			localStorage.removeItem('token');
+			localStorage.removeItem('user');
+			return {
+                        	userlogged: false,
+				currentUser: ""
+			};
                     }, function(error) {                    
                         console.log(error.code)
                         alert(error.message);
                     });
+		this.userlogged = userState.userlogged;
+		this.currentUser = userState.currentUser;
             },
+
+	    checkUserLogged() {
+		return (localStorage.getItem('user')) ? true : false;
+	    },
+
+	    displayUserName() {
+		const user = localStorage.getItem('user');
+		return (user) ? user : "";
+	    },
 
             /**
              * Login a user using Firebase auth with Github popup window
              */
             async login() {
-                
-                 if (!firebase.auth().currentUser) {
-                    const provider = new firebase.auth.GithubAuthProvider();
-                    provider.addScope('repo');
-                    provider.setCustomParameters({
-                        'allow_signup': 'false'
-                    });
-                    this.currentUser = await this.auth.signInWithPopup(provider).then(async function(result) {
-                        var token = result.credential.accessToken;
+		const auth = getAuth();
+                const provider = new GithubAuthProvider();
+                provider.addScope('repo');
+                provider.setCustomParameters({
+                     'allow_signup': 'false'
+                });
+                this.currentUser = await signInWithPopup(auth, provider).then(async function(result) {
+                        var token = result.user.accessToken;
                         localStorage.setItem('token', token);
+			localStorage.setItem('user', result.user.displayName);
                         return result.user.displayName;
-                    }).catch(function(error) {
-                        var errorCode = error.code;
-                        var errorMessage = error.message;
+                }).catch(function(error) {
+                	var errorCode = error.code;
+                	var errorMessage = error.message;
+                	console.error(`${errorCode} | ${errorMessage}`);
+                });
 
-                        console.error(`${errorCode} | ${errorMessage}`);
-                    });
-
-                    if(this.currentUser != "") this.userlogged = true;
-                } 
+            	this.userlogged = this.checkUserLogged();
             },
-        }
+        },
     }
 </script>
