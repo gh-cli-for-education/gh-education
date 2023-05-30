@@ -1,9 +1,24 @@
+<!-- 
+ * Universidad de La Laguna
+ * Escuela Superior de Ingeniería y Tecnología
+ * Máster en Ingeniería Informática
+ * Componente General para mostrar información pública
+ * @author Carlos Díaz Calzadilla <alu0101102726@ull.edu.es>
+ * @date 21/04/2023
+ * @file Este fichero contiene el componente General
+-->
+
 <template>
-  <div>
+  <div>   
+    <div v-if="token">
+      <button type="button" @click="reresh()"> 🔄 Refresh data </button>
+    </div> 
     <ul>
+      <!-- Loop over the array of data -->
       <li v-for="(task, index) in general" :key="index">
         <h2>{{ task.text }}</h2>
         <ul>
+          <!-- Loop over the subsections of the data -->
           <li  v-for="(item, section) in task.items" :key="section">
             <a :href="item.link">{{item.text}}</a>
           </li>
@@ -14,21 +29,77 @@
 </template>
 
 <script>
+import { Octokit } from "https://cdn.skypack.dev/octokit";
 export default {
   data() {
-    return {      
-      general: []
+    return {     
+
+      /**
+       * Array with the public information to show
+       */ 
+      general: [],
+
+      token: null
     }
   },
   props: {
+    /**
+     * String with the file with the data to dynamic import
+     */
     unit: {
       type: String,
       required: true,
     }
   },
+
+  methods: {
+    async refresh() {
+      this.token = localStorage.getItem('token');
+      const octokit = new Octokit({
+          auth: this.token
+      })
+      const response = await octokit.request('GET /user/memberships/orgs/{org}', {
+          org: 'gh-cli-for-education',
+          headers: {
+              'X-GitHub-Api-Version': '2022-11-28'
+          }
+      })
+      console.log(response);
+    },
+
+  },
+
+  /**
+   * Called after the component mounted doing dynamic import depending on
+   * the data passed with argument.
+   * @see [Await dynamic Import](https://stackoverflow.com/questions/55274868/awaiting-on-dynamic-imports-in-javascript)
+   */
   async mounted() {
-    let info = await import(this.unit); 
+    let info = await import(/* @vite-ignore */this.unit); 
     this.general = info.default.data;
   }
 }
 </script>
+
+<style>
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+
+button{
+    margin-top: 50px;
+    width: 50%;
+    background-color: #ffffff;
+    padding: 15px 0;
+    color: #080710;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 14px 20px;
+    cursor: pointer;
+}
+</style>

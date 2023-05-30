@@ -1,9 +1,21 @@
+<!-- 
+ * Universidad de La Laguna
+ * Escuela Superior de Ingeniería y Tecnología
+ * Máster en Ingeniería Informática
+ * Componente Student show information with more details
+ * @author Carlos Díaz Calzadilla <alu0101102726@ull.edu.es>
+ * @date 20/04/2023
+ * @file Este fichero contiene el componente Student
+-->
+
 <template>
   <div class="flex">
     <br/>
+    <!-- Image for profile card picture -->
     <div class="media">
       <img :src="currentStudent.avatarUrl" :alt="currentStudent.userName" />
     </div>
+    <!-- Summary of information about the team -->
     <div class="details">
       <div class="author">
         <p class="ghuser">{{currentStudent.userName}} github: <a :href="currentStudent.userUrl">{{ currentStudent.login }} </a> </p>
@@ -12,6 +24,7 @@
       </div>
     </div>
   </div>
+  <!-- Top 10 reposiories of that student in the organization -->
   <p class="ghuser"> Recent projects: </p>
   <li v-for="(repository, section) in currentStudent.repositories['edges']" :key="section">
     {{currentStudent.userName}}  <a :href="repository['node']['commits']">Commits </a>, <a :href="repository['node']['issues']">Issues </a>, <a :href="repository['node']['summary']">Summary </a> for <a :href="repository['node']['url']"> {{repository["node"]["name"]}} </a>
@@ -21,6 +34,10 @@
 <script>
 export default {
   props: {
+
+    /**
+     * Object data of the student to display the information
+     */
     currentStudent: {
       type: Object,
       required: true,

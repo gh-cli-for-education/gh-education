@@ -1,10 +1,22 @@
+<!-- 
+ * Universidad de La Laguna
+ * Escuela Superior de Ingeniería y Tecnología
+ * Máster en Ingeniería Informática
+ * Componente Ghcard shows information using card style
+ * @author Carlos Díaz Calzadilla <alu0101102726@ull.edu.es>
+ * @date 20/04/2023
+ * @file Este fichero contiene el componente Ghcard
+-->
+
 <template>
   <div class="card">
     <h3 class="name">{{ name }}</h3>
     <div class="flex">
+      <!-- Image for profile card picture -->
       <div class="media">
         <img :src="image" :alt="ghuser" />
       </div>
+      <!-- Summary of information about the team -->
       <div class="details">
         <div class="author">
           <p class="ghuser">{{name}} github: <a :href="href">{{ ghuser }} </a> </p>
@@ -19,30 +31,58 @@
 <script>
 export default {
   props: {
+
+    /**
+     * Name of the team
+     */
     name: {
       type: String,
       required: true,
     },
+
+    /**
+     * Image of the team
+     */
     image: {
       type: String,
       required: true,
     },
+
+    /**
+     * GitHub username of the team
+     */
     ghuser: {
       type: String,
       required: true,
     },
+
+    /**
+     * Link to the profile of the team
+     */
     href: {
       type: String,
       required: true,
     },
+
+    /**
+     * Object with the top 10 repositories of the team in the organization
+     */
     repositories: {
       type: Object,
       required: true,
     },
+
+    /**
+     * Link to the GitHub general repository
+     */
     repositoryUrl: {
       type: String,
       required: true,
     },
+
+    /**
+     * Link to the GitHub notifications
+     */
     notifications: {
       type: String,
       required: true,

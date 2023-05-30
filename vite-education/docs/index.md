@@ -6,7 +6,7 @@ hero:
   text: Static template generator for teachers
   tagline: Easy to use, change and develop
   image:
-    src: "/logo-gh-light.png"
+    src: "/assets/logo-gh-light.png"
     alt: VitePress
   actions:
     - theme: brand
@@ -14,6 +14,9 @@ hero:
       link: /guide
     - theme: alt
       text: View on GitHub
+      link: https://github.com/gh-cli-for-education/gh-education
+    - theme: alt
+      text: Login
       link: https://github.com/gh-cli-for-education/gh-education
 
 features:
@@ -33,3 +36,9 @@ features:
     title: Themes tab
     details: Page focused on having all the themes, only the published ones (written in the publico/temas.js) are going to be visible.
 ---
+
+<script setup>
+    import Auth from '.vitepress/components/Auth.vue'
+</script>
+
+<Auth></Auth>

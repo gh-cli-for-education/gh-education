@@ -1,86 +1,71 @@
+<!-- 
+ * Universidad de La Laguna
+ * Escuela Superior de Ingeniería y Tecnología
+ * Máster en Ingeniería Informática
+ * Componente Auth shows the authentication view and handle it
+ * @author Carlos Díaz Calzadilla <alu0101102726@ull.edu.es>
+ * @date 20/04/2023
+ * @file Este fichero contiene el componente Auth
+-->
+
+<!-- 
+    TO-DO: Add tab: refresh queris graphql + token auth student
+    TO-DO: Move queris to template: update-teams & user-info
+    TO-DO: Token autenticar github obtenido al login firebase (?)
+
+    TO-DO: Roles (tomados de GitHub):
+     - Profesor: owner / owners organizacion GitHub
+     - Alumno: other people / teams
+-->
+
+
 <template>
-        <div v-if="principalView">
-            <div v-if="!userlogged">
-                <h1> LOGIN FIREBASE </h1>
-                <button type="button" @click="changeView(false)"> Login </button>
-                <button type="button" @click="changeView(true)"> Register </button>
-            </div>
-            <div v-else>
-                Bienvenido {{currentUser}}
-                <button type="button" @click="logout"> Logout </button>
-            </div>
+    <!-- Check if is in principal -->
+    <div>
+        <!-- Check if user is logged to show login buttons if not -->
+        <div v-if="!userlogged">
+            <h1> LOGIN FIREBASE (GitHub) </h1>
+            <button type="button" @click="login"> Login </button>
         </div>
-        <div v-else="authView">
-            <div v-if="!userlogged">
-                <div v-if="alreadyRegister" class="card login" v-bind:class="{ error: emptyFields }">
-                    <form>
-                        <h3>Register</h3>
-                        <label>Username</label>
-                        <input id="username" name="username" class="form-control" placeholder="username" v-model="user" required/>
-
-                        <label for="username">Email</label>
-                        <input id="email" type="email" name="email" class="form-control" placeholder="example@gmail.com" v-model="email" required/>
-
-                        <label for="password">Password</label>
-                        <input id="password" type="password" name="password" class="form-control" placeholder="Password" v-model="password" required/>
-
-                        <label for="password">Repeat Password</label>
-                        <input id="rppassword" type="password" class="form-control" placeholder="Confirm Password" v-model="confirmReg" required>
-
-                        <button type="button" @click="registerUser"> Register </button>
-                        
-                        <p>Already have an account? <a href="#" @click="alreadyRegister = !alreadyRegister, emptyFields = false">Sign in here</a>
-                        </p>
-                    </form>
-                </div>
-                
-                <div v-else>
-                    <form>
-                        <h3>Login</h3>
-                        <label for="username">Email</label>
-                        <input id="username" type="email" name="email" class="form-control" placeholder="example@gmail.com" v-model="email" required/>
-
-                        <label for="password">Password</label>
-                        <input id="password" type="password" name="password" class="form-control" placeholder="Password" v-model="password" required/>
-
-                        <button type="button" @click="login"> Login </button>
-                        
-                        <p>Don't have an account? <a href="#" @click="alreadyRegister = !alreadyRegister, emptyFields = false">Register in here</a></p>
-                    </form>
-                </div>
-            </div>
+        <!-- The user is logged, it shows a welcome -->
+        <div v-else>
+            Bienvenido {{currentUser}}
+            <button type="button" @click="logout"> Logout </button>
         </div>
-
+    </div>
 </template>
 
 <script>
     import "../css/auth-form.css";
-    import * as firebase from 'firebase/compat/app'
+    import { Octokit, App } from "https://cdn.skypack.dev/octokit";
     export default {
         data() {
             return {
-                principalView: true,
-                authView: false,
+
+                /**
+                 * Check if user is logged or not
+                 * @values true, false
+                 */
                 userlogged: false,
+
+                /**
+                 * Once user is logged, here is storaged the name
+                 */
                 currentUser: "",
-                register:false,
-                
-                user: "",
-                email: "",
-                password: "",
-                confirmReg: "",
-                alreadyRegister: false,
-                emptyFields: false
+
+                /**
+                 * Firebase auth object
+                 */
+                auth: undefined,
             }
         },
         methods: {
-            changeView(register) {
-                this.principalView = !this.principalView;
-                this.authView = !this.authView;
-                this.alreadyRegister = register;
-            },
+
+            /**
+             * Logout a user using Firebase auth
+             */
             logout() {
-                auth.signOut()
+                this.auth.signOut()
                     .then(function() {
                         this.userlogged = false;
                         alert("Singed out succesfully");
@@ -89,45 +74,42 @@
                         alert(error.message);
                     });
             },
-            login() {
-                if (this.emailReg === "" || this.passwordReg === "") {
-                    this.emptyFields = true;
-                } else {
-                    auth.signInWithEmailAndPassword(this.email, this.password).then((data) => {
-                            this.userlogged = true;
-                            this.principalView = !this.principalView;
-                            this.authView = !this.authView;
-                            this.currentUser = auth.currentUser.displayName;
-                            localStorage.setItem('userLogged', auth.currentUser.displayName);                       
-                    })
-                    .catch(error => {
-                        console.log(error.code)
-                        alert(error.message);
+
+            /**
+             * Login a user using Firebase auth with Github popup window
+             */
+            async login() {
+                
+                 if (!firebase.auth().currentUser) {
+                    const provider = new firebase.auth.GithubAuthProvider();
+                    provider.addScope('repo');
+                    provider.setCustomParameters({
+                        'allow_signup': 'false'
                     });
-                }
-            },
-            registerUser() {    
-  
-                if (this.email === "" || this.password === "" || this.confirmReg === "") {
-                    this.emptyFields = true;
-                } else {
-                    auth
-                        .createUserWithEmailAndPassword(this.email, this.password)
-                        .then((data) => {
-                            this.alreadyRegister = true;
-                            alert("You are now registered");
-                            this.principalView = !this.principalView;
-                            this.authView = !this.authView;
-                            return data.user.updateProfile({
-                                displayName: this.user
-                            })
+                    this.currentUser = await this.auth.signInWithPopup(provider).then(async function(result) {
+                        var token = result.credential.accessToken;
+                        localStorage.setItem('token', token);
+                        const octokit = new Octokit({
+                            auth: token
                         })
-                        .catch(error => {
-                            console.log(error.code)
-                            alert(error.message);
-                        });
-                }
-            }
+                        const response = await octokit.request('GET /user/memberships/orgs/{org}', {
+                            org: 'gh-cli-for-education',
+                            headers: {
+                                'X-GitHub-Api-Version': '2022-11-28'
+                            }
+                        })
+                        console.log(response)
+                        return result.user.displayName;
+                    }).catch(function(error) {
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+
+                        console.error(`${errorCode} | ${errorMessage}`);
+                    });
+
+                    if(this.currentUser != "") this.userlogged = true;
+                } 
+            },
         }
     }
 </script>
