@@ -29,8 +29,8 @@
         </div>
         <!-- The user is logged, it shows a welcome -->
         <div v-else>
-            Bienvenido {{currentUser}}
-            <button type="button" @click="logout"> Logout </button>
+            Welcome {{role}} {{currentUser}}
+	    <button type="button" @click="logout"> Logout </button>
         </div>
     </div>
 </template>
@@ -53,8 +53,14 @@
 
                 /**
                  * Once user is logged, here is storaged the name
+		 * @values String
                  */
                 currentUser: this.displayUserName(),
+
+		/**
+		 * User role in Github
+		 */
+		role: this.refreshUserRole()
             }
 	},
         methods: {
@@ -66,10 +72,11 @@
 	       const auth = getAuth();
                const userState = auth.signOut()
                     .then(function() {
-
                         alert("Singed out succesfully");
+
 			localStorage.removeItem('token');
 			localStorage.removeItem('user');
+			localStorage.removeItem('role');
 			return {
                         	userlogged: false,
 				currentUser: ""
@@ -80,6 +87,7 @@
                     });
 		this.userlogged = userState.userlogged;
 		this.currentUser = userState.currentUser;
+		this.role = userState.role;
             },
 
 	    checkUserLogged() {
@@ -89,6 +97,26 @@
 	    displayUserName() {
 		const user = localStorage.getItem('user');
 		return (user) ? user : "";
+	    },
+
+	    refreshUserRole() {
+		const role = localStorage.getItem('role');
+		return (role) ? this.customRoles() : "";
+	    },
+
+	    customRoles() {
+		const role = localStorage.getItem('role');
+		console.log(role)
+		switch(role) {
+			case 'member':
+				return 'student';
+				break;
+
+			case 'owner':
+				return 'teacher';
+				break;
+
+		}
 	    },
 
             /**
@@ -101,24 +129,24 @@
                 provider.setCustomParameters({
                      'allow_signup': 'false'
                 });
-                this.currentUser = await signInWithPopup(auth, provider).then(async function(result) {
+                await signInWithPopup(auth, provider).then(async function(result) {
                         const credential = GithubAuthProvider.credentialFromResult(result);
     			const token = credential.accessToken;
-			console.log(token);
                         const octokit = new Octokit({
                             auth: token
                         })
-                        localStorage.setItem('token', token);
-			localStorage.setItem('user', result.user.displayName);
 
 			const response = await octokit.request('GET /user/memberships/orgs/{org}', {
                             org: 'gh-cli-for-education',
                             headers: {
                                 'X-GitHub-Api-Version': '2022-11-28'
                             }
-                        })
-                        console.log(response);
-                        return result.user.displayName;
+                        });
+
+                        localStorage.setItem('token', token);
+			localStorage.setItem('user', result.user.displayName);
+			localStorage.setItem('role', response.data.role);
+                        
                 }).catch(function(error) {
                 	var errorCode = error.code;
                 	var errorMessage = error.message;
@@ -126,6 +154,7 @@
                 });
 
             	this.userlogged = this.checkUserLogged();
+		this.currentUser = this.displayUserName();
             },
         },
     }
