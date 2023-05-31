@@ -37,9 +37,8 @@
 
 <script>
     import "../css/auth-form.css";
-
-    import { getAuth, onAuthStateChanged, GithubAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js';
-    import { Octokit, App } from "https://esm.sh/octokit";
+    import { getAuth, GithubAuthProvider, signInWithPopup } from 'firebase/auth';
+    import { Octokit } from "https://esm.sh/octokit";
 
     export default {
         data() {
@@ -49,103 +48,82 @@
                  * Check if user is logged or not
                  * @values true, false
                  */
-                userlogged: this.checkUserLogged(),
+                userlogged: false,
 
                 /**
                  * Once user is logged, here is storaged the name
-		 * @values String
+		         * @values String
                  */
-                currentUser: this.displayUserName(),
-
-		/**
-		 * User role in Github
-		 */
-		role: this.refreshUserRole()
+                currentUser: "",
             }
-	},
+	    },
+        props: {
+            /**
+             * String with the file with the data to dynamic import
+             */
+            token: String,
+            role: String
+        },
         methods: {
 
             /**
              * Logout a user using Firebase auth
              */
             logout() {
-	       const auth = getAuth();
-               const userState = auth.signOut()
+	            const auth = getAuth();
+                const userState = auth.signOut()
                     .then(function() {
                         alert("Singed out succesfully");
-
-			localStorage.removeItem('token');
-			localStorage.removeItem('user');
-			localStorage.removeItem('role');
-			return {
+			            return {
                         	userlogged: false,
-				currentUser: ""
-			};
+				            currentUser: ""
+			            };
                     }, function(error) {                    
                         console.log(error.code)
                         alert(error.message);
                     });
-		this.userlogged = userState.userlogged;
-		this.currentUser = userState.currentUser;
-		this.role = userState.role;
+                this.userlogged = userState.userlogged;
+                this.currentUser = userState.currentUser;
             },
 
-	    checkUserLogged() {
-		return (localStorage.getItem('user')) ? true : false;
-	    },
+            customRoles() {
+                switch(this.role) {
+                    case 'member':
+                        return 'student';
 
-	    displayUserName() {
-		const user = localStorage.getItem('user');
-		return (user) ? user : "";
-	    },
-
-	    refreshUserRole() {
-		const role = localStorage.getItem('role');
-		return (role) ? this.customRoles() : "";
-	    },
-
-	    customRoles() {
-		const role = localStorage.getItem('role');
-		console.log(role)
-		switch(role) {
-			case 'member':
-				return 'student';
-				break;
-
-			case 'owner':
-				return 'teacher';
-				break;
-
-		}
-	    },
+                    case 'owner':
+                        return 'teacher';
+                }
+            },
 
             /**
              * Login a user using Firebase auth with Github popup window
              */
             async login() {
-		const auth = getAuth();
+                const auth = getAuth();
                 const provider = new GithubAuthProvider();
                 provider.addScope('repo');
                 provider.setCustomParameters({
-                     'allow_signup': 'false'
+                        'allow_signup': 'false'
                 });
-                await signInWithPopup(auth, provider).then(async function(result) {
-                        const credential = GithubAuthProvider.credentialFromResult(result);
-    			const token = credential.accessToken;
-                        const octokit = new Octokit({
-                            auth: token
-                        })
+                const auhData = await signInWithPopup(auth, provider).then(async function(result) {
+                    const credential = GithubAuthProvider.credentialFromResult(result);
+                    const token = credential.accessToken;
+                    const octokit = new Octokit({
+                        auth: token
+                    })
 
-			const response = await octokit.request('GET /user/memberships/orgs/{org}', {
-                            org: 'gh-cli-for-education',
-                            headers: {
-                                'X-GitHub-Api-Version': '2022-11-28'
-                            }
-                        });
+                    const response = await octokit.request('GET /user/memberships/orgs/{org}', {
+                        org: 'gh-cli-for-education',
+                        headers: {
+                            'X-GitHub-Api-Version': '2022-11-28'
+                        }
+                    });
 
-                        localStorage.setItem('token', token);
-			localStorage.setItem('user', result.user.displayName);
-			localStorage.setItem('role', response.data.role);
+                    return {
+                        "role": response.data.role,
+                        "token": token
+                    }
                         
                 }).catch(function(error) {
                 	var errorCode = error.code;
@@ -153,8 +131,9 @@
                 	console.error(`${errorCode} | ${errorMessage}`);
                 });
 
-            	this.userlogged = this.checkUserLogged();
-		this.currentUser = this.displayUserName();
+                this.$emit('changeToken', auhData.token)
+                this.$emit('changeRole', auhData.role)
+                this.$emit('changeView', "campus")
             },
         },
     }

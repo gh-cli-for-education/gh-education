@@ -38,6 +38,7 @@
 </template>
 
 <script>
+import Teams from '../public/teams.js'
 import ghcard from './Ghcard.vue'
 import student from './Student.vue'
 
@@ -92,7 +93,6 @@ export default {
      */
     teams() {
       const organization = "gh-cli-for-education";
-      const Teams = this.refreshQueris(organization);
       this.teamsArray = Teams["data"]["organization"]["teams"]['edges'];
       this.org = Teams["data"]["organization"];
       this.totalCount = Teams.data.organization.teams.totalCount;

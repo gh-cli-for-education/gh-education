@@ -20,13 +20,15 @@
         <ul>
           <!-- Loop over the subsections of the data -->
           <div v-for="(item, section) in task.items" :key="section">
-	    <li v-if="(!item.hidden && role !== null) || role === 'owner'">
-            	<a :href="item.link">{{item.text}}</a> &nbsp; &nbsp;
-        	<button class="eyebtn" @click="toggleShow(item)"> 
-			<span v-if="item.hidden"> Hide  </span>
-			<span v-else> Show  </span>
-		</button>
-	    </li>
+            <li v-if="(!item.hidden && role !== null) || role === 'owner'">
+              <a :href="item.link">{{item.text}}</a> &nbsp; &nbsp;
+              <div v-if="role === 'owner'">
+                <button class="eyebtn" @click="toggleShow(item)"> 
+                    <span v-if="item.hidden"> Hide  </span>
+                    <span v-else> Show  </span>
+                </button>
+              </div>
+            </li>
           </div>
         </ul>
       </li>
@@ -35,6 +37,7 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {     
@@ -44,10 +47,6 @@ export default {
        */ 
       general: [],
 
-      token: this.checkLocalData('token'),
-
-      role: this.checkLocalData('role'),
-
       show: false
     }
   },
@@ -55,10 +54,12 @@ export default {
     /**
      * String with the file with the data to dynamic import
      */
-    unit: {
+    data: {
       type: String,
       required: true,
-    }
+    },
+    token: String,
+    role: String
   },
   computed: {
     buttonLabel() {
@@ -67,20 +68,10 @@ export default {
   },
 
   methods: {
-    async refresh() {
-      this.token = localStorage.getItem('token');
-      console.log(response);
-    },
-
 
     toggleShow(item) {
       console.log(item);
       this.show = !this.show;
-    },
-	
-    checkLocalData(name) {
-	const data = localStorage.getItem(`${name}`);
-	return (data) ? data : null;
     },
 
   },
@@ -91,7 +82,7 @@ export default {
    * @see [Await dynamic Import](https://stackoverflow.com/questions/55274868/awaiting-on-dynamic-imports-in-javascript)
    */
   async mounted() {
-    let info = await import(/* @vite-ignore */this.unit); 
+    let info = await import(/* @vite-ignore */this.data); 
     this.general = info.default.data;
   }
 }
