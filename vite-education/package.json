@@ -6,7 +6,8 @@
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs --experimental-network-imports",
-    "docs:serve": "vitepress serve docs"
+    "docs:serve": "vitepress serve docs",
+    "deploy": "node scripts/gh-pages-deploy.js"
   },
   "author": "Carlos Díaz Calzadilla",
   "license": "ISC",
@@ -22,6 +23,7 @@
     "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
-    "markdown-it-include": "^2.0.0"
+    "markdown-it-include": "^2.0.0",
+    "execa": "latest"
   }
 }
