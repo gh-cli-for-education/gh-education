@@ -4,4 +4,4 @@
 
 # Lessons
 
-<general unit='../public/lessons.js'></general>
+<general data='../public/lessons.js'></general>

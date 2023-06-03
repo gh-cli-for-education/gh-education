@@ -23,22 +23,20 @@
     <!-- Check if is in principal -->
     <div>
         <!-- Check if user is logged to show login buttons if not -->
-        <div v-if="!userlogged">
+        <div v-if="role == null">
             <h1> LOGIN FIREBASE (GitHub) </h1>
             <button type="button" @click="login"> Login </button>
         </div>
         <!-- The user is logged, it shows a welcome -->
         <div v-else>
             Welcome {{role}} {{currentUser}}
-	    <button type="button" @click="logout"> Logout </button>
+	        <button type="button" @click="logout"> Logout </button>
         </div>
     </div>
 </template>
 
 <script>
-    import "../css/auth-form.css";
-    import { getAuth, GithubAuthProvider, signInWithPopup } from 'firebase/auth';
-    import { Octokit } from "https://esm.sh/octokit";
+    import store from '../public/store/index'
 
     export default {
         data() {
@@ -49,92 +47,147 @@
                  * @values true, false
                  */
                 userlogged: false,
-
-                /**
-                 * Once user is logged, here is storaged the name
-		         * @values String
-                 */
-                currentUser: "",
+                role: null,
+                currentUser:null
             }
 	    },
-        props: {
-            /**
-             * String with the file with the data to dynamic import
-             */
-            token: String,
-            role: String
-        },
         methods: {
 
             /**
              * Logout a user using Firebase auth
              */
-            logout() {
-	            const auth = getAuth();
-                const userState = auth.signOut()
-                    .then(function() {
-                        alert("Singed out succesfully");
-			            return {
-                        	userlogged: false,
-				            currentUser: ""
-			            };
-                    }, function(error) {                    
-                        console.log(error.code)
-                        alert(error.message);
-                    });
-                this.userlogged = userState.userlogged;
-                this.currentUser = userState.currentUser;
-            },
-
-            customRoles() {
-                switch(this.role) {
-                    case 'member':
-                        return 'student';
-
-                    case 'owner':
-                        return 'teacher';
-                }
+            async logout() {                
+	            await store.dispatch('logout', {});
+                this.role = null;
+                this.currentUser = null;
             },
 
             /**
              * Login a user using Firebase auth with Github popup window
              */
-            async login() {
-                const auth = getAuth();
-                const provider = new GithubAuthProvider();
-                provider.addScope('repo');
-                provider.setCustomParameters({
-                        'allow_signup': 'false'
-                });
-                const auhData = await signInWithPopup(auth, provider).then(async function(result) {
-                    const credential = GithubAuthProvider.credentialFromResult(result);
-                    const token = credential.accessToken;
-                    const octokit = new Octokit({
-                        auth: token
-                    })
-
-                    const response = await octokit.request('GET /user/memberships/orgs/{org}', {
-                        org: 'gh-cli-for-education',
-                        headers: {
-                            'X-GitHub-Api-Version': '2022-11-28'
-                        }
-                    });
-
-                    return {
-                        "role": response.data.role,
-                        "token": token
-                    }
-                        
-                }).catch(function(error) {
-                	var errorCode = error.code;
-                	var errorMessage = error.message;
-                	console.error(`${errorCode} | ${errorMessage}`);
-                });
-
-                this.$emit('changeToken', auhData.token)
-                this.$emit('changeRole', auhData.role)
-                this.$emit('changeView', "campus")
+            async login() {   
+                await store.dispatch('login', { organization: 'gh-cli-for-education' })
+                const storeData = store.getters.userData;     
+                this.role = storeData.role;
+                this.currentUser = storeData.user.displayName;
             },
+        },
+  
+        beforeMount() {
+            const storeData = store.getters.userData;
+            if (!storeData.user)
+                console.log("no autenticado");
+            else {
+                this.role = storeData.role;
+                this.currentUser = storeData.user.displayName;
+            }
         },
     }
 </script>
+
+<style>
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+form *{
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+
+form h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+::placeholder{
+    color: #e5e5e5;
+}
+
+button{
+    margin-top: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 15px 0;
+    color: #080710;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 14px 20px;
+    cursor: pointer;
+}
+.social{
+  margin-top: 30px;
+  display: flex;
+}
+.social div{
+  background: red;
+  width: 150px;
+  border-radius: 3px;
+  padding: 5px 10px 10px 5px;
+  background-color: rgba(255,255,255,0.27);
+  color: #eaf0fb;
+  text-align: center;
+}
+.social div:hover{
+  background-color: rgba(255,255,255,0.47);
+}
+.social .fb{
+  margin-left: 25px;
+}
+.social i{
+  margin-right: 4px;
+}
+
+.error {
+  animation-name: errorShake;
+  animation-duration: 0.3s;
+}
+
+@keyframes errorShake {
+  0% {
+     transform: translateX(-25px);
+  }
+  25% {
+     transform: translateX(25px);
+  }
+  50% {
+     transform: translateX(-25px);
+  }
+  75% {
+     transform: translateX(25px);
+  }
+  100% {
+     transform: translateX(0);
+  }
+}
+
+</style>

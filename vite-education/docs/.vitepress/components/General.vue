@@ -10,10 +10,7 @@
 
 <template>
   <div>   
-    <div v-if="token">
-      <button type="button" @click="reresh()"> 🔄 Refresh data </button>
-    </div> 
-    <ul>
+    <ul v-if="(role !== null) || role === 'owner'">
       <!-- Loop over the array of data -->
       <li v-for="(task, index) in general" :key="index">
         <h2>{{ task.text }}</h2>
@@ -38,6 +35,9 @@
 
 <script>
 
+import store from '../public/store/index'
+import { getApps } from 'firebase/app'
+
 export default {
   data() {
     return {     
@@ -47,19 +47,18 @@ export default {
        */ 
       general: [],
 
-      show: false
+      show: false,
+      role:null
     }
   },
   props: {
     /**
      * String with the file with the data to dynamic import
      */
-    data: {
+     data: {
       type: String,
       required: true,
-    },
-    token: String,
-    role: String
+    }
   },
   computed: {
     buttonLabel() {
@@ -74,17 +73,18 @@ export default {
       this.show = !this.show;
     },
 
+  },     
+  
+  async beforeMount() {
+      if (getApps().length === 0 )
+          console.log("no autenticado");
+      else {
+          const storeData = store.getters.userData;
+          this.role = storeData.role;
+          let info = await import(/* @vite-ignore */this.data); 
+          this.general = info.default.data;
+      }
   },
-
-  /**
-   * Called after the component mounted doing dynamic import depending on
-   * the data passed with argument.
-   * @see [Await dynamic Import](https://stackoverflow.com/questions/55274868/awaiting-on-dynamic-imports-in-javascript)
-   */
-  async mounted() {
-    let info = await import(/* @vite-ignore */this.data); 
-    this.general = info.default.data;
-  }
 }
 </script>
 

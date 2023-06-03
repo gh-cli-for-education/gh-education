@@ -4,4 +4,4 @@
 
 # Units
 
-<general unit='../public/units.js'></general>
+<general data='../public/units.js'></general>

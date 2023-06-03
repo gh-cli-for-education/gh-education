@@ -1,5 +1,5 @@
 <script setup>
-    import ShareBus from '.vitepress/components/ShareBus.vue'
+    import Auth from '.vitepress/components/Auth.vue'
 </script>
 
-<ShareBus></ShareBus>
+<Auth></Auth>

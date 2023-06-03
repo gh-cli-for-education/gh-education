@@ -1,8 +1,8 @@
 
 <script setup>
-    import ShareBus from '../.vitepress/components/ShareBus.vue'
+    import general from '../.vitepress/components/General.vue'
 </script>
 
 # Tasks
 
-<ShareBus :view="'general'" unit='../public/tasks.js'></ShareBus>
+<general data='../public/tasks.js'></general>
