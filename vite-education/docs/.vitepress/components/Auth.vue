@@ -8,19 +8,7 @@
  * @file Este fichero contiene el componente Auth
 -->
 
-<!-- 
-    TO-DO: Add tab: refresh queris graphql + token auth student
-    TO-DO: Move queris to template: update-teams & user-info
-    TO-DO: Token autenticar github obtenido al login firebase (?)
-
-    TO-DO: Roles (tomados de GitHub):
-     - Profesor: owner / owners organizacion GitHub
-     - Alumno: other people / teams
--->
-
-
 <template>
-    <!-- Check if is in principal -->
     <div>
         <!-- Check if user is logged to show login buttons if not -->
         <div v-if="role == null">
@@ -36,16 +24,12 @@
 </template>
 
 <script>
+
     import store from '../public/store/index'
 
     export default {
         data() {
             return {
-
-                /**
-                 * Check if user is logged or not
-                 * @values true, false
-                 */
                 userlogged: false,
                 role: null,
                 currentUser:null

@@ -10,7 +10,7 @@ import {
 
 const store = createStore({
     state: {
-        //The user state will initially be null. After login, this state will be updated
+        //The  state will initially be null. After login, this state will be updated
         user: null,
         token: null,
         role: null
