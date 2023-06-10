@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import Teams from '../public/teams.js'
+import Teams from '../../public/data/teams.js'
 import ghcard from './Ghcard.vue'
 import student from './Student.vue'
 

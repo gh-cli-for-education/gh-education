@@ -35,7 +35,7 @@
 
 <script>
 
-import store from '../public/store/index'
+import store from '../../public/data/store/index.js'
 import { getApps } from 'firebase/app'
 
 export default {
@@ -76,9 +76,7 @@ export default {
   },     
   
   async beforeMount() {
-      if (getApps().length === 0 )
-          console.log("no autenticado");
-      else {
+      if (getApps().length !== 0 ) {
           const storeData = store.getters.userData;
           this.role = storeData.role;
           let info = await import(/* @vite-ignore */this.data); 

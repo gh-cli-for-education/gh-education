@@ -25,7 +25,7 @@
 
 <script>
 
-    import store from '../public/store/index'
+    import store from '../../public/data/store/index.js'
 
     export default {
         data() {

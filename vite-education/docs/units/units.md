@@ -1,7 +1,11 @@
+
 <script setup>
     import general from '../.vitepress/components/General.vue'
+    import { useData } from 'vitepress'
+    const { site } = useData()
+    const filePath = (site.value.base === "/") ?  "/public/data/units.js" : site.value.base + "/data/units.js";
 </script>
 
-# Units
+# Tasks
 
-<general data='../public/units.js'></general>
+<general :data="filePath"></general>

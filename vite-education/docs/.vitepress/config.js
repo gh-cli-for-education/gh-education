@@ -2,19 +2,21 @@ const path = require('path');
 import { getSidebar } from 'vitepress-plugin-auto-sidebar';
 import { defineConfig } from 'vitepress';
 
-console.log(process.env.NODE_ENV)
+const REPOSITORY = "/gh-education/";
+const storePath = process.env.NODE_ENV === "production" ? REPOSITORY + "data/store/index.js" : "../public/data/store/index.js";
 
 export default defineConfig({
     title: 'GH EDUCATION', 
     appearance: true,
     lastUpdated: true,
-    publicPath: process.env.NODE_ENV === "production" ? "/gh-education/" : "./",
+    base: process.env.NODE_ENV === "production" ? REPOSITORY : "/",
+    repository: REPOSITORY,
     
     define: {
         "global": {},
     },
     head: [
-        ["script",{src: "public/store/index.js", type: "module"},]
+        ["script",{src: storePath, type: "module"},]
     ],
     themeConfig: {
         logo: {light: "assets/logo-gh-dark.png", dark: "assets/logo-gh-light.png"},
