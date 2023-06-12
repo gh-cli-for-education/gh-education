@@ -20,7 +20,7 @@ git commit -m 'deploy'
 # git push -f git@github.com:gh-cli-for-education/gh-education.github.io.git main
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:gh-cli-for-education/gh-education.git master:gh-pages
-firebase deploy
+git push -f git@github.com:$1.git master:gh-pages
+# firebase deploy
 
 cd -
