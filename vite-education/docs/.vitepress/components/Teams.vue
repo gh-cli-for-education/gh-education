@@ -92,7 +92,6 @@ export default {
      *  - notifications: Link to the GitHub notifications 
      */
     teams() {
-      const organization = "gh-cli-for-education";
       this.teamsArray = Teams["data"]["organization"]["teams"]['edges'];
       this.org = Teams["data"]["organization"];
       this.totalCount = Teams.data.organization.teams.totalCount;

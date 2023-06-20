@@ -23,7 +23,7 @@
     </div>
 </template>
 
-<script>
+<script >
 
     import store from '../../public/data/store/index.js'
 
@@ -50,7 +50,7 @@
              * Login a user using Firebase auth with Github popup window
              */
             async login() {   
-                await store.dispatch('login', { organization: 'gh-cli-for-education' })
+                await store.dispatch('login', { organization: import.meta.env.VITE_ORGANIZATION })
                 const storeData = store.getters.userData;     
                 this.role = storeData.role;
                 this.currentUser = storeData.user.displayName;

@@ -1,20 +1,17 @@
-const path = require('path');
-import { getSidebar } from 'vitepress-plugin-auto-sidebar';
-import { defineConfig } from 'vitepress';
 
-const REPOSITORY = "/gh-education/";
-const storePath = process.env.NODE_ENV === "production" ? REPOSITORY + "data/store/index.js" : "../public/data/store/index.js";
+import { getSidebar } from 'vitepress-plugin-auto-sidebar';
+import { defineConfig  } from 'vitepress';
+import dotenv from 'dotenv';
+
+dotenv.config()
+
+const storePath = process.env.NODE_ENV === "production" ? process.env.VITE_REPOSITORY + "data/store/index.js" : "../public/data/store/index.js";
 
 export default defineConfig({
     title: 'GH EDUCATION', 
     appearance: true,
     lastUpdated: true,
-    base: process.env.NODE_ENV === "production" ? REPOSITORY : "/",
-    repository: REPOSITORY,
-    
-    define: {
-        "global": {},
-    },
+    base: process.env.NODE_ENV === "production" ? process.env.VITE_REPOSITORY : "/",    
     head: [
         ["script",{src: storePath, type: "module"},]
     ],

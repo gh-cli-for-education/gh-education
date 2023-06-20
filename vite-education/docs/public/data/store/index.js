@@ -1,5 +1,8 @@
 import { createStore } from 'vuex'
 
+
+// TODO: add organization state
+
 //Firebase imports
 import { auth } from '../../../.vitepress/firebase'
 import {
