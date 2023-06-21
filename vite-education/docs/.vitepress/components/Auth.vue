@@ -13,7 +13,7 @@
         <!-- Check if user is logged to show login buttons if not -->
         <div v-if="role == null">
             <h1> LOGIN FIREBASE (GitHub) </h1>
-            <button type="button" @click="login"> Login </button>
+            <button type="button" @click="login" cla> Login </button>
         </div>
         <!-- The user is logged, it shows a welcome -->
         <div v-else>
@@ -59,9 +59,7 @@
   
         beforeMount() {
             const storeData = store.getters.userData;
-            if (!storeData.user)
-                console.log("no autenticado");
-            else {
+            if (storeData.user) {
                 this.role = storeData.role;
                 this.currentUser = storeData.user.displayName;
             }
@@ -119,9 +117,9 @@ input{
 button{
     margin-top: 50px;
     width: 100%;
-    background-color: #ffffff;
-    padding: 15px 0;
-    color: #080710;
+    background-color: #10B981;
+    color: #ffffff;
+    padding: 0 20px;
     font-size: 18px;
     font-weight: 600;
     border-radius: 5px;

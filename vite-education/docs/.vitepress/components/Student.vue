@@ -9,6 +9,8 @@
 -->
 
 <template>
+  <button type="button" @click="$emit('change', true)" cla> Go back </button>
+  <br/>
   <div class="flex">
     <br/>
     <!-- Image for profile card picture -->
@@ -24,7 +26,7 @@
       </div>
     </div>
   </div>
-  <!-- Top 10 reposiories of that student in the organization -->
+  <!-- Top 10 reposiories of that student -->
   <p class="ghuser"> Recent projects: </p>
   <li v-for="(repository, section) in currentStudent.repositories['edges']" :key="section">
     {{currentStudent.userName}}  <a :href="repository['node']['commits']">Commits </a>, <a :href="repository['node']['issues']">Issues </a>, <a :href="repository['node']['summary']">Summary </a> for <a :href="repository['node']['url']"> {{repository["node"]["name"]}} </a>
@@ -58,6 +60,21 @@ export default {
   height: 35%;
   object-fit: cover;
   object-position: center;
+}
+
+
+
+button{
+    margin-top: 50px;
+    background-color: #10B981;
+    color: #ffffff;
+    padding: 0 20px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    margin-bottom: 2%;
+
+    cursor: pointer;
 }
 
 .details {

@@ -6,6 +6,6 @@
     const filePath = (site.value.base === "/") ?  "/public/data/units.js" : site.value.base + "/data/units.js";
 </script>
 
-# Tasks
+# Units
 
 <general :data="filePath"></general>

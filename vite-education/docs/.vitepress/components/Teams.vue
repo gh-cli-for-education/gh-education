@@ -10,14 +10,14 @@
 
 <template>
   <!-- Show the view of all the teams -->
-  <div v-if="main">
+  <div v-if="main && ((role !== null) || role === 'owner')">
     <h1> Teams </h1>
     <h2> Organization: {{ org["name"] }} </h2>
     <h2> Number of teams: {{ totalCount}} </h2>
     <!-- Display all teams and create a ghcard for each of them -->
     <div v-for="(team, section) in teams" :key="section">
       <h3> Equipo: {{ team.name }} {{section + 1}} / {{ totalCount }} </h3>
-      <ghcard @click="goStudent(false, team)" 
+      <ghcard @click="goStudent(false, team)"
         :notifications="team.notifications" 
         :repositoryUrl="team.repositoryUrl" 
         :image="team.avatarUrl" 
@@ -32,7 +32,7 @@
   <!-- Show the view of one of the teams -->
   <div v-else>
     <h1> Student {{currentStudent.name}} </h1>
-    <student :currentStudent="currentStudent"> </student>
+    <student :currentStudent="currentStudent" @change="goStudent(true, team)"> </student>
   </div>
   
 </template>
@@ -41,6 +41,8 @@
 import Teams from '../../public/data/teams.js'
 import ghcard from './Ghcard.vue'
 import student from './Student.vue'
+import store from '../../public/data/store/index.js'
+import { getApps } from 'firebase/app'
 
 export default {
   components: {
@@ -74,7 +76,12 @@ export default {
       /**
        * Total number of teams in the GitHub organization
        */ 
-      totalCount: 0
+      totalCount: 0,
+
+      /**
+        * Role of the user in the GitHub organization
+        */
+      role:null
     }
   },
   computed: {
@@ -119,8 +126,6 @@ export default {
 
         }
 
-        console.log(user.repositories)
-
         return user
       })
     }
@@ -134,8 +139,14 @@ export default {
     goStudent(state, team) {
       this.main = state;
       this.currentStudent = team;
-      console.log(this.main);
     }
-  }  
+  },
+  
+  async beforeMount() {
+      if (getApps().length !== 0 ) {
+          const storeData = store.getters.userData;
+          this.role = storeData.role;
+      }
+  },
 }
 </script>

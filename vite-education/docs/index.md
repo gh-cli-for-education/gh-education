@@ -6,7 +6,8 @@ hero:
   text: Static template generator for teachers
   tagline: Easy to use, change and develop
   image:
-    src: "/assets/logo-gh-light.png"
+    dark: "/assets/logo-gh-light.png"
+    light: "/assets/logo-gh-dark.png"
     alt: VitePress
   actions:
     - theme: brand
