@@ -30,7 +30,7 @@
   </div>
 
   <!-- Show the view of one of the teams -->
-  <div v-else>
+  <div v-if="!main && ((role !== null) || role === 'owner')">
     <h1> Student {{currentStudent.name}} </h1>
     <student :currentStudent="currentStudent" @change="goStudent(true, team)"> </student>
   </div>

@@ -1,7 +1,11 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 # abort on errors
 set -e
+
+set -o allexport
+source .env
+set +o allexport
 
 # build
 npm run docs:build
@@ -22,7 +26,7 @@ git commit -m 'deploy'
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
 
 # git remote -v get data
-git push -f git@github.com:$1.git master:gh-pages
+git push -f git@github.com:$VITE_ORGANIZATION/$VITE_REPOSITORY.git master:gh-pages
 # firebase deploy
 
 cd -

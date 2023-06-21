@@ -28,7 +28,7 @@
   </div>
   <!-- Top 10 reposiories of that student -->
   <p class="ghuser"> Recent projects: </p>
-  <li v-for="(repository, section) in currentStudent.repositories['edges']" :key="section">
+  <li v-for="(repository, section) in currentStudent.repositories.edges" :key="section">
     {{currentStudent.userName}}  <a :href="repository['node']['commits']">Commits </a>, <a :href="repository['node']['issues']">Issues </a>, <a :href="repository['node']['summary']">Summary </a> for <a :href="repository['node']['url']"> {{repository["node"]["name"]}} </a>
   </li>
 </template>
