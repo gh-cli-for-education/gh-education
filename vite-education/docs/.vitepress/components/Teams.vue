@@ -10,44 +10,45 @@
 
 <template>
   <!-- Show the view of all the teams -->
-  <div v-if="main && ((role !== null) || role === 'owner')">
-    <h1> Teams </h1>
-    <h2> Organization: {{ org["name"] }} </h2>
+  <div v-if="main && ((role !== null) || role === 'Owner')">
+    <div class="flex">
+      <h1> Teams </h1> <button type="button" class="refresh" @click="refreshTeams()"> Refresh teams 🔄 </button>      
+    </div>
+    <h2> Organization: {{ org }} </h2>
     <h2> Number of teams: {{ totalCount}} </h2>
     <!-- Display all teams and create a ghcard for each of them -->
-    <div v-for="(team, section) in teams" :key="section">
+    <div v-for="(team, section) in teamsArray" :key="section">
       <h3> Equipo: {{ team.name }} {{section + 1}} / {{ totalCount }} </h3>
-      <ghcard @click="goStudent(false, team)"
-        :notifications="team.notifications" 
-        :repositoryUrl="team.repositoryUrl" 
-        :image="team.avatarUrl" 
-        :repositories="team.repositories" 
-        :name="team.userName" 
-        :href="team.userUrl" 
-        :ghuser="team.login" >
-      </ghcard>
+      <br/>
+      <div class="card">
+        <ghcard 
+          :htmlUrl="team.htmlUrl" 
+          :name="team.name"
+          :desc="team.desc">
+        </ghcard>
+        <button type="button" @click="goTeam(false, team)"> More information </button>
+      </div>
     </div>
   </div>
 
   <!-- Show the view of one of the teams -->
-  <div v-if="!main && ((role !== null) || role === 'owner')">
-    <h1> Student {{currentStudent.name}} </h1>
-    <student :currentStudent="currentStudent" @change="goStudent(true, team)"> </student>
+  <div v-if="!main && ((role !== null) || role === 'Owner')">
+    <h1> Team {{currentTeam.name}} </h1>
+    <Team :currentTeam="currentTeam" @change="goTeam(true, team)"> </Team>
   </div>
   
 </template>
 
 <script>
-import Teams from '../../public/data/teams.js'
 import ghcard from './Ghcard.vue'
-import student from './Student.vue'
+import Team from './Team.vue'
 import store from '../../public/data/store/index.js'
 import { getApps } from 'firebase/app'
 
 export default {
   components: {
     ghcard,
-    student
+    Team
   },
   data() {
     return {  
@@ -59,9 +60,9 @@ export default {
       main: true,    
 
       /**
-       * Information about the student to display
+       * Information about the Team to display
        */ 
-      currentStudent: {},  
+      currentTeam: {},  
 
       /**
        * All teams information
@@ -84,69 +85,122 @@ export default {
       role:null
     }
   },
-  computed: {
-    /**
-     * Create teams array with the important information like:
-     *  - name: Name of the team
-     *  - node: Information about the team
-     *  - url: Link to the team GitHub profile page
-     *  - login: User GitHub nickname
-     *  - avatarUrl: Link to the profile picture
-     *  - repositoryUrl: Link to the repositories
-     *  - repositories: Object with the information of repositories (name, url, commits, issues and summary)
-     *  - userName: Name of the student of the team
-     *  - userUrl: Link to the GitHub profile of the student
-     *  - notifications: Link to the GitHub notifications 
-     */
-    teams() {
-      this.teamsArray = Teams["data"]["organization"]["teams"]['edges'];
-      this.org = Teams["data"]["organization"];
-      this.totalCount = Teams.data.organization.teams.totalCount;
-
-      return this.teamsArray.map(team => {
-        let node = team.node
-        let member = node.members.edges[node.members.edges.length - 1].node
-        const user = {
-          name: node.name,
-          node: node,
-          url: node.url,
-          login: member.login,
-          avatarUrl: member.avatarUrl,
-          repositoryUrl: member.url + '?tab=repositories',
-          repositories: member.organization.repositories,
-          userName: member.name,
-          userUrl: member.url,
-          notifications: `https://github.com/notifications?query=author%3A${member.login}`,
-        }
-
-        for(let cnode = 0; cnode < user.repositories.edges.length; cnode++) {
-          user.repositories.edges[cnode].node.commits = user.repositories.edges[cnode].node.url + '/commits/master';
-          user.repositories.edges[cnode].node.issues = user.repositories.edges[cnode].node.url + '/issues';
-          user.repositories.edges[cnode].node.summary = user.repositories.edges[cnode].node.url + '/pulse';
-
-        }
-
-        return user
-      })
-    }
-  },
   methods: {
     /**
      * 
      * @param {Boolean} state 
      * @param {Boolean} team 
      */
-    goStudent(state, team) {
+    goTeam(state, team) {
       this.main = state;
-      this.currentStudent = team;
+      this.currentTeam = team;
+    },
+
+    async refreshTeams() {
+      this.teamsArray = [];
+      this.org = "";
+      this.totalCount = 0;
+      this.teamsArray = await this.getTeams();
+    },
+
+    async getTeams() {
+      const storeData = store.getters.userData;
+      const organization = import.meta.env.VITE_ORGANIZATION;
+      const base_url = "https://github.com/" + organization;
+      const orgTeamsEndpoint = "https://api.github.com/orgs/" + organization + "/teams";
+      const teamsArray = [];
+    
+      const orgTeamsResponse = await fetch(orgTeamsEndpoint,{
+          method: "GET",
+          headers: {
+              'X-GitHub-Api-Version': '2022-11-28',
+              Authorization: `token ${storeData.token}` 
+          }
+        });
+      
+      const teamsOrganization = await orgTeamsResponse.json();
+
+      for (const orgTeam of teamsOrganization) {
+        const teamsRepositoryEndpoint = "https://api.github.com/orgs/"+ organization + "/teams/" + orgTeam.slug + "/repos";
+        const orgTeamResponse = await fetch(teamsRepositoryEndpoint,{
+            method: "GET",
+            headers: {
+                'X-GitHub-Api-Version': '2022-11-28',
+                Authorization: `token ${storeData.token}` 
+            }
+          });
+        
+        const teamRepository = await orgTeamResponse.json();
+        teamRepository.forEach( repo => {
+          const repository = "/" + repo.name
+          repo.url = base_url + repository;
+          repo.issues_url = base_url + repository + "/issues";
+          repo.commits_url = base_url + repository + "/commits";
+          repo.notifications_url = base_url + repository + "/notifications";
+        })
+
+        const newTeam = {
+          name: orgTeam.name,
+          htmlUrl: orgTeam.html_url,
+          desc: orgTeam.description,
+          repositories: teamRepository
+        }
+
+        teamsArray.push(newTeam);
+      };
+
+      this.totalCount = teamsOrganization.length;
+      this.org = organization;
+      return teamsArray;
     }
   },
   
   async beforeMount() {
       if (getApps().length !== 0 ) {
-          const storeData = store.getters.userData;
-          this.role = storeData.role;
+        const storeData = store.getters.userData;
+        this.role = storeData.role;
+        this.teamsArray = (this.role !== null) ?  await this.getTeams() : [];
       }
   },
 }
 </script>
+
+<style>
+
+h1 {
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.card {
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  width: 100%;
+  height: 50%;
+}
+
+.card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
+  transition: ease-in-out 0.2s all;
+}
+
+button{
+    background-color: #10B981;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    max-width: fit-content;
+    margin-left: auto;
+}
+
+.refresh {
+  float: right;
+}
+</style>

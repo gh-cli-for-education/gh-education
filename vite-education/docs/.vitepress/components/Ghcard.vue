@@ -9,23 +9,14 @@
 -->
 
 <template>
-  <div class="card">
-    <h3 class="name">{{ name }}</h3>
-    <div class="flex">
-      <!-- Image for profile card picture -->
-      <div class="media">
-        <img :src="image" :alt="ghuser" />
-      </div>
-      <!-- Summary of information about the team -->
-      <div class="details">
-        <div class="author">
-          <p class="ghuser">{{name}} github: <a :href="href">{{ ghuser }} </a> </p>
-          <p class="ghuser">{{name}} <a :href="repositoryUrl"> repositorio  </a> </p>
-          <p class="ghuser">{{name}} <a :href="notifications"> notificaciones </a> </p>
-        </div>
+    <!-- Summary of information about the team -->
+    <div class="details">
+      <h3 class="name">{{ name }}</h3>
+      <div class="author">
+        <p class="ghuser">Descrption: {{ desc }} </p>
+        <p class="ghuser">GitHub: <a :href="htmlUrl"> link </a> </p>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -41,17 +32,9 @@ export default {
     },
 
     /**
-     * Image of the team
+     * Description of the team
      */
-    image: {
-      type: String,
-      required: true,
-    },
-
-    /**
-     * GitHub username of the team
-     */
-    ghuser: {
+    desc: {
       type: String,
       required: true,
     },
@@ -59,31 +42,7 @@ export default {
     /**
      * Link to the profile of the team
      */
-    href: {
-      type: String,
-      required: true,
-    },
-
-    /**
-     * Object with the top 10 repositories of the team in the organization
-     */
-    repositories: {
-      type: Object,
-      required: true,
-    },
-
-    /**
-     * Link to the GitHub general repository
-     */
-    repositoryUrl: {
-      type: String,
-      required: true,
-    },
-
-    /**
-     * Link to the GitHub notifications
-     */
-    notifications: {
+    htmlUrl: {
       type: String,
       required: true,
     },

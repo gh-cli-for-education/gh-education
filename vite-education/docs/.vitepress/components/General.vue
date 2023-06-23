@@ -10,21 +10,15 @@
 
 <template>
   <div>   
-    <ul v-if="(role !== null) || role === 'owner'">
+    <ul v-if="(role !== null) || role === 'Owner'">
       <!-- Loop over the array of data -->
       <li v-for="(task, index) in general" :key="index">
         <h2>{{ task.text }}</h2>
         <ul>
           <!-- Loop over the subsections of the data -->
           <div v-for="(item, section) in task.items" :key="section">
-            <li v-if="(!item.hidden && role !== null) || role === 'owner'">
+            <li v-if="(!item.hidden && role !== null) || role === 'Owner'">
               <a :href="item.link">{{item.text}}</a> &nbsp; &nbsp;
-              <div v-if="role === 'owner'">
-                <button class="eyebtn" @click="toggleShow(item)"> 
-                    <span v-if="item.hidden"> Hide  </span>
-                    <span v-else> Show  </span>
-                </button>
-              </div>
             </li>
           </div>
         </ul>
@@ -46,8 +40,7 @@ export default {
        * Array with the public information to show
        */ 
       general: [],
-
-      show: false,
+      
       role:null
     }
   },
@@ -59,20 +52,7 @@ export default {
       type: String,
       required: true,
     }
-  },
-  computed: {
-    buttonLabel() {
-      return (this.show) ? "Hide" : "Show";
-    }
-  },
-
-  methods: {
-
-    toggleShow(item) {
-      this.show = !this.show;
-    },
-
-  },     
+  },   
   
   async beforeMount() {
       if (getApps().length !== 0 ) {
@@ -92,8 +72,8 @@ export default {
 
 .column {
   flex: 50%;
-}
-
+} 
+#FIXED
 button{
     margin-top: 50px;
     width: 50%;
