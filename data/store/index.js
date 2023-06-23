@@ -58,7 +58,7 @@ const store = createStore({
 
                 let organizationRole = await response.json();
 
-                const role = (organizationRole.role == 'owner') ? 'teacher' : 'member'
+                const role = (organizationRole.role == 'admin') ? 'teacher' : 'member'
 
                 context.commit('setUser', result.user,)
                 context.commit('setToken', token)
