@@ -13,7 +13,7 @@
     <div class="details">
       <h3 class="name">{{ name }}</h3>
       <div class="author">
-        <p class="ghuser">Descrption: {{ desc }} </p>
+        <p class="ghuser">Description: {{ desc }} </p>
         <p class="ghuser">GitHub: <a :href="htmlUrl"> link </a> </p>
       </div>
     </div>
